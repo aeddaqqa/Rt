@@ -1,0 +1,24 @@
+#name   position        translation		direction
+#cam	39,19,166		0,0,0			10,18,0
+#
+#name   position        translation		color			intensity
+#lit     0,0,10     	0,0,0			255,255,255		50
+#
+#name   position        translation     color			rotation	r
+#sph	10,0,10			0,0,0			255,0,0			0,0,0		13
+#
+#name   position        translation     color       	rotation	r	axis
+#cyl	0,0,20			-60,-20,0		255,255,0   	0,0,2		7	1,0,0
+#
+#name   position        translation     color			rotation	axis	degree
+#con	0,0,20			0,0,0			255,20,0		0,4,4		0,1,0	45
+#
+#name   position        translation		color			rotation	axis
+#pla	0,-10,0			0,0,0			0,255,0			0,0,0		0,1,0
+#
+#example:
+#
+cam	0,0,0		0,0,0		0,0,-20
+lit	0,-50,0		0,0,0		255,255,255	80	
+sph	10,-10,-30	0,0,0		80,70,90	33
+cyl	-5,12,-5	0,0,0		50,33,80	12,24,80	40
