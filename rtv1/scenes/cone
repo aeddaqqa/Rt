@@ -1,0 +1,25 @@
+camera
+origin	: 0 0 160 
+lookat	: 0 0 0 
+up	: 0 1 0
+fov	: 60
+
+light
+pos	: -120 -20 30
+color	: 0xFFFFFF
+intensity : 100%
+
+light
+pos	: 120 20 30
+color	: 0xFFFFFF
+intensity : 100%
+
+cone
+origin: 0 0 0 
+rot	: 0 0 90
+color : 0xffff00
+angle : 30
+diffuse : 100%
+ambient : 10%
+specular: 100%
+

@@ -1,0 +1,148 @@
+camera
+origin  : 0 0 170
+lookat  : 0 0 0
+up  : 0 1 0
+fov : 60
+
+light
+pos : 90 25 150 
+intensity : 100%
+color : 0xFFFFFF
+
+light
+pos : -90 25 150
+intensity :  100%
+color : 0xFFFFFF
+
+sphere
+origin: -30 -30 70 
+color : 0x999add
+radius: 10
+diffuse : 50%
+ambient : 10%
+specular: 100%
+
+sphere
+origin: 30 -30 70 
+radius: 10
+color : 0x999add
+diffuse : 50%
+ambient : 10%
+specular: 100%
+
+sphere
+origin: -30 30 70 
+radius: 10
+color : 0x999add
+diffuse : 50%
+ambient : 10%
+specular: 100%
+
+sphere
+origin: 30 30 70 
+radius: 10
+color : 0x999add
+diffuse : 50%
+ambient : 10%
+specular: 100
+
+sphere
+origin: -30 -30 0 
+color : 0x999add
+radius: 10
+diffuse : 50%
+ambient : 0%
+specular: 100%
+
+sphere
+origin: 30 -30 0 
+color : 0x999add
+radius: 10
+diffuse : 50%
+ambient : 10%
+specular: 100%
+
+sphere
+origin: -30 30 0 
+color : 0x999add
+radius: 10
+diffuse : 50%
+ambient : 10%
+specular: 50%
+
+sphere
+origin: 30 30 0 
+color : 0x999add
+radius: 10
+diffuse : 50%
+ambient : 10%
+specular: 100%
+
+sphere
+origin: 0 -20 70 
+color : 0xff0000
+radius: 6
+diffuse : 50%
+ambient : 10%
+specular: 100%
+
+cylinder
+origin : -30 0 0 
+rot : 0 0 0
+color : 0x999add
+radius : 6.5
+diffuse : 50%
+ambient : 0%
+specular: 100%
+
+cylinder
+origin : 30 0 0 
+rot : 0 1 0
+color : 0x999add
+radius : 6.5
+diffuse : 50%
+ambient : 0%
+specular: 100%
+
+cylinder
+origin : -30 0 70 
+rot : 0 1 0
+color : 0x999add
+radius : 6.5
+diffuse : 50%
+ambient : 10%
+specular: 100%
+
+cylinder
+origin : 30 0 70 
+rot : 0 1 0
+color : 0x999add
+radius : 6.5
+diffuse : 50%
+ambient : 10%
+specular: 100%
+
+plane
+pos : 0 0 -40
+rot : 90 1 0
+color : 0x0000aa
+diffuse : 100%
+ambient : 10%
+specular: 00%
+
+plane
+pos : 0 -30 0
+rot : 0 1 0 
+color :0x777777
+diffuse : 100%
+ambient : 10%
+specular: 100%
+
+plane
+pos : 0 30 0 
+rot :0 1 0 
+color :0xff7777
+diffuse : 100%
+ambient : 10%
+specular: 100%
+

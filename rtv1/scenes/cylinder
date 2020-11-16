@@ -1,0 +1,19 @@
+camera
+origin  : 0 0 170
+lookat  : 0 0 0
+up  : 0 1 0
+fov : 60
+
+light
+pos : 90 25 150 
+intensity : 100%
+color : 0xFFFFFF
+
+cylinder
+origin : 0 0 0 
+rot : 0 0 0
+color : 0x999add
+radius : 40
+diffuse : 50%
+ambient : 0%
+specular: 100%

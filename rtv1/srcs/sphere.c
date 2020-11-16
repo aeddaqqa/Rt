@@ -1,0 +1,45 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sphere.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/09 05:10:29 by nabouzah          #+#    #+#             */
+/*   Updated: 2020/11/07 05:56:07 by nabouzah         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/rtv1.h"
+
+double	equa_solu(double a, double b, double delta)
+{
+	double	t1;
+	double	t2;
+
+	t1 = (-b - sqrt(delta)) / (2 * a);
+	t2 = (-b + sqrt(delta)) / (2 * a);
+	if ((t1 <= t2 && t1 >= 0.0) || (t1 >= 0.0 && t2 < 0.0))
+		return (t1);
+	if ((t2 <= t1 && t2 >= 0.0) || (t2 >= 0.0 && t1 < 0.0))
+		return (t2);
+	return (-1);
+}
+
+double	hit_sphere(t_obj *object, t_ray *ray)
+{
+	t_vector	oc;
+	double		a;
+	double		b;
+	double		c;
+	double		delta;
+
+	oc = sub_vector(ray->origin, object->pos);
+	a = dot_prod(ray->direction, ray->direction);
+	b = 2 * dot_prod(ray->direction, oc);
+	c = dot_prod(oc, oc) - object->rayon * object->rayon;
+	delta = b * b - 4.0 * a * c;
+	if (delta < 0.0)
+		return (-1.0);
+	return (equa_solu(a, b, delta));
+}
