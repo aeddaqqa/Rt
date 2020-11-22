@@ -22,6 +22,7 @@ void		antialiasing(int *img)
 		i++;
 	}
 	ft_memcpy(img, anti, res * 4);
+	free(anti);
 }
 
 
