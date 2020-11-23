@@ -10,4 +10,4 @@ Image rotation. : ![Alt Text](https://github.com/aeddaqqa/Rt/blob/charaf_bonus/r
 Sepia filter.   : ![Alt Text](https://github.com/aeddaqqa/Rt/blob/charaf_bonus/sepia.png?raw=true)
 
 
-Grey filter.    : ![Alt Text](https://github.com/aeddaqqa/Rt/blob/charaf_bonus/sepia.png?raw=true)
+Grey filter.    : ![Alt Text](https://github.com/aeddaqqa/Rt/blob/charaf_bonus/grey.png?raw=true)
