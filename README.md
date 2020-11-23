@@ -7,4 +7,4 @@ Antialiasing.   : ![Alt Text](https://github.com/aeddaqqa/Rt/blob/charaf_bonus/a
 Image rotation. : ![Alt Text](https://github.com/aeddaqqa/Rt/blob/charaf_bonus/rot.png?raw=true)
 
 
-Image rotation. : ![Alt Text](https://github.com/aeddaqqa/Rt/blob/charaf_bonus/sepia.png?raw=true)
+Sepia filter.   : ![Alt Text](https://github.com/aeddaqqa/Rt/blob/charaf_bonus/sepia.png?raw=true)
