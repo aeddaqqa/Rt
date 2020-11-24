@@ -13,4 +13,4 @@ Sepia filter.    : ![Alt Text](https://github.com/aeddaqqa/Rt/blob/charaf_bonus/
 Grey filter.     : ![Alt Text](https://github.com/aeddaqqa/Rt/blob/charaf_bonus/pictures/grey.png?raw=true)
 
 
-Negative filter. : ![Alt Text](https://github.com/aeddaqqa/Rt/blob/charaf_bonus/pictures/neg.png?raw=true)
+Negative filter. : ![Alt Text](https://github.com/aeddaqqa/Rt/blob/charaf_bonus/pictures/negative.png?raw=true)
