@@ -1,0 +1,97 @@
+camera
+origin  : 0 0 60 
+lookat  : 0 0 0 
+up  : 0 1 0
+fov : 60
+
+light
+pos : 15 15 0
+color   : 0xFFFFFF
+intensity : 50%
+light
+pos : -15 0 20
+color   : 0xFFFFFF
+intensity : 50%
+
+plane
+origin      :   0 -20 -20
+color       :   0x424242
+ori         :   0 0 0
+diffuse     :   100%
+ambient     :   10%
+specular    :   100%
+
+plane
+origin      :   0 20 -20
+color       :   0x424242
+ori         :   0 0 0
+diffuse     :   100%
+ambient     :   10%
+specular    :   100%
+
+plane
+origin      :   0 0 -20
+ori         :   90 0 0
+color       :   0x004242
+diffuse     :   100%
+ambient     :   10%
+specular    :   100%
+
+plane
+origin      :   -20 0 -20
+ori         :   90 90 0
+color       :   0x004242
+diffuse     :   100%
+ambient     :   10%
+specular    :   100%
+
+plane
+origin      :   20 0 -20
+ori         :   90 90 0
+color       :   0x004242
+diffuse     :   100%
+ambient     :   10%
+specular    :   100%
+
+cone
+origin      :   0 0 0
+ori         :   0 0 20
+angle       :   60
+color       :   0x429942
+diffuse     :   100%
+ambient     :   10%
+specular    :   100%
+
+sphere
+origin      :   20 20 -20
+color       :   0xff0000
+radius      :   10
+diffuse     :   100%
+ambient     :   10%
+specular    :   100%
+
+sphere
+origin      :   -20 -20 -20
+color       :   0xff0000
+radius      :   10
+diffuse     :   100%
+ambient     :   10%
+specular    :   100%
+
+cylinder
+origin      :   20 -20 0
+ori         :   90 0 0
+radius      :   10
+color       :   0x424299
+diffuse     :   100%
+ambient     :   0%
+specular    :   100%
+
+cylinder
+origin      :   -15 0 -5
+ori         :   30 30 0
+radius      :   5
+color       :   0x424299
+diffuse     :   100%
+ambient     :   0%
+specular    :   100%

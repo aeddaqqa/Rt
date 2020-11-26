@@ -1,0 +1,18 @@
+camera
+origin	: 0 0 160 
+lookat	: 0 0 0 
+up	: 0 1 0
+fov	: 60
+
+light
+pos	: 0 0 100 
+color	: 0xFFFFFF
+intensity : 50%
+
+sphere
+origin : 0 0 0
+color : 0xffFFF
+radius : 30
+diffuse : 100%
+specular : 100%
+ambient : 10%
