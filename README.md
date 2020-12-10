@@ -16,5 +16,5 @@ Grey filter.     : ![Alt Text](https://github.com/aeddaqqa/Rt/blob/charaf_bonus/
 Negative filter. : ![Alt Text](https://github.com/aeddaqqa/Rt/blob/charaf_bonus/pictures/negative.png?raw=true)
 
 
-Noise filter.    : ![Alt Text](https://github.com/aeddaqqa/Rt/blob/charaf_bonus/pictures/noise.png?raw=true)
+Noise.           : ![Alt Text](https://github.com/aeddaqqa/Rt/blob/charaf_bonus/pictures/noise.png?raw=true)
 
