@@ -9,7 +9,7 @@ void        img_noise(int *img)
 
 	srand(time(0));
 	i = 0;
-	grey = (int*)malloc(sizeof(int) * 4);
+	grey = (int*)malloc(sizeof(int) * 6);
 	noi = (int*)malloc(sizeof(int) * WIN_W * WIN_H * 4);
 	noimag = (int*)malloc(sizeof(int) * WIN_W * WIN_H * 4);
 	grey[0] = 2631720;
@@ -17,7 +17,10 @@ void        img_noise(int *img)
 	grey[2] = 1315860;
 	while (i < WIN_W * WIN_H)
 	{
-		r = (rand() % 3);
+		grey[3] = noi[i];
+		grey[4] = noi[i];
+		grey[5] = noi[i];
+		r = (rand() % 6);
 		noi[i] = grey[r];
 		i++;
 	}
