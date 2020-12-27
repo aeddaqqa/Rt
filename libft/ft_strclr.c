@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: farwila <farwila@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 00:48:24 by nabouzah          #+#    #+#             */
-/*   Updated: 2019/05/03 16:38:32 by nabouzah         ###   ########.fr       */
+/*   Updated: 2020/12/01 18:02:50 by farwila          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 void	ft_strclr(char *s)
 {
-	size_t	i;
 	size_t	size;
 
-	i = 0;
 	size = 0;
 	if (s)
 	{

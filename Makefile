@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+         #
+#    By: farwila <farwila@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/16 20:16:38 by aeddaqqa          #+#    #+#              #
-#    Updated: 2020/11/17 10:01:00 by aeddaqqa         ###   ########.fr        #
+#    Updated: 2020/12/27 13:57:42 by farwila          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,11 @@ CFLAGS = -Wall -Wextra -Werror
 
 INC = includes/rt.h
 
-SDLF = -I SDL/SDL2.framework/Headers
 
-OBJ = srcs/main.o
+OBJ = srcs/main.o srcs/parse/load_file.o srcs/parse/free_parse.o srcs/parse/error_managment.o\
+srcs/parse/init_p.o srcs/parse/main_pxml.o srcs/parse/init_s.o srcs/parse/stock_elements.o\
+srcs/parse/utilfunc.o srcs/parse/utilfunctions.o srcs/parse/stock_elements_cmp.o srcs/parse/check_cmp.o\
+srcs/parse/inner_text.o srcs/parse/get_cmp.o
 
 LIB = libft/libft.a
 
@@ -52,14 +54,14 @@ LIBOBJ	=	libft/ft_atoi.o libft/ft_itoa.o\
 			libft/ft_strdel.o libft/ft_strlen.o libft/ft_strnstr.o\
 			libft/ft_toupper.o libft/get_next_line.o
 
-FRAM =  -framework SDL2 -F ./SDL/ -framework SDL2_mixer -F ./SDL  -framework SDL2_image -F ./SDL -rpath @loader_path/SDL -lz
+FRAM =  `sdl2-config --cflags --libs`
 
 all : $(LIB) $(NAME)
 
-%.o : %.c $(INC)
-	$(CC) $(CFLAGS) -c -o $@ $< -I $(INC)
+%.o : %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
 $(NAME) : $(OBJ)
-	$(CC) -o $@ $^ -I $(INC) $(LIB) $(SDLF)
+	$(CC) -o $@ $^ $(LIB) $(FRAM)
 
 $(LIB) : $(LIBOBJ)
 	@make -C libft/

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nabouzah <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: farwila <farwila@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/30 18:09:41 by nabouzah          #+#    #+#              #
-#    Updated: 2019/12/31 05:31:08 by nabouzah         ###   ########.fr        #
+#    Updated: 2020/12/01 18:02:03 by farwila          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME = libft.a
 all	: $(NAME)
 
 %.o : %.c $(IN)
-	@gcc $(CFlags) -c -o $@ $< -I $(IN)
+	@gcc $(CFlags) -c -o $@ $<
 
 $(NAME) : $(OBJ)
 	@ar rc $(NAME) $(OBJ)
