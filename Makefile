@@ -6,7 +6,7 @@
 #    By: farwila <farwila@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/16 20:16:38 by aeddaqqa          #+#    #+#              #
-#    Updated: 2020/12/27 13:57:42 by farwila          ###   ########.fr        #
+#    Updated: 2020/12/27 21:22:27 by farwila          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 INC = includes/rt.h
-
 
 OBJ = srcs/main.o srcs/parse/load_file.o srcs/parse/free_parse.o srcs/parse/error_managment.o\
 srcs/parse/init_p.o srcs/parse/main_pxml.o srcs/parse/init_s.o srcs/parse/stock_elements.o\
@@ -54,7 +53,7 @@ LIBOBJ	=	libft/ft_atoi.o libft/ft_itoa.o\
 			libft/ft_strdel.o libft/ft_strlen.o libft/ft_strnstr.o\
 			libft/ft_toupper.o libft/get_next_line.o
 
-FRAM =  `sdl2-config --cflags --libs`
+FRAM =  `sdl2-config --cflags --libs` -lSDL2 -lSDL2_image
 
 all : $(LIB) $(NAME)
 
