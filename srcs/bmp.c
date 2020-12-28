@@ -6,7 +6,7 @@
 /*   By: chzabakh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 15:46:42 by chzabakh          #+#    #+#             */
-/*   Updated: 2020/12/26 17:43:37 by chzabakh         ###   ########.fr       */
+/*   Updated: 2020/12/28 16:10:32 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,30 +48,30 @@ void	fill_data(t_image *image)
 	image->clr_important = 0;
 }
 
-void	image_put(int *img, t_image *image, int file)
+void	image_put(int *img, int file)
 {
 	int				color;
 	unsigned char	*buf;
 	int				row;
 	int				col;
 
-	row = image->height - 1;
-	buf = malloc(image->file_size);
+	row = WIN_H - 1;
+	buf = malloc((WIN_W * WIN_H * 4) + 54);
 	while (row >= 0)
 	{
 		col = 0;
-		while (col < (int)image->width)
+		while (col < WIN_W)
 		{
 			color = img[(WIN_H - row) *
 				WIN_W + col];
-			buf[row * image->width * 3 + col * 3 + 0] = color;
-			buf[row * image->width * 3 + col * 3 + 1] = color >> 8;
-			buf[row * image->width * 3 + col * 3 + 2] = color >> 16;
+			buf[row * WIN_W * 3 + col * 3 + 0] = color;
+			buf[row * WIN_W * 3 + col * 3 + 1] = color >> 8;
+			buf[row * WIN_W * 3 + col * 3 + 2] = color >> 16;
 			col++;
 		}
 		row--;
 	}
-	write(file, buf, image->file_size);
+	write(file, buf, (WIN_W * WIN_H * 4) + 54);
 	free(buf);
 }
 
@@ -83,5 +83,5 @@ void	image_create(int *img)
 	file = open("./save.bmp", O_RDWR | O_CREAT, 777);
 	fill_data(&image);
 	image_header(&image, file);
-	image_put(img, &image, file);
+	image_put(img, file);
 }
