@@ -6,7 +6,7 @@
 /*   By: farwila <farwila@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:16:14 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2020/12/27 16:04:15 by farwila          ###   ########.fr       */
+/*   Updated: 2021/01/04 23:02:46 by farwila          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,23 +65,23 @@ static void        init_sdl(t_sdl *d)
 	d->data = malloc(sizeof(int) * W* H);
 }
 
-static void		clear_data(int *tab)
-{
-	int i;
+// static void		clear_data(int *tab)
+// {
+// 	int i;
 
-	i = 0;
-	while (i < W * H)
-	{
-		tab[i] = 0xff0000;
-		i++;
-	}
-}
+// 	i = 0;
+// 	while (i < W * H)
+// 	{
+// 		tab[i] = 0xff0000;
+// 		i++;
+// 	}
+// }
 
 void				render(t_sdl *d)
 {
 	SDL_SetRenderDrawColor(d->renderer, 0, 0, 0, 255);
 	SDL_RenderClear(d->renderer);
-	clear_data(d->data);
+	// clear_data(d->data);
 	SDL_UpdateTexture(d->sdl_tex, NULL, d->data, W * 4);
 	SDL_RenderCopy(d->renderer, d->sdl_tex, NULL, NULL);
 	SDL_RenderPresent(d->renderer);
@@ -115,6 +115,7 @@ int		main(int ac, char **av)
 		a = 1;
 		while (a)
 		{
+			raytrace(rt, sd.data);
 			render(&sd);
 			SDL_PollEvent(&event);
 			key_table = (char*)SDL_GetKeyboardState(NULL);

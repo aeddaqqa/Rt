@@ -6,7 +6,7 @@
 /*   By: farwila <farwila@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2020/12/27 15:09:52 by farwila          ###   ########.fr       */
+/*   Updated: 2021/01/04 23:27:53 by farwila          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,14 @@ typedef struct          s_sdl
         // char            *key_table;
         int             *data;
 }                       t_sdl;
+
+typedef struct			s_ray
+{
+	t_point		origin;
+	t_vect3	direction;
+	t_point		hit_point;
+}						t_ray;
+
 
 typedef struct		s_rt
 {

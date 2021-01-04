@@ -6,7 +6,7 @@
 #    By: farwila <farwila@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/16 20:16:38 by aeddaqqa          #+#    #+#              #
-#    Updated: 2020/12/27 21:22:27 by farwila          ###   ########.fr        #
+#    Updated: 2021/01/04 23:26:48 by farwila          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ INC = includes/rt.h
 OBJ = srcs/main.o srcs/parse/load_file.o srcs/parse/free_parse.o srcs/parse/error_managment.o\
 srcs/parse/init_p.o srcs/parse/main_pxml.o srcs/parse/init_s.o srcs/parse/stock_elements.o\
 srcs/parse/utilfunc.o srcs/parse/utilfunctions.o srcs/parse/stock_elements_cmp.o srcs/parse/check_cmp.o\
-srcs/parse/inner_text.o srcs/parse/get_cmp.o
+srcs/parse/inner_text.o srcs/parse/get_cmp.o srcs/raytracing.o srcs/vect_calc.o
 
 LIB = libft/libft.a
 
