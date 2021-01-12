@@ -19,4 +19,4 @@ Negative filter. : ![Alt Text](https://github.com/aeddaqqa/Rt/blob/charaf_bonus/
 Noise.           : ![Alt Text](https://github.com/aeddaqqa/Rt/blob/charaf_bonus/pictures/noise.png?raw=true)
 
 
-Noise.           : ![Alt Text](https://github.com/aeddaqqa/Rt/blob/charaf_bonus/pictures/cartoon.png?raw=true)
+Cartoon.           : ![Alt Text](https://github.com/aeddaqqa/Rt/blob/charaf_bonus/pictures/cartoon.png?raw=true)
