@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utilfunc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: farwila <farwila@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:28:42 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2020/12/21 05:35:39 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/19 18:20:28 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ void					*new_object(int type)
 		n_obj->orientation = (t_vect3){0, 0, 0};
 		n_obj->color = (t_color){0, 0, 0};
 		n_obj->r_a = 0;
-		n_obj->ambient = 0;
 		n_obj->next = NULL;
 		return (n_obj);
 	}

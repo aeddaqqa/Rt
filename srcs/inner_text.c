@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 03:37:25 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2020/12/21 05:30:16 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/19 18:25:46 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,6 @@ static int		stock_cmp_obj(void **object, char *str, int r, int type)
 			return (-1);
 	}
 	else if (r == 3)
-		obj->ambient = ft_atoi(str);
-	else if (r == 4)
 	{
 		if ((get_ori_vect(str, &obj->orientation)) < 0)
 			return (-1);

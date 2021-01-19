@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:14:56 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2020/12/21 22:20:37 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/19 18:38:05 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,40 @@
 **-----------------------------{structers}---------------------
 */
 
+typedef	enum	e_types_cmp
+{
+	POSITION,
+	COLOR,
+	R_A,
+	ORIENTATION,
+	LOOK_AT,
+	ORIGIN,
+	FOV,
+	INTENSITY
+}				t_types_cmp;
+
+typedef	enum	e_types_elem
+{
+	PLANE_O,
+	SPHERE_O,
+	CYLINDER_O,
+	CONE_O,
+	CAMERA_O,
+	LIGHT_O,
+	PLANE_C,
+	SPHERE_C,
+	CYLINDER_C,
+	CONE_C,
+	CAMERA_C,
+	LIGHT_C
+}				t_types_elem;
+
 typedef struct	s_name_tags
 {
 	char *elements_o[6];
 	char *elements_c[6];
-	char *components_c[9];
-	char *components_o[9];
+	char *components_c[8];
+	char *components_o[8];
 }				t_tags;
 
 typedef struct	s_ocomponent
@@ -31,7 +59,6 @@ typedef struct	s_ocomponent
 	bool	color;
 	bool	orientation;
 	bool	radius;
-	bool	ambient;
 }				t_ocomponent;
 
 typedef struct	s_lcomponent

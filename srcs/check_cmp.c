@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:54:16 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2020/12/21 05:27:04 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/19 18:27:54 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int		check_cmp_exist_forcam(t_node n, int type)
 
 static int		check_cmp_exist_forobj(t_node n, int type)
 {
-	if (type != 0 && type != 1 && type != 2 && type != 3 && type != 4)
+	if (type != 0 && type != 1 && type != 2 && type != 3)
 		return (-1);
 	if (type == 0 && n.cmp.position == true)
 		return (-1);
@@ -64,9 +64,7 @@ static int		check_cmp_exist_forobj(t_node n, int type)
 		return (-1);
 	else if (type == 2 && n.cmp.radius == true)
 		return (-1);
-	else if (type == 3 && n.cmp.ambient == true)
-		return (-1);
-	else if (type == 4 && n.cmp.orientation == true)
+	else if (type == 3 && n.cmp.orientation == true)
 		return (-1);
 	return (1);
 }

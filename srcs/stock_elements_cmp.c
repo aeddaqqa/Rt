@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:49:45 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2020/12/21 05:45:00 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/19 18:30:32 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 static	void			valid_forcam(t_node *n, int type)
 {
-	if (type == 6)
+	if (type == 5)
 		n->cam.origin = true;
-	else if (type == 5)
+	else if (type == 4)
 		n->cam.look_at = true;
-	else if (type == 7)
+	else if (type == 6)
 		n->cam.fov = true;
 }
 
@@ -26,7 +26,7 @@ static	void			valid_forlight(t_node *n, int type)
 {
 	if (type == 0)
 		n->lit.position = true;
-	else if (type == 8)
+	else if (type == 7)
 		n->lit.intensity = true;
 	else if (type == 1)
 		n->lit.color = true;
@@ -47,8 +47,6 @@ static	void			valid_cmp(t_node *n, int type)
 		else if (type == 2)
 			n->cmp.radius = true;
 		else if (type == 3)
-			n->cmp.ambient = true;
-		else if (type == 4)
 			n->cmp.orientation = true;
 	}
 }
@@ -67,7 +65,7 @@ static	int				all_cmp_valid(t_node n)
 					|| n.lit.position == false))
 			return (-1);
 	}
-	else if (n.cmp.ambient == false || n.cmp.color == false ||
+	else if (n.cmp.color == false ||
 			n.cmp.orientation == false || n.cmp.radius == false ||
 			n.cmp.position == false)
 		return (-1);
@@ -79,10 +77,7 @@ static int				return_val(int v, t_node n, char *comp)
 	ft_strdel(&comp);
 	if (v == 1)
 		return (all_cmp_valid(n));
-	if (v == 2)
-		return (-1);
-	else
-		return (-1);
+	return (-1);
 }
 
 int						stock_elements_cmp(char *s, t_tags tags, t_node n, int *i, void *obje)

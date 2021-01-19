@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2020/12/21 22:22:37 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/19 18:16:47 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ typedef struct		s_object
 	t_color			color;
 	t_vect3			orientation;
 	double			r_a;
-	double			ambient;
 	struct s_object	*next;
 }					t_object;
 
@@ -63,6 +62,7 @@ typedef struct		s_rt
 	t_object		*objects;
 	t_cam			*cameras;
 	t_light			*lights;
+	double			ambient;
 }					t_rt;
 
 #endif
