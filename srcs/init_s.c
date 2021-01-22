@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 02:14:10 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/22 16:17:37 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/22 17:14:54 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static t_ocomponent			init_ocomponent(void)
 	new.radius = false;
 	new.angle = false;
 	new.orientation = false;
+	new.rotation = false;
 	new.transition = false;
 	return (new);
 }
@@ -79,6 +80,7 @@ t_tags						init_tab_tags(void)
 	tags.components_o[ANGLE] = (char*)"<angle>";
 	tags.components_o[RADIUS] = (char*)"<radius>";
 	tags.components_o[TRANSITION] = (char*)"<transition>";
+	tags.components_o[ROTATION] = (char*)"<rotation>";
 	tags.components_o[ORIENTATION] = (char*)"<orientation>";
 	tags.components_o[LOOK_AT] = (char*)"<look-at>";
 	tags.components_o[ORIGIN] = (char*)"<origin>";
@@ -90,6 +92,7 @@ t_tags						init_tab_tags(void)
 	tags.components_c[ANGLE] = (char*)"</angle>";
 	tags.components_c[RADIUS] = (char*)"</radius>";
 	tags.components_c[TRANSITION] = (char*)"</transition>";
+	tags.components_c[ROTATION] = (char*)"</rotation>";
 	tags.components_c[ORIENTATION] = (char*)"</orientation>";
 	tags.components_c[LOOK_AT] = (char*)"</look-at>";
 	tags.components_c[ORIGIN] = (char*)"</origin>";

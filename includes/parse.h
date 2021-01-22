@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:14:56 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/22 16:03:59 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/22 17:11:42 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef	enum	e_types_cmp
 	RADIUS,
 	ORIENTATION,
 	TRANSITION,
+	ROTATION,
 	LOOK_AT,
 	ORIGIN,
 	FOV,
@@ -35,8 +36,8 @@ typedef struct	s_name_tags
 {
 	char *elements_o[6];
 	char *elements_c[6];
-	char *components_c[10];
-	char *components_o[10];
+	char *components_c[11];
+	char *components_o[11];
 }				t_tags;
 
 typedef struct	s_ocomponent
@@ -45,6 +46,7 @@ typedef struct	s_ocomponent
 	bool	color;
 	bool	orientation;
 	bool	transition;
+	bool	rotation;
 	bool	radius;
 	bool	angle;
 }				t_ocomponent;

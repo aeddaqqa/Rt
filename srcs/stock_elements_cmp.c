@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:49:45 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/22 17:06:01 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/22 17:27:55 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ static void				valid_cmp_for_sphere(t_node *n, int type)
 		n->cmp.color = true;
 	else if (type == RADIUS)
 		n->cmp.radius = true;
-	else if (type == ORIENTATION)
-		n->cmp.orientation = true;
+	else if (type == ROTATION)
+		n->cmp.rotation = true;
 	else if (type == TRANSITION)
 		n->cmp.transition = true;
 }
@@ -62,7 +62,7 @@ static	void			valid_cmp(t_node *n, int type)
 static	int				all_cmp_valid_for_sphere(t_node n)
 {
 	if 	(n.cmp.color == false ||
-			n.cmp.orientation == false || n.cmp.radius == false ||
+			n.cmp.rotation == false || n.cmp.radius == false ||
 			n.cmp.position == false || n.cmp.transition == false)
 		return(-1);
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:28:42 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/22 15:06:46 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/22 17:15:57 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void					*new_object(int type)
 		n_obj->type = -1;
 		n_obj->position = (t_point){0, 0, 0};
 		n_obj->orientation = (t_vect3){0, 0, 0};
+		n_obj->rotation = (t_vect3){0, 0, 0};
 		n_obj->transition = (t_vect3){0, 0, 0};
 		n_obj->color = (t_color){0, 0, 0};
 		n_obj->raduis = 0;

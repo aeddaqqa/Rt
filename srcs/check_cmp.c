@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:54:16 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/22 16:21:28 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/22 17:14:18 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int				check_openning_elem(char *s, char **tab)
 	int		i;
 
 	i = 0;
-	while (i < 10)
+	while (i < 11)
 	{
 		if (!ft_strcmp(s, tab[i]))
 			return (i);
@@ -56,7 +56,7 @@ static int		check_cmp_exist_forcam(t_node n, int type)
 
 int		check_for_sphere(int type, t_node n)
 {
-	if (type != POSITION && type != COLOR && type != RADIUS && type != ORIENTATION
+	if (type != POSITION && type != COLOR && type != RADIUS && type != ROTATION
 		&& type != TRANSITION)
 		return (-1);
 	if (type == POSITION && n.cmp.position == true)
@@ -65,7 +65,7 @@ int		check_for_sphere(int type, t_node n)
 		return (-1);
 	else if (type == RADIUS && n.cmp.radius == true)
 		return (-1);
-	else if (type == ORIENTATION && n.cmp.orientation == true)
+	else if (type == ROTATION && n.cmp.rotation == true)
 		return (-1);
 	else if (type == TRANSITION && n.cmp.transition == true)
 		return (-1);

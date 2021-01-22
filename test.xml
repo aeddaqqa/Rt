@@ -3,12 +3,7 @@
 		<position>10,30,60</position>
 		<color>123456789</color>
 		<radius>45</radius>
-		<orientation>100,200,300</orientation>
 		<transition>10,30,60</transition>
+		<rotation>10,30,60</rotation>
 	</sphere>
-	<camera>
-		<origin>45,30,60</origin>
-		<fov>154</fov>
-		<look-at>10,30,60</look-at>
-	</camera>
 </scene>
