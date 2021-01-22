@@ -1,9 +1,14 @@
 <scene>
-
-	<cylinder>
-		<position>100,200,300</position>
+	<sphere>
+		<position>10,30,60</position>
 		<color>123456789</color>
-		<r_a>50</r_a>
+		<radius>45</radius>
 		<orientation>100,200,300</orientation>
-	</cylinder>
+		<transition>10,30,60</transition>
+	</sphere>
+	<camera>
+		<origin>45,30,60</origin>
+		<fov>154</fov>
+		<look-at>10,30,60</look-at>
+	</camera>
 </scene>

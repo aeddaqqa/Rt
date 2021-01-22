@@ -6,7 +6,7 @@
 #    By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/16 20:16:38 by aeddaqqa          #+#    #+#              #
-#    Updated: 2020/12/21 03:57:23 by aeddaqqa         ###   ########.fr        #
+#    Updated: 2021/01/21 15:40:39 by aeddaqqa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,9 +56,9 @@ LIBOBJ	=	libft/ft_atoi.o libft/ft_itoa.o\
 all : $(LIB) $(NAME)
 
 %.o : %.c $(INC)
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) $(LIBE) -c -o $@ $<
 $(NAME) : $(OBJ)
-	$(CC) -o $@ $^ -I $(INC) $(LIB)
+	$(CC) -o $@ $^ -I $(INC) $(LIB) $(FRM)
 
 $(LIB) : $(LIBOBJ)
 	@make -C libft/

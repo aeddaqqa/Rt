@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:16:14 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/19 18:24:20 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/22 15:33:38 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void		print_rt(t_rt *rrt)
 		printf("position = {%lf,%lf,%lf}\n", rt->objects->position.x, rt->objects->position.y,rt->objects->position.z);
 		printf("color = {%lf,%lf,%lf}\n",rt->objects->color.x, rt->objects->color.y, rt->objects->color.z);
 		printf("orientation = {%lf,%lf,%lf}\n", rt->objects->orientation.x, rt->objects->orientation.y,rt->objects->orientation.z);
-		printf("raduis = %lf\n", rt->objects->r_a);
+		// printf("raduis = %lf\n", rt->objects->r_a);
 		ft_putendl("\n[-----------------------------------------------]");
 		rt->objects = rt->objects->next;
 	}

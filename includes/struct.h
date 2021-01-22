@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/19 18:16:47 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/22 15:06:29 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,9 @@ typedef struct		s_object
 	t_point			position;
 	t_color			color;
 	t_vect3			orientation;
-	double			r_a;
+	t_vect3			transition;
+	double			raduis;
+	double			angle;
 	struct s_object	*next;
 }					t_object;
 

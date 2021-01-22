@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:14:56 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/19 18:38:05 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/22 16:03:59 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,36 +21,22 @@ typedef	enum	e_types_cmp
 {
 	POSITION,
 	COLOR,
-	R_A,
+	ANGLE,
+	RADIUS,
 	ORIENTATION,
+	TRANSITION,
 	LOOK_AT,
 	ORIGIN,
 	FOV,
 	INTENSITY
 }				t_types_cmp;
 
-typedef	enum	e_types_elem
-{
-	PLANE_O,
-	SPHERE_O,
-	CYLINDER_O,
-	CONE_O,
-	CAMERA_O,
-	LIGHT_O,
-	PLANE_C,
-	SPHERE_C,
-	CYLINDER_C,
-	CONE_C,
-	CAMERA_C,
-	LIGHT_C
-}				t_types_elem;
-
 typedef struct	s_name_tags
 {
 	char *elements_o[6];
 	char *elements_c[6];
-	char *components_c[8];
-	char *components_o[8];
+	char *components_c[10];
+	char *components_o[10];
 }				t_tags;
 
 typedef struct	s_ocomponent
@@ -58,7 +44,9 @@ typedef struct	s_ocomponent
 	bool	position;
 	bool	color;
 	bool	orientation;
+	bool	transition;
 	bool	radius;
+	bool	angle;
 }				t_ocomponent;
 
 typedef struct	s_lcomponent
@@ -77,7 +65,7 @@ typedef struct	s_ccomponent
 
 typedef struct	s_node
 {
-	int				type;
+	int					type;
 	t_ocomponent		cmp;
 	t_ccomponent		cam;
 	t_lcomponent		lit;

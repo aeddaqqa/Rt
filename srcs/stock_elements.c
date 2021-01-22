@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:21:43 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2020/12/21 05:34:11 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/22 15:05:10 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int			cmp_with_objects(char *s, char **tab)
 
 	i = 0;
 	if (s)
-		while (i < 6)
+		while (i < 7)
 		{
 			if (!ft_strcmp(s, tab[i]))
 				return (i);
@@ -52,7 +52,7 @@ int					stock_elements(char *str, t_tags tags, int *i, t_rt *rt)
 		return (0);
 	}
 	ft_strdel(&elem);
-	obj = new_object(node.type);
+	obj = new_object(node.type);/*protect*/
 	if ((stock_elements_cmp(str, tags, node, i, obj)) < 0)
 	{
 		free(obj);
