@@ -1,9 +1,42 @@
 <scene>
-	<sphere>
+	<paraboloid>
 		<position>10,30,60</position>
 		<color>123456789</color>
-		<radius>45</radius>
-		<transition>10,30,60</transition>
+		<distance>45</distance>
+		<translation>10,30,60</translation>
 		<rotation>10,30,60</rotation>
-	</sphere>
+		<orientation>10,30,60</orientation>
+	</paraboloid>
+	<triangle>
+		<point_a>54556</point_a>
+		<point_b>54556</point_b>
+		<point_c>54556</point_c>
+		<translation>10,30,60</translation>
+		<rotation>10,30,60</rotation>
+		<color>123456789</color>
+	</triangle>
+	<torus>
+		<position>54, 2,556</position>
+		<radius_1>54556</radius_1>
+		<radius_2>54556</radius_2>
+		<translation>10,30,60</translation>
+		<rotation>10,30,60</rotation>
+		<color>123456789</color>
+	</torus>
+	<parallelogram>
+		<point_a>54556</point_a>
+		<point_b>54556</point_b>
+		<point_c>54556</point_c>
+		<point_d>54556</point_d>
+		<translation>10,30,60</translation>
+		<rotation>10,30,60</rotation>
+		<color>123456789</color>
+	</parallelogram>
+	<box>
+		<corner_a>54556</corner_a>
+		<corner_b>54556</corner_b>
+		<translation>10,30,60</translation>
+		<rotation>10,30,60</rotation>
+		<color>123456789</color>
+	</box>
 </scene>

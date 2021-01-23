@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:14:56 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/22 17:11:42 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/23 19:00:32 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 **-----------------------------{structers}---------------------
 */
 
+#define LIMIT_CMP 21
+#define LIMIT_ELEMENTS 12
+
 typedef	enum	e_types_cmp
 {
 	POSITION,
@@ -24,20 +27,30 @@ typedef	enum	e_types_cmp
 	ANGLE,
 	RADIUS,
 	ORIENTATION,
-	TRANSITION,
+	TRANSLATION,
 	ROTATION,
 	LOOK_AT,
 	ORIGIN,
 	FOV,
-	INTENSITY
+	INTENSITY,
+	HEIGHT,
+	DISTANCE,
+	RADIUS_1,
+	RADIUS_2,
+	POINT_A,
+	POINT_B,
+	POINT_C,
+	POINT_D,
+	CORNER_A,
+	CORNER_B
 }				t_types_cmp;
 
 typedef struct	s_name_tags
 {
-	char *elements_o[6];
-	char *elements_c[6];
-	char *components_c[11];
-	char *components_o[11];
+	char		*elements_o[LIMIT_ELEMENTS];
+	char		*elements_c[LIMIT_ELEMENTS];
+	char		*components_c[LIMIT_CMP];
+	char		*components_o[LIMIT_CMP];
 }				t_tags;
 
 typedef struct	s_ocomponent
@@ -45,10 +58,20 @@ typedef struct	s_ocomponent
 	bool	position;
 	bool	color;
 	bool	orientation;
-	bool	transition;
+	bool	translation;
 	bool	rotation;
 	bool	radius;
 	bool	angle;
+	bool	height;
+	bool	dist;
+	bool	radius1;
+	bool	radius2;
+	bool	point_a;
+	bool	point_b;
+	bool	point_c;
+	bool	point_d;
+	bool	corner_a;
+	bool	corner_b;
 }				t_ocomponent;
 
 typedef struct	s_lcomponent

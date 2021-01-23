@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:21:43 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/22 15:05:10 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/23 15:45:29 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int			cmp_with_objects(char *s, char **tab)
 
 	i = 0;
 	if (s)
-		while (i < 7)
+		while (i < LIMIT_ELEMENTS + 1)
 		{
 			if (!ft_strcmp(s, tab[i]))
 				return (i);

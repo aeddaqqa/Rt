@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 03:37:25 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/22 17:24:17 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/23 17:08:11 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ static int		stock_cmp_obj(void **object, char *str, int r, int type)
 	}
 	else if (r == RADIUS)
 	{
-		if ((get_raduis_a(str, obj->type, &obj->raduis)) < 0)
+		if ((get_raduis_a(str, obj->type, &obj->radius)) < 0)
 			return (-1);
 	}
 	else if (r == ROTATION)
@@ -95,9 +95,9 @@ static int		stock_cmp_obj(void **object, char *str, int r, int type)
 		if ((get_ori_vect(str, &obj->rotation)) < 0)
 			return (-1);
 	}
-	else if (r == TRANSITION)
+	else if (r == TRANSLATION)
 	{
-		if ((get_ori_vect(str, &obj->orientation)) < 0)
+		if ((get_ori_vect(str, &obj->translation)) < 0)
 			return (-1);
 	}
 	return (1);

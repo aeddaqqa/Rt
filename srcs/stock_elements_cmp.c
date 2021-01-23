@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:49:45 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/22 17:27:55 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/23 19:05:19 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,158 @@ static void				valid_cmp_for_sphere(t_node *n, int type)
 		n->cmp.radius = true;
 	else if (type == ROTATION)
 		n->cmp.rotation = true;
-	else if (type == TRANSITION)
-		n->cmp.transition = true;
+	else if (type == TRANSLATION)
+		n->cmp.translation = true;
+}
+
+static void				valid_cmp_for_plane(t_node *n, int type)
+{
+	if (type == POSITION)
+		n->cmp.position = true;
+	else if (type == COLOR)
+		n->cmp.color = true;
+	else if (type == ORIENTATION)
+		n->cmp.orientation = true;
+	else if (type == ROTATION)
+		n->cmp.rotation = true;
+	else if (type == TRANSLATION)
+		n->cmp.translation = true;
+}
+
+static void				valid_cmp_for_cone(t_node *n, int type)
+{
+	if (type == POSITION)
+		n->cmp.position = true;
+	else if (type == COLOR)
+		n->cmp.color = true;
+	else if (type == ORIENTATION)
+		n->cmp.orientation = true;
+	else if (type == ROTATION)
+		n->cmp.rotation = true;
+	else if (type == TRANSLATION)
+		n->cmp.translation = true;
+	else if (type == HEIGHT)
+		n->cmp.height = true;
+	else if (type == ANGLE)
+		n->cmp.angle = true;
+}
+
+static void				valid_cmp_for_cylinder(t_node *n, int type)
+{
+	if (type == POSITION)
+		n->cmp.position = true;
+	else if (type == COLOR)
+		n->cmp.color = true;
+	else if (type == ORIENTATION)
+		n->cmp.orientation = true;
+	else if (type == ROTATION)
+		n->cmp.rotation = true;
+	else if (type == TRANSLATION)
+		n->cmp.translation = true;
+	else if (type == HEIGHT)
+		n->cmp.height = true;
+	else if (type == RADIUS)
+		n->cmp.radius = true;
+}
+
+static void				valid_cmp_for_paraboloid(t_node *n, int type)
+{
+	if (type == POSITION)
+		n->cmp.position = true;
+	else if (type == COLOR)
+		n->cmp.color = true;
+	else if (type == ORIENTATION)
+		n->cmp.orientation = true;
+	else if (type == ROTATION)
+		n->cmp.rotation = true;
+	else if (type == TRANSLATION)
+		n->cmp.translation = true;
+	else if (type == DISTANCE)
+		n->cmp.dist = true;
+}
+
+static void				valid_cmp_for_triangle(t_node *n, int type)
+{
+	if (type == POINT_A)
+		n->cmp.point_a = true;
+	else if (type == COLOR)
+		n->cmp.color = true;
+	else if (type == POINT_B)
+		n->cmp.point_b = true;
+	else if (type == ROTATION)
+		n->cmp.rotation = true;
+	else if (type == TRANSLATION)
+		n->cmp.translation = true;
+	else if (type == POINT_C)
+		n->cmp.point_c = true;
+}
+
+static void				valid_cmp_for_parallelogram(t_node *n, int type)
+{
+	if (type == POINT_A)
+		n->cmp.point_a = true;
+	if (type == POINT_D)
+		n->cmp.point_d = true;
+	else if (type == COLOR)
+		n->cmp.color = true;
+	else if (type == POINT_B)
+		n->cmp.point_b = true;
+	else if (type == ROTATION)
+		n->cmp.rotation = true;
+	else if (type == TRANSLATION)
+		n->cmp.translation = true;
+	else if (type == POINT_C)
+		n->cmp.point_c = true;
+}
+
+static void				valid_cmp_for_ellipsoid(t_node *n, int type)
+{
+	if (type == POSITION)
+		n->cmp.position = true;
+	else if (type == COLOR)
+		n->cmp.color = true;
+	else if (type == ORIENTATION)
+		n->cmp.orientation = true;
+	else if (type == ROTATION)
+		n->cmp.rotation = true;
+	else if (type == TRANSLATION)
+		n->cmp.translation = true;
+	else if (type == DISTANCE)
+		n->cmp.dist = true;
+	else if (type == RADIUS_1)
+		n->cmp.radius1 = true;
+	else if (type == RADIUS_2)
+		n->cmp.radius2 = true;
+}
+
+static void				valid_cmp_for_box(t_node *n, int type)
+{
+	if (type == CORNER_A)
+		n->cmp.corner_a = true;
+	else if (type == COLOR)
+		n->cmp.color = true;
+	else if (type == CORNER_B)
+		n->cmp.corner_b = true;
+	else if (type == ROTATION)
+		n->cmp.rotation = true;
+	else if (type == TRANSLATION)
+		n->cmp.translation = true;
+}
+
+static void				valid_cmp_for_torus(t_node *n, int type)
+{
+	if (type == POSITION)
+		n->cmp.position = true;
+	else if (type == COLOR)
+		n->cmp.color = true;
+	else if (type == RADIUS_1)
+		n->cmp.radius1 = true;
+	else if (type == RADIUS_2)
+		n->cmp.radius2 = true;
+	else if (type == ROTATION)
+		n->cmp.rotation = true;
+	else if (type == TRANSLATION)
+		n->cmp.translation = true;
 }
 
 static	void			valid_cmp(t_node *n, int type)
@@ -56,6 +206,24 @@ static	void			valid_cmp(t_node *n, int type)
 	{
 		if (n->type == SPHERE)
 			valid_cmp_for_sphere(n, type);
+		else if (n->type == PLANE)
+			valid_cmp_for_plane(n, type);
+		else if (n->type == CONE)
+			valid_cmp_for_cone(n, type);
+		else if (n->type == CYLINDER)
+			valid_cmp_for_cylinder(n, type);
+		else if (n->type == ELLIPSOID)
+			valid_cmp_for_ellipsoid(n, type);
+		else if (n->type == PARABOLOID)
+			valid_cmp_for_paraboloid(n, type);
+		else if (n->type == TRIANGLE)
+			valid_cmp_for_triangle(n, type);
+		else if (n->type == BOX)
+			valid_cmp_for_box(n, type);
+		else if (n->type == PARALLELOGRAM)
+			valid_cmp_for_parallelogram(n, type);
+		else if (n->type == TORUS)
+			valid_cmp_for_torus(n, type);
 	}
 }
 
@@ -63,7 +231,96 @@ static	int				all_cmp_valid_for_sphere(t_node n)
 {
 	if 	(n.cmp.color == false ||
 			n.cmp.rotation == false || n.cmp.radius == false ||
-			n.cmp.position == false || n.cmp.transition == false)
+			n.cmp.position == false || n.cmp.translation == false)
+		return(-1);
+	return (1);
+}
+
+static	int				all_cmp_valid_for_plane(t_node n)
+{
+	if 	(n.cmp.color == false ||
+			n.cmp.rotation == false || n.cmp.orientation == false ||
+			n.cmp.position == false || n.cmp.translation == false)
+		return(-1);
+	return (1);
+}
+
+static	int				all_cmp_valid_for_cone(t_node n)
+{
+	if 	(n.cmp.color == false ||
+			n.cmp.rotation == false || n.cmp.orientation == false ||
+			n.cmp.position == false || n.cmp.translation == false ||
+			n.cmp.height || n.cmp.angle)
+		return(-1);
+	return (1);
+}
+
+static	int				all_cmp_valid_for_cylinder(t_node n)
+{
+	if 	(n.cmp.color == false ||
+			n.cmp.rotation == false || n.cmp.orientation == false ||
+			n.cmp.position == false || n.cmp.translation == false ||
+			n.cmp.height || n.cmp.radius)
+		return(-1);
+	return (1);
+}
+
+static	int				all_cmp_valid_for_paraboloid(t_node n)
+{
+	if 	(n.cmp.color == false ||
+			n.cmp.rotation == false || n.cmp.orientation == false ||
+			n.cmp.position == false || n.cmp.translation == false ||
+			n.cmp.dist == false)
+		return(-1);
+	return (1);
+}
+
+static	int				all_cmp_valid_for_triangle(t_node n)
+{
+	if 	(n.cmp.color == false ||
+			n.cmp.rotation == false || n.cmp.point_a == false ||
+			n.cmp.point_b == false || n.cmp.translation == false ||
+			n.cmp.point_c == false)
+		return(-1);
+	return (1);
+}
+
+static	int				all_cmp_valid_for_parallelogram(t_node n)
+{
+	if 	(n.cmp.color == false ||
+			n.cmp.rotation == false || n.cmp.point_a == false ||
+			n.cmp.point_b == false || n.cmp.translation == false ||
+			n.cmp.point_c == false || n.cmp.point_d == false)
+		return(-1);
+	return (1);
+}
+
+static	int				all_cmp_valid_for_box(t_node n)
+{
+	if 	(n.cmp.color == false ||
+			n.cmp.rotation == false || n.cmp.corner_a == false ||
+			n.cmp.corner_b == false || n.cmp.translation == false)
+		return(-1);
+	return (1);
+}
+
+static	int				all_cmp_valid_for_ellipsoid(t_node n)
+{
+	if 	(n.cmp.color == false ||
+			n.cmp.rotation == false || n.cmp.orientation == false ||
+			n.cmp.position == false || n.cmp.translation == false ||
+			n.cmp.dist == false || n.cmp.radius2 == false|| 
+			n.cmp.radius1 == false)
+		return(-1);
+	return (1);
+}
+
+static	int				all_cmp_valid_for_torus(t_node n)
+{
+	if 	(n.cmp.color == false ||
+			n.cmp.rotation == false ||
+			n.cmp.position == false || n.cmp.translation == false ||
+			n.cmp.radius2 == false || n.cmp.radius1 == false)
 		return(-1);
 	return (1);
 }
@@ -84,6 +341,24 @@ static	int				all_cmp_valid(t_node n)
 	}
 	else if (n.type == SPHERE)
 		return (all_cmp_valid_for_sphere(n));
+	else if (n.type == PLANE)
+		return (all_cmp_valid_for_plane(n));
+	else if (n.type == CONE)
+		return (all_cmp_valid_for_cone(n));
+	else if (n.type == CYLINDER)
+		return (all_cmp_valid_for_cylinder(n));
+	else if (n.type == ELLIPSOID)
+		return (all_cmp_valid_for_ellipsoid(n));
+	else if (n.type == PARABOLOID)
+		return (all_cmp_valid_for_paraboloid(n));
+	else if (n.type == TRIANGLE)
+		return (all_cmp_valid_for_triangle(n));
+	else if (n.type == BOX)
+		return (all_cmp_valid_for_box(n));
+	else if (n.type == PARALLELOGRAM)
+		return (all_cmp_valid_for_parallelogram(n));
+	else if (n.type == TORUS)
+		return (all_cmp_valid_for_torus(n));
 	return (1);
 }
 

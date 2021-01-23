@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:28:42 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/22 17:15:57 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/23 18:57:26 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,17 +78,25 @@ void					*new_object(int type)
 		return (new_cam());
 	else if (type == LIGHT)
 		return (new_light());
-	else if (type != AMBIENT)
+	else
 	{
 		if (!(n_obj = malloc(sizeof(t_object))))
 			return (NULL);
 		n_obj->type = -1;
 		n_obj->position = (t_point){0, 0, 0};
+		n_obj->point_a = (t_point){0, 0, 0};
+		n_obj->point_b = (t_point){0, 0, 0};
+		n_obj->point_c = (t_point){0, 0, 0};
+		n_obj->point_d = (t_point){0, 0, 0};
+		n_obj->corner[0] = (t_point){0, 0, 0};
+		n_obj->corner[1] = (t_point){0, 0, 0};
 		n_obj->orientation = (t_vect3){0, 0, 0};
 		n_obj->rotation = (t_vect3){0, 0, 0};
-		n_obj->transition = (t_vect3){0, 0, 0};
+		n_obj->translation = (t_vect3){0, 0, 0};
 		n_obj->color = (t_color){0, 0, 0};
-		n_obj->raduis = 0;
+		n_obj->radius = 0;
+		n_obj->radius2 = 0;
+		n_obj->radius1 = 0;
 		n_obj->angle = 0;
 		n_obj->next = NULL;
 		return (n_obj);
