@@ -60,4 +60,5 @@ void			img_neg(int *img);
 void			img_grey(int *img);
 void			antialiasing(int *img);
 void			ft_cartoon(int *img);
+void			img_3d(int *img)
 #endif
