@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 01:42:30 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2020/12/21 05:28:09 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/24 11:45:45 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@ t_rt		*init_rt(bool save)
 	new->cameras = NULL;
 	new->lights = NULL;
 	new->objects = NULL;
+	new->ambient = 0;
+	new->ambient_exist = false;
 	return (new);
 }

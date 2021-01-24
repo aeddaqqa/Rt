@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/23 18:57:08 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/24 11:02:04 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ typedef struct		s_rt
 	t_cam			*cameras;
 	t_light			*lights;
 	double			ambient;
+	bool			ambient_exist;
 }					t_rt;
 
 #endif

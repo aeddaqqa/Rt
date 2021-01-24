@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 02:14:10 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/23 19:01:33 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/24 11:41:41 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ t_tags						init_tab_tags(void)
 	tags.elements_o[BOX] = (char*)"<box>";
 	tags.elements_o[PARALLELOGRAM] = (char*)"<parallelogram>";
 	tags.elements_o[TORUS] = (char*)"<torus>";
+	tags.elements_o[AMBIENT] = (char*)"<ambient>";
 
 	tags.elements_c[PLANE] = (char*)"</plane>";
 	tags.elements_c[SPHERE] = (char*)"</sphere>";
@@ -96,6 +97,7 @@ t_tags						init_tab_tags(void)
 	tags.elements_c[BOX] = (char*)"</box>";
 	tags.elements_c[PARALLELOGRAM] = (char*)"</parallelogram>";
 	tags.elements_c[TORUS] = (char*)"</torus>";
+	tags.elements_c[AMBIENT] = (char*)"</ambient>";
 	
 	tags.components_o[POSITION] = (char*)"<position>";
 	tags.components_o[COLOR] = (char*)"<color>";

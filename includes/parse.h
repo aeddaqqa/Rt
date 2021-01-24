@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:14:56 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/23 19:00:32 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/24 10:57:50 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 */
 
 #define LIMIT_CMP 21
-#define LIMIT_ELEMENTS 12
+#define LIMIT_ELEMENTS 13
 
 typedef	enum	e_types_cmp
 {
