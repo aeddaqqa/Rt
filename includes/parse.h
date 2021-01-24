@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:14:56 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/24 10:57:50 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/24 17:18:30 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,37 @@ void			destroy(t_error type);
 int				check_openning_elem(char *s, char **tab);
 int				check_closing_elem(char *s, int n, char **tab, int *i);
 int				check_components_exist(t_node n, int type);
-
+void			valid_cmp(t_node *n, int type);
+void			valid_cmp_for_sphere(t_node *n, int type);
+void			valid_cmp_for_plane(t_node *n, int type);
+void			valid_cmp_for_cone(t_node *n, int type);
+void			valid_cmp_for_cylinder(t_node *n, int type);
+void			valid_cmp_for_paraboloid(t_node *n, int type);
+void			valid_cmp_for_torus(t_node *n, int type);
+void			valid_cmp_for_box(t_node *n, int type);
+void			valid_cmp_for_ellipsoid(t_node *n, int type);
+void			valid_cmp_for_parallelogram(t_node *n, int type);
+void			valid_cmp_for_triangle(t_node *n, int type);
+int				all_cmp_valid_for_paraboloid(t_node n);
+int				all_cmp_valid_for_cylinder(t_node n);
+int				all_cmp_valid_for_cone(t_node n);
+int				all_cmp_valid_for_plane(t_node n);
+int				all_cmp_valid_for_sphere(t_node n);
+int				all_cmp_valid_for_torus(t_node n);
+int				all_cmp_valid_for_ellipsoid(t_node n);
+int				all_cmp_valid_for_box(t_node n);
+int				all_cmp_valid_for_parallelogram(t_node n);
+int				all_cmp_valid_for_triangle(t_node n);
+int				check_for_sphere(int type, t_node n);
+int				check_for_plane(int type, t_node n);
+int				check_for_cone(int type, t_node n);
+int				check_for_cylinder(int type, t_node n);
+int				check_for_paraboloid(int type, t_node n);
+int				check_for_ellipsoid(int type, t_node n);
+int				check_for_torus(int type, t_node n);
+int				check_for_box(int type, t_node n);
+int				check_for_parallelogram(int type, t_node n);
+int				check_for_triangle(int type, t_node n);
 /*
 ** ------------------------------{Util}-------------------------
 */

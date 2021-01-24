@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:21:43 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/24 11:52:04 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/24 12:34:41 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,11 @@ int		stock_ambient(char *str, t_tags tags, t_rt *rt)
 	free(inner);
 	tag = get_tag(str + j, &j);
 	if (ft_strcmp(tag, tags.elements_c[AMBIENT]))
+	{
+		free(tag);
 		return (-1);
-	// printf("\n\n\nsyr = %s, %s\n", tag, tags.elements_c[AMBIENT]);
+	}
+	free(tag);
 	return (j);
 }
 

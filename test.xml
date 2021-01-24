@@ -45,9 +45,9 @@
 		<fov>123456789</fov>
 		<look-at>10,30,60</look-at>
 	</camera>
-<light>
-<position>0010,30,60</position>
-<color>121212</color><intensity>
-40</intensity>
-</light>
+	<light>
+		<position>0010,30,60</position>
+		<color>121212</color>
+		<intensity>40</intensity>
+	</light>
 </scene>
