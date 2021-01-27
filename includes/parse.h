@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:14:56 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/24 17:18:30 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/25 12:45:00 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,26 +23,26 @@
 typedef	enum	e_types_cmp
 {
 	POSITION,
-	COLOR,
-	ANGLE,
-	RADIUS,
-	ORIENTATION,
-	TRANSLATION,
-	ROTATION,
-	LOOK_AT,
-	ORIGIN,
-	FOV,
-	INTENSITY,
-	HEIGHT,
-	DISTANCE,
-	RADIUS_1,
-	RADIUS_2,
 	POINT_A,
 	POINT_B,
 	POINT_C,
 	POINT_D,
 	CORNER_A,
-	CORNER_B
+	CORNER_B,
+	ORIENTATION,
+	ROTATION,
+	TRANSLATION,
+	COLOR,
+	ANGLE,
+	RADIUS,
+	RADIUS_1,
+	RADIUS_2,
+	HEIGHT,
+	DISTANCE,
+	INTENSITY,
+	FOV,
+	ORIGIN,
+	LOOK_AT
 }				t_types_cmp;
 
 typedef struct	s_name_tags

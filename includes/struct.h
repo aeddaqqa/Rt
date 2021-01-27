@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/24 11:02:04 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/25 16:24:37 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,10 @@ typedef struct		s_object
 	t_point			point_c;
 	t_point			point_d;
 	t_point			corner[2];
-	t_color			color;
 	t_vect3			orientation;
 	t_vect3			rotation;
 	t_vect3			translation;
+	t_color			color;
 	double			radius;
 	double			angle;
 	double			dist;

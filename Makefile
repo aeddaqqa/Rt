@@ -6,7 +6,7 @@
 #    By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/16 20:16:38 by aeddaqqa          #+#    #+#              #
-#    Updated: 2021/01/24 17:16:36 by aeddaqqa         ###   ########.fr        #
+#    Updated: 2021/01/25 10:42:42 by aeddaqqa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ srcs/init_p.o srcs/main_pxml.o srcs/init_s.o srcs/stock_elements.o\
 srcs/utilfunc.o srcs/utilfunctions.o srcs/stock_elements_cmp.o srcs/check_cmp.o\
 srcs/inner_text.o srcs/get_cmp.o srcs/valid_cmp_fpart.o srcs/valid_principal_objects.o\
 srcs/valid_complex_objects.o srcs/valid_all_cmp_pobjects.o srcs/valid_all_cmp_cobjects.o\
-srcs/check_forpobjects.o
+srcs/check_forpobjects.o srcs/check_forcobjects.o
 
 LIB = libft/libft.a
 

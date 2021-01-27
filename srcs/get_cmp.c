@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 03:56:52 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2020/12/21 05:37:07 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/27 16:39:23 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int				get_color(char *s, t_color *color)
 	return (1);
 }
 
-int				get_raduis_a(char *s, int type, double *r_a)
+int				get_radius_a(char *s, int type, double *r_a)
 {
 	double r;
 
