@@ -6,7 +6,7 @@
 /*   By: chzabakh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 14:23:39 by chzabakh          #+#    #+#             */
-/*   Updated: 2021/01/27 16:28:38 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/01/27 16:33:20 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,5 @@ void			img_neg(int *img);
 void			img_grey(int *img);
 void			antialiasing(int *img);
 void			ft_cartoon(int *img);
-void			img_ddd(int *img)
+void			img_ddd(int *img);
 #endif
