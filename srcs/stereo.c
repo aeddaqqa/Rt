@@ -6,7 +6,7 @@
 /*   By: chzabakh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 15:17:59 by chzabakh          #+#    #+#             */
-/*   Updated: 2021/01/23 15:20:04 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/01/27 16:28:35 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,26 @@ void	merge_3d(int *img, int *green, int *red)
 	free(red);
 }
 
-void	img_3d(int *img)
+void	img_ddd(int *img)
 {
 	int *red;
 	int *green;
+	int	k;
+	int	i;
 
+	k = WIN_W;
+	i = 0;
 	red = (int *)malloc(WIN_W * WIN_H * 4);
 	green = (int *)malloc(WIN_W * WIN_H * 4);
 	img_green(green, img);
 	img_red(red, img);
 	merge_3d(img, green, red);
+	while (i < WIN_W * WIN_H)
+	{
+		if (i > k - 10 && i < k + 10)
+			img[i] = 0;
+		if (i > k + 10)
+			k = k + WIN_W;
+		i++;
+	}
 }
