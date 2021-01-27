@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 03:37:25 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/27 18:15:19 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/27 19:00:35 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,38 +143,53 @@ int				stock_rpa(double *dst, char *str)
 
 int				rgb_to_int(t_color v)
 {
-	return ((((int)v.x & 0xff) << 16) | (((int)v.y & 0xff) << 8) | (int)v.z & 0xff)
+	return ((((int)v.x & 0xff) << 16) | (((int)v.y & 0xff) << 8) | (int)v.z & 0xff);
 }
 
+int		is_hex(char *value)
+{
+	int	len;
 
-t_color	read_color(char *data)
+	len = ft_strlen(value);
+	if (len > 2 && len <= 10 && value[0] == '0'\
+			&& (value[1] == 'x' || value[1] == 'X'))
+		return (1);
+	return (0);
+}
+int			to_rgb(t_color *co, int c)
+{
+	co->x = (c >> 16) & 255;
+	co->y = (c >> 8) & 255;
+	co->z = c & 255;
+	return (1);
+}
+
+int	read_color(t_color *c, char *data)
 {
 	int		color;
 	int		i;
 	int		hex;
 	int		digit;
 
-	 color = 0;
+	color = 0;
 	if (!ft_isdigit(data[0]))
-		return (to_rgb(color));
+		return (to_rgb(c, color));
 	hex = is_hex(data);
 	i = hex ? 1 : -1;
 	while (data && data[++i])
 	{
 		if	((digit = in_base(data[i])) < 0)
-		{
-			return ((t_color){0, 0, 0});
-		}
+			return (0);
 		color = color * (hex ? 16 : 10) + digit;
 	}
-	return (to_rgb(color));
+	return (to_rgb(c, color));
 }
 
-int				stock_color(t_color *color, char *str)
-{
+// int				stock_color(t_color *color, char *str)
+// {
 	
-	return (1);
-}
+// 	return (1);
+// }
 
 int				stock_cmp(void **object, char *str, int r, int type)
 {
@@ -212,7 +227,7 @@ int				stock_cmp(void **object, char *str, int r, int type)
 		else if (r > 10)
 			return (stock_rpa(rpa[r - 11], str));
 		else
-			return (stock_color(&obj->color, str));
+			return (read_color(&obj->color, str));
 	}
 	return (1);
 }
