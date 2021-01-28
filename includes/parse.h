@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:14:56 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/25 12:45:00 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/28 17:45:53 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,6 +170,14 @@ int				check_for_triangle(int type, t_node n);
 
 void			add_front(t_rt **head, void *new, int type);
 void			*new_object(int type);
+int				rgb_to_int(t_color v);
+int				to_rgb(t_color *co, int c);
+int				read_color(t_color *c, char *data);
+int				stock_rpa(double *dst, char *str);
+int				stock_vect3(t_vect3 *r, char *str);
+void			free_tab2(char ***tab, int l);
+int				len_tab_2d(char **tab);
+
 
 /*
 **{--------------------------------------------------------------}

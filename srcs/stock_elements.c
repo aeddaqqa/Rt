@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:21:43 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/24 12:34:41 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/28 14:43:29 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ int					stock_elements(char *str, t_tags tags, int *i, t_rt *rt)
 	}
 	else
 	{
-		
 		obj = new_object(node.type);/*protect*/
 		if ((stock_elements_cmp(str, tags, node, i, obj)) < 0)
 		{

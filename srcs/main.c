@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:16:14 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/23 16:53:00 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/28 17:41:59 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int		main(int ac, char **av)
 			destroy(MALLOC_ERROR);
 		if (!(parse(file, rt)))
 			destroy(SYNTAX_ERROR);
+			// printf("%lf %lf %lf", rt->cameras->o.x, rt->cameras->o.y, rt->cameras->o.z);
 		free_rt(&rt);
 		free(file);
 	}

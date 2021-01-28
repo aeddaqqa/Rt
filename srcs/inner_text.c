@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 03:37:25 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/27 19:00:35 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/28 17:42:42 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,19 @@ static int		stock_cmp_cam(void **object, char *str, int r)
 	cam = (t_cam*)*object;
 	if (r == ORIGIN)
 	{
-		if ((get_point(str, &cam->o)) < 0)
+		if ((stock_vect3(&cam->o, str)) < 0)
 			return (-1);
 	}
 	else if (r == LOOK_AT)
 	{
-		if ((get_point(str, &cam->l)) < 0)
+		if ((stock_vect3(&cam->l, str)) < 0)
 			return (-1);
 	}
 	else if (r == FOV)
-		cam->fov = ft_atoi(str);
+	{
+		if (stock_rpa(&cam->fov ,str) < 0)
+			return (-1);
+	}
 	return (1);
 }
 
@@ -56,144 +59,28 @@ static	int		stock_cmp_light(void **object, char *str, int r)
 	light = (t_light*)*object;
 	if (r == POSITION)
 	{
-		if ((get_point(str, &light->pos)) < 0)
+		if ((stock_vect3(&light->pos, str)) < 0)
 			return (-1);
 	}
 	else if (r == COLOR)
 	{
-		if ((get_color(str, &light->color)) < 0)
+		if ((read_color(&light->color, str)) < 0)
 			return (-1);
 	}
 	else if (r == INTENSITY)
-		light->intensity = ft_atoi(str);
-	return (1);
-}
-
-
-int				ft_stralnum(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
 	{
-		if (str[i] <= '0' || str[i] >= '9')
-			return (0);
-		i++;
+		if (stock_rpa(&light->intensity , str) < 0)
+			return (-1);
 	}
 	return (1);
 }
 
-int				stock_vect3(t_vect3 *r, char *str)
-{
-	char	**split;
-	int		i;
-	double	d[3];
 
-	i = 0;
-	split = ft_strsplit(str, " ");
-	if (!split)
-		return (0);
-	while (split[i])
-	{
-		if (i > 2)
-			return (0);
-		if (!ft_stralnum(split[i]))//free
-			return (0);
-		d[i] = ft_atoi(split[i]);
-		i++;
-	}
-	if (i != 3)
-		return (-1);
-	r->x = d[0];
-	r->y = d[1];
-	r->z = d[2];
-	return (1);
-}
 
-int				stock_rpa(double *dst, char *str)
-{
-	if (!ft_stralnum(str))
-		return (0);
-	*dst = ft_atoi(str);
-}
-
- static int  in_base(char c)
- {
-	char	*lo_base;
-	char	*up_base;
-	int		i;
-
-	i = 0;
-	lo_base = "0123456789abcdef";
-	up_base = "0123456789ABCDEF";
-	if (c >= 'A' && c <= 'F')
-		while (up_base[i] && up_base[i] != c)
-			i++;
-	else if (c >= 'a' && c <= 'f')
-		while (lo_base[i] && lo_base[i] != c)
-			i++;
-	else if (c >= '0' && c <= '9')
-		while (lo_base[i] && lo_base[i] != c)
-			i++;
-	else
-		i = -1;
-	return (i);
- }
-
-int				rgb_to_int(t_color v)
-{
-	return ((((int)v.x & 0xff) << 16) | (((int)v.y & 0xff) << 8) | (int)v.z & 0xff);
-}
-
-int		is_hex(char *value)
-{
-	int	len;
-
-	len = ft_strlen(value);
-	if (len > 2 && len <= 10 && value[0] == '0'\
-			&& (value[1] == 'x' || value[1] == 'X'))
-		return (1);
-	return (0);
-}
-int			to_rgb(t_color *co, int c)
-{
-	co->x = (c >> 16) & 255;
-	co->y = (c >> 8) & 255;
-	co->z = c & 255;
-	return (1);
-}
-
-int	read_color(t_color *c, char *data)
-{
-	int		color;
-	int		i;
-	int		hex;
-	int		digit;
-
-	color = 0;
-	if (!ft_isdigit(data[0]))
-		return (to_rgb(c, color));
-	hex = is_hex(data);
-	i = hex ? 1 : -1;
-	while (data && data[++i])
-	{
-		if	((digit = in_base(data[i])) < 0)
-			return (0);
-		color = color * (hex ? 16 : 10) + digit;
-	}
-	return (to_rgb(c, color));
-}
-
-// int				stock_color(t_color *color, char *str)
-// {
-	
-// 	return (1);
-// }
 
 int				stock_cmp(void **object, char *str, int r, int type)
 {
-	t_vect3	**stk;
+	t_vect3		*stk[11];
 	t_object	*obj;
 	double		*rpa[6];
 
@@ -204,7 +91,6 @@ int				stock_cmp(void **object, char *str, int r, int type)
 	else
 	{
 		obj = (t_object*)object;
-		stk = malloc(sizeof(t_vect3*) * 11);
 		stk[POSITION] =  &obj->position;
 		stk[POINT_A] =  &obj->point_a;
 		stk[POINT_B] =  &obj->point_b;
