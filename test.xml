@@ -1,5 +1,13 @@
 <scene>
 	<ambient>54564</ambient>
+	<paraboloid>
+		<position>10 30 60</position>
+		<color>123456789</color>
+		<distance>45</distance>
+		<translation>10 30 60</translation>
+		<rotation>10 30 60</rotation>
+		<orientation>10 30 60</orientation>
+	</paraboloid>
 	<camera>
 		<origin> 	30 60 21</origin>
 		<fov>455</fov>

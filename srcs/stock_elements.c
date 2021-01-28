@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:21:43 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/28 14:43:29 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/28 18:32:28 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int					stock_elements(char *str, t_tags tags, int *i, t_rt *rt)
 	if (!ft_strcmp("</scene>", elem))
 	{
 		ft_strdel(&elem);
-		if (str[*i] || !rt->cameras || !rt->lights)
+		if (str[*i] || !rt->cameras || !rt->lights || rt->ambient_exist == false)
 			return (0);
 		return (1);
 	}
