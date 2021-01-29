@@ -6,13 +6,13 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 03:56:52 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/28 18:42:18 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/29 16:51:57 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/rt.h"
 
-int			len_tab_2d(char **tab)
+int				len_tab_2d(char **tab)
 {
 	int i;
 
@@ -22,7 +22,7 @@ int			len_tab_2d(char **tab)
 	return (i);
 }
 
-void		free_tab2(char ***tab, int l)
+void			free_tab2(char ***tab, int l)
 {
 	int		i;
 	char	**t;
@@ -38,7 +38,6 @@ void		free_tab2(char ***tab, int l)
 	free(t);
 	t = NULL;
 }
-
 
 int				stock_vect3(t_vect3 *r, char *str)
 {
@@ -78,8 +77,8 @@ int				stock_rpa(double *dst, char *str)
 	return (1);
 }
 
- static int  in_base(char c)
- {
+static int		in_base(char c)
+{
 	char	*lo_base;
 	char	*up_base;
 	int		i;
@@ -99,14 +98,15 @@ int				stock_rpa(double *dst, char *str)
 	else
 		i = -1;
 	return (i);
- }
+}
 
 int				rgb_to_int(t_color v)
 {
-	return ((((int)v.x & 0xff) << 16) | (((int)v.y & 0xff) << 8) | ((int)v.z & 0xff));
+	return ((((int)v.x & 0xff) << 16) |\
+			(((int)v.y & 0xff) << 8) | ((int)v.z & 0xff));
 }
 
-int		is_hex(char *value)
+int				is_hex(char *value)
 {
 	int	len;
 
@@ -116,6 +116,7 @@ int		is_hex(char *value)
 		return (1);
 	return (0);
 }
+
 int			to_rgb(t_color *co, int c)
 {
 	co->x = (c >> 16) & 255;
@@ -124,7 +125,7 @@ int			to_rgb(t_color *co, int c)
 	return (1);
 }
 
-int	read_color(t_color *c, char *data)
+int				read_color(t_color *c, char *data)
 {
 	int		color;
 	int		i;
@@ -138,7 +139,7 @@ int	read_color(t_color *c, char *data)
 	i = hex ? 1 : -1;
 	while (data && data[++i])
 	{
-		if	((digit = in_base(data[i])) < 0)
+		if ((digit = in_base(data[i])) < 0)
 			return (0);
 		color = color * (hex ? 16 : 10) + digit;
 	}

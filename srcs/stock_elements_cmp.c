@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:49:45 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/28 17:42:12 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/29 18:06:06 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int						stock_elements_cmp(char *s, t_tags tags, t_node n, int *i, void *obje)
 
 	white_space(s, i);
 	if (!(comp = get_tag(&s[*i], i)))
-		return (-1);/*protect*/
+		return (-1);
 	if (!ft_strcmp(comp, tags.elements_c[n.type]))
 		return (return_val(n, comp));
 	if ((r = check_openning_elem(comp, tags.components_o)) < 0)
@@ -79,7 +79,8 @@ int						stock_elements_cmp(char *s, t_tags tags, t_node n, int *i, void *obje)
 		return (return_val(n, comp));
 	valid_cmp(&n, r);
 	ft_strdel(&comp);
-	if ((!(content = inner_text(&s[*i], i))) || (stock_cmp(&obje, content, r, n.type)) < 0)
+	if ((!(content = inner_text(&s[*i], i))) ||\
+			(stock_cmp(&obje, content, r, n.type)) < 0)
 	{
 		if (content)
 			free(content);
@@ -90,6 +91,3 @@ int						stock_elements_cmp(char *s, t_tags tags, t_node n, int *i, void *obje)
 		return (-1);
 	return (stock_elements_cmp(s, tags, n, i, obje));
 }
-
-
-

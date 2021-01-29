@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 12:36:20 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/24 12:39:20 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/29 16:36:47 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static	void			valid_forlight(t_node *n, int type)
 		n->lit.color = true;
 }
 
-static void			valid_forobjects(t_node *n, int type)
+static void				valid_forobjects(t_node *n, int type)
 {
 	if (n->type == SPHERE)
 		valid_cmp_for_sphere(n, type);
@@ -56,7 +56,7 @@ static void			valid_forobjects(t_node *n, int type)
 		valid_cmp_for_torus(n, type);
 }
 
-void			valid_cmp(t_node *n, int type)
+void					valid_cmp(t_node *n, int type)
 {
 	if (n->type == CAMERA)
 		valid_forcam(n, type);

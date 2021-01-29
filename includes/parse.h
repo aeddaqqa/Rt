@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:14:56 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/28 17:45:53 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/29 18:08:36 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,12 @@ typedef struct	s_node
 	t_ccomponent		cam;
 	t_lcomponent		lit;
 }				t_node;
+
+typedef struct	s_helper
+{
+	int					*i;
+	char				*str;
+}				t_helper;
 
 /*
 ** ------------------------------{Stock}-------------------------

@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 03:37:25 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/28 18:42:53 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/29 16:54:18 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int		stock_cmp_cam(void **object, char *str, int r)
 	}
 	else if (r == FOV)
 	{
-		if (stock_rpa(&cam->fov ,str) < 0)
+		if (stock_rpa(&cam->fov, str) < 0)
 			return (-1);
 	}
 	return (1);
@@ -69,30 +69,29 @@ static	int		stock_cmp_light(void **object, char *str, int r)
 	}
 	else if (r == INTENSITY)
 	{
-		if (stock_rpa(&light->intensity , str) < 0)
+		if (stock_rpa(&light->intensity, str) < 0)
 			return (-1);
 	}
 	return (1);
 }
-
 
 int				stock_cmp_objects(void **object, int r, char *str)
 {
 	t_object	*obj;
 	double		*rpa[6];
 	t_vect3		*stk[11];
-	
+
 	obj = (t_object*)*object;
-	stk[POSITION] =  &obj->position;
-	stk[POINT_A] =  &obj->point_a;
-	stk[POINT_B] =  &obj->point_b;
-	stk[POINT_C] =  &obj->point_c;
-	stk[POINT_D] =  &obj->point_d;
-	stk[CORNER_A] =  &obj->corner[0];
-	stk[CORNER_B] =  &obj->corner[1];
-	stk[ORIENTATION] =  &obj->orientation;
-	stk[ROTATION] =  &obj->rotation;
-	stk[TRANSLATION] =  &obj->translation;
+	stk[POSITION] = &obj->position;
+	stk[POINT_A] = &obj->point_a;
+	stk[POINT_B] = &obj->point_b;
+	stk[POINT_C] = &obj->point_c;
+	stk[POINT_D] = &obj->point_d;
+	stk[CORNER_A] = &obj->corner[0];
+	stk[CORNER_B] = &obj->corner[1];
+	stk[ORIENTATION] = &obj->orientation;
+	stk[ROTATION] = &obj->rotation;
+	stk[TRANSLATION] = &obj->translation;
 	rpa[ANGLE - 11] = &obj->angle;
 	rpa[RADIUS - 11] = &obj->radius;
 	rpa[RADIUS_1 - 11] = &obj->radius1;
@@ -107,9 +106,9 @@ int				stock_cmp_objects(void **object, int r, char *str)
 	else
 		return (read_color(&obj->color, str));
 }
+
 int				stock_cmp(void **object, char *str, int r, int type)
 {
-
 	if (type == CAMERA)
 		return (stock_cmp_cam(object, str, r));
 	else if (type == LIGHT)

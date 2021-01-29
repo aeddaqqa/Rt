@@ -9,7 +9,7 @@
 		<orientation>10 30 60</orientation>
 	</paraboloid>
 	<camera>
-		<origin> 	30 60 21</origin>
+		<origin> 23	 60 21</origin>
 		<fov>455</fov>
 		<look-at>10 30 60</look-at>
 	</camera>

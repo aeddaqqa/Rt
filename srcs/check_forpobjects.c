@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 17:09:24 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/24 17:15:00 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/29 16:48:29 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		check_for_sphere(int type, t_node n)
 {
-	if (type != POSITION && type != COLOR && type != RADIUS && type != ROTATION
+	if (type != POSITION && type != COLOR && type != RADIUS && type != ROTATION\
 		&& type != TRANSLATION)
 		return (-1);
 	if (type == POSITION && n.cmp.position == true)
@@ -32,7 +32,7 @@ int		check_for_sphere(int type, t_node n)
 
 int		check_for_plane(int type, t_node n)
 {
-	if (type != POSITION && type != ORIENTATION && type != ROTATION
+	if (type != POSITION && type != ORIENTATION && type != ROTATION\
 		&& type != TRANSLATION && type != COLOR)
 		return (-1);
 	if (type == POSITION && n.cmp.position == true)
@@ -50,8 +50,9 @@ int		check_for_plane(int type, t_node n)
 
 int		check_for_cone(int type, t_node n)
 {
-	if (type != POSITION && type != ORIENTATION && type != ROTATION
-		&& type != TRANSLATION && type != COLOR && type != HEIGHT && type != ANGLE)
+	if (type != POSITION && type != ORIENTATION && type != ROTATION\
+		&& type != TRANSLATION && type != COLOR && type != HEIGHT\
+		&& type != ANGLE)
 		return (-1);
 	if (type == POSITION && n.cmp.position == true)
 		return (-1);
@@ -72,8 +73,9 @@ int		check_for_cone(int type, t_node n)
 
 int		check_for_cylinder(int type, t_node n)
 {
-	if (type != POSITION && type != ORIENTATION && type != ROTATION
-		&& type != TRANSLATION && type != COLOR && type != HEIGHT && type != RADIUS)
+	if (type != POSITION && type != ORIENTATION && type != ROTATION\
+		&& type != TRANSLATION && type != COLOR &&\
+		type != HEIGHT && type != RADIUS)
 		return (-1);
 	if (type == POSITION && n.cmp.position == true)
 		return (-1);

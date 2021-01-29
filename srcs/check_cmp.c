@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:54:16 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/24 17:17:40 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/29 16:32:36 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,25 +57,25 @@ static int		check_cmp_exist_forcam(t_node n, int type)
 static int		check_cmp_exist_forobj(t_node n, int type)
 {
 	if (n.type == SPHERE)
-		return(check_for_sphere(type, n));
+		return (check_for_sphere(type, n));
 	else if (n.type == PLANE)
-		return(check_for_plane(type,n));
+		return (check_for_plane(type, n));
 	else if (n.type == CONE)
-		return(check_for_cone(type,n));
+		return (check_for_cone(type, n));
 	else if (n.type == CYLINDER)
-		return(check_for_cylinder(type,n));
+		return (check_for_cylinder(type, n));
 	else if (n.type == ELLIPSOID)
-		return(check_for_ellipsoid(type,n));
+		return (check_for_ellipsoid(type, n));
 	else if (n.type == PARABOLOID)
-		return(check_for_paraboloid(type,n));
+		return (check_for_paraboloid(type, n));
 	else if (n.type == TRIANGLE)
-		return(check_for_triangle(type,n));
+		return (check_for_triangle(type, n));
 	else if (n.type == BOX)
-		return(check_for_box(type,n));
+		return (check_for_box(type, n));
 	else if (n.type == PARALLELOGRAM)
-		return(check_for_parallelogram(type,n));
+		return (check_for_parallelogram(type, n));
 	else if (n.type == TORUS)
-		return(check_for_torus(type,n));
+		return (check_for_torus(type, n));
 	return (1);
 }
 
