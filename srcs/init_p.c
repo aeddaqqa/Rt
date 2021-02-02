@@ -6,13 +6,13 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 01:42:30 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/29 17:14:30 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/02 15:16:05 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/rt.h"
 
-t_rt		*init_rt(bool save)
+t_rt						*init_rt(bool save)
 {
 	t_rt	*new;
 

@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:21:43 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/29 18:06:29 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/02 15:33:45 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int					stock_ambient(char *str, t_tags tags, t_rt *rt)
 	return (j);
 }
 
-
 int					end_scene(char *str, int i, char **el, t_rt *rt)
 {
 	char *elem;
@@ -60,10 +59,10 @@ int					end_scene(char *str, int i, char **el, t_rt *rt)
 	return (1);
 }
 
-static int					stock_elem_amb(t_node n, char *str, int *i, t_tags tags, t_rt *rt)
+static int			stock_elem_amb(t_node n, char *str, int *i, t_tags tags, t_rt *rt)
 {
-	int r;
-	t_object *obj;
+	int			r;
+	t_object	*obj;
 
 	if (n.type == AMBIENT)
 	{
