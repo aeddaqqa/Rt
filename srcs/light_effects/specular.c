@@ -1,50 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   define.h                                           :+:      :+:    :+:   */
+/*   specular.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 11:46:46 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/28 17:55:00 by nabouzah         ###   ########.fr       */
+/*   Created: 2021/01/30 19:14:45 by nabouzah          #+#    #+#             */
+/*   Updated: 2021/01/30 19:14:47 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFINE_H
-# define DEFINE_H
-
-/*
-**				Error-gen
-*/
-
-#define W 800
-#define H 800
-
-typedef enum	e_error
+t_color			specular(t_light *l, t_ray *ray, t_obj *object)
 {
-	FLAG_SAVE,
-	OPEN_FILE,
-	EMPTY_FILE,
-	MALLOC_ERROR,
-	SCENE_NOT_FOUND,
-	SYNTAX_ERROR
-}				t_error;
+	t_color			color;
+	t_vector		h;
+	unsigned int	alpha;
+	double			dot;
 
-typedef	enum	e_type
-{
-	PLANE,
-	SPHERE,
-	CYLINDER,
-	CONE,
-	CAMERA,
-	LIGHT,
-	ELLIPSOID,
-	PARABOLOID,
-	TRIANGLE,
-	BOX,
-	PARALLELOGRAM,
-	TORUS,
-	AMBIENT
-}				t_type;
-
-#endif
+	color = (t_color){0.0, 0.0, 0.0};
+	alpha = 300;
+	h = normalize(vect_sub(l->dir, ray->direction));
+	if ((dot = dot(object->normal, h)) <= 0)
+		return (color);
+	dot = powf(dot, alpha);
+	color = fraction(l->color, dot * l->intensity);
+	return (color);
+}

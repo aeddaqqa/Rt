@@ -1,50 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   define.h                                           :+:      :+:    :+:   */
+/*   normal_cone.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 11:46:46 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/28 17:55:00 by nabouzah         ###   ########.fr       */
+/*   Created: 2021/01/25 15:28:26 by nabouzah          #+#    #+#             */
+/*   Updated: 2021/01/27 19:17:48 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFINE_H
-# define DEFINE_H
+#include "../../includes/rt.h"
 
-/*
-**				Error-gen
-*/
-
-#define W 800
-#define H 800
-
-typedef enum	e_error
+t_vect3		ft_cone_normal(t_object *cone, t_vect3 p)
 {
-	FLAG_SAVE,
-	OPEN_FILE,
-	EMPTY_FILE,
-	MALLOC_ERROR,
-	SCENE_NOT_FOUND,
-	SYNTAX_ERROR
-}				t_error;
-
-typedef	enum	e_type
-{
-	PLANE,
-	SPHERE,
-	CYLINDER,
-	CONE,
-	CAMERA,
-	LIGHT,
-	ELLIPSOID,
-	PARABOLOID,
-	TRIANGLE,
-	BOX,
-	PARALLELOGRAM,
-	TORUS,
-	AMBIENT
-}				t_type;
-
-#endif
+	p = v_c_prod(p, 1.0 / cone->angle);
+	return (ft_vector(p.x, 0.001, p.z));
+}

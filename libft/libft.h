@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 22:02:27 by nabouzah          #+#    #+#             */
-/*   Updated: 2020/11/26 01:12:14 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/01/30 16:33:05 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
-# include <stdio.h>
-# include <fcntl.h>
 # define BUFF_SIZE 300
 
 typedef struct	s_list

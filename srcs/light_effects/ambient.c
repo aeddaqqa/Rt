@@ -1,50 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   define.h                                           :+:      :+:    :+:   */
+/*   ambient.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 11:46:46 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/28 17:55:00 by nabouzah         ###   ########.fr       */
+/*   Created: 2021/01/30 19:15:33 by nabouzah          #+#    #+#             */
+/*   Updated: 2021/01/30 19:17:53 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFINE_H
-# define DEFINE_H
-
-/*
-**				Error-gen
-*/
-
-#define W 800
-#define H 800
-
-typedef enum	e_error
+t_color			ambient(t_object *obj, t_rt rt)
 {
-	FLAG_SAVE,
-	OPEN_FILE,
-	EMPTY_FILE,
-	MALLOC_ERROR,
-	SCENE_NOT_FOUND,
-	SYNTAX_ERROR
-}				t_error;
+	t_color		color;
 
-typedef	enum	e_type
-{
-	PLANE,
-	SPHERE,
-	CYLINDER,
-	CONE,
-	CAMERA,
-	LIGHT,
-	ELLIPSOID,
-	PARABOLOID,
-	TRIANGLE,
-	BOX,
-	PARALLELOGRAM,
-	TORUS,
-	AMBIENT
-}				t_type;
-
-#endif
+	color = v_c_prod((t_color){1.0, 1.0, 1.0}, rt->ambient);
+	color = vect_prod(color, obj->color);
+	return (color);
+}

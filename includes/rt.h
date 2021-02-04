@@ -3,23 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   rt.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 20:15:10 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/03 16:44:06 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/01/30 18:38:22 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RT_H
 # define RT_H
 
-# include <stdbool.h>
-# include "functions.h"
 # include <dirent.h>
+# include <stdio.h>
+# include <fcntl.h>
+# include <stdbool.h>
 # include <math.h>
+# include "mlx.h"
 # include "../libft/libft.h"
-# include "define.h"
-# include "struct.h"
-# include "parse.h"
-
+# include "./define.h"
+# include "./struct.h"
+# include "./functions.h"
+// # include "./parser/struct.h"
 #endif

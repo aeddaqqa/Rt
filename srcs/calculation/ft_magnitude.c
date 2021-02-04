@@ -1,50 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   define.h                                           :+:      :+:    :+:   */
+/*   ft_magnitude.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 11:46:46 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/28 17:55:00 by nabouzah         ###   ########.fr       */
+/*   Created: 2020/01/18 19:52:30 by ahkhilad          #+#    #+#             */
+/*   Updated: 2021/01/27 18:56:29 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFINE_H
-# define DEFINE_H
+#include "../../includes/rt.h"
 
-/*
-**				Error-gen
-*/
-
-#define W 800
-#define H 800
-
-typedef enum	e_error
+double		ft_magnitude(t_vect3 v)
 {
-	FLAG_SAVE,
-	OPEN_FILE,
-	EMPTY_FILE,
-	MALLOC_ERROR,
-	SCENE_NOT_FOUND,
-	SYNTAX_ERROR
-}				t_error;
+	t_vect3	c;
 
-typedef	enum	e_type
-{
-	PLANE,
-	SPHERE,
-	CYLINDER,
-	CONE,
-	CAMERA,
-	LIGHT,
-	ELLIPSOID,
-	PARABOLOID,
-	TRIANGLE,
-	BOX,
-	PARALLELOGRAM,
-	TORUS,
-	AMBIENT
-}				t_type;
-
-#endif
+	c.x = v.x * v.x;
+	c.y = v.y * v.y;
+	c.z = v.z * v.z;
+	return (sqrt(c.x + c.y + c.z));
+}

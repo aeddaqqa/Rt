@@ -1,50 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   define.h                                           :+:      :+:    :+:   */
+/*   normal_triangle.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 11:46:46 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/28 17:55:00 by nabouzah         ###   ########.fr       */
+/*   Created: 2021/01/28 17:20:21 by nabouzah          #+#    #+#             */
+/*   Updated: 2021/01/28 17:36:11 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFINE_H
-# define DEFINE_H
+#include "../../includes/rt.h"
 
-/*
-**				Error-gen
-*/
-
-#define W 800
-#define H 800
-
-typedef enum	e_error
+void		ft_computing_triangle_normal(t_hit *hit)
 {
-	FLAG_SAVE,
-	OPEN_FILE,
-	EMPTY_FILE,
-	MALLOC_ERROR,
-	SCENE_NOT_FOUND,
-	SYNTAX_ERROR
-}				t_error;
+	t_vect3	ca;
+	t_vect3	ba;
 
-typedef	enum	e_type
-{
-	PLANE,
-	SPHERE,
-	CYLINDER,
-	CONE,
-	CAMERA,
-	LIGHT,
-	ELLIPSOID,
-	PARABOLOID,
-	TRIANGLE,
-	BOX,
-	PARALLELOGRAM,
-	TORUS,
-	AMBIENT
-}				t_type;
-
-#endif
+	ca = vect_sub(hit->object->point_c, hit->object->point_a);
+	ba = vect_sub(hit->object->point_b, hit->object->point_a);
+	hit->n = normalize(cross(ba, ca));
+}

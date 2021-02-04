@@ -3,80 +3,76 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+         #
+#    By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/11/16 20:16:38 by aeddaqqa          #+#    #+#              #
-#    Updated: 2021/02/03 16:35:35 by chzabakh         ###   ########.fr        #
+#    Created: Invalid date        by                   #+#    #+#              #
+#    Updated: 2021/01/30 18:52:37 by nabouzah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = rt
 
-CC = gcc
+NAME= RT
+LIBFT = libft/libft.a
 
-CFLAGS = -Wall -Wextra -Werror
+LIBPARSEDIR = srcs/parser
+LIBPARSE = $(LIBPARSEDIR)/libparse.a
 
-INC = includes/rt.h
+LIBCALCDIR = srcs/calculation
+LIBCALC = $(LIBCALCDIR)/libcalculation.a
 
-OBJ = srcs/main.o srcs/load_file.o srcs/free_parse.o srcs/error_managment.o\
-srcs/init_p.o srcs/main_pxml.o srcs/init_s.o srcs/stock_elements.o\
-srcs/utilfunc.o srcs/utilfunc2.o srcs/utilfunctions.o srcs/stock_elements_cmp.o srcs/check_cmp.o\
-srcs/inner_text.o srcs/get_cmp.o srcs/valid_cmp_fpart.o srcs/valid_principal_objects.o\
-srcs/valid_complex_objects.o srcs/valid_all_cmp_pobjects.o srcs/valid_all_cmp_cobjects.o\
-srcs/check_forpobjects.o srcs/check_forcobjects.o srcs/read_cmp.o
+LIBNORMALDIR = srcs/normals
+LIBNORMAL = $(LIBNORMALDIR)/libnormals.a
 
-LIB = libft/libft.a
+LIBINTERSECTDIR = srcs/intersections
+LIBINTERSECT = $(LIBINTERSECTDIR)/libintersection.a
 
-LIBOBJ	=	libft/ft_atoi.o libft/ft_itoa.o\
-			libft/ft_memalloc.o libft/ft_putchar.o\
-			libft/ft_putstr_fd.o libft/ft_strdup.o\
-			libft/ft_strmap.o libft/ft_strpbrk.o\
-			libft/ft_bzero.o libft/ft_lst_size.o\
-			libft/ft_memccpy.o libft/ft_putchar_fd.o\
-			libft/ft_strcat.o libft/ft_strequ.o\
-			libft/ft_strmapi.o libft/ft_strrchr.o\
-			libft/ft_isalnum.o libft/ft_lstadd.o\
-			libft/ft_memchr.o libft/ft_putendl.o\
-			libft/ft_strchr.o libft/ft_striter.o\
-			libft/ft_strncat.o libft/ft_strsplit.o\
-			libft/ft_isalpha.o libft/ft_lstdel.o\
-			libft/ft_memcmp.o libft/ft_putendl_fd.o\
-			libft/ft_strclr.o libft/ft_striteri.o\
-			libft/ft_strncmp.o libft/ft_strstr.o libft/ft_isascii.o\
-			libft/ft_lstdelone.o libft/ft_memcpy.o libft/ft_putlst.o\
-			libft/ft_strcmp.o libft/ft_strjoin.o libft/ft_strncpy.o\
-			libft/ft_strsub.o libft/ft_isdigit.o libft/ft_lstiter.o\
-			libft/ft_memdel.o libft/ft_putnbr.o libft/ft_strcpy.o\
-			libft/ft_strlcat.o libft/ft_strnequ.o libft/ft_strtrim.o\
-			libft/ft_isgraph.o libft/ft_lstmap.o libft/ft_memmove.o\
-			libft/ft_putnbr_fd.o libft/ft_strcspn.o libft/ft_strlcpy.o\
-			libft/ft_strnew.o libft/ft_tolower.o libft/ft_isprint.o\
-			libft/ft_lstnew.o libft/ft_memset.o libft/ft_putstr.o\
-			libft/ft_strdel.o libft/ft_strlen.o libft/ft_strnstr.o\
-			libft/ft_toupper.o libft/get_next_line.o
+FLAGS= -Wall -Wextra -Werror
+OBJDIR = objs
+SRCDIR = srcs
+OBJ= objs/main.o objs/new_ray.o
+SRC= srcs/main.c
+INC= includes/
 
-all : $(LIB) $(NAME)
+all : Lib $(NAME)
 
-%.o : %.c $(INC)
-	$(CC) $(CFLAGS) $(LIBE) -c -o $@ $<
-$(NAME) : $(OBJ)
-	$(CC) -o $@ $^ -I $(INC) $(LIB) $(FRM)
-
-$(LIB) : $(LIBOBJ)
-	@make -C libft/
+$(OBJDIR)/%.o : $(SRCDIR)/%.c $(INC)
+	gcc $(FLAGS) -c -o $@ $< -I $(INC)
+	
+$(NAME) : $(LIBFT) $(LIBPARSE) $(LIBCALC) $(LIBNORMAL) $(LIBINTERSECT) $(OBJ)
+	@gcc -o $@ $^ -lmlx -framework OpenGL -framework AppKit\
+		-I $(INC)
 	@printf "\033[0;32m"
-	@printf "LIBFT.a CREATED\n"
+	@printf "DONE COMPILING\n"
 	@printf "\033[0m"
 
+Lib :
+	@mkdir $(OBJDIR) 2> /dev/null || true
+	@make -C libft/
+	@make -C $(LIBPARSEDIR)/
+	@make -C $(LIBCALCDIR)/
+	@make -C $(LIBNORMALDIR)/
+	@make -C $(LIBINTERSECTDIR)/
+
 clean :
-	@echo "\033[2;32m"
-	@rm -rf $(OBJ)   2> /dev/null || true
-	@echo "Rt: all resources deleted"
-	@echo "\033[0m"
-fclean : clean 
-	@echo "\033[2;34m"
-	@rm -f $(NAME)  2> /dev/null || true
-	@echo "DONE CLEANING\n"
-	@echo "\033[0m"
-	
-re: fclean all
+	@rm -rf $(OBJDIR)
+	@make -C libft/ clean
+	@make -C $(LIBPARSEDIR)/ clean
+	@make -C $(LIBCALCDIR)/ clean
+	@make -C $(LIBNORMALDIR)/ clean
+	@make -C $(LIBINTERSECTDIR)/ clean
+	@printf "\033[0;32m"
+	@printf "OBJ REMOVED\n"
+	@printf "\033[0m"
+
+fclean : clean
+	@rm -f $(NAME)
+	@make -C libft/ fclean
+	@make -C $(LIBPARSEDIR)/ fclean
+	@make -C $(LIBCALCDIR)/ fclean
+	@make -C $(LIBNORMALDIR)/ fclean
+	@make -C $(LIBINTERSECTDIR)/ fclean
+	@printf "\033[0;32m"
+	@printf "DONE CLEANING\n"
+	@printf "\033[0m"
+
+re : fclean all
