@@ -2,7 +2,7 @@
 	<ambient>54564</ambient>
 	<sphere>
 		<position>10 30 60</position>
-		<radius>10</radius>
+		<radius>20</radius>
 		<translation>10 30 60</translation>
 		<rotation>10 30 60</rotation>
 		<color>1256789</color>

@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 14:58:17 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/02 15:29:14 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/02 16:55:11 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ int						stock_vect3(t_vect3 *r, char *str)
 	double	d[3];
 
 	i = 0;
-	split = ft_strsplit(str, ' ');
-	if (!split)
+	if (!(split = ft_strsplit(str, ' ')))
 	{
 		free_tab2(&split, len_tab_2d(split));
 		return (-1);
@@ -38,9 +37,7 @@ int						stock_vect3(t_vect3 *r, char *str)
 	free_tab2(&split, len_tab_2d(split));
 	if (i != 3)
 		return (-1);
-	r->x = d[0];
-	r->y = d[1];
-	r->z = d[2];
+	*r = (t_vect3){d[0], d[1], d[2]};
 	return (1);
 }
 

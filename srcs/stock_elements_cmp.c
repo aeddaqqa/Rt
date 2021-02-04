@@ -6,13 +6,13 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:49:45 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/29 18:06:06 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/03 15:58:37 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/rt.h"
 
-static	int				all_cmp_validforobjects(t_node n)
+int		all_cmp_validforobjects(t_node n)
 {
 	if (n.type == SPHERE)
 		return (all_cmp_valid_for_sphere(n));
@@ -37,7 +37,7 @@ static	int				all_cmp_validforobjects(t_node n)
 	return (-1);
 }
 
-static	int				all_cmp_valid(t_node n)
+int		all_cmp_valid(t_node n)
 {
 	if (n.type == CAMERA)
 	{
@@ -56,13 +56,20 @@ static	int				all_cmp_valid(t_node n)
 	return (1);
 }
 
-static int				return_val(t_node n, char *comp)
+int		return_val(t_node n, char *comp)
 {
 	ft_strdel(&comp);
 	return (all_cmp_valid(n));
 }
 
-int						stock_elements_cmp(char *s, t_tags tags, t_node n, int *i, void *obje)
+int		content_norm(char *content)
+{
+	if (content)
+		free(content);
+	return (-1);
+}
+
+int		stock_elements_cmp(char *s, t_tags tags, t_rt *rt, int *i)
 {
 	int			r;
 	char		*comp;
@@ -71,23 +78,19 @@ int						stock_elements_cmp(char *s, t_tags tags, t_node n, int *i, void *obje)
 	white_space(s, i);
 	if (!(comp = get_tag(&s[*i], i)))
 		return (-1);
-	if (!ft_strcmp(comp, tags.elements_c[n.type]))
-		return (return_val(n, comp));
+	if (!ft_strcmp(comp, tags.elements_c[rt->node.type]))
+		return (return_val(rt->node, comp));
 	if ((r = check_openning_elem(comp, tags.components_o)) < 0)
-		return (return_val(n, comp));
-	if ((check_components_exist(n, r)) == -1)
-		return (return_val(n, comp));
-	valid_cmp(&n, r);
+		return (return_val(rt->node, comp));
+	if ((check_components_exist(rt->node, r)) == -1)
+		return (return_val(rt->node, comp));
+	valid_cmp(&rt->node, r);
 	ft_strdel(&comp);
 	if ((!(content = inner_text(&s[*i], i))) ||\
-			(stock_cmp(&obje, content, r, n.type)) < 0)
-	{
-		if (content)
-			free(content);
-		return (-1);
-	}
+			(stock_cmp((void*)&rt->obj, content, r, rt->node.type)) < 0)
+		return (content_norm(content));
 	free(content);
 	if (check_closing_elem(&s[*i], r, tags.components_c, i) < 0)
 		return (-1);
-	return (stock_elements_cmp(s, tags, n, i, obje));
+	return (stock_elements_cmp(s, tags, rt, i));
 }

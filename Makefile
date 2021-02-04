@@ -6,7 +6,7 @@
 #    By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/16 20:16:38 by aeddaqqa          #+#    #+#              #
-#    Updated: 2021/02/02 14:59:58 by aeddaqqa         ###   ########.fr        #
+#    Updated: 2021/02/03 16:35:35 by chzabakh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ INC = includes/rt.h
 
 OBJ = srcs/main.o srcs/load_file.o srcs/free_parse.o srcs/error_managment.o\
 srcs/init_p.o srcs/main_pxml.o srcs/init_s.o srcs/stock_elements.o\
-srcs/utilfunc.o srcs/utilfunctions.o srcs/stock_elements_cmp.o srcs/check_cmp.o\
+srcs/utilfunc.o srcs/utilfunc2.o srcs/utilfunctions.o srcs/stock_elements_cmp.o srcs/check_cmp.o\
 srcs/inner_text.o srcs/get_cmp.o srcs/valid_cmp_fpart.o srcs/valid_principal_objects.o\
 srcs/valid_complex_objects.o srcs/valid_all_cmp_pobjects.o srcs/valid_all_cmp_cobjects.o\
 srcs/check_forpobjects.o srcs/check_forcobjects.o srcs/read_cmp.o

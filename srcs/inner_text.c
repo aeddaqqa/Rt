@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 03:37:25 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/29 16:54:18 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/02 16:48:59 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,11 @@ static	int		stock_cmp_light(void **object, char *str, int r)
 	return (1);
 }
 
-int				stock_cmp_objects(void **object, int r, char *str)
+int				stock_cmp_objects(t_object *obj, int r, char *str)
 {
-	t_object	*obj;
 	double		*rpa[6];
-	t_vect3		*stk[11];
+	t_vect3		*stk[10];
 
-	obj = (t_object*)*object;
 	stk[POSITION] = &obj->position;
 	stk[POINT_A] = &obj->point_a;
 	stk[POINT_B] = &obj->point_b;
@@ -98,7 +96,6 @@ int				stock_cmp_objects(void **object, int r, char *str)
 	rpa[RADIUS_2 - 11] = &obj->radius2;
 	rpa[HEIGHT - 11] = &obj->height;
 	rpa[DISTANCE - 11] = &obj->dist;
-	stk[10] = NULL;
 	if (r < 10)
 		return (stock_vect3(stk[r], str));
 	else if (r > 10)
@@ -109,11 +106,16 @@ int				stock_cmp_objects(void **object, int r, char *str)
 
 int				stock_cmp(void **object, char *str, int r, int type)
 {
+	t_object *obj;
+
 	if (type == CAMERA)
 		return (stock_cmp_cam(object, str, r));
 	else if (type == LIGHT)
 		return (stock_cmp_light(object, str, r));
 	else
-		return (stock_cmp_objects(object, r, str));
+	{
+		obj = (t_object*)*object;
+		return (stock_cmp_objects(obj, r, str));
+	}
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:14:56 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/29 18:08:36 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/03 16:41:19 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 **-----------------------------{structers}---------------------
 */
 
-#define LIMIT_CMP 21
-#define LIMIT_ELEMENTS 13
+# define LIMIT_CMP 21
+# define LIMIT_ELEMENTS 13
 
 typedef	enum	e_types_cmp
 {
@@ -53,49 +53,6 @@ typedef struct	s_name_tags
 	char		*components_o[LIMIT_CMP];
 }				t_tags;
 
-typedef struct	s_ocomponent
-{
-	bool	position;
-	bool	color;
-	bool	orientation;
-	bool	translation;
-	bool	rotation;
-	bool	radius;
-	bool	angle;
-	bool	height;
-	bool	dist;
-	bool	radius1;
-	bool	radius2;
-	bool	point_a;
-	bool	point_b;
-	bool	point_c;
-	bool	point_d;
-	bool	corner_a;
-	bool	corner_b;
-}				t_ocomponent;
-
-typedef struct	s_lcomponent
-{
-	bool	position;
-	bool	color;
-	bool	intensity;
-}				t_lcomponent;
-
-typedef struct	s_ccomponent
-{
-	bool	origin;
-	bool	look_at;
-	bool	fov;
-}				t_ccomponent;
-
-typedef struct	s_node
-{
-	int					type;
-	t_ocomponent		cmp;
-	t_ccomponent		cam;
-	t_lcomponent		lit;
-}				t_node;
-
 typedef struct	s_helper
 {
 	int					*i;
@@ -109,7 +66,7 @@ char			*load_file(char *path);
 char			*get_tag(char *s, int *i);
 char			*inner_text(char *s, int *j);
 int				white_space(char *s, int *i);
-int				stock_elements_cmp(char *s, t_tags tags, t_node n, int *i, void *obje);
+int				stock_elements_cmp(char *s, t_tags tags, t_rt *rt, int *i);
 int				parse(char *file, t_rt *rt);
 int				stock_cmp(void **object, char *str, int r, int type);
 int				stock_elements(char *str, t_tags tags, int *i, t_rt *rt);
@@ -176,6 +133,7 @@ int				check_for_triangle(int type, t_node n);
 
 void			add_front(t_rt **head, void *new, int type);
 void			*new_object(int type);
+void			new_objects2(t_object *n_obj);
 int				rgb_to_int(t_color v);
 int				to_rgb(t_color *co, int c);
 int				read_color(t_color *c, char *data);
@@ -183,8 +141,6 @@ int				stock_rpa(double *dst, char *str);
 int				stock_vect3(t_vect3 *r, char *str);
 void			free_tab2(char ***tab, int l);
 int				len_tab_2d(char **tab);
-
-
 /*
 **{--------------------------------------------------------------}
 */

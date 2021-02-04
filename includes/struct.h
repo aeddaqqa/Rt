@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/25 16:24:37 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/03 16:43:34 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ typedef struct		s_object
 
 typedef struct		s_rt
 {
+	t_node			node;
+	t_object		*obj;
 	bool			save;
 	t_object		*objects;
 	t_cam			*cameras;

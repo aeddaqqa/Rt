@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:46:46 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/24 10:58:04 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/03 16:40:14 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 **				Error-gen
 */
 
-#define W 800
-#define H 800
+# define W 800
+# define H 800
 
 typedef enum	e_error
 {
