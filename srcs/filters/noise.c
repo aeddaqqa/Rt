@@ -6,11 +6,11 @@
 /*   By: chzabakh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 14:22:11 by chzabakh          #+#    #+#             */
-/*   Updated: 2020/12/26 18:30:44 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/02/08 16:46:13 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "image.h"
+#include "../../includes/rt.h"
 
 void	greycalc(int *grey, int *noi)
 {

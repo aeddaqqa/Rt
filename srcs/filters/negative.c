@@ -6,11 +6,11 @@
 /*   By: chzabakh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 14:24:26 by chzabakh          #+#    #+#             */
-/*   Updated: 2020/12/26 17:58:29 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/02/08 16:45:31 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "image.h"
+#include "../../includes/rt.h"
 
 void	img_neg(int *img)
 {

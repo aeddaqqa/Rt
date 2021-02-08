@@ -6,11 +6,11 @@
 /*   By: chzabakh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 17:09:12 by chzabakh          #+#    #+#             */
-/*   Updated: 2021/01/12 17:19:49 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/02/08 16:45:20 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "image.h"
+#include "../../includes/rt.h"
 
 void		sharp(int *img)
 {

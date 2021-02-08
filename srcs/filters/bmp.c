@@ -6,11 +6,11 @@
 /*   By: chzabakh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 15:46:42 by chzabakh          #+#    #+#             */
-/*   Updated: 2020/12/28 16:10:32 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/02/08 16:45:52 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "image.h"
+#include "../../includes/rt.h"
 
 void	image_header(t_image *image, int file)
 {

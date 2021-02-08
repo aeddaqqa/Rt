@@ -6,11 +6,11 @@
 /*   By: chzabakh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 15:17:59 by chzabakh          #+#    #+#             */
-/*   Updated: 2021/01/27 16:28:35 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/02/08 16:46:23 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "image.h"
+#include "../../includes/rt.h"
 
 void	img_red(int *red, int *img)
 {

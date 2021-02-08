@@ -6,11 +6,11 @@
 /*   By: chzabakh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 15:12:57 by chzabakh          #+#    #+#             */
-/*   Updated: 2020/12/26 18:34:22 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/02/08 16:45:42 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "image.h"
+#include "../../includes/rt.h"
 
 void	img_sepia(int *img)
 {

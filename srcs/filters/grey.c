@@ -6,11 +6,11 @@
 /*   By: chzabakh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 15:12:05 by chzabakh          #+#    #+#             */
-/*   Updated: 2020/12/26 17:56:33 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/02/08 16:46:03 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "image.h"
+#include "../../includes/rt.h"
 
 void	clrcalc(t_vec *rgb, t_vec *tmp, int *img, int i)
 {

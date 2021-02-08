@@ -6,11 +6,11 @@
 /*   By: chzabakh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 14:24:56 by chzabakh          #+#    #+#             */
-/*   Updated: 2020/12/26 14:25:22 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/02/08 16:45:00 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "image.h"
+#include "../../includes/rt.h"
 
 void		antialiasing(int *img)
 {

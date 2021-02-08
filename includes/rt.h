@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 20:15:10 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/30 18:38:22 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/08 16:44:15 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@
 # include "./define.h"
 # include "./struct.h"
 # include "./functions.h"
+# include "./image.h"
 // # include "./parser/struct.h"
 #endif
