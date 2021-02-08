@@ -40,6 +40,9 @@ void		sharp(int *img)
 
 void		ft_cartoon(int *img)
 {
+	int i;
+	
+	i = 0;
 	while (i++ < 10)
 		antialiasing(img);
 	sharp(img);
