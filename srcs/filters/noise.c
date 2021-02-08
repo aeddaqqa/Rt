@@ -44,7 +44,7 @@ void	img_noise(int *img)
 	grey = (int*)malloc(sizeof(int) * 6);
 	noi = (int*)malloc(sizeof(int) * WIN_W * WIN_H * 4);
 	noimag = (int*)malloc(sizeof(int) * WIN_W * WIN_H * 4);
-	greycalc(grey, noi, i);
+	greycalc(grey, noi);
 	i = 0;
 	while (i < WIN_W * WIN_H)
 	{
