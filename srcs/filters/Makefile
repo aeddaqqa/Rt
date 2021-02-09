@@ -6,7 +6,7 @@
 #    By: chzabakh <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/08 17:22:57 by chzabakh          #+#    #+#              #
-#    Updated: 2021/02/08 17:22:59 by chzabakh         ###   ########.fr        #
+#    Updated: 2021/02/09 15:11:45 by chzabakh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ OBJDIR = ../../objs
 SRCDIR= ./
 OBJ= $(OBJDIR)/antialiasing.o $(OBJDIR)/bmp.o $(OBJDIR)/cartoon.o\
 $(OBJDIR)/grey.o $(OBJDIR)/negative.o $(OBJDIR)/noise.o\
-$(OBJDIR)/sepia.o $(OBJDIR)/stereo.o\
+$(OBJDIR)/sepia.o $(OBJDIR)/stereo.o
 INC = ../../includes/
 all	: $(NAME)
 
