@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/04 18:39:41 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/10 16:17:10 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ typedef	struct			s_tri
 	t_vect3	ba;
 	t_vect3	bc;
 	t_vect3	ab;
-	t_vect3	normal;
+	t_vect3	orientation;
 	t_vect3	q;
 	t_vect3	qa;
 	t_vect3	qb;
@@ -135,8 +135,8 @@ typedef struct		s_object
 	t_point			point_c;
 	t_point			point_d;
 	t_point			corner[2];
-	t_vect3			normal;
-	t_vect3			axis;
+	// t_vect3			orientation;
+	// t_vect3			axis;
 	t_vect3			orientation;
 	double			height;
 	double			radius;

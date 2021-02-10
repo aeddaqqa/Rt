@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:51:23 by ahkhilad          #+#    #+#             */
-/*   Updated: 2021/02/04 18:39:41 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/10 16:16:58 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int				ft_paraboloid_intersect(t_object *pa, t_ray *ray, double *tmin)
 
 	x = vect_sub(ray->origin, pa->position);
 	i.a = dot(ray->direction, ray->direction) -\
-		powf(dot(ray->direction, pa->axis), 2.0);
+		powf(dot(ray->direction, pa->orientation), 2.0);
 	i.b = 2.0 * (dot(ray->direction, x) -\
-		dot(ray->direction, v_c_prod(pa->axis,\
-		(dot(x, pa->axis) + (2.0 * pa->distance)))));
+		dot(ray->direction, v_c_prod(pa->orientation,\
+		(dot(x, pa->orientation) + (2.0 * pa->distance)))));
 	i.c = dot(x, x) - dot(x,\
-		v_c_prod(pa->axis, (dot(x, pa->axis) +\
+		v_c_prod(pa->orientation, (dot(x, pa->orientation) +\
 		(4.0 * pa->distance))));
 	i.delta = (i.b * i.b) - (4.0 * i.a * i.c);
 	if (i.delta < 0)

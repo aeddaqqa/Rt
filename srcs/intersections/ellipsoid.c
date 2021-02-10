@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:51:02 by ahkhilad          #+#    #+#             */
-/*   Updated: 2021/02/04 18:39:41 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/10 16:16:58 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int				ft_ellipsoid_intersect(t_object *elip, t_ray *ray, double *tmin)
 
 	x = vect_sub(ray->origin, elip->position);
 	r = elip->radius1 + elip->radius2;
-	a1 = 2.0 * elip->distance * dot(ray->direction, elip->axis);
+	a1 = 2.0 * elip->distance * dot(ray->direction, elip->orientation);
 	a2 = (r * r) + (2.0 * elip->distance *\
-		dot(x, elip->axis)) - elip->distance;
+		dot(x, elip->orientation)) - elip->distance;
 	i.a = (4.0 * r * r * dot(ray->direction, ray->direction)) - a1 * a1;
 	i.b = 2.0 * (4.0 * r * r * dot(ray->direction, x)) - (a1 * a2);
 	i.c = (4.0 * r * r * dot(x, x)) - a2 * a2;

@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:47:25 by ahkhilad          #+#    #+#             */
-/*   Updated: 2021/02/04 18:39:41 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/10 16:16:58 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ int				ft_cone_intersect(t_object *cone, t_ray *ray, double *tmin)
 	x = vect_sub(ray->origin, cone->position);
 	i.k = tanf(deg_to_rad(cone->angle) / 2.0);
 	i.a = dot(ray->direction, ray->direction) -\
-		(1.0 + (i.k * i.k)) * powf(dot(ray->direction, cone->axis), 2.0);
+		(1.0 + (i.k * i.k)) * powf(dot(ray->direction, cone->orientation), 2.0);
 	i.b = 2.0 * (dot(ray->direction, x) - ((1.0 + (i.k * i.k)) *\
-		dot(ray->direction, cone->axis) * dot(x, cone->axis)));
+		dot(ray->direction, cone->orientation) * dot(x, cone->orientation)));
 	i.c = dot(x, x) - (1.0 + (i.k * i.k)) *\
-		powf(dot(x, cone->axis), 2.0);
+		powf(dot(x, cone->orientation), 2.0);
 	i.delta = (i.b * i.b) - (4.0 * i.a * i.c);
 	if (i.delta < 0)
 		return (0);

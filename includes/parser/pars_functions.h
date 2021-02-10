@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:14:56 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/04 18:38:17 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/10 19:26:06 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int				check_for_triangle(int type, t_node n);
 ** ------------------------------{Util}-------------------------
 */
 
-void			add_front(t_rt **head, void *new, int type);
+void	        add_front(t_rt **head, void *new, int type);
 void			*new_object(int type);
 void			new_objects2(t_object *n_obj);
 int				rgb_to_int(t_color v);

@@ -6,11 +6,11 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 18:13:58 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/01/30 18:54:02 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/10 18:35:03 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/rt.h"
+#include "../../includes/rt.h"
 
 t_ray	*ray_init(t_rt *rt, double x, double y)
 {

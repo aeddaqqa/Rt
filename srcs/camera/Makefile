@@ -6,21 +6,16 @@
 #    By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/09 05:04:40 by nabouzah          #+#    #+#              #
-#    Updated: 2021/02/10 19:21:06 by nabouzah         ###   ########.fr        #
+#    Updated: 2021/02/10 19:15:50 by nabouzah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libcalculation.a
+NAME = libcamera.a
 FLAGS= -Wall -Wextra -Werror
 OBJDIR = ../../objs
 SRCDIR= ./
-OBJ= $(OBJDIR)/ft_crossproduct.o $(OBJDIR)/ft_magnitude.o\
-$(OBJDIR)/ft_normalize.o $(OBJDIR)/ft_vector_const_add.o\
-$(OBJDIR)/ft_vectoradd.o $(OBJDIR)/ft_vectorsub.o $(OBJDIR)/ft_dotproduct.o\
-$(OBJDIR)/ft_negative.o $(OBJDIR)/ft_vector.o $(OBJDIR)/ft_vector_const_prod.o\
-$(OBJDIR)/ft_vectorprod.o $(OBJDIR)/degree_to_rad.o
-INC = ../../includes/calculation/calc_functions.h
-
+OBJ= $(OBJDIR)/camera_coords.o $(OBJDIR)/new_ray.o
+INC = ./includes/cam_function.h
 all	: $(NAME)
 
 $(OBJDIR)/%.o : $(SRCDIR)%.c $(INC)
@@ -30,7 +25,7 @@ $(OBJDIR)/%.o : $(SRCDIR)%.c $(INC)
 $(NAME) : $(OBJ)
 	@ranlib $(NAME)
 	@printf "\033[0;32m"
-	@printf "CALCULATION.a CREATED\n"
+	@printf "CAMERA.a CREATED\n"
 	@printf "\033[0m"
 
 clean :

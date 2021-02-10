@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   orientation_box.c                                       :+:      :+:    :+:   */
+/*   camera_coords.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/24 18:49:20 by ahkhilad          #+#    #+#             */
-/*   Updated: 2021/02/04 18:39:41 by nabouzah         ###   ########.fr       */
+/*   Created: 2021/02/10 18:33:59 by nabouzah          #+#    #+#             */
+/*   Updated: 2021/02/10 18:34:41 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/rt.h"
 
-t_vect3		ft_box_normal(t_object *box, t_vect3 h)
+void		cam_cord_system(t_cam *cam)
 {
-	t_vect3	c;
-	t_vect3	d;
-	t_vect3	p;
-	double	bias;
+	t_vect3	tmp;
 
-	bias = 1.00001;
-	c = v_c_prod(vect_add(box->corner[0], box->corner[1]), 0.5);
-	d = v_c_prod(vect_sub(box->corner[0], box->corner[1]), 0.5);
-	d.x = fabs(d.x) * bias;
-	d.y = fabs(d.y) * bias;
-	d.z = fabs(d.z) * bias;
-	p = vect_sub(h, c);
-	return (normalize(ft_vector(p.x / d.x, p.y / d.y, p.z / d.z)));
+    cam->ratio = (double)W / H;
+	cam->up = (t_vect3){0.0, 1.0, 0.0};
+	cam->plan_h = 1 / tan(cam->fov);
+	cam->plan_w = cam->plan_h * cam->ratio;
+	tmp = vect_sub(cam->l, cam->o);
+	cam->cords.w = normalize(tmp);
+	tmp = cross(cam->cords.w, cam->up);
+	cam->cords.u = normalize(tmp);
+	cam->cords.v = cross(cam->cords.u, cam->cords.w);
 }

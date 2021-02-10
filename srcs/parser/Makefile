@@ -6,7 +6,7 @@
 #    By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/09 05:04:40 by nabouzah          #+#    #+#              #
-#    Updated: 2021/02/04 16:16:44 by nabouzah         ###   ########.fr        #
+#    Updated: 2021/02/10 19:26:18 by nabouzah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,11 +23,12 @@ $(OBJDIR)/init_s.o $(OBJDIR)/load_file.o $(OBJDIR)/stock_elements.o\
 $(OBJDIR)/utilfunc.o $(OBJDIR)/valid_all_cmp_cobjects.o\
 $(OBJDIR)/valid_cmp_fpart.o $(OBJDIR)/valid_principal_objects.o\
 $(OBJDIR)/read_cmp.o $(OBJDIR)/utilfunc2.o
-INC = ../../includes/
+INC = ../../includes/parser/pars_functions.h
+INC1 = ../../includes/parser/pars_struct.h
 all	: $(NAME)
 
-$(OBJDIR)/%.o : $(SRCDIR)%.c $(INC)
-	@gcc $(CFlags) -c -o $@ $< -I $(INC)
+$(OBJDIR)/%.o : $(SRCDIR)%.c $(INC) $(INC1)
+	@gcc $(CFlags) -c -o $@ $< -I $(INC) -I $(INC1)
 	@ar rc $(NAME) $@
 
 $(NAME) : $(OBJ)

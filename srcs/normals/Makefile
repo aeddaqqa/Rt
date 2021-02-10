@@ -6,7 +6,7 @@
 #    By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/09 05:04:40 by nabouzah          #+#    #+#              #
-#    Updated: 2021/01/28 17:33:44 by nabouzah         ###   ########.fr        #
+#    Updated: 2021/02/10 19:22:57 by nabouzah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJ= $(OBJDIR)/normal_cone.o $(OBJDIR)/normal_plane.o $(OBJDIR)/normal_sphere.o\
 $(OBJDIR)/normal_cylinder.o $(OBJDIR)/normal_parallelogram.o\
 $(OBJDIR)/normal_box.o $(OBJDIR)/normal_triangle.o $(OBJDIR)/normal_ellipsoid.o\
 $(OBJDIR)/normal_paraboloid.o
-INCS = ../../includes/
+INCS = ../../includes/normals/nor_functions.h
 all	: $(NAME)
 
 $(OBJDIR)/%.o : $(SRCDIR)%.c $(INCS) 

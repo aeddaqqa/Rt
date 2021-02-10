@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   normal_plane.c                                     :+:      :+:    :+:   */
+/*   orientation_plane.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -16,6 +16,6 @@ t_vect3		ft_plane_normal(t_object *plane)
 {
 	t_vect3	n;
 
-	n = plane->normal;
+	n = plane->orientation;
 	return (n);
 }

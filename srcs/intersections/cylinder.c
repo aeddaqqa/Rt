@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:49:36 by ahkhilad          #+#    #+#             */
-/*   Updated: 2021/02/04 18:39:41 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/10 16:16:58 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ static int	ft_cylinder_cap1(t_object *cyl, t_ray *ray, double *t, double m1)
 {
 	if (m1 < -cyl->height)
 		return (0);
-	if (ft_cylinder_cap(ray, t, v_c_prod(cyl->axis, -cyl->height),\
-	v_c_prod(cyl->axis, -1.0)))
+	if (ft_cylinder_cap(ray, t, v_c_prod(cyl->orientation, -cyl->height),\
+	v_c_prod(cyl->orientation, -1.0)))
 		return (-1);
 	return (0);
 }
@@ -59,7 +59,7 @@ int			ft_cylinder_caping(t_object *cyl, t_ray *ray, t_cap c, double *tmin)
 		if (c.m1 > cyl->height)
 			return (0);
 		if (ft_cylinder_cap(ray, tmin,\
-		v_c_prod(cyl->axis, cyl->height), cyl->axis))
+		v_c_prod(cyl->orientation, cyl->height), cyl->orientation))
 			return (2);
 	}
 	return (0);
@@ -75,10 +75,10 @@ int			ft_cyl_limits(t_object *cylinder, t_ray *ray, t_vect3 x, double *tmin)
 		cylinder->cyl.t1 = cylinder->cyl.t2;
 		cylinder->cyl.t2 = c.m0;
 	}
-	c.m0 = dot(ray->direction, cylinder->axis) * cylinder->cyl.t1;
-	c.m0 += dot(x, cylinder->axis);
-	c.m1 = dot(ray->direction, cylinder->axis) * cylinder->cyl.t2;
-	c.m1 += dot(x, cylinder->axis);
+	c.m0 = dot(ray->direction, cylinder->orientation) * cylinder->cyl.t1;
+	c.m0 += dot(x, cylinder->orientation);
+	c.m1 = dot(ray->direction, cylinder->orientation) * cylinder->cyl.t2;
+	c.m1 += dot(x, cylinder->orientation);
 	if (!ft_cylinder_caping(cylinder, ray, c, tmin))
 		return (0);
 	return (1);
@@ -90,12 +90,12 @@ int			ft_cylinder_intersect(t_object *cylinder, t_ray *ray, double *tmin)
 
 	x = vect_sub(ray->origin, cylinder->position);
 	cylinder->cyl.a = dot(ray->direction, ray->direction) -\
-	pow(dot(ray->direction, cylinder->axis), 2.0);
+	pow(dot(ray->direction, cylinder->orientation), 2.0);
 	cylinder->cyl.b = 2.0 * (dot(ray->direction, x) -\
-	(dot(ray->direction, cylinder->axis) *\
-	dot(x, cylinder->axis)));
+	(dot(ray->direction, cylinder->orientation) *\
+	dot(x, cylinder->orientation)));
 	cylinder->cyl.c = dot(x, x) -\
-	pow(dot(x, cylinder->axis), 2.0) -\
+	pow(dot(x, cylinder->orientation), 2.0) -\
 	(cylinder->radius * cylinder->radius);
 	cylinder->cyl.delta = (cylinder->cyl.b * cylinder->cyl.b) -\
 	(4.0 * cylinder->cyl.a * cylinder->cyl.c);
