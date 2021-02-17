@@ -12,11 +12,11 @@
 
 #include "../../includes/rt.h"
 
-int						stock_vect3(t_vect3 *r, char *str)
+int stock_vect3(t_vect3 *r, char *str)
 {
-	char	**split;
-	int		i;
-	double	d[3];
+	char **split;
+	int i;
+	double d[3];
 
 	i = 0;
 	if (!(split = ft_strsplit(str, ' ')))
@@ -41,11 +41,11 @@ int						stock_vect3(t_vect3 *r, char *str)
 	return (1);
 }
 
-static int				in_base(char c)
+static int in_base(char c)
 {
-	char	*lo_base;
-	char	*up_base;
-	int		i;
+	char *lo_base;
+	char *up_base;
+	int i;
 
 	i = 0;
 	lo_base = "0123456789abcdef";
@@ -64,31 +64,30 @@ static int				in_base(char c)
 	return (i);
 }
 
-int						is_hex(char *value)
+int is_hex(char *value)
 {
-	int	len;
+	int len;
 
 	len = ft_strlen(value);
-	if (len > 2 && len <= 10 && value[0] == '0'\
-			&& (value[1] == 'x' || value[1] == 'X'))
+	if (len > 2 && len <= 10 && value[0] == '0' && (value[1] == 'x' || value[1] == 'X'))
 		return (1);
 	return (0);
 }
 
-int						to_rgb(t_color *co, int c)
+int to_rgb(t_color *co, int c)
 {
-	co->x = (c >> 16) & 255;
-	co->y = (c >> 8) & 255;
-	co->z = c & 255;
+	co->x = ((c >> 16) & 255) / 255;
+	co->y = ((c >> 8) & 255) / 255;
+	co->z = (c & 255) / 255;
 	return (1);
 }
 
-int						read_color(t_color *c, char *data)
+int read_color(t_color *c, char *data)
 {
-	int		color;
-	int		i;
-	int		hex;
-	int		digit;
+	int color;
+	int i;
+	int hex;
+	int digit;
 
 	color = 0;
 	if (!ft_isdigit(data[0]))

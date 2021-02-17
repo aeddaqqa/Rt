@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include	"../includes/rt.h"
+#include "../includes/rt.h"
 
-t_mlx	*init_mlx(t_rt *rt)
+t_mlx *init_mlx(t_rt *rt)
 {
-	t_mlx	*new;
-	
+	t_mlx *new;
+
 	if (!(new = (t_mlx *)malloc(sizeof(t_mlx))))
 	{
 		free_rt(&rt);
@@ -24,58 +24,62 @@ t_mlx	*init_mlx(t_rt *rt)
 	new->ptr = mlx_init();
 	new->win = mlx_new_window(new->ptr, W, H, "RT");
 	new->img = mlx_new_image(new->ptr, W, H);
-	new->data = (int*)mlx_get_data_addr(new->img, &new->bpp,\
-	&new->ls, &new->end);
+	new->data = (int *)mlx_get_data_addr(new->img, &new->bpp,
+										 &new->ls, &new->end);
 	return (new);
 }
 
- int             raycast(t_object *lst, t_ray ray, t_hit *hit)
- {
-     t_object    *p;
-     double       t;
-     t_ray       save;
-
-     t = INFINITY;
-     hit->object = NULL;
-     hit->t = INFINITY;
-     p = lst;
-     save = obj_intersect(p, hit, ray, t);
-     if (hit->object == NULL)
-         return (0);
-     hit->p = vect_add(save.origin, v_c_prod(save.direction, hit->t));
-     ft_compute_normals(hit, &save);
-     return (1);
- }
-
-void    draw(t_rt *rt)
+int raycast(t_object *lst, t_ray ray, t_hit *hit)
 {
-    t_ray   *ray;
-    t_hit   hit;
-    int     y;
-    int     x;
+	t_object *p;
+	double t;
+	t_ray save;
 
-    y = 0;
-    while (y < H)
-    {
-        x = 0;
-        while (x < W)
-        {
-            ray = ray_init(rt, x, y);
-            hit.t = INFINITY;
-            if (raycast(rt->objects, *ray, &hit))
-            {
-                rt->mlx->data[y * W + x] = ft_shade_object(&hit);//, rt->lights, rt->objects, ray);
-            }
-            x++;
-        }
-        y++;
-    }
+	t = INFINITY;
+	hit->object = NULL;
+	hit->t = INFINITY;
+	p = lst;
+	save = obj_intersect(p, hit, ray, t);
+	if (hit->object == NULL)
+		return (0);
+	hit->p = vect_add(save.origin, v_c_prod(save.direction, hit->t));
+	ft_compute_normals(hit, &save);
+	return (1);
 }
 
-int		main(int ac, char **av)
+void draw(t_rt *rt)
 {
-	char	*file;
-	t_rt	*rt;
+	t_ray *ray;
+	t_hit hit;
+	int y;
+	int x;
+
+	y = 0;
+	while (y < H)
+	{
+		x = 0;
+		while (x < W)
+		{
+			ray = ray_init(rt, x, y);
+			hit.t = INFINITY;
+			if (raycast(rt->objects, *ray, &hit))
+			{
+				if (x == W / 2 && y == H / 2)
+				{
+					printf("test\n");
+				}
+				rt->mlx->data[y * W + x] = ft_shade_object(&hit, rt->lights, rt->objects, ray);
+			}
+			x++;
+		}
+		y++;
+	}
+}
+
+int main(int ac, char **av)
+{
+	char *file;
+	t_rt *rt;
 
 	file = NULL;
 	if (ac == 2 || ac == 3)

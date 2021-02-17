@@ -6,7 +6,7 @@
 #    By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: Invalid date        by                   #+#    #+#              #
-#    Updated: 2021/02/10 19:29:17 by nabouzah         ###   ########.fr        #
+#    Updated: 2021/02/17 11:59:44 by chzabakh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,9 @@ LIBNORMAL = $(LIBNORMALDIR)/libnormals.a
 LIBINTERSECTDIR = srcs/intersections
 LIBINTERSECT = $(LIBINTERSECTDIR)/libintersection.a
 
-FLAGS= -Wall -Wextra -Werror
+#FLAGS= -g
+#FLAGS= -Wall -Wextra -Werror
+FLAGS= -Wall -Wextra -Werror -g
 OBJDIR = objs
 SRCDIR = srcs
 OBJ= objs/main.o objs/ft_compute_normals.o objs/shading.o\
