@@ -22,7 +22,7 @@ void		cam_cord_system(t_cam *cam)
 	cam->plan_w = cam->plan_h * cam->ratio;
 	tmp = vect_sub(cam->l, cam->o);
 	cam->cords.w = normalize(tmp);
-	tmp = cross(cam->cords.w, cam->up);
+	tmp = cross(cam->up, cam->cords.w);
 	cam->cords.u = normalize(tmp);
 	cam->cords.v = cross(cam->cords.u, cam->cords.w);
 }
