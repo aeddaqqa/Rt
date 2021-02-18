@@ -18,7 +18,7 @@
 # include <fcntl.h>
 # include <stdbool.h>
 # include <math.h>
-# include "mlx.h"
+# include "../mlx/mlx.h"
 # include "../libft/libft.h"
 # include "./define.h"
 # include "./struct.h"

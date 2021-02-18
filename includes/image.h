@@ -13,7 +13,7 @@
 #ifndef IMAGE_H
 # define IMAGE_H
 # include <math.h>
-# include <mlx.h>
+// # include <mlx.h>
 # include <time.h>
 # include <stdlib.h>
 # define WIN_W 720
