@@ -6,16 +6,20 @@
 #    By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: Invalid date        by                   #+#    #+#              #
-#    Updated: 2021/02/17 11:59:44 by chzabakh         ###   ########.fr        #
+#    Updated: 2021/02/19 13:37:16 by nabouzah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME= RT
 LIBFT = libft/libft.a
+MLX = mlx/libmlx.a
 
 LIBPARSEDIR = srcs/parser
 LIBPARSE = $(LIBPARSEDIR)/libparse.a
+
+LIBRENDERDIR = srcs/reflection_refraction
+LIBRENDER = $(LIBRENDERDIR)/librender.a
 
 LIBFILTERSDIR = srcs/filters
 LIBFILTERS = $(LIBFILTERSDIR)/libfilters.a
@@ -50,8 +54,8 @@ all : Lib $(NAME)
 $(OBJDIR)/%.o : $(SRCDIR)/%.c $(INC) $(INC1) $(INC3) $(INC2)
 	gcc $(FLAGS) -c -o $@ $< -I $(INC)
 	
-$(NAME) : $(LIBFT) $(LIBPARSE) $(LIBFILTERS) $(LIBCALC) $(LIBCAM) $(LIBNORMAL) $(LIBINTERSECT) $(OBJ)
-	@gcc -o $@ $^ -lmlx -framework OpenGL -framework AppKit\
+$(NAME) : $(LIBFT) $(LIBCALC) $(LIBPARSE) $(LIBCAM) $(LIBNORMAL) $(LIBINTERSECT)  $(LIBFILTERS) $(LIBRENDER) $(OBJ) $(MLX)
+	@gcc -o $@ $^ -framework OpenGL -framework AppKit\
 		-I $(INC)
 	@printf "\033[0;32m"
 	@printf "DONE COMPILING\n"
@@ -61,16 +65,19 @@ Lib :
 	@mkdir $(OBJDIR) 2> /dev/null || true
 	@make -C libft/
 	@make -C $(LIBPARSEDIR)/
+	@make -C $(LIBRENDERDIR)/
 	@make -C $(LIBFILTERSDIR)/
 	@make -C $(LIBCALCDIR)/
 	@make -C $(LIBCAMDIR)/
 	@make -C $(LIBNORMALDIR)/
 	@make -C $(LIBINTERSECTDIR)/
+	@make -C mlx/
 
 clean :
 	@rm -rf $(OBJDIR)
 	@make -C libft/ clean
 	@make -C $(LIBPARSEDIR)/ clean
+	@make -C $(LIBRENDERDIR)/ clean
 	@make -C $(LIBFILTERSDIR)/ clean
 	@make -C $(LIBCALCDIR)/ clean
 	@make -C $(LIBCAMDIR)/ clean
@@ -84,6 +91,7 @@ fclean : clean
 	@rm -f $(NAME)
 	@make -C libft/ fclean
 	@make -C $(LIBPARSEDIR)/ fclean
+	@make -C $(LIBRENDERDIR)/ fclean
 	@make -C $(LIBFILTERSDIR)/ fclean
 	@make -C $(LIBCALCDIR)/ fclean
 	@make -C $(LIBCAMDIR)/ fclean

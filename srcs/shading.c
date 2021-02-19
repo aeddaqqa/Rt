@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 18:53:30 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/02/10 18:55:02 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/19 14:05:36 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,45 +111,32 @@ t_vect3 clamp_vec(t_vect3 v)
     return (v);
 }
 
-/*int rgb_to_int(t_vect3 v)
-{
-    int red;
-    int green;
-    int blue;
-    int rgb;
-
-    red = (int)v.x;
-    green = (int)v.y;
-    blue = (int)v.z;
-    rgb = red;
-    rgb = (rgb << 8) + green;
-    rgb = (rgb << 8) + blue;
-    return (rgb);
-}*/
-
-int ft_shade_object(t_hit *hit, t_light *lights, t_object *lst, t_ray *ray)
+t_color ft_shade_object(t_hit *hit, t_rt *rt, t_ray *ray)
 {
     t_light *light;
-    t_vect3 color;
+    t_color color;
+    // t_color refraction;
+    // t_color reflexion;
     t_vect3 light_dir;
-    t_ray shadow_ray;
-    double t;
+    t_ray   shadow_ray;
+    double  t;
 
-    color = (t_vect3){0.0f, 0.0f, 0.0f};
+    color = (t_color){0.0f, 0.0f, 0.0f};
     shadow_ray.origin = hit->p;
-    light = lights;
+    light = rt->lights;
     while (light)
     {
         light_dir = normalize(vect_sub(light->position, hit->p));
         shadow_ray.direction = light_dir;
         t = ft_magnitude(vect_sub(light->position, hit->p));
-        if (!shadow_cast(lst, &shadow_ray, t))
+        if (!shadow_cast(rt->objects, &shadow_ray, t))
             color = vect_add(color, lit_comp(light, light_dir,
                                              hit, ray));
+            // refraction = refract_color(rt, *ray, *hit);
+            // reflexion = reflex_col(rt, *ray, *hit);
+            // // color = vect_add(v_c_prod(refraction, 0.0), v_c_prod(color, 1.0));
+            // color = vect_add(v_c_prod(reflexion, 0.1), v_c_prod(color, 0.8));
         light = light->next;
     }
-    //return (rgba(hit->object->color));
-    // return (rgba(color));
-    //return (color);
-    return (rgb_to_int(clamp_vec(color)));
+    return (clamp_vec(color));
 }

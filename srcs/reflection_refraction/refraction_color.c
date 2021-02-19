@@ -6,38 +6,38 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 08:04:17 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/02/18 08:27:22 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/19 13:31:34 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/rt.h"
 
-t_color       ray_cast(t_ray ray, t_hit *hit);
-
-t_color	refract_color(t_vect3 norm, t_hit *hit, t_ray ray)
+t_color		refract_color(t_rt *rt, t_ray ray,  t_hit hit)
 {
-	t_color refract;
-	t_ray refract_ray;
+	t_color	refract;
+	t_ray	refract_ray;
+	t_ray	reflect_ray;
 
 	refract = (t_vect3){0, 0, 0};
-	if (hit->object->is_transp != 0 && (ray.reflect_nb < 1))
+	if (hit.object->is_transp != 0 && (ray.reflect_nb < 1))
 	{
-		if (dot(normalize(norm), ray.direction) > 0)
+		if (dot(normalize(hit.n), ray.direction) > 0)
 		{
-			refract_ray = refraction(ray, v_c_prod(norm, -1), 1);
+			refract_ray = refraction(ray, v_c_prod(hit.n, -1), 1);
+			reflect_ray = reflexion(ray, v_c_prod(hit.n, -1));
 			if (ft_magnitude(refract_ray.direction) != 0)
-				refract = ray_cast(refract_ray, hit);
+				refract = raytrace(rt, &hit, &ray);
 			else
-				refract = ray_cast(reflexion(ray,
-					v_c_prod(norm, -1)), hit);
+				refract = raytrace(rt, &hit, &reflect_ray);
 		}
 		else
 		{
-			refract_ray = refraction(ray, norm, ray.reflexion_index);
+			refract_ray = refraction(ray, hit.n, ray.reflexion_index);
+			reflect_ray = reflexion(ray, hit.n);
 			if (ft_magnitude(refract_ray.direction) != 0)
-				refract = ray_cast(refract_ray, hit);
+				refract = raytrace(rt, &hit, &refract_ray);
 			else
-				refract = ray_cast(reflexion(ray, norm), hit);
+				refract = raytrace(rt, &hit, &reflect_ray);
 		}
 	}
 	return (refract);

@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reflextion_color.c                                 :+:      :+:    :+:   */
+/*   calc_reflexion.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/18 08:04:17 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/02/19 13:23:37 by nabouzah         ###   ########.fr       */
+/*   Created: 2021/02/18 05:20:58 by nabouzah          #+#    #+#             */
+/*   Updated: 2021/02/19 13:40:05 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/rt.h"
 
-t_color reflex_col(t_rt *rt, t_ray ray, t_hit hit)
+t_ray		reflexion(t_ray ray, t_vect3 norm)
 {
-	t_color refl;
-	t_ray	reflect;
+	t_ray	newray;
+	double	reflect;
 
-	refl = (t_color){0, 0, 0};
-	if (ray.reflect_nb < 5 && hit.object->is_ref != 0)
-	{
-		reflect = reflexion(ray, hit.n);
-		refl = raytrace(rt, &hit, &reflect);
-	}
-	return (refl);
+	reflect = 2 * dot(norm, ray.direction);
+	newray.origin = ray.hit_point;
+	newray.direction =\
+    normalize(vect_sub(ray.direction, v_c_prod(norm, reflect)));
+	newray.hit_point = (t_vect3){0, 0, 0};
+	newray.reflect_nb = ray.reflect_nb + 1;
+	newray.reflexion_index = ray.reflexion_index;
+	return (newray);
 }
