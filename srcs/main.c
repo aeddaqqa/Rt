@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:16:14 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/10 18:56:12 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/19 13:21:08 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,16 @@ int raycast(t_object *lst, t_ray ray, t_hit *hit)
 	return (1);
 }
 
+t_color raytrace(t_rt *rt, t_hit *hit, t_ray *ray)
+{
+	t_color	ret;
+
+	ret = (t_color){0, 0, 0};
+	if (raycast(rt->objects, *ray, hit))
+		ret = ft_shade_object(hit, rt, ray);
+	return (ret);
+}
+
 void draw(t_rt *rt)
 {
 	t_ray *ray;
@@ -64,11 +74,7 @@ void draw(t_rt *rt)
 			hit.t = INFINITY;
 			if (raycast(rt->objects, *ray, &hit))
 			{
-				if (x == W / 2 && y == H / 2)
-				{
-					printf("test\n");
-				}
-				rt->mlx->data[y * W + x] = ft_shade_object(&hit, rt->lights, rt->objects, ray);
+				rt->mlx->data[y * W + x] = rgb_to_int(raytrace(rt, &hit, ray));
 			}
 			x++;
 		}
