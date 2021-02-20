@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 18:33:59 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/02/10 18:34:41 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/20 09:57:42 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@ void		cam_cord_system(t_cam *cam)
 {
 	t_vect3	tmp;
 
-    cam->ratio = (double)W / H;
+	cam->ratio = (double)W / H;
 	cam->up = (t_vect3){0.0, 1.0, 0.0};
-	cam->plan_h = 1 / tan(cam->fov);
+	cam->plan_h = tan(cam->fov / 4);
+	cam->up.x = 0.00005;
 	cam->plan_w = cam->plan_h * cam->ratio;
 	tmp = vect_sub(cam->l, cam->o);
 	cam->cords.w = normalize(tmp);
 	tmp = cross(cam->up, cam->cords.w);
 	cam->cords.u = normalize(tmp);
-	cam->cords.v = cross(cam->cords.u, cam->cords.w);
+	cam->cords.v = cross(cam->cords.w, cam->cords.u);
 }
