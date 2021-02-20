@@ -6,14 +6,13 @@
 #    By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: Invalid date        by                   #+#    #+#              #
-#    Updated: 2021/02/19 13:37:16 by nabouzah         ###   ########.fr        #
+#    Updated: 2021/02/20 09:24:53 by nabouzah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME= RT
 LIBFT = libft/libft.a
-MLX = mlx/libmlx.a
 
 LIBPARSEDIR = srcs/parser
 LIBPARSE = $(LIBPARSEDIR)/libparse.a
@@ -53,9 +52,9 @@ all : Lib $(NAME)
 
 $(OBJDIR)/%.o : $(SRCDIR)/%.c $(INC) $(INC1) $(INC3) $(INC2)
 	gcc $(FLAGS) -c -o $@ $< -I $(INC)
-	
-$(NAME) : $(LIBFT) $(LIBCALC) $(LIBPARSE) $(LIBCAM) $(LIBNORMAL) $(LIBINTERSECT)  $(LIBFILTERS) $(LIBRENDER) $(OBJ) $(MLX)
-	@gcc -o $@ $^ -framework OpenGL -framework AppKit\
+
+$(NAME) : $(LIBFT) $(LIBCALC) $(LIBPARSE) $(LIBCAM) $(LIBNORMAL) $(LIBINTERSECT)  $(LIBFILTERS) $(LIBRENDER) $(OBJ)
+	@gcc -o $@ $^ -lmlx -framework OpenGL -framework AppKit\
 		-I $(INC)
 	@printf "\033[0;32m"
 	@printf "DONE COMPILING\n"
@@ -71,7 +70,6 @@ Lib :
 	@make -C $(LIBCAMDIR)/
 	@make -C $(LIBNORMALDIR)/
 	@make -C $(LIBINTERSECTDIR)/
-	@make -C mlx/
 
 clean :
 	@rm -rf $(OBJDIR)
