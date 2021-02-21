@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/20 09:34:40 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/21 18:51:23 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,28 @@ typedef struct	s_intersect
 	double	t1;
 	double	t2;
 }				t_intersect;
+
+typedef struct	s_delta
+{
+	float	a;
+	float	b;
+	float	c;
+	float	delta;
+}				t_delta;
+
+typedef struct	s_cone
+{
+	t_delta	d;
+	t_vect3	pa;
+	t_vect3	va;
+	t_vect3	x;
+	t_vect3	a;
+	t_vect3	b;
+	float	anglesin;
+	float	t1;
+	float	t2;
+	float	anglecos;
+}				t_cone;
 
 typedef struct	s_tri
 {
@@ -177,10 +199,26 @@ typedef struct	s_mlx
 	int		end;
 }				t_mlx;
 
+typedef struct		s_sdl
+{
+	SDL_Window		*win_ptr;
+	SDL_Window		*win_menu;
+	SDL_Renderer	*ren_ptr;
+	SDL_Renderer	*ren_menu;
+	SDL_Texture		*tex_ptr;
+	TTF_Font		*font_p;
+	TTF_Font		*font_s;
+	int				loop;
+	SDL_Event		event;
+	char			*key_table;
+	int				data[W * H];
+}					t_sdl;
+
 typedef struct	s_rt
 {
 	bool			save;
 	t_mlx			*mlx;
+	t_sdl			*sdl;
 	t_object		*objects;
 	t_object		*obj;
 	t_node			node;

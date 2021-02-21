@@ -12,9 +12,9 @@
 
 #include "../../includes/rt.h"
 
-void		ft_cylinder_normal(t_hit *hit, t_ray *ray, int ret)
+void	ft_cylinder_normal(t_hit *hit, t_ray *ray, int ret)
 {
-	double	m;
+	float	m;
 
 	m = 0.0;
 	if (ret < 0)
@@ -23,9 +23,9 @@ void		ft_cylinder_normal(t_hit *hit, t_ray *ray, int ret)
 		hit->n = hit->object->orientation;
 	else
 	{
-		m = dot(ray->direction, hit->object->orientation) * hit->t;
-		m += dot(ray->origin, hit->object->orientation);
-		hit->n = vect_sub(hit->p, v_c_prod(hit->object->orientation, m));
+	m = dot(ray->direction, hit->object->orientation) * hit->t;
+	m += dot(ray->origin, hit->object->orientation);
+	hit->n = vect_sub(hit->p, v_c_prod(hit->object->orientation, m));
 	}
 }
 

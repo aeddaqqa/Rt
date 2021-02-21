@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+         #
+#    By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: Invalid date        by                   #+#    #+#              #
-#    Updated: 2021/02/20 09:24:53 by nabouzah         ###   ########.fr        #
+#    Updated: 2021/02/21 17:45:17 by aeddaqqa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,13 +48,15 @@ INC1= includes/functions.h
 INC2= includes/define.h
 INC3= includes/struct.h
 
+SDL =  `sdl2-config --cflags --libs` -lSDL2 -lSDL2_image -lSDL2_ttf
+
 all : Lib $(NAME)
 
 $(OBJDIR)/%.o : $(SRCDIR)/%.c $(INC) $(INC1) $(INC3) $(INC2)
 	gcc $(FLAGS) -c -o $@ $< -I $(INC)
 
 $(NAME) : $(LIBFT) $(LIBCALC) $(LIBPARSE) $(LIBCAM) $(LIBNORMAL) $(LIBINTERSECT)  $(LIBFILTERS) $(LIBRENDER) $(OBJ)
-	@gcc -o $@ $^ -lmlx -framework OpenGL -framework AppKit\
+	@gcc -o $@ $^ $(SDL) -lmlx -framework OpenGL -framework AppKit\
 		-I $(INC)
 	@printf "\033[0;32m"
 	@printf "DONE COMPILING\n"

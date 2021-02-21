@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+         #
+#    By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/09 05:04:40 by nabouzah          #+#    #+#              #
-#    Updated: 2021/01/28 17:44:42 by nabouzah         ###   ########.fr        #
+#    Updated: 2021/02/21 14:43:19 by ahkhilad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCDIR= ./
 OBJ= $(OBJDIR)/cone.o $(OBJDIR)/plane.o $(OBJDIR)/sphere.o\
 $(OBJDIR)/cylinder.o $(OBJDIR)/box.o $(OBJDIR)/closest.o $(OBJDIR)/ellipsoid.o\
 $(OBJDIR)/paraboloid.o $(OBJDIR)/parallelogram.o $(OBJDIR)/triangle.o\
-$(OBJDIR)/utils.o
+$(OBJDIR)/utils.o $(OBJDIR)/disk.o
 
 INCS = ../../includes/
 INC = ./includes/
