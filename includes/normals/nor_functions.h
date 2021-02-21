@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   nor_functions.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 18:39:48 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/02/10 19:23:05 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/21 14:49:08 by ahkhilad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 t_vect3					ft_plane_normal(t_object *plane);
 t_vect3					ft_sphere_normal(t_hit *hit);
+t_vect3					ft_disk_normal(t_object *disk);
 void                    ft_computing_cyl_normal(t_hit *hit, t_ray *ray, t_vect3 x, double m);
 t_vect3					ft_cone_normal(t_object *cone, t_vect3 p);
 t_vect3					ft_box_normal(t_object *box, t_vect3 h);
