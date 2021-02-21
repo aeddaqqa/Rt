@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:46:46 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/01/28 17:55:00 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/21 10:55:12 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 #define W 800
 #define H 800
+#define MAX_REF 2
 
 typedef enum	e_error
 {

@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 08:04:17 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/02/21 09:48:38 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/21 10:51:53 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_color		refract_color(t_rt *rt, t_ray ray,  t_hit hit, t_light *light)
 	t_ray	reflect_ray;
 
 	refract = (t_vect3){0, 0, 0};
+	ray.hit_point = hit.p;
 	if (hit.object->is_transp != 0 && ray.reflect_nb < MAX_REF)
 	{
 		if (dot(normalize(hit.n), ray.direction) > 0)

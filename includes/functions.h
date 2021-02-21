@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 12:33:01 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/19 13:19:27 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/21 10:53:38 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ t_ray   obj_intersect(t_object *p, t_hit *hit, t_ray ray, double t);
 t_color ft_shade_object(t_hit *hit, t_rt *rt, t_ray *ray);
 t_ray   reflexion(t_ray ray, t_vect3 norm);
 t_ray   refraction(t_ray ray, t_vect3 norm, double n2);
-t_vect3 lit_comp(t_light *light, t_vect3 light_dir, t_hit *hit, t_ray *ray);
+t_vect3 lit_comp(t_light *light, t_hit *hit, t_ray *ray);
 t_color raytrace(t_rt *rt, t_hit *hit, t_ray *ray);
-t_color	refract_color(t_rt *rt, t_ray ray, t_hit hit);
-t_color reflex_col(t_rt *rt, t_ray ray, t_hit hit);
+t_color	refract_color(t_rt *rt, t_ray ray, t_hit hit, t_light *light);
+t_color reflex_col(t_rt *rt, t_ray ray, t_hit hit, t_light *light);
+t_color ref_trsp(t_rt *rt, t_hit hit, t_ray reflect, t_light *light);
+
 #endif
