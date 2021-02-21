@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:16:14 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/21 19:01:15 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/21 19:13:41 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -301,6 +301,31 @@ void				render(t_sdl *sdl)
 	SDL_RenderPresent(sdl->ren_ptr);
 }
 
+void		rtrace(t_rt *rt)
+{
+	rt->sdl = init_sdl();
+	rt->sdl->loop = 1;
+	if (rt->sdl)
+	{
+		while (rt->sdl->loop)
+		{
+			if (SDL_PollEvent(&rt->sdl->event))
+			{
+				 if (rt->sdl->event.type == SDL_WINDOWEVENT && rt->sdl->event.window.event == SDL_WINDOWEVENT_CLOSE)
+				 	break;
+				rt->sdl->key_table = (char *)SDL_GetKeyboardState(NULL);
+				cam_cord_system(rt->cameras);
+				draw(rt);
+				menu(rt->sdl, rt->sdl->event);
+				render(rt->sdl);
+				if (rt->sdl->key_table[SDL_SCANCODE_ESCAPE])
+					rt->sdl->loop = 0;
+			}
+		}
+		destroy_sdl(&rt->sdl);
+	}
+}
+
 int main(int ac, char **av)
 {
 	char *file;
@@ -325,28 +350,7 @@ int main(int ac, char **av)
 			free(file);
 			exit(0);
 		}
-		rt->sdl = init_sdl();
-		rt->sdl->loop = 1;
-		if (rt->sdl)
-		{
-			while (rt->sdl->loop)
-			{
-				if (SDL_PollEvent(&rt->sdl->event))
-				{
-					 if (rt->sdl->event.type == SDL_WINDOWEVENT && rt->sdl->event.window.event == SDL_WINDOWEVENT_CLOSE)
-					 	break;
-					rt->sdl->key_table = (char *)SDL_GetKeyboardState(NULL);
-					cam_cord_system(rt->cameras);
-					draw(rt);
-					menu(rt->sdl, rt->sdl->event);
-					SDL_RenderPresent(rt->sdl->ren_ptr);
-					render(rt->sdl);
-					if (rt->sdl->key_table[SDL_SCANCODE_ESCAPE])
-						rt->sdl->loop = 0;
-				}
-			}
-			destroy_sdl(&rt->sdl);
-		}
+		rtrace(rt);
 	}
 	else
 		ft_putendl("./rt [fileName]");
