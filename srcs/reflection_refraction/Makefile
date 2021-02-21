@@ -6,7 +6,7 @@
 #    By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/09 05:04:40 by nabouzah          #+#    #+#              #
-#    Updated: 2021/02/19 13:31:04 by nabouzah         ###   ########.fr        #
+#    Updated: 2021/02/21 09:40:21 by nabouzah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ FLAGS= -Wall -Wextra -Werror
 OBJDIR = ../../objs
 SRCDIR= ./
 OBJ= $(OBJDIR)/calc_reflexion.o $(OBJDIR)/calc_refraction.o\
-$(OBJDIR)/reflextion_color.o $(OBJDIR)/refraction_color.o
+$(OBJDIR)/reflextion_color.o $(OBJDIR)/refraction_color.o\
+$(OBJDIR)/render_ref_trsp.o
 INC = ../../includes/
 all	: $(NAME)
 
