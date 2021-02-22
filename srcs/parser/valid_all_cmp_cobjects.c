@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   valid_all_cmp_cobjects.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 12:58:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/04 17:27:55 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/22 16:14:13 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,16 @@ int				all_cmp_valid_for_torus(t_node n)
 			n.cmp.rotation == false ||\
 			n.cmp.position == false || n.cmp.translation == false ||\
 			n.cmp.radius2 == false || n.cmp.radius1 == false)
+		return (-1);
+	return (1);
+}
+
+int				all_cmp_valid_for_disk(t_node n)
+{
+	if (n.cmp.color == false ||\
+			n.cmp.rotation == false ||\
+			n.cmp.position == false || n.cmp.translation == false ||\
+			n.cmp.orientation == false || n.cmp.radius == false)
 		return (-1);
 	return (1);
 }

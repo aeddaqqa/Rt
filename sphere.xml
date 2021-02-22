@@ -7,6 +7,13 @@
 		<rotation>0 0 0</rotation>
 		<color>0xff00ff</color>
 	</sphere>
+	<sphere>
+		<position>-40 0 0</position>
+		<radius>20</radius>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<color>0xff00ff</color>
+	</sphere>
 	<camera>
 		<origin> 0 0 160</origin>
 		<fov>60</fov>

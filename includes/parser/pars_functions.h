@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pars_functions.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:14:56 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/10 19:26:06 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/22 16:04:33 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void			valid_cmp_for_box(t_node *n, int type);
 void			valid_cmp_for_ellipsoid(t_node *n, int type);
 void			valid_cmp_for_parallelogram(t_node *n, int type);
 void			valid_cmp_for_triangle(t_node *n, int type);
+void			valid_cmp_for_disk(t_node *n, int type);
 int				all_cmp_valid_for_paraboloid(t_node n);
 int				all_cmp_valid_for_cylinder(t_node n);
 int				all_cmp_valid_for_cone(t_node n);
@@ -71,6 +72,7 @@ int				all_cmp_valid_for_ellipsoid(t_node n);
 int				all_cmp_valid_for_box(t_node n);
 int				all_cmp_valid_for_parallelogram(t_node n);
 int				all_cmp_valid_for_triangle(t_node n);
+int				all_cmp_valid_for_disk(t_node n);
 int				check_for_sphere(int type, t_node n);
 int				check_for_plane(int type, t_node n);
 int				check_for_cone(int type, t_node n);
@@ -81,6 +83,7 @@ int				check_for_torus(int type, t_node n);
 int				check_for_box(int type, t_node n);
 int				check_for_parallelogram(int type, t_node n);
 int				check_for_triangle(int type, t_node n);
+int				check_for_disk(int type, t_node n);
 /*
 ** ------------------------------{Util}-------------------------
 */

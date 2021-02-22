@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_cmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:54:16 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/04 17:27:55 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/22 16:05:46 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ static int		check_cmp_exist_forobj(t_node n, int type)
 		return (check_for_parallelogram(type, n));
 	else if (n.type == TORUS)
 		return (check_for_torus(type, n));
+	else if (n.type == DISK)
+		return (check_for_disk(type, n));
 	return (1);
 }
 

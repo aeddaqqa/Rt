@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_forcobjects.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 17:17:24 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/04 17:27:55 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/22 16:15:32 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,26 @@ int		check_for_torus(int type, t_node n)
 	else if (type == RADIUS_1 && n.cmp.radius1 == true)
 		return (-1);
 	else if (type == RADIUS_2 && n.cmp.radius2 == true)
+		return (-1);
+	else if (type == ROTATION && n.cmp.rotation == true)
+		return (-1);
+	else if (type == TRANSLATION && n.cmp.translation == true)
+		return (-1);
+	return (1);
+}
+
+int		check_for_disk(int type, t_node n)
+{
+	if (type != POSITION && type != TRANSLATION && type != COLOR\
+	&& type != RADIUS && type != ROTATION && type != ORIENTATION)
+		return (-1);
+	if (type == POSITION && n.cmp.position == true)
+		return (-1);
+	else if (type == COLOR && n.cmp.color == true)
+		return (-1);
+	else if (type == RADIUS && n.cmp.radius == true)
+		return (-1);
+	else if (type == ORIENTATION && n.cmp.orientation == true)
 		return (-1);
 	else if (type == ROTATION && n.cmp.rotation == true)
 		return (-1);

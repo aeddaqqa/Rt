@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pars_struct.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:14:56 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/10 19:21:21 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/22 15:56:02 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 **-----------------------------{structers}---------------------
 */
 #define LIMIT_CMP 21
-#define LIMIT_ELEMENTS 13
+#define LIMIT_ELEMENTS 14
 
 typedef	enum	e_types_cmp
 {

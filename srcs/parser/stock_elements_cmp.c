@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stock_elements_cmp.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:49:45 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/04 17:27:55 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/22 16:01:16 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int		all_cmp_validforobjects(t_node n)
 		return (all_cmp_valid_for_parallelogram(n));
 	else if (n.type == TORUS)
 		return (all_cmp_valid_for_torus(n));
+	else if (n.type == DISK)
+		return (all_cmp_valid_for_disk(n));
 	return (-1);
 }
 

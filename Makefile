@@ -6,7 +6,7 @@
 #    By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: Invalid date        by                   #+#    #+#              #
-#    Updated: 2021/02/21 17:45:17 by aeddaqqa         ###   ########.fr        #
+#    Updated: 2021/02/22 10:28:13 by aeddaqqa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ FLAGS= -Wall -Wextra -Werror -g
 OBJDIR = objs
 SRCDIR = srcs
 OBJ= objs/main.o objs/ft_compute_normals.o objs/shading.o\
-objs/objects_intersection.o
+objs/objects_intersection.o objs/sdl.o objs/menu.o
 SRC= srcs/main.c
 INC= includes/rt.h
 INC1= includes/functions.h

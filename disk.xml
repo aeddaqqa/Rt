@@ -1,21 +1,20 @@
 <scene>
 	<ambient>54564</ambient>
-	<cylinder>
-		<height>10</height>
-		<radius>5</radius>
-		<position>30 0 0</position>
-		<orientation> 0 1 0 </orientation>
+	<disk>
+		<position>0 0 0</position>
+		<orientation>0 1 0 </orientation>
+		<radius>10</radius>
 		<translation>0 0 0</translation>
 		<rotation>0 0 0</rotation>
 		<color>0xff0000</color>
-	</cylinder>
+	</disk>
 	<camera>
-		<origin>0 30 60</origin>
+		<origin> 0 0 0</origin>
 		<fov>60</fov>
 		<look-at>0 0 0</look-at>
 	</camera>
 	<light>
-		<position>50 100 100</position>
+		<position>10 0 60</position>
 		<color>0xffffff</color>
 		<intensity>9</intensity>
 	</light>

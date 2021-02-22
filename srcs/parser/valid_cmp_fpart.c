@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   valid_cmp_fpart.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 12:36:20 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/04 17:27:55 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/22 16:03:25 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ static void				valid_forobjects(t_node *n, int type)
 		valid_cmp_for_parallelogram(n, type);
 	else if (n->type == TORUS)
 		valid_cmp_for_torus(n, type);
+	else if (n->type == DISK)
+		valid_cmp_for_disk(n, type);
 }
 
 void					valid_cmp(t_node *n, int type)

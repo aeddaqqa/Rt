@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/21 18:51:23 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/22 12:27:41 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -227,6 +227,8 @@ typedef struct	s_rt
 	double			ambient;
 	bool			ambient_exist;
 	unsigned int	nbr_lights;
+	int				*filters;
+	int				save_filter;
 }				t_rt;
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bmp.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chzabakh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 15:46:42 by chzabakh          #+#    #+#             */
-/*   Updated: 2021/02/08 16:45:52 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/02/22 12:51:15 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ void	image_header(t_image *image, int file)
 
 void	fill_data(t_image *image)
 {
-	image->file_size = (WIN_W * WIN_H * 4) + 54;
+	image->file_size = (W * H * 4) + 54;
 	image->reserved1 = 0;
 	image->reserved2 = 0;
 	image->offset_bits = 54;
 	image->size_header = 40;
-	image->width = WIN_W;
-	image->height = WIN_H;
+	image->width = W;
+	image->height = H;
 	image->planes = 1;
 	image->bit_count = 24;
 	image->compression = 0;
@@ -55,23 +55,23 @@ void	image_put(int *img, int file)
 	int				row;
 	int				col;
 
-	row = WIN_H - 1;
-	buf = malloc((WIN_W * WIN_H * 4) + 54);
+	row = H - 1;
+	buf = malloc((W * H * 4) + 54);
 	while (row >= 0)
 	{
 		col = 0;
-		while (col < WIN_W)
+		while (col < W)
 		{
-			color = img[(WIN_H - row) *
-				WIN_W + col];
-			buf[row * WIN_W * 3 + col * 3 + 0] = color;
-			buf[row * WIN_W * 3 + col * 3 + 1] = color >> 8;
-			buf[row * WIN_W * 3 + col * 3 + 2] = color >> 16;
+			color = img[(H - row) *
+				W + col];
+			buf[row * W * 3 + col * 3 + 0] = color;
+			buf[row * W * 3 + col * 3 + 1] = color >> 8;
+			buf[row * W * 3 + col * 3 + 2] = color >> 16;
 			col++;
 		}
 		row--;
 	}
-	write(file, buf, (WIN_W * WIN_H * 4) + 54);
+	write(file, buf, (W * H * 4) + 54);
 	free(buf);
 }
 

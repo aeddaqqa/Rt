@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   valid_complex_objects.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 12:46:52 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/04 17:27:55 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/22 16:16:12 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,22 @@ void				valid_cmp_for_torus(t_node *n, int type)
 		n->cmp.radius1 = true;
 	else if (type == RADIUS_2)
 		n->cmp.radius2 = true;
+	else if (type == ROTATION)
+		n->cmp.rotation = true;
+	else if (type == TRANSLATION)
+		n->cmp.translation = true;
+}
+
+void				valid_cmp_for_disk(t_node *n, int type)
+{
+	if (type == POSITION)
+		n->cmp.position = true;
+	else if (type == COLOR)
+		n->cmp.color = true;
+	else if (type == RADIUS)
+		n->cmp.radius = true;
+	else if (type == ORIENTATION)
+		n->cmp.orientation = true;
 	else if (type == ROTATION)
 		n->cmp.rotation = true;
 	else if (type == TRANSLATION)
