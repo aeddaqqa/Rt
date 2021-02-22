@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: chzabakh <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/08 17:22:57 by chzabakh          #+#    #+#              #
-#    Updated: 2021/02/09 15:11:45 by chzabakh         ###   ########.fr        #
+#    Updated: 2021/02/22 19:13:13 by nabouzah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,13 @@ OBJ= $(OBJDIR)/antialiasing.o $(OBJDIR)/bmp.o $(OBJDIR)/cartoon.o\
 $(OBJDIR)/grey.o $(OBJDIR)/negative.o $(OBJDIR)/noise.o\
 $(OBJDIR)/sepia.o $(OBJDIR)/stereo.o
 INC = ../../includes/
+INC1 = ../../includes/functions.h
+INC2 = ../../includes/define.h
+INC5 = ../../includes/struct.h
+INC3 = ../../includes/rt.h
 all	: $(NAME)
 
-$(OBJDIR)/%.o : $(SRCDIR)%.c $(INC)
+$(OBJDIR)/%.o : $(SRCDIR)%.c $(INCS) $(INC1) $(INC2) $(INC5) $(INC3)
 	@gcc $(CFlags) -c -o $@ $< -I $(INC)
 	@ar rc $(NAME) $@
 

@@ -6,7 +6,7 @@
 #    By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/09 05:04:40 by nabouzah          #+#    #+#              #
-#    Updated: 2021/02/10 19:26:18 by nabouzah         ###   ########.fr        #
+#    Updated: 2021/02/22 19:14:08 by nabouzah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,13 @@ $(OBJDIR)/valid_cmp_fpart.o $(OBJDIR)/valid_principal_objects.o\
 $(OBJDIR)/read_cmp.o $(OBJDIR)/utilfunc2.o
 INC = ../../includes/parser/pars_functions.h
 INC1 = ../../includes/parser/pars_struct.h
+INC2 = ../../includes/functions.h
+INC3 = ../../includes/define.h
+INC4 = ../../includes/rt.h
+INC5 = ../../includes/struct.h
 all	: $(NAME)
 
-$(OBJDIR)/%.o : $(SRCDIR)%.c $(INC) $(INC1)
+$(OBJDIR)/%.o : $(SRCDIR)%.c $(INCS) $(INC1) $(INC2) $(INC3) $(INC4) $(INC5)
 	@gcc $(CFlags) -c -o $@ $< -I $(INC) -I $(INC1)
 	@ar rc $(NAME) $@
 

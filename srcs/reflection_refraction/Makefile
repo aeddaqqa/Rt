@@ -6,7 +6,7 @@
 #    By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/09 05:04:40 by nabouzah          #+#    #+#              #
-#    Updated: 2021/02/21 09:40:21 by nabouzah         ###   ########.fr        #
+#    Updated: 2021/02/22 19:13:13 by nabouzah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,13 @@ OBJ= $(OBJDIR)/calc_reflexion.o $(OBJDIR)/calc_refraction.o\
 $(OBJDIR)/reflextion_color.o $(OBJDIR)/refraction_color.o\
 $(OBJDIR)/render_ref_trsp.o
 INC = ../../includes/
+INC1 = ../../includes/functions.h
+INC2 = ../../includes/define.h
+INC5 = ../../includes/struct.h
+INC3 = ../../includes/rt.h
 all	: $(NAME)
 
-$(OBJDIR)/%.o : $(SRCDIR)%.c $(INC)
+$(OBJDIR)/%.o : $(SRCDIR)%.c $(INCS) $(INC1) $(INC2) $(INC5) $(INC3)
 	@gcc $(CFlags) -c -o $@ $< -I $(INC)
 	@ar rc $(NAME) $@
 
