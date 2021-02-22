@@ -5,11 +5,10 @@
 #                                                     +:+ +:+         +:+      #
 #    By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: Invalid date        by                   #+#    #+#              #
-#    Updated: 2021/02/22 10:28:13 by aeddaqqa         ###   ########.fr        #
+#    Created: 2021/02/22 16:29:44 by aeddaqqa          #+#    #+#              #
+#    Updated: 2021/02/22 16:29:48 by aeddaqqa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 NAME= RT
 LIBFT = libft/libft.a

@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:46:46 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/22 16:01:09 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/22 16:26:16 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@
 **				Error-gen
 */
 
-#define W 800
-#define H 800
+# define W 800
+# define H 800
+# define MAX_REF 2
 
 typedef enum	e_error
 {

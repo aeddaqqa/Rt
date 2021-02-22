@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/22 12:27:41 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/22 16:27:59 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,8 +163,8 @@ typedef struct	s_object
 	double			radius2;
 	double			distance;
 	double			angle;
-	char			is_ref;
-	char			is_transp;
+	int				is_ref;
+	int				is_transp;
 	t_intersect		sph;
 	t_intersect		cyl;
 	t_intersect		cne;
@@ -184,7 +184,7 @@ typedef struct	s_ray
 	t_point	origin;
 	t_vect3	direction;
 	t_point	hit_point;
-	double	reflect_nb;
+	int		reflect_nb;
 	double	reflexion_index;
 }				t_ray;
 

@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 18:53:30 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/02/19 14:05:36 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/21 11:10:47 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int shadow_cast(t_object *lst, t_ray *ray, double tmin)
     return (0);
 }
 
-t_vect3 lit_comp(t_light *light, t_vect3 light_dir, t_hit *hit, t_ray *ray)
+t_vect3 lit_comp(t_light *light, t_hit *hit, t_ray *ray)
 {
     float lambert;
     t_vect3 color;
@@ -73,10 +73,10 @@ t_vect3 lit_comp(t_light *light, t_vect3 light_dir, t_hit *hit, t_ray *ray)
     color.x = 0.05 * light->color.x * hit->object->color.x;
     color.y = 0.05 * light->color.y * hit->object->color.y;
     color.z = 0.05 * light->color.z * hit->object->color.z;
-    lambert = fmax(0.0f, dot(light_dir, hit->n));
+    lambert = fmax(0.0f, dot(light->direction, hit->n));
     color = vect_add(color, v_c_prod(hit->object->color, lambert));
-    reflect = 2.0f * (dot(light_dir, hit->n));
-    phong_dir = vect_sub(light_dir, v_c_prod(hit->n, reflect));
+    reflect = 2.0f * (dot(light->direction, hit->n));
+    phong_dir = vect_sub(light->direction, v_c_prod(hit->n, reflect));
     phong_term = fmax(dot(phong_dir, ray->direction), 0.0f);
     phong_term = 1.0f * powf(phong_term, 90.0f) * 1.0f;
     color = vect_add(color, v_c_prod(light->color, phong_term));
@@ -117,7 +117,6 @@ t_color ft_shade_object(t_hit *hit, t_rt *rt, t_ray *ray)
     t_color color;
     // t_color refraction;
     // t_color reflexion;
-    t_vect3 light_dir;
     t_ray   shadow_ray;
     double  t;
 
@@ -126,16 +125,15 @@ t_color ft_shade_object(t_hit *hit, t_rt *rt, t_ray *ray)
     light = rt->lights;
     while (light)
     {
-        light_dir = normalize(vect_sub(light->position, hit->p));
-        shadow_ray.direction = light_dir;
+        light->direction = normalize(vect_sub(light->position, hit->p));
+        shadow_ray.direction = light->direction;
         t = ft_magnitude(vect_sub(light->position, hit->p));
         if (!shadow_cast(rt->objects, &shadow_ray, t))
-            color = vect_add(color, lit_comp(light, light_dir,
-                                             hit, ray));
-            // refraction = refract_color(rt, *ray, *hit);
-            // reflexion = reflex_col(rt, *ray, *hit);
-            // // color = vect_add(v_c_prod(refraction, 0.0), v_c_prod(color, 1.0));
-            // color = vect_add(v_c_prod(reflexion, 0.1), v_c_prod(color, 0.8));
+            color = vect_add(color, lit_comp(light, hit, ray));
+            // refraction = refract_color(rt, *ray, *hit, light);
+            // // reflexion = reflex_col(rt, *ray, *hit, light);
+            // color = vect_add(v_c_prod(refraction, 0.5), v_c_prod(color, 0.5));
+            // color = vect_add(v_c_prod(reflexion, 0.5), v_c_prod(color, 0.5));
         light = light->next;
     }
     return (clamp_vec(color));
