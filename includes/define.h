@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: farwila <farwila@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:46:46 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2020/12/27 14:05:38 by farwila          ###   ########.fr       */
+/*   Updated: 2021/02/22 16:26:16 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@
 /*
 **				Error-gen
 */
-#define W 800
-#define H 800
+
+# define W 800
+# define H 800
+# define MAX_REF 2
+
 typedef enum	e_error
 {
 	FLAG_SAVE,
@@ -33,7 +36,30 @@ typedef	enum	e_type
 	PLANE,
 	SPHERE,
 	CYLINDER,
-	CONE
+	CONE,
+	CAMERA,
+	LIGHT,
+	ELLIPSOID,
+	PARABOLOID,
+	TRIANGLE,
+	BOX,
+	PARALLELOGRAM,
+	TORUS,
+	DISK,
+	AMBIENT
 }				t_type;
+
+#define COLOR_1 0x192a56
+#define COLOR_2 0xfbc531
+#define COLOR_3 0xf5f6fa
+#define COLOR_4 0x2f3640
+#define FONT_P                 \
+	{                          \
+		0xea, 0xb5, 0x43, 0xff \
+	}
+#define FONT_S                 \
+	{                          \
+		0xF8, 0xEF, 0xBA, 0xff \
+	}
 
 #endif

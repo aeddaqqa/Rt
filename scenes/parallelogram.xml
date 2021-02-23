@@ -1,0 +1,22 @@
+<scene>
+	<ambient>54564</ambient>
+	<parallelogram>
+		<color>0x00ff00</color>
+		<rotation>0 0 0</rotation>
+		<translation>0 0 0</translation>
+		<point_a>40 -30 0</point_a>
+		<point_b>-20 -30 0</point_b>
+		<point_c>20 40 0</point_c>
+		<point_d>-20 30 60</point_d>
+	</parallelogram>
+	<camera>
+		<origin> 0 0 100</origin>
+		<fov>60</fov>
+		<look-at>0 0 0</look-at>
+	</camera>
+	<light>
+		<position>0 0 90</position>
+		<color>0xffffff</color>
+		<intensity>9</intensity>
+	</light>
+</scene>

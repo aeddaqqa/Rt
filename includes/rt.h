@@ -3,24 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   rt.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: farwila <farwila@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 20:15:10 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2020/12/27 21:23:01 by farwila          ###   ########.fr       */
+/*   Updated: 2021/02/22 19:04:05 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RT_H
 # define RT_H
-# include "../SDL/SDL2-2.0.14/include/SDL.h"
-# include "../SDL/SDL2_image-2.0.5/SDL_image.h"
+
+#include "../SDL/SDL2.framework/Headers/SDL.h"
+#include "../SDL/SDL2_image.framework/Headers/SDL_image.h"
+#include "../SDL/SDL2_ttf.framework/Headers/SDL_ttf.h"
 # include <dirent.h>
+# include <stdio.h>
+# include <fcntl.h>
 # include <stdbool.h>
 # include <math.h>
+# include "mlx.h"
 # include "../libft/libft.h"
-# include "define.h"
-# include "struct.h"
-# include "functions.h"
-# include "parse.h"
-
+# include "./define.h"
+# include "./struct.h"
+# include "./functions.h"
+# include "./image.h"
 #endif

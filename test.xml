@@ -1,19 +1,95 @@
 <scene>
+	<ambient>54564</ambient>
+	<sphere>
+		<position>10 30 60</position>
+		<radius>20</radius>
+		<translation>10 30 60</translation>
+		<rotation>10 30 60</rotation>
+		<color>1256789</color>
+	</sphere>
+	<plane>
+		<position>10 30 60</position>
+		<orientation>10 30 60 </orientation>
+		<translation>10 30 60</translation>
+		<rotation>10 30 60</rotation>
+		<color>1256789</color>
+	</plane>
+	<cone>
+		<angle>10</angle>
+		<height>10</height>
+		<position>10 30 60</position>
+		<orientation>10 30 60 </orientation>
+		<translation>10 30 60</translation>
+		<rotation>10 30 60</rotation>
+		<color>1256789</color>
+	</cone>
+	<cylinder>
+		<height>10</height>
+		<radius>10</radius>
+		<position>10 30 60</position>
+		<orientation>10 30 60 </orientation>
+		<translation>10 30 60</translation>
+		<rotation>10 30 60</rotation>
+		<color>1256789</color>
+	</cylinder>
+	<paraboloid>
+		<position>10 30 60</position>
+		<color>123456789</color>
+		<distance>45</distance>
+		<translation>10 30 60</translation>
+		<rotation>10 30 60</rotation>
+		<orientation>10 30 60</orientation>
+	</paraboloid>
+	<triangle>
+		<color>123456789</color>
+		<rotation>10 30 60</rotation>
+		<translation>10 30 60</translation>
+		<point_a>10 30 60</point_a>
+		<point_c>10 30 60</point_c>
+		<point_b>10 30 60</point_b>
+	</triangle>
+	<parallelogram>
+		<color>123456789</color>
+		<rotation>10 30 60</rotation>
+		<translation>10 30 60</translation>
+		<point_a>10 30 60</point_a>
+		<point_c>10 30 60</point_c>
+		<point_b>10 30 60</point_b>
+		<point_d>10 30 60</point_d>
+	</parallelogram>
+	<box>
+		<color>123456789</color>
+		<rotation>10 30 60</rotation>
+		<translation>10 30 60</translation>
+		<corner_a>10 30 60</corner_a>
+		<corner_b>10 30 60</corner_b>
+	</box>
+	<ellipsoid>
+		<color>123456789</color>
+		<rotation>10 30 60</rotation>
+		<orientation>10 30 60</orientation>
+		<position>10 30 60</position>
+		<translation>10 30 60</translation>
+		<distance>10</distance>
+		<radius_1>10</radius_1>
+		<radius_2>10</radius_2>
+	</ellipsoid>
+	<torus>
+		<color>123456789</color>
+		<rotation>10 30 60</rotation>
+		<position>10 30 60</position>
+		<translation>10 30 60</translation>
+		<radius_1>10</radius_1>
+		<radius_2>10</radius_2>
+	</torus>
+	<camera>
+		<origin> 23	 60 21</origin>
+		<fov>455</fov>
+		<look-at>10 30 60</look-at>
+	</camera>
 	<light>
-		<position>-10010,30,60</position>
-		<color>121212</color>
+		<position>0010 0 60</position>
+		<color>0xff</color>
 		<intensity>40</intensity>
 	</light>
-	<sphere>
-		<position>10,30,60</position>
-		<color>123456789</color>
-		<r_a>40</r_a>
-		<orientation>100,200,300</orientation>
-		<ambient>40</ambient>
-	</sphere>
-	<camera>
-		<origin>>5454100,30,60</origin>
-		<fov>123456789</fov>
-		<look-at>10,30,60</look-at>
-	</camera>
 </scene>
