@@ -1,19 +1,14 @@
 <scene>
 	<ambient>54564</ambient>
-	<sphere>
-		<position>40 0 0</position>
-		<radius>20</radius>
+	<cylinder>
+		<height>10</height>
+		<radius>10</radius>
+		<position>30 -40 0</position>
+		<orientation>0 1 0 </orientation>
 		<translation>0 0 0</translation>
 		<rotation>0 0 0</rotation>
 		<color>0xff00ff</color>
-	</sphere>
-	<sphere>
-		<position>-40 0 0</position>
-		<radius>20</radius>
-		<translation>0 0 0</translation>
-		<rotation>0 0 0</rotation>
-		<color>0xff00ff</color>
-	</sphere>
+	</cylinder>
 	<camera>
 		<origin> 0 0 160</origin>
 		<fov>60</fov>

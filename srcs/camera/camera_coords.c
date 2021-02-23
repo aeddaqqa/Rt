@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 18:33:59 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/02/22 17:32:57 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/23 17:51:35 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void		cam_cord_system(t_cam *cam)
 	cam->plan_w = cam->plan_h * cam->ratio;
 	tmp = vect_sub(cam->l, cam->o);
 	cam->cords.w = normalize(tmp);
-	tmp = cross(cam->up, cam->cords.w);
+	tmp = cross(cam->cords.w, cam->up);
 	cam->cords.u = normalize(tmp);
-	cam->cords.v = cross(cam->cords.w, cam->cords.u);
+	cam->cords.v = cross(cam->cords.u, cam->cords.w);
 }

@@ -1,0 +1,20 @@
+<scene>
+	<ambient>54564</ambient>
+	<plane>
+		<position>30 -40 0</position>
+		<orientation>0 0 1 </orientation>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<color>0xffff00</color>
+	</plane>
+	<camera>
+		<origin> 0 0 160</origin>
+		<fov>60</fov>
+		<look-at>0 0 0</look-at>
+	</camera>
+	<light>
+		<position>0 0 60</position>
+		<color>0xffffff</color>
+		<intensity>9</intensity>
+	</light>
+</scene>
