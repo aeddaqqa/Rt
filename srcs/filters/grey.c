@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   grey.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chzabakh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 15:12:05 by chzabakh          #+#    #+#             */
-/*   Updated: 2021/02/08 16:46:03 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/02/24 10:13:15 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	img_grey(int *img)
 	t_vec	tmp;
 	int		i;
 
-	res = WIN_W * WIN_H;
+	res = W * H;
 	grey = (int *)malloc(res * 4);
 	ft_memcpy(grey, img, res * 4);
 	i = 0;

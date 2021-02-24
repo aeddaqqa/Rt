@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stereo.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chzabakh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 15:17:59 by chzabakh          #+#    #+#             */
-/*   Updated: 2021/02/08 16:46:23 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/02/24 10:14:20 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	img_red(int *red, int *img)
 	int		i;
 
 	i = 0;
-	while (i < WIN_W * WIN_H)
+	while (i < W * H)
 	{
 		rgb.x = 255 / 2;
 		rgb.y = ((img[i] >> 8) % 256) / 2;
@@ -34,7 +34,7 @@ void	img_green(int *gren, int *img)
 	int		i;
 
 	i = 0;
-	while (i < WIN_W * WIN_H)
+	while (i < W * H)
 	{
 		rgb.x = (img[i] >> 16) / 2;
 		rgb.y = 255 / 2;
@@ -49,7 +49,7 @@ void	merge_3d(int *img, int *green, int *red)
 	int		i;
 
 	i = 0;
-	while (i < WIN_W * WIN_H)
+	while (i < W * H)
 	{
 		if (i % 2 == 0)
 			img[i] = green[i];
@@ -68,19 +68,19 @@ void	img_ddd(int *img)
 	int	k;
 	int	i;
 
-	k = WIN_W;
+	k = W;
 	i = 0;
-	red = (int *)malloc(WIN_W * WIN_H * 4);
-	green = (int *)malloc(WIN_W * WIN_H * 4);
+	red = (int *)malloc(W * H * 4);
+	green = (int *)malloc(W * H * 4);
 	img_green(green, img);
 	img_red(red, img);
 	merge_3d(img, green, red);
-	while (i < WIN_W * WIN_H)
+	while (i < W * H)
 	{
 		if (i > k - 10 && i < k + 10)
 			img[i] = 0;
 		if (i > k + 10)
-			k = k + WIN_W;
+			k = k + W;
 		i++;
 	}
 }

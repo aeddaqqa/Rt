@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:46:46 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/22 16:26:16 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/24 11:34:38 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 # define W 800
 # define H 800
+# define DIFFUSE 1.0
+# define SPECULER 1.0
 # define MAX_REF 2
 
 typedef enum	e_error

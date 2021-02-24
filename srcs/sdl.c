@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 10:28:22 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/22 11:15:46 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/24 10:14:07 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,29 @@ int				re_calc(t_sdl *sdl, SDL_Event event)
 	return (-1);
 }
 
-void			render(t_sdl *sdl)
+void			render(t_sdl *sdl, t_rt *rt)
 {
+	int  i;
+
+	i = 0;
+	while (i < 6)
+	{
+		if (rt->filters[i])
+			break;
+		i++;
+	}
+	if (i == 0)
+		antialiasing(rt->sdl->data);
+	if (i == 1)
+		img_noise(rt->sdl->data);
+	if (i == 2)
+		img_sepia(rt->sdl->data);
+	if (i == 3)
+		img_grey(rt->sdl->data);
+	if (i == 4)
+		ft_cartoon(rt->sdl->data);
+	if (i == 5)
+		img_ddd(rt->sdl->data);
 	SDL_RenderClear(sdl->ren_ptr);
 	SDL_UpdateTexture(sdl->tex_ptr, NULL, sdl->data, W * 4);
 	SDL_RenderCopy(sdl->ren_ptr, sdl->tex_ptr, NULL, NULL);

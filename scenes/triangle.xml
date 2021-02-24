@@ -1,21 +1,28 @@
 <scene>
-	<ambient>54564</ambient>
+	<ambient>20</ambient>
 	<triangle>
-		<color>0x00ff00</color>
+		<color>0xff0000</color>
 		<rotation>0 0 0</rotation>
 		<translation>0 0 0</translation>
-		<point_a>40 0 0</point_a>
-		<point_b>-40 0 0</point_b>
-		<point_c>0 40 0</point_c>
+		<point_a>0.205614 0.332702 0.632826</point_a>
+		<point_b>0.776053 0.374153 0.035027</point_b>
+		<point_c>0.110653 0.785392 0.035027</point_c>
 	</triangle>
+	<plane>
+		<position>0 0 0</position>
+		<orientation>0 0 1 </orientation>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<color>0xffff00</color>
+	</plane>
 	<camera>
-		<origin> 0 0 100</origin>
-		<fov>60</fov>
+		<origin>0.0 0.0 2.0</origin>
+		<fov>30</fov>
 		<look-at>0 0 0</look-at>
 	</camera>
 	<light>
-		<position>0 0 90</position>
+		<position>0 0 2.0</position>
 		<color>0xffffff</color>
-		<intensity>9</intensity>
+		<intensity>100</intensity>
 	</light>
 </scene>

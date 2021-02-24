@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_cmp.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 14:58:17 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/04 17:27:55 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/24 11:30:25 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int stock_vect3(t_vect3 *r, char *str)
 			free_tab2(&split, len_tab_2d(split));
 			return (-1);
 		}
-		d[i] = ft_atoi(split[i]);
+		d[i] = ft_atod(split[i]);
 		i++;
 	}
 	free_tab2(&split, len_tab_2d(split));

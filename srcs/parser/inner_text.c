@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inner_text.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 03:37:25 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/04 17:27:55 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/24 08:43:00 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int		stock_cmp_cam(void **object, char *str, int r)
 	}
 	else if (r == FOV)
 	{
-		if (stock_rpa(&cam->fov, str) < 0)
+		if (stock_rpa(&cam->fov, str, r) < 0)
 			return (-1);
 	}
 	return (1);
@@ -69,7 +69,7 @@ static	int		stock_cmp_light(void **object, char *str, int r)
 	}
 	else if (r == INTENSITY)
 	{
-		if (stock_rpa(&light->intensity, str) < 0)
+		if (stock_rpa(&light->intensity, str, r) < 0)
 			return (-1);
 	}
 	return (1);
@@ -99,7 +99,7 @@ int				stock_cmp_objects(t_object *obj, int r, char *str)
 	if (r < 10)
 		return (stock_vect3(stk[r], str));
 	else if (r > 10)
-		return (stock_rpa(rpa[r - 11], str));
+		return (stock_rpa(rpa[r - 11], str, r));
 	else
 		return (read_color(&obj->color, str));
 }

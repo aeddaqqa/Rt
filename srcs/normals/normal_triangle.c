@@ -12,12 +12,12 @@
 
 #include "../../includes/rt.h"
 
-void		ft_computing_triangle_normal(t_hit *hit)
+t_vect3		triangle_normal(t_object *object, t_ray *ray)
 {
 	t_vect3	ca;
 	t_vect3	ba;
 
-	ca = vect_sub(hit->object->point_c, hit->object->point_a);
-	ba = vect_sub(hit->object->point_b, hit->object->point_a);
-	hit->n = normalize(cross(ba, ca));
+	ca = vect_sub(object->point_c, object->point_a);
+	ba = vect_sub(object->point_b, object->point_a);
+	return (normalize(cross(ba, ca)));
 }

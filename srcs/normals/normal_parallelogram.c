@@ -12,7 +12,16 @@
 
 #include "../../includes/rt.h"
 
-t_vect3		ft_parallelogram_normal(t_object *para)
+// t_vect3		ft_parallelogram_normal(t_object *para)
+// {
+// 	t_vect3	n;
+
+// 	n = cross(vect_sub(para->point_c, para->point_a),\
+// 	vect_sub(para->point_d, para->point_a));
+// 	return (normalize(n));
+// }
+
+t_vect3		normal_parallelogram(t_object *para, t_ray *ray)
 {
 	t_vect3	n;
 

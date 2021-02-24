@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   noise.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chzabakh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 14:22:11 by chzabakh          #+#    #+#             */
-/*   Updated: 2021/02/08 16:46:13 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/02/23 18:49:09 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	greycalc(int *grey, int *noi)
 	grey[0] = 2631720;
 	grey[1] = 1973790;
 	grey[2] = 1315860;
-	while (i < WIN_W * WIN_H)
+	while (i < W * H)
 	{
 		grey[3] = noi[i];
 		grey[4] = noi[i];
@@ -42,11 +42,11 @@ void	img_noise(int *img)
 
 	srand(time(0));
 	grey = (int*)malloc(sizeof(int) * 6);
-	noi = (int*)malloc(sizeof(int) * WIN_W * WIN_H * 4);
-	noimag = (int*)malloc(sizeof(int) * WIN_W * WIN_H * 4);
+	noi = (int*)malloc(sizeof(int) * W * H * 4);
+	noimag = (int*)malloc(sizeof(int) * W * H * 4);
 	greycalc(grey, noi);
 	i = 0;
-	while (i < WIN_W * WIN_H)
+	while (i < W * H)
 	{
 		rgb.x = ((img[i] >> 16) * 3 + (noi[i] >> 16)) / 4;
 		rgb.y = (((img[i] >> 8) % 256) * 3 + ((noi[i] >> 8) % 256)) / 4;
@@ -54,7 +54,7 @@ void	img_noise(int *img)
 		noimag[i] = ((int)rgb.x << 16) + ((int)rgb.y << 8) + rgb.z;
 		i++;
 	}
-	ft_memcpy(img, noimag, WIN_W * WIN_H * 4);
+	ft_memcpy(img, noimag, W * H * 4);
 	free(grey);
 	free(noi);
 	free(noimag);

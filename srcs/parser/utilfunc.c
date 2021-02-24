@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utilfunc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:28:42 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/04 17:27:55 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/24 08:38:37 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static t_cam			*new_cam(void)
 	n_cam->plan_w = -1;
 	n_cam->o = (t_point){0, 0, 0};
 	n_cam->l = (t_vect3){0, 0, 0};
-	n_cam->up = (t_color){0, 0, 0};
+	n_cam->up = (t_color){0, 1, 0};
 	n_cam->next = NULL;
 	return (n_cam);
 }

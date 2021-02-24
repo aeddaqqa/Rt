@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/22 19:14:39 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/24 16:28:51 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct	s_light
 	double			intensity;
 	double			distance;
 	t_color			color;
+	double			d;
 	t_vect3			light_reflected;
 	struct s_light	*next;
 }				t_light;
@@ -82,27 +83,27 @@ typedef struct	s_intersect
 	double	t2;
 }				t_intersect;
 
-typedef struct	s_delta
+typedef struct		s_delta
 {
-	float	a;
-	float	b;
-	float	c;
-	float	delta;
-}				t_delta;
+	double	a;
+	double	b;
+	double	c;
+	double	disc;
+}					t_delta;
 
-typedef struct	s_cone
-{
-	t_delta	d;
-	t_vect3	pa;
-	t_vect3	va;
-	t_vect3	x;
-	t_vect3	a;
-	t_vect3	b;
-	float	anglesin;
-	float	t1;
-	float	t2;
-	float	anglecos;
-}				t_cone;
+// typedef struct	s_cone
+// {
+// 	t_delta	d;
+// 	t_vect3	pa;
+// 	t_vect3	va;
+// 	t_vect3	x;
+// 	t_vect3	a;
+// 	t_vect3	b;
+// 	float	anglesin;
+// 	float	t1;
+// 	float	t2;
+// 	float	anglecos;
+// }				t_cone;
 
 typedef struct	s_tri
 {
@@ -157,6 +158,7 @@ typedef struct	s_object
 	t_point			point_d;
 	t_point			corner[2];
 	t_vect3			orientation;
+	t_vect3			normal;
 	double			height;
 	double			radius;
 	double			radius1;
@@ -186,6 +188,7 @@ typedef struct	s_ray
 	t_point	hit_point;
 	int		reflect_nb;
 	double	reflexion_index;
+	double	t;
 }				t_ray;
 
 typedef struct	s_mlx
@@ -198,6 +201,20 @@ typedef struct	s_mlx
 	int		ls;
 	int		end;
 }				t_mlx;
+
+typedef struct	s_cone
+{
+	t_delta	d;
+	t_vect3	pa;
+	t_vect3	va;
+	t_vect3	x;
+	t_vect3	a;
+	t_vect3	b;
+	float	anglesin;
+	float	t1;
+	float	t2;
+	float	anglecos;
+}				t_cone;
 
 typedef struct		s_sdl
 {
@@ -214,10 +231,11 @@ typedef struct		s_sdl
 	int				data[W * H];
 }					t_sdl;
 
+
+
 typedef struct	s_rt
 {
 	bool			save;
-	t_mlx			*mlx;
 	t_sdl			*sdl;
 	t_object		*objects;
 	t_object		*obj;
@@ -229,6 +247,8 @@ typedef struct	s_rt
 	unsigned int	nbr_lights;
 	int				*filters;
 	int				save_filter;
+	double			(**intersection)(t_object *obj, t_ray *r);
+	t_vect3			(**normal)(t_object *obj, t_ray *r);
 }				t_rt;
 
 #endif

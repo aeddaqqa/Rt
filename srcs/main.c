@@ -6,44 +6,196 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:16:14 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/22 16:24:18 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/24 16:45:38 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/rt.h"
 
-int raycast(t_object *lst, t_ray ray, t_hit *hit)
+t_color	multip_color(t_color c1, t_color c2)
 {
-	t_object *p;
-	double t;
-	t_ray save;
+	t_color	new;
+	float	tmp;
 
-	t = INFINITY;
-	hit->object = NULL;
-	hit->t = INFINITY;
-	p = lst;
-	save = obj_intersect(p, hit, ray, t);
-	if (hit->object == NULL)
-		return (0);
-	hit->p = vect_add(save.origin, v_c_prod(save.direction, hit->t));
-	ft_compute_normals(hit, &save);
+	tmp = c1.x * c2.x;
+	new.x = tmp > 1.0 ? 1.0 : tmp;
+	tmp = c1.y * c2.y;
+	new.y = tmp > 1.0 ? 1.0 : tmp;
+	tmp = c1.z * c2.z;
+	new.z = tmp > 1.0 ? 1.0 : tmp;
+	return (new);
+}
+
+t_color	fraction(t_color c, double fract)
+{
+	t_color	new;
+	double	tmp;
+
+	tmp = c.x * fract;
+	new.x = tmp > 1.0 ? 1.0 : tmp;
+	tmp = c.y * fract;
+	new.y = tmp > 1.0 ? 1.0 : tmp;
+	tmp = c.z * fract;
+	new.z = tmp > 1.0 ? 1.0 : tmp;
+	return (new);
+}
+
+int		rgb(t_color color)
+{
+	int		new;
+	char	*ptr;
+
+	ptr = (char *)&new;
+	ptr[2] = color.x * 255;
+	ptr[1] = color.y * 255;
+	ptr[0] = color.z * 255;
+	ptr[3] = 0;
+	return (new);
+}
+
+t_color	add_color(t_color c1, t_color c2)
+{
+	t_color	new;
+	double	tmp;
+
+	tmp = c1.x + c2.x;
+	new.x = tmp > 1.0 ? 1.0 : tmp;
+	tmp = c1.y + c2.y;
+	new.y = tmp > 1.0 ? 1.0 : tmp;
+	tmp = c2.z + c1.z;
+	new.z = tmp > 1.0 ? 1.0 : tmp;
+	return (new);
+}
+
+static int				in_shadow(t_rt *rt, t_light *light, t_object *object)
+{
+	t_object	*obj;
+	double		t;
+	double		distance;
+	t_ray		shadow;
+
+	shadow.origin = light->position;
+	shadow.direction = v_c_prod(light->direction, -1.0);
+	obj = rt->objects;
+	while (obj)
+	{
+		if (obj != object\
+				&& (t = rt->intersection[obj->type](obj, &shadow)) > 0.0)
+		{
+			shadow.hit_point = v_c_prod(shadow.direction, t);
+			distance = sqrtf(dot(shadow.hit_point, shadow.hit_point));
+			if (distance < light->d)
+				return (0);
+		}
+		obj = obj->next;
+	}
 	return (1);
 }
 
-t_color raytrace(t_rt *rt, t_hit *hit, t_ray *ray)
+static t_color			ambient(t_object *obj, double amb)
 {
-	t_color	ret;
+	t_color		color;
 
-	ret = (t_color){0, 0, 0};
-	if (raycast(rt->objects, *ray, hit))
-		ret = ft_shade_object(hit, rt, ray);
-	return (ret);
+	color = v_c_prod((t_color){1.0, 1.0, 1.0}, amb);
+	color = vect_prod(color, obj->color);
+	return (color);
+}
+
+static t_color			diffuse(t_light *light, double n_l, t_object *object)
+{
+	t_color		color;
+
+	color = multip_color(fraction(light->color, light->intensity), object->color);
+	color = fraction(color, n_l * DIFFUSE);
+	return (color);
+}
+
+static t_color			specular(t_light *l, t_ray *ray, t_object *object)
+{
+	t_color			color;
+	t_vect3		h;
+	unsigned int	alpha;
+	double			dot_p;
+
+	color = (t_color){0.0, 0.0, 0.0};
+	alpha = 300;
+	h = normalize(vect_sub(l->direction, ray->direction));
+	if ((dot_p = dot(object->normal, h)) <= 0)
+		return (color);
+	dot_p = powf(dot_p, alpha);
+	color = fraction(l->color, dot_p * l->intensity * SPECULER); // TODO: specular intensity
+	return (color);
+}
+
+unsigned int			light_effect(t_rt *rt, t_object *object, t_ray *ray)
+{
+	double			n_l;
+	t_color			color[rt->nbr_lights];
+	unsigned int	i;
+	t_color			tmp_res[2];
+	t_light			*lights;
+
+	i = 0;
+	lights = rt->lights;
+	tmp_res[1] = ambient(object, rt->ambient);
+	while (lights)
+	{
+		tmp_res[0] = (t_color){0.0, 0.0, 0.0};
+		lights->direction = vect_sub(lights->position, ray->hit_point);
+		lights->d = sqrtf(dot(lights->direction, lights->direction));
+		lights->direction = normalize(lights->direction);
+		n_l = dot(object->normal, lights->direction);
+		if (n_l > 0)
+			tmp_res[0] = vect_add(tmp_res[0], diffuse(lights, n_l, object));
+		tmp_res[0] = add_color(tmp_res[0], specular(lights, ray, object));
+		color[i++] = fraction(tmp_res[0], in_shadow(rt, lights, object));
+		lights = lights->next;
+	}
+	while (i > 0)
+		tmp_res[1] = add_color(color[--i], tmp_res[1]);
+	return (rgb(tmp_res[1]));
+}
+
+int				light(t_object *close_obj, t_ray *ray, t_rt *rt, double t)
+{
+	ray->hit_point = vect_add(ray->origin, v_c_prod(ray->direction, t));
+	ray->t = t;
+	close_obj->normal = rt->normal[close_obj->type](close_obj, ray);
+	return (light_effect(rt, close_obj, ray));
+}
+
+unsigned int	pixel_color(t_rt *rt, t_ray *ray)
+{
+	double			x;
+	double			t;
+	unsigned int	color;
+	t_object			*close_object;
+	t_object			*tmp;
+
+	tmp = rt->objects;
+	close_object = NULL;
+	ray->t = -1.0;
+	t = -1.0;
+	color = 0;
+	while (tmp)
+	{
+		x = rt->intersection[tmp->type](tmp, ray);
+		if (x != -1 && (x < t || t == -1.0))
+		{
+			close_object = tmp;
+			t = x;
+		}
+		tmp = tmp->next;
+	}
+	if (t != -1 && close_object)
+		return (light(close_object, ray, rt, t));
+		// return (0xff);
+	return (0);
 }
 
 void draw(t_rt *rt)
 {
 	t_ray	*ray;
-	t_hit	hit;
 	int		y;
 	int		x;
 
@@ -54,9 +206,8 @@ void draw(t_rt *rt)
 		while (x < W)
 		{
 			ray = ray_init(rt, x, y);
-			hit.t = INFINITY;
-			if (raycast(rt->objects, *ray, &hit))
-				rt->sdl->data[y * W + x] = rgb_to_int(raytrace(rt, &hit, ray));
+			rt->sdl->data[y * W + x] = pixel_color(rt, ray);
+			free(ray);
 			x++;
 		}
 		y++;
@@ -78,27 +229,41 @@ int		*init_tab()
 	return (tab);
 }
 
+void		initab(int *tab)
+{
+	int		i;
+
+	i = 0;
+	while (i < 6)
+	{
+		tab[i] = 0;
+		i++;
+	}
+}
+
+
+
 void		rtrace(t_rt *rt)
 {
 	int		to_do;
 
 	rt->sdl->loop = 2;
 	rt->save_filter = -1;
-	cam_cord_system(rt->cameras);
-	rt->filters = init_tab();
+	rt->filters = init_tab();/*free*/
 	while (rt->sdl->loop)
 	{
+		initab(rt->filters);/*free*/
 		if (rt->sdl->loop == 2)
 		{
 			draw(rt);
-			render(rt->sdl);
+			render(rt->sdl, rt);
 			menu(rt->sdl, rt->save_filter);
 			rt->sdl->loop = 1;
 		}
 		else if (SDL_PollEvent(&rt->sdl->event))
 		{
-			if (rt->sdl->event.type == SDL_WINDOWEVENT &&\
-			rt->sdl->event.window.event == SDL_WINDOWEVENT_CLOSE)
+			if ((rt->sdl->event.type == SDL_WINDOWEVENT &&\
+			rt->sdl->event.window.event == SDL_WINDOWEVENT_CLOSE) || rt->sdl->event.type == SDL_QUIT)
 				break;
 			rt->sdl->key_table = (char *)SDL_GetKeyboardState(NULL);
 			if (rt->sdl->key_table[SDL_SCANCODE_ESCAPE])
@@ -111,13 +276,15 @@ void		rtrace(t_rt *rt)
 			{
 				if ((to_do = re_calc(rt->sdl, rt->sdl->event)) != -1)
 				{
-					rt->filters[to_do] = 1;
-					if (rt->save_filter != -1 && rt->save_filter == to_do)
+					if (rt->save_filter == to_do)
 						rt->save_filter = -1;
 					else
+					{
+						rt->filters[to_do] = 1;
 						rt->save_filter = to_do;
+					}
 					draw(rt);
-					render(rt->sdl);
+					render(rt->sdl, rt);
 				}
 				menu(rt->sdl, rt->save_filter);
 			}
@@ -151,7 +318,15 @@ int main(int ac, char **av)
 			free(file);
 			exit(0);
 		}
+		// printf("point = %lf %lf %lf\n", rt->objects->point_a.x, rt->objects->point_a.y, rt->objects->point_a.z);
+		// printf("point = %lf %lf %lf\n", rt->objects->point_b.x, rt->objects->point_b.y, rt->objects->point_b.z);
+		// printf("point = %lf %lf %lf\n", rt->objects->point_c.x, rt->objects->point_c.y, rt->objects->point_c.z);
+		// printf("point = %lf\n", rt->objects->radius1);
+		// printf("point = %lf\n", rt->objects->radius2);
+		// printf("point = %lf\n", rt->objects->distance);
+			// exit(0);
 		rt->sdl = init_sdl();
+		new_camera(rt);
 		if (rt->sdl)
 			rtrace(rt);
 	}

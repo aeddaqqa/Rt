@@ -1,7 +1,7 @@
 <scene>
 	<ambient>54564</ambient>
 	<cone>
-		<angle>10</angle>
+		<angle>5</angle>
 		<height>5</height>
 		<position>0 0 0</position>
 		<orientation>0 1 0 </orientation>

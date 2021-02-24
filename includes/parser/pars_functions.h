@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:14:56 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/22 16:04:33 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/24 08:40:22 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void			new_objects2(t_object *n_obj);
 int				rgb_to_int(t_color v);
 int				to_rgb(t_color *co, int c);
 int				read_color(t_color *c, char *data);
-int				stock_rpa(double *dst, char *str);
+int				stock_rpa(double *dst, char *str, int r);
 int				stock_vect3(t_vect3 *r, char *str);
 void			free_tab2(char ***tab, int l);
 int				len_tab_2d(char **tab);

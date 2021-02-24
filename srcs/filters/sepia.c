@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sepia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chzabakh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 15:12:57 by chzabakh          #+#    #+#             */
-/*   Updated: 2021/02/08 16:45:42 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/02/23 18:47:45 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void	img_sepia(int *img)
 	t_vec	tmp;
 	int		i;
 
-	sep = (int *)malloc(WIN_W * WIN_H * 4);
-	ft_memcpy(sep, img, WIN_W * WIN_H * 4);
+	sep = (int *)malloc(W * H * 4);
+	ft_memcpy(sep, img, W * H * 4);
 	i = 0;
-	while (i < WIN_W * WIN_H)
+	while (i < W * H)
 	{
 		rgb.x = img[i] >> 16;
 		rgb.y = (img[i] >> 8) % 256;
@@ -37,6 +37,6 @@ void	img_sepia(int *img)
 		sep[i] = ((int)rgb.x << 16) + ((int)rgb.y << 8) + rgb.z;
 		i++;
 	}
-	ft_memcpy(img, sep, WIN_W * WIN_H * 4);
+	ft_memcpy(img, sep, W * H * 4);
 	free(sep);
 }

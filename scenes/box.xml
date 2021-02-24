@@ -1,20 +1,20 @@
 <scene>
-	<ambient>54564</ambient>
+	<ambient>100</ambient>
 	<box>
 		<color>0x00ff00</color>
 		<rotation>0 0 0</rotation>
 		<translation>0 0 0</translation>
-		<corner_a>30 30 60</corner_a>
-		<corner_b>-30 -30 30</corner_b>
+		<corner_a>-1 -1 -1</corner_a>
+		<corner_b>1 1 1</corner_b>
 	</box>
 	<camera>
-		<origin> 0 0 100</origin>
+		<origin> 10 0 15</origin>
 		<fov>60</fov>
 		<look-at>0 0 0</look-at>
 	</camera>
 	<light>
-		<position>0 0 90</position>
+		<position>0 10 25</position>
 		<color>0xffffff</color>
-		<intensity>9</intensity>
+		<intensity>100</intensity>
 	</light>
 </scene>

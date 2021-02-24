@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stock_elements.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:21:43 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/04 17:27:55 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/24 09:49:13 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ int			stock_ambient(char *str, t_tags tags, t_rt *rt)
 	j = 0;
 	inner = inner_text(str, &j);
 	rt->ambient = ft_atoi(inner);
+	if (rt->ambient < 0)
+		rt->ambient = 0;
+	else if (rt->ambient > 100)
+		rt->ambient = 100;
+	rt->ambient /= 100.0;
 	free(inner);
 	tag = get_tag(str + j, &j);
 	if (ft_strcmp(tag, tags.elements_c[AMBIENT]))
@@ -73,7 +78,10 @@ int			stock_elem_amb(char *str, int *i, t_tags tags, t_rt *rt)
 	else
 	{
 		rt->obj = new_object(rt->node.type);
-		rt->obj->type = rt->node.type;
+		if (rt->node.type == LIGHT)
+			rt->nbr_lights++;
+		else if (rt->node.type != CAMERA)
+			rt->obj->type = rt->node.type;
 		if ((stock_elements_cmp(str, tags, rt, i)) < 0)
 		{
 			free(rt->obj);

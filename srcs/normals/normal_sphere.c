@@ -12,10 +12,10 @@
 
 #include "../../includes/rt.h"
 
-t_vect3		ft_sphere_normal(t_hit *hit)
+t_vect3		sphere_normal(t_object *obj, t_ray *ray)
 {
 	t_vect3	n;
 
-	n = normalize(vect_sub(hit->p, hit->object->position));
+	n = normalize(vect_sub(ray->hit_point, obj->position));
 	return (n);
 }

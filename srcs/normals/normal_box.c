@@ -12,7 +12,7 @@
 
 #include "../../includes/rt.h"
 
-t_vect3		ft_box_normal(t_object *box, t_vect3 h)
+t_vect3		box_normal(t_object *box, t_ray *ray)
 {
 	t_vect3	c;
 	t_vect3	d;
@@ -25,6 +25,7 @@ t_vect3		ft_box_normal(t_object *box, t_vect3 h)
 	d.x = fabs(d.x) * bias;
 	d.y = fabs(d.y) * bias;
 	d.z = fabs(d.z) * bias;
-	p = vect_sub(h, c);
+	p = vect_sub(ray->hit_point, c);
 	return (normalize(ft_vector(p.x / d.x, p.y / d.y, p.z / d.z)));
+	// return (normalize(ft_vector(1,1,1)));
 }

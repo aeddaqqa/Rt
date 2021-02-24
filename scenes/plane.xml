@@ -1,5 +1,5 @@
 <scene>
-	<ambient>54564</ambient>
+	<ambient>20</ambient>
 	<plane>
 		<position>30 -40 0</position>
 		<orientation>0 0 1 </orientation>
@@ -15,6 +15,6 @@
 	<light>
 		<position>0 0 60</position>
 		<color>0xffffff</color>
-		<intensity>9</intensity>
+		<intensity>100</intensity>
 	</light>
 </scene>
