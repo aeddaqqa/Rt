@@ -1,9 +1,45 @@
 <scene>
 	<ambient>0</ambient>
 	<cone>
-		<angle>30</angle>
+		<angle>50</angle>
 		<height>10</height>
 		<position>0 0 0</position>
+		<orientation>0 1 0 </orientation>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<color>0xff0000</color>
+	</cone>
+	<cone>
+		<angle>50</angle>
+		<height>10</height>
+		<position>10 0 0</position>
+		<orientation>0 1 0 </orientation>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<color>0xff0000</color>
+	</cone>
+	<cone>
+		<angle>50</angle>
+		<height>10</height>
+		<position>-10 0 0</position>
+		<orientation>0 1 0 </orientation>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<color>0xff0000</color>
+	</cone>
+	<cone>
+		<angle>50</angle>
+		<height>10</height>
+		<position>-20 0 0</position>
+		<orientation>0 1 0 </orientation>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<color>0xff0000</color>
+	</cone>
+	<cone>
+		<angle>50</angle>
+		<height>10</height>
+		<position>20 0 0</position>
 		<orientation>0 1 0 </orientation>
 		<translation>0 0 0</translation>
 		<rotation>0 0 0</rotation>

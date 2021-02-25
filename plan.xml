@@ -1,7 +1,7 @@
 <scene>
 	<ambient>54564</ambient>
 	<plane>
-		<position>0 0 -60</position>
+		<position>40 40 0</position>
 		<orientation>0 0 1 </orientation>
 		<translation>0 0 0</translation>
 		<rotation>0 0 0</rotation>

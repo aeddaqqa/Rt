@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 14:58:17 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/24 11:30:25 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/25 16:21:23 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,13 @@ int is_hex(char *value)
 
 int to_rgb(t_color *co, int c)
 {
-	co->x = ((c >> 16) & 255) / 255;
-	co->y = ((c >> 8) & 255) / 255;
-	co->z = (c & 255) / 255;
+	co->x = ((c >> 16) & 255) / 255.0;
+	co->y = ((c >> 8) & 255) / 255.0;
+	co->z = (c & 255) / 255.0;
 	return (1);
 }
 
-int read_color(t_color *c, char *data)
+int 	read_color(t_color *c, char *data)
 {
 	int color;
 	int i;
@@ -100,5 +100,6 @@ int read_color(t_color *c, char *data)
 			return (0);
 		color = color * (hex ? 16 : 10) + digit;
 	}
+	printf("%d\n", color);
 	return (to_rgb(c, color));
 }

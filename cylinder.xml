@@ -1,23 +1,24 @@
 <scene>
-	<ambient>54564</ambient>
-	<cylinder>
-		<height>100</height>
-		<radius>5</radius>
-		<position>0 0 0</position>
-		<orientation> 0 1 0 </orientation>
-		<translation>0 0 0</translation>
-		<rotation>0 0 0</rotation>
-		<color>0xff0000</color>
-	</cylinder>
-	<camera>
-		<origin>0 30 60</origin>
+	<ambient>0</ambient>
+		<camera>
+		<origin>0 50 1200</origin>
 		<fov>60</fov>
-		<look-at>0 0 0</look-at>
+		<look-at>0 0 -1</look-at>
 	</camera>
 	<light>
-		<position>0 0 60</position>
+		<position>310 130 950</position>
 		<color>0xffffff</color>
-		<intensity>9</intensity>
+		<intensity>100</intensity>
 	</light>
+
+	<cylinder>
+		<height>100</height>
+		<radius>45</radius>
+		<position>-300 0 -400</position>
+		<orientation>0 1 0</orientation>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<color>0x969696</color>
+	</cylinder>
 
 </scene>

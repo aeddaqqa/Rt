@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:16:14 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/24 18:38:04 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/25 19:04:15 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,6 +193,39 @@ unsigned int	pixel_color(t_rt *rt, t_ray *ray)
 	return (0);
 }
 
+void	draw_progress_bar(t_rt *rt)
+{
+	int 		i;
+	// int 		j;
+	SDL_Rect	src;
+	// int		last_time;
+	int		current_time;
+
+	src.x = W / 2 - 50;
+	src.y = H / 2 - 5;
+	src.w = 100;
+	src.h = 10;
+	SDL_SetRenderDrawColor(rt->sdl->ren_ptr, 0xEA, 0xB5, 0x43, 255);
+	SDL_RenderDrawRect(rt->sdl->ren_ptr, &src);
+	render(rt->sdl, rt);
+	current_time = SDL_GetTicks();
+	// while ((SDL_GetTicks() - current_time) < 10);
+	i = 0;
+}
+
+// unsigned int lastTime = 0, currentTime;
+// while (!quit) {
+//   // do stuff
+//   // ...
+
+//   // Print a report once per second
+//   currentTime = SDL_GetTicks();
+//   if (currentTime > lastTime + 1000) {
+//     printf("Report: %d\n", variable);
+//     lastTime = currentTime;
+//   }
+// }
+
 void draw(t_rt *rt)
 {
 	t_ray	*ray;
@@ -208,6 +241,7 @@ void draw(t_rt *rt)
 			ray = ray_init(rt, x, y);
 			rt->sdl->data[y * W + x] = pixel_color(rt, ray);
 			free(ray);
+			// draw_progress_bar(rt);
 			x++;
 		}
 		y++;
@@ -430,6 +464,9 @@ int main(int ac, char **av)
 				free(file);
 				exit(0);
 			}
+			// t_color t = read_color("0x969696");
+			// printf("color : %lf %lf %lf", rt->objects->color.x, rt->objects->color.y, rt->objects->color.x);
+			// exit(0);
 		}
 		else if (!ft_strcmp(".obj", ex))
 		{
@@ -455,63 +492,3 @@ int main(int ac, char **av)
 		ft_putendl("./rt [fileName]");
 	return (1);
 }
-// int main(int ac, char **av)
-// {
-// 	char *file;
-// 	t_rt *rt;
-// 	char *ex;
-
-// 	file = NULL;
-// 	if (ac == 2 || ac == 3)
-// 	{
-// 		if (ac == 3 && ft_strcmp(av[2], "--save"))
-// 		{
-// 			destroy(FLAG_SAVE);
-// 			return (0);
-// 		}
-// 		ex = ft_strrchr(av[1], '.');
-// 		if (!ex)
-// 			exit(0);
-// 		if (!(rt = init_rt(ac - 2)))
-// 			destroy(MALLOC_ERROR);
-// 		if (!ft_strcmp(".xml", ex))
-// 		{
-// 			if (!(file = load_file(av[1])))
-// 				exit(0);
-// 			if (!(parse(file, rt)))
-// 			{
-// 				new_camera(rt);
-// 				destroy(SYNTAX_ERROR);
-// 				free_rt(&rt);
-// 				free(file);
-// 				exit(0);
-// 			}
-// 		}
-// 		else if (!ft_strcmp(".obj", ex))
-// 		{
-// 			rt->cameras->o= (t_vect3){0, 0, 1};
-// 			rt->cameras->l= (t_vect3){0, 0, 0};
-// 			rt->cameras->up= (t_vect3){0, 1, 0};
-// 			rt->cameras->fov= 60;
-// 			new_camera(rt);
-// 			rt->objects = load_fileobj(av[1]);
-// 			if (!rt->objects)
-// 				exit(0);
-// 		}
-// 		else
-// 			exit(0);
-// 		// printf("point = %lf %lf %lf\n", rt->objects->point_a.x, rt->objects->point_a.y, rt->objects->point_a.z);
-// 		// printf("point = %lf %lf %lf\n", rt->objects->point_b.x, rt->objects->point_b.y, rt->objects->point_b.z);
-// 		// printf("point = %lf %lf %lf\n", rt->objects->point_c.x, rt->objects->point_c.y, rt->objects->point_c.z);
-// 		// printf("point = %lf\n", rt->objects->radius1);
-// 		// printf("point = %lf\n", rt->objects->radius2);
-// 		// printf("point = %lf\n", rt->objects->distance);
-// 			// exit(0);
-// 		rt->sdl = init_sdl();
-// 		if (rt->sdl)
-// 			rtrace(rt);
-// 	}
-// 	else
-// 		ft_putendl("./rt [fileName]");
-// 	return (1);
-// }
