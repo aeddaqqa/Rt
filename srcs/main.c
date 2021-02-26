@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:16:14 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/25 19:04:15 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/26 19:30:57 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -226,22 +226,51 @@ void	draw_progress_bar(t_rt *rt)
 //   }
 // }
 
+t_color int_to_rgb(int m)
+{
+	t_color rgb;
+
+	rgb.x = (m >> 16) & 255;
+	rgb.y = (m >> 8) & 255;
+	rgb.z = (m & 255);
+	return (rgb);
+}
+
 void draw(t_rt *rt)
 {
 	t_ray	*ray;
 	int		y;
 	int		x;
+	double r1;
+	double r2;
+	int z;
+	t_color c = {0, 0, 0};
 
+	srand(time(0));
 	y = 0;
 	while (y < H)
 	{
 		x = 0;
 		while (x < W)
 		{
-			ray = ray_init(rt, x, y);
+			z = 0;
+			c = (t_color){0, 0, 0};
+			while (z < 10)
+			{
+			r1 = (rand() % 10) / 10.;
+			r2 = (rand() % 10) / 10.;
+			ray = ray_init(rt, x, y, r1, r2);
 			rt->sdl->data[y * W + x] = pixel_color(rt, ray);
+			c = vect_add(c, int_to_rgb(pixel_color(rt, ray)));
 			free(ray);
+			z++;
+			}
 			// draw_progress_bar(rt);
+			c = v_c_prod(c, 0.1);
+			c.x = (int)c.x & 255;
+			c.y = (int)c.y & 255;
+			c.z = (int)c.z & 255;
+			rt->sdl->data[y * W + x] = rgb_to_int(c);
 			x++;
 		}
 		y++;

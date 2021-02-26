@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 17:39:00 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/02/25 16:11:21 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/26 19:13:49 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@
 // 	else
 // 		return (-1);
 // }
+
+void	non(void *a)
+{
+}
 
 // double		ft_min_ray(double t1, double t2, double *t)
 // {
