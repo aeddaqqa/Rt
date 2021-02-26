@@ -1,5 +1,5 @@
 <scene>
-	<ambient>54564</ambient>
+	<ambient>20</ambient>
 	<sphere>
 		<position>0 0 0</position>
 		<radius>20</radius>
@@ -7,14 +7,21 @@
 		<rotation>0 0 0</rotation>
 		<color>0xff00ff</color>
 	</sphere>
+	<sphere>
+		<position>0 0 60</position>
+		<radius>5</radius>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<color>0xff00ff</color>
+	</sphere>
 	<camera>
-		<origin> 0 0 60</origin>
+		<origin> 0 0 160</origin>
 		<fov>60</fov>
 		<look-at>0 0 0</look-at>
 	</camera>
 	<light>
-		<position>0 0 60</position>
+		<position>0 0 160</position>
 		<color>0xffffff</color>
-		<intensity>9</intensity>
+		<intensity>100</intensity>
 	</light>
 </scene>

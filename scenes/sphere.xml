@@ -5,10 +5,10 @@
 		<radius>5</radius>
 		<translation>0 0 0</translation>
 		<rotation>0 0 0</rotation>
-		<color>0xff00ff</color>
+		<color>0x969696</color>
 	</sphere>
 	<camera>
-		<origin> 0 100 0</origin>
+		<origin> 0 0 10</origin>
 		<fov>60</fov>
 		<look-at>0 0 0</look-at>
 	</camera>

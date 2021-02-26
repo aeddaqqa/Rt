@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:16:14 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/24 16:45:38 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/25 19:04:15 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,6 +193,39 @@ unsigned int	pixel_color(t_rt *rt, t_ray *ray)
 	return (0);
 }
 
+void	draw_progress_bar(t_rt *rt)
+{
+	int 		i;
+	// int 		j;
+	SDL_Rect	src;
+	// int		last_time;
+	int		current_time;
+
+	src.x = W / 2 - 50;
+	src.y = H / 2 - 5;
+	src.w = 100;
+	src.h = 10;
+	SDL_SetRenderDrawColor(rt->sdl->ren_ptr, 0xEA, 0xB5, 0x43, 255);
+	SDL_RenderDrawRect(rt->sdl->ren_ptr, &src);
+	render(rt->sdl, rt);
+	current_time = SDL_GetTicks();
+	// while ((SDL_GetTicks() - current_time) < 10);
+	i = 0;
+}
+
+// unsigned int lastTime = 0, currentTime;
+// while (!quit) {
+//   // do stuff
+//   // ...
+
+//   // Print a report once per second
+//   currentTime = SDL_GetTicks();
+//   if (currentTime > lastTime + 1000) {
+//     printf("Report: %d\n", variable);
+//     lastTime = currentTime;
+//   }
+// }
+
 void draw(t_rt *rt)
 {
 	t_ray	*ray;
@@ -208,6 +241,7 @@ void draw(t_rt *rt)
 			ray = ray_init(rt, x, y);
 			rt->sdl->data[y * W + x] = pixel_color(rt, ray);
 			free(ray);
+			// draw_progress_bar(rt);
 			x++;
 		}
 		y++;
@@ -294,10 +328,117 @@ void		rtrace(t_rt *rt)
 	destroy_sdl(&rt->sdl);
 }
 
+t_object		*stock_points(int nb, char *path)
+{
+	t_point		tab[nb];
+	t_object	*obj;
+	t_object	*tmp;
+	char		**split;
+	char		*line;
+	int			fd;
+	int			i;
+	int			j;
+	int			z;
+
+	i = 0;
+	z = 0;
+	obj = NULL;
+	tmp = NULL;
+	split = NULL;
+	fd = open(path, O_RDONLY);
+	while (get_next_line(fd, &line))
+	{
+		if (*line && (*line == 's' || *line == '#'))
+			continue;
+		if (z < nb)
+		{
+			split = ft_strsplit(line, ' ');
+			j = 0;
+			while (split[j])
+				j++;
+			if (j != 4 || ft_strcmp(split[0], "v"))
+				return (NULL);
+			tab[z] = (t_point){ft_atod(split[1]), ft_atod(split[2]), ft_atod(split[3])};
+			z++;
+		}
+		else
+		{
+			split = ft_strsplit(line, ' ');
+			j = 0;
+			while (split[j])
+			{
+				if (j != 0)
+					if (ft_atoi(split[j]) > nb || ft_atoi(split[j]) < 0)
+					{
+						printf("%s", split[j]);
+						return (NULL);
+					}
+				j++;
+			}
+			if (!*split)
+				continue;
+			if (j != 4 || ft_strcmp(split[0], "f") || *line == 's' || *line == '#')
+				return (NULL);
+			if (!obj)
+			{
+				obj = (t_object*)new_object(TRIANGLE);
+				obj->type = TRIANGLE;
+				obj->point_a = tab[ft_atoi(split[1]) - 1];
+				obj->point_b = tab[ft_atoi(split[2]) - 1];
+				obj->point_c = tab[ft_atoi(split[3]) - 1];
+				obj->color = (t_color){1.0, 1.0, 1.0};
+				tmp = obj;
+			}
+			else
+			{
+				tmp->next = (t_object*)new_object(TRIANGLE);
+				tmp->next->type = TRIANGLE;
+				tmp->next->point_a = tab[ft_atoi(split[1]) - 1];
+				tmp->next->point_b = tab[ft_atoi(split[2]) - 1];
+				tmp->next->point_c = tab[ft_atoi(split[3]) - 1];
+				tmp->next->color = (t_color){1.0, 1.0, 1.0};
+				tmp = tmp->next;
+			}
+		}
+		//  while (obj)
+		//  {
+		//  	printf("%lf    %lf       %lf |        ", obj->point_a.x, obj->point_a.y, obj->point_a.z);
+		//  	printf("%lf    %lf       %lf |        ", obj->point_b.x, obj->point_b.y, obj->point_b.z);
+		//  	printf("%lf    %lf       %lf \n", obj->point_c.x, obj->point_c.y, obj->point_c.z);
+		//  	obj = obj->next;
+		//  }
+	}
+	return (obj);
+}
+
+t_object	*load_fileobj(char *path)
+{
+	char	*line;
+	int		fd;
+	int		nb;
+
+	nb = 0;
+	fd = open(path, O_RDONLY);
+	while (get_next_line(fd, &line))
+	{
+		if (*line && (*line == 's' || *line == '#'))
+			continue;
+		else if (*line == 'v')
+			nb++;
+	}
+	close(fd);
+	if (!nb)
+		return (NULL);
+	return (stock_points(nb, path));
+}
+
+
 int main(int ac, char **av)
 {
 	char *file;
 	t_rt *rt;
+	char *ex;
+
 
 	file = NULL;
 	if (ac == 2 || ac == 3)
@@ -307,24 +448,41 @@ int main(int ac, char **av)
 			destroy(FLAG_SAVE);
 			return (0);
 		}
-		if (!(file = load_file(av[1])))
+		ex = ft_strrchr(av[1], '.');
+		if (!ex)
 			exit(0);
 		if (!(rt = init_rt(ac - 2)))
 			destroy(MALLOC_ERROR);
-		if (!(parse(file, rt)))
+		if (!ft_strcmp(ex, ".xml"))
 		{
-			destroy(SYNTAX_ERROR);
-			free_rt(&rt);
-			free(file);
-			exit(0);
-		}
-		// printf("point = %lf %lf %lf\n", rt->objects->point_a.x, rt->objects->point_a.y, rt->objects->point_a.z);
-		// printf("point = %lf %lf %lf\n", rt->objects->point_b.x, rt->objects->point_b.y, rt->objects->point_b.z);
-		// printf("point = %lf %lf %lf\n", rt->objects->point_c.x, rt->objects->point_c.y, rt->objects->point_c.z);
-		// printf("point = %lf\n", rt->objects->radius1);
-		// printf("point = %lf\n", rt->objects->radius2);
-		// printf("point = %lf\n", rt->objects->distance);
+			if (!(file = load_file(av[1])))
+				exit(0);
+			if (!(parse(file, rt)))
+			{
+				destroy(SYNTAX_ERROR);
+				free_rt(&rt);
+				free(file);
+				exit(0);
+			}
+			// t_color t = read_color("0x969696");
+			// printf("color : %lf %lf %lf", rt->objects->color.x, rt->objects->color.y, rt->objects->color.x);
 			// exit(0);
+		}
+		else if (!ft_strcmp(".obj", ex))
+		{
+			rt->cameras = new_object(CAMERA);
+			rt->cameras->o= (t_vect3){0, 0, 2};
+			rt->cameras->l= (t_vect3){0, 0, 0};
+			rt->cameras->up= (t_vect3){0, 1, 0};
+			rt->cameras->fov = stock_rpa(&rt->cameras->fov, "60", CAMERA);
+			rt->ambient = 100;
+			rt->lights = new_object(LIGHT);
+			rt->lights->color = (t_vect3){1, 1, 1};
+			rt->lights->position = (t_vect3){20, 10, 2.0};
+			rt->lights->intensity = 100;
+			rt->objects = load_fileobj(av[1]);
+		}
+		new_camera(rt);
 		rt->sdl = init_sdl();
 		new_camera(rt);
 		if (rt->sdl)

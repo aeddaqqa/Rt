@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/24 16:28:51 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/25 15:56:28 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,17 +190,6 @@ typedef struct	s_ray
 	double	reflexion_index;
 	double	t;
 }				t_ray;
-
-typedef struct	s_mlx
-{
-	void	*ptr;
-	void	*win;
-	void	*img;
-	int		*data;
-	int		bpp;
-	int		ls;
-	int		end;
-}				t_mlx;
 
 typedef struct	s_cone
 {
