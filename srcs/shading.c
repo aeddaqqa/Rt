@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shading.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 18:53:30 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/02/23 17:08:27 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/24 17:20:49 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@
 //         t = ft_magnitude(vect_sub(light->position, hit->p));
 //         if (!shadow_cast(rt->objects, &shadow_ray, t))
 //             color = vect_add(color, lit_comp(light, hit, ray));
-//             // refraction = refract_color(rt, *ray, *hit, light);
+            // refraction = refract_color(rt, *ray, *hit, light);
 //             // // reflexion = reflex_col(rt, *ray, *hit, light);
 //             // color = vect_add(v_c_prod(refraction, 0.5), v_c_prod(color, 0.5));
 //             // color = vect_add(v_c_prod(reflexion, 0.5), v_c_prod(color, 0.5));
