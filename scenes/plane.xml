@@ -1,5 +1,5 @@
 <scene>
-	<ambient>20</ambient>
+	<ambient>5</ambient>
 	<plane>
 		<position>30 -40 0</position>
 		<orientation>0 0 1 </orientation>

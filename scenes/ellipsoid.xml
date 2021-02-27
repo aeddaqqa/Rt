@@ -1,5 +1,5 @@
 <scene>
-	<ambient>100</ambient>
+	<ambient>5</ambient>
 	<ellipsoid>
 		<position>0 0 0</position>
 		<radius_1>1.2</radius_1>
@@ -16,7 +16,7 @@
 		<look-at>0 0 0</look-at>
 	</camera>
 	<light>
-		<position>0 0 0</position>
+		<position>0 0 60</position>
 		<color>0xffffff</color>
 		<intensity>100</intensity>
 	</light>

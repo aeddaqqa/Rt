@@ -1,5 +1,9 @@
 {
 	"files.associations": {
-		"__node_handle": "c"
+		"__node_handle": "c",
+		"__locale": "cpp",
+		"__split_buffer": "cpp",
+		"locale": "cpp",
+		"vector": "cpp"
 	}
 }

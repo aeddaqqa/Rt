@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/25 15:56:28 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/27 19:32:20 by ahkhilad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,21 +89,22 @@ typedef struct		s_delta
 	double	b;
 	double	c;
 	double	disc;
+	double	delta;
 }					t_delta;
 
-// typedef struct	s_cone
-// {
-// 	t_delta	d;
-// 	t_vect3	pa;
-// 	t_vect3	va;
-// 	t_vect3	x;
-// 	t_vect3	a;
-// 	t_vect3	b;
-// 	float	anglesin;
-// 	float	t1;
-// 	float	t2;
-// 	float	anglecos;
-// }				t_cone;
+typedef struct	s_cone
+{
+	t_delta	d;
+	t_vect3	pa;
+	t_vect3	va;
+	t_vect3	x;
+	t_vect3	a;
+	t_vect3	b;
+	float	anglesin;
+	float	t1;
+	float	t2;
+	float	anglecos;
+}				t_cone;
 
 typedef struct	s_tri
 {
@@ -148,7 +149,7 @@ typedef struct	s_parallelo
 typedef struct	s_object
 {
 	t_type			type;
-	t_point			position;
+	t_vect3			position;
 	t_vect3			translation;
 	t_vect3			rotation;
 	t_color			color;
@@ -183,27 +184,14 @@ typedef struct	s_hit
 
 typedef struct	s_ray
 {
-	t_point	origin;
+	t_vect3	origin;
 	t_vect3	direction;
 	t_point	hit_point;
 	int		reflect_nb;
 	double	reflexion_index;
 	double	t;
+	int		ret;
 }				t_ray;
-
-typedef struct	s_cone
-{
-	t_delta	d;
-	t_vect3	pa;
-	t_vect3	va;
-	t_vect3	x;
-	t_vect3	a;
-	t_vect3	b;
-	float	anglesin;
-	float	t1;
-	float	t2;
-	float	anglecos;
-}				t_cone;
 
 typedef struct		s_sdl
 {

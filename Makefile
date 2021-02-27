@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+         #
+#    By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/22 16:29:44 by aeddaqqa          #+#    #+#              #
-#    Updated: 2021/02/22 16:29:48 by aeddaqqa         ###   ########.fr        #
+#    Updated: 2021/02/27 16:34:22 by ahkhilad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ LIBINTERSECT = $(LIBINTERSECTDIR)/libintersection.a
 
 #FLAGS= -g
 #FLAGS= -Wall -Wextra -Werror
-FLAGS= -Wall -Wextra -Werror -g
+FLAGS= -Wall -Wextra -Werror
 OBJDIR = objs
 SRCDIR = srcs
 OBJ= objs/main.o objs/ft_compute_normals.o objs/shading.o\

@@ -1,5 +1,5 @@
 <scene>
-	<ambient>100</ambient>
+	<ambient>5</ambient>
 	<paraboloid>
 		<position>0 0 0</position>
 		<color>0xff0000</color>

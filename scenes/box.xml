@@ -1,5 +1,5 @@
 <scene>
-	<ambient>100</ambient>
+	<ambient>5</ambient>
 	<box>
 		<color>0x00ff00</color>
 		<rotation>0 0 0</rotation>

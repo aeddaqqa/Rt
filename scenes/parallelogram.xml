@@ -1,7 +1,7 @@
 <scene>
 	<ambient>100</ambient>
 	<parallelogram>
-		<color>0x00ff00</color>
+		<color>0x00ffff</color>
 		<rotation>0 0 0</rotation>
 		<translation>0 0 0</translation>
 		<point_a>-2 -1 0</point_a>
@@ -10,7 +10,7 @@
 		<point_d>-1 1 0</point_d>
 	</parallelogram>
 	<camera>
-		<origin>0 2 5</origin>
+		<origin>0 0 5</origin>
 		<fov>60</fov>
 		<look-at>0 0 0</look-at>
 	</camera>
