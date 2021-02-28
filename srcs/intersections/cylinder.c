@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cylinder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:49:36 by ahkhilad          #+#    #+#             */
-/*   Updated: 2021/02/27 19:31:54 by ahkhilad         ###   ########.fr       */
+/*   Updated: 2021/02/28 14:10:35 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ double			hit_cylinder(t_object *cylinder, t_ray *ray)
 	{
 		if (ft_cylinder_cap1(cylinder, ray, &t, m1))
 		{
-			ray->ret = 1;
+			ray->ret = -1;
 			return (t);
 		}
 		
@@ -120,29 +120,3 @@ double			hit_cylinder(t_object *cylinder, t_ray *ray)
 	}
 	return (-1.0);
 }
-
-
-
-
-// double		hit_cylinder(t_object *object, t_ray *ray)
-// {
-// 	double		delta;
-// 	double		a;
-// 	double		b;
-// 	double		c;
-// 	t_vect3	oc;
-
-// 	object->orientation = normalize(object->orientation);
-// 	oc = vect_sub(ray->origin, object->position);
-// 	a = dot(ray->direction, object->orientation);
-// 	a = dot(ray->direction, ray->direction) - (a * a);
-// 	b = 2 * (dot(ray->direction, oc) -\
-// 			dot(ray->direction, object->orientation) *\
-// 			dot(oc, object->orientation));
-// 	c = dot(oc, object->orientation);
-// 	c = dot(oc, oc) - (c * c) - (object->radius * object->radius);
-// 	delta = b * b - 4 * a * c;
-// 	if (delta < 0)
-// 		return (-1);
-// 	return (equa_solu(a, b, delta));
-// }

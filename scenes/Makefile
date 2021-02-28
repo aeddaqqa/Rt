@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+         #
+#    By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/22 16:29:44 by aeddaqqa          #+#    #+#              #
-#    Updated: 2021/02/28 16:47:39 by aeddaqqa         ###   ########.fr        #
+#    Updated: 2021/02/27 16:34:22 by ahkhilad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,6 @@ LIBFT = libft/libft.a
 
 LIBPARSEDIR = srcs/parser
 LIBPARSE = $(LIBPARSEDIR)/libparse.a
-
-LIBLIGHTSDIR = srcs/light_effects
-LIBLIGHTS = $(LIBLIGHTSDIR)/liblights.a
 
 LIBRENDERDIR = srcs/reflection_refraction
 LIBRENDER = $(LIBRENDERDIR)/librender.a
@@ -39,10 +36,11 @@ LIBINTERSECT = $(LIBINTERSECTDIR)/libintersection.a
 
 #FLAGS= -g
 #FLAGS= -Wall -Wextra -Werror
-FLAGS= -Wall -Wextra -Werror -g
+FLAGS= -Wall -Wextra -Werror
 OBJDIR = objs
 SRCDIR = srcs
-OBJ= objs/main.o objs/sdl.o objs/menu.o objs/objfile.o srcs/core_raytracing.o
+OBJ= objs/main.o objs/ft_compute_normals.o objs/shading.o\
+objs/objects_intersection.o objs/sdl.o objs/menu.o
 SRC= srcs/main.c
 INC= includes/rt.h
 INC1= includes/functions.h
@@ -56,8 +54,9 @@ all : Lib $(NAME)
 $(OBJDIR)/%.o : $(SRCDIR)/%.c $(INC) $(INC1) $(INC3) $(INC2)
 	gcc $(FLAGS) -c -o $@ $< -I $(INC)
 
-$(NAME) : $(LIBFT) $(LIBCALC) $(LIBPARSE) $(LIBCAM) $(LIBLIGHTS) $(LIBNORMAL) $(LIBINTERSECT)  $(LIBFILTERS) $(LIBRENDER) $(OBJ)
-	@gcc $(FLAGS) -o $@ $^ $(SDL) -I $(INC)
+$(NAME) : $(LIBFT) $(LIBCALC) $(LIBPARSE) $(LIBCAM) $(LIBNORMAL) $(LIBINTERSECT)  $(LIBFILTERS) $(LIBRENDER) $(OBJ)
+	@gcc -o $@ $^ $(SDL) -lmlx -framework OpenGL -framework AppKit\
+		-I $(INC)
 	@printf "\033[0;32m"
 	@printf "DONE COMPILING\n"
 	@printf "\033[0m"
@@ -72,7 +71,6 @@ Lib :
 	@make -C $(LIBCAMDIR)/
 	@make -C $(LIBNORMALDIR)/
 	@make -C $(LIBINTERSECTDIR)/
-	@make -C $(LIBLIGHTSDIR)/
 
 clean :
 	@rm -rf $(OBJDIR)
@@ -84,7 +82,6 @@ clean :
 	@make -C $(LIBCAMDIR)/ clean
 	@make -C $(LIBNORMALDIR)/ clean
 	@make -C $(LIBINTERSECTDIR)/ clean
-	@make -C $(LIBLIGHTSDIR)/ clean
 	@printf "\033[0;32m"
 	@printf "OBJ REMOVED\n"
 	@printf "\033[0m"
@@ -99,7 +96,6 @@ fclean : clean
 	@make -C $(LIBCAMDIR)/ fclean
 	@make -C $(LIBNORMALDIR)/ fclean
 	@make -C $(LIBINTERSECTDIR)/ fclean
-	@make -C $(LIBLIGHTSDIR)/ fclean
 	@printf "\033[0;32m"
 	@printf "DONE CLEANING\n"
 	@printf "\033[0m"

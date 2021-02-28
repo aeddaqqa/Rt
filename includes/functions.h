@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 12:33:01 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/25 16:05:09 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/28 17:02:55 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@
 #include "../srcs/intersections/includes/intersection.h"
 # include "../srcs/camera/includes/cam_function.h"
 
-double			ft_atod(const char *str);
+void		rtrace(t_rt *rt);
+int			parse_obj(t_rt *rt, char *path);
+double		ft_atod(const char *str);
 double		equa_solu(double a, double b, double delta);
 double		hit_sphere(t_object *object, t_ray *ray);
 double		hit_cone(t_object *obj, t_ray *ray);
@@ -41,6 +43,25 @@ t_vect3		box_normal(t_object *box, t_ray *h);
 t_vect3		paraboloid_normal(t_object *object, t_ray *ray);
 t_vect3		normal_disk(t_object *disk, t_ray *ray);
 t_vect3		normal_parallelogram(t_object *para, t_ray *ray);
+
+
+/*
+**		lights
+*/
+t_color			specular(t_light *l, t_ray *ray, t_object *object);
+int				in_shadow(t_rt *rt, t_light *light, t_object *object);
+t_color			ambient(t_object *obj, double amb);
+t_color			diffuse(t_light *light, double n_l, t_object *object);
+t_color			multip_color(t_color c1, t_color c2);
+t_color			fraction(t_color c, double fract);
+int				rgb(t_color color);
+t_color			add_color(t_color c1, t_color c2);
+unsigned int	light_effect(t_rt *rt, t_object *object, t_ray *ray);
+int				light(t_object *close_obj, t_ray *ray, t_rt *rt, double t);
+void			copy_obj(t_object *n_obj,t_object *obj);
+/*
+**--------------------------++++++++++++++++++++++++++++++++++++
+*/
 
 void	menu(t_sdl *sdl, int save);
 t_sdl	*init_sdl(void);

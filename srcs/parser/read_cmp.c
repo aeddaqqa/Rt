@@ -6,13 +6,13 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 14:58:17 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/25 16:21:23 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/28 08:40:36 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/rt.h"
 
-int stock_vect3(t_vect3 *r, char *str)
+int stock_vect3(t_vect3 *r, char *str, int type)
 {
 	char **split;
 	int i;
@@ -37,7 +37,10 @@ int stock_vect3(t_vect3 *r, char *str)
 	free_tab2(&split, len_tab_2d(split));
 	if (i != 3)
 		return (-1);
-	*r = (t_vect3){d[0], d[1], d[2]};
+	if (type == ORIENTATION)
+		*r = normalize((t_vect3){d[0], d[1], d[2]});
+	else
+		*r = (t_vect3){d[0], d[1], d[2]};
 	return (1);
 }
 
@@ -100,6 +103,5 @@ int 	read_color(t_color *c, char *data)
 			return (0);
 		color = color * (hex ? 16 : 10) + digit;
 	}
-	printf("%d\n", color);
 	return (to_rgb(c, color));
 }

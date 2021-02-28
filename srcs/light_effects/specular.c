@@ -6,9 +6,11 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 19:14:45 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/02/24 09:33:03 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/28 08:48:36 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../../includes/rt.h"
 
 t_color			specular(t_light *l, t_ray *ray, t_object *object)
 {
@@ -23,6 +25,6 @@ t_color			specular(t_light *l, t_ray *ray, t_object *object)
 	if ((dot_p = dot(object->normal, h)) <= 0)
 		return (color);
 	dot_p = powf(dot_p, alpha);
-	color = fraction(l->color, dot_p); // TODO: specular intensity
+	color = fraction(l->color, dot_p * l->intensity * SPECULER); // TODO: specular intensity
 	return (color);
 }

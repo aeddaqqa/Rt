@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 03:37:25 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/24 08:43:00 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/28 08:36:59 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ static int		stock_cmp_cam(void **object, char *str, int r)
 	cam = (t_cam*)*object;
 	if (r == ORIGIN)
 	{
-		if ((stock_vect3(&cam->o, str)) < 0)
+		if ((stock_vect3(&cam->o, str, r)) < 0)
 			return (-1);
 	}
 	else if (r == LOOK_AT)
 	{
-		if ((stock_vect3(&cam->l, str)) < 0)
+		if ((stock_vect3(&cam->l, str, r)) < 0)
 			return (-1);
 	}
 	else if (r == FOV)
@@ -59,7 +59,7 @@ static	int		stock_cmp_light(void **object, char *str, int r)
 	light = (t_light*)*object;
 	if (r == POSITION)
 	{
-		if ((stock_vect3(&light->position, str)) < 0)
+		if ((stock_vect3(&light->position, str, r)) < 0)
 			return (-1);
 	}
 	else if (r == COLOR)
@@ -97,7 +97,7 @@ int				stock_cmp_objects(t_object *obj, int r, char *str)
 	rpa[HEIGHT - 11] = &obj->height;
 	rpa[DISTANCE - 11] = &obj->distance;
 	if (r < 10)
-		return (stock_vect3(stk[r], str));
+		return (stock_vect3(stk[r], str, r));
 	else if (r > 10)
 		return (stock_rpa(rpa[r - 11], str, r));
 	else

@@ -9,7 +9,7 @@
       "type": "cppdbg",
       "request": "launch",
       "program": "${workspaceFolder}/RT",
-      "args": ["/Users/chzabakh/Desktop/shading/sphere.xml"],
+      "args": ["${workspaceFolder}/7.xml"],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [],

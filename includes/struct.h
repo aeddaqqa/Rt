@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/27 19:32:20 by ahkhilad         ###   ########.fr       */
+/*   Updated: 2021/02/28 14:50:56 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,6 +208,13 @@ typedef struct		s_sdl
 	int				data[W * H];
 }					t_sdl;
 
+typedef struct		s_threads
+{
+	int start_x;
+	int start_y;
+	int end_x;
+	int end_y;
+}					t_threads;
 
 
 typedef struct	s_rt

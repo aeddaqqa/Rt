@@ -3,24 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+         #
+#    By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/09 05:04:40 by nabouzah          #+#    #+#              #
-#    Updated: 2021/01/25 12:35:06 by nabouzah         ###   ########.fr        #
+#    Updated: 2021/02/28 09:39:24 by aeddaqqa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libparse.a
+NAME = liblights.a
 FLAGS= -Wall -Wextra -Werror
 OBJDIR = ../../objs
 SRCDIR= ./
-OBJ= $(OBJDIR)/check_cmp.o $(OBJDIR)/check_forpobjects.o $(OBJDIR)/free_parse.o\
-$(OBJDIR)/init_p.o $(OBJDIR)/inner_text.o $(OBJDIR)/main_pxml.o $(OBJDIR)/stock_elements_cmp.o\
-$(OBJDIR)/utilfunctions.o $(OBJDIR)/valid_all_cmp_pobjects.o $(OBJDIR)/valid_complex_objects.o\
-$(OBJDIR)/check_forcobjects.o $(OBJDIR)/error_managment.o $(OBJDIR)/get_cmp.o $(OBJDIR)/init_s.o\
-$(OBJDIR)/load_file.o $(OBJDIR)/stock_elements.o $(OBJDIR)/utilfunc.o\
-$(OBJDIR)/valid_all_cmp_cobjects.o $(OBJDIR)/valid_cmp_fpart.o\
-$(OBJDIR)/valid_principal_objects.o
+OBJ= $(OBJDIR)/ambient.o $(OBJDIR)/diffuse.o $(OBJDIR)/lights.o\
+	$(OBJDIR)/shadows.o $(OBJDIR)/specular.o
+
 INC = ../../includes/
 all	: $(NAME)
 
