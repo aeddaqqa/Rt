@@ -12,21 +12,25 @@
 
 #include "../../includes/rt.h"
 
-t_vect3	ft_cylinder_normal(t_object *cylinder, t_ray *ray)
-{
-	float	m;
+// t_vect3	ft_cylinder_normal(t_object *cylinder, t_ray *ray)
+// {
+// 	float	m;
 
-	m = 0.0;
-	if (ray->ret < 0)
-		return (v_c_prod(cylinder->orientation, -1.0));
-	else if (ray->ret > 1)
-		return (cylinder->orientation);
-	else
-	{
-		m = dot(ray->direction, cylinder->orientation) * ray->t;
-		m += dot(ray->origin, cylinder->orientation);
-		return (normalize(vect_sub(cylinder->position, v_c_prod(cylinder->orientation, m))));
-	}
+// 	m = 0.0;
+// 	if (ray->ret < 0)
+// 		return (v_c_prod(cylinder->orientation, -1.0));
+// 	else if (ray->ret > 1)
+// 		return (cylinder->orientation);
+// 	else
+// 	{
+// 		m = dot(ray->direction, cylinder->orientation) * ray->t;
+// 		m += dot(ray->origin, cylinder->orientation);
+// 		return (normalize(vect_sub(cylinder->position, v_c_prod(cylinder->orientation, m))));
+// 	}
+// }
+
+void print_vect(t_vect3 v){
+	printf("x : %.2f\ty : %.2f\tz : %.2f\n", v.x, v.y, v.z);
 }
 
 t_vect3		cylinder_normal(t_object *object, t_ray *ray)
@@ -41,12 +45,20 @@ t_vect3		cylinder_normal(t_object *object, t_ray *ray)
 	p = vect_add(ray->origin, v_c_prod(ray->direction, ray->t));
 	n = normalize(vect_sub(vect_sub(p, object->position),\
 				v_c_prod(object->orientation, m)));
-   if (object->height <= 0){
-	   return n;
-   }
-   if (ray->ret < 0)
-       n =  v_c_prod(object->orientation, -1.0);	
+	m = 0.0;
+	if (object->height <= 0)
+	{
+		return (n);
+	}
+	if (ray->ret < 0)
+	{
+		n = v_c_prod(object->orientation, -1.0);
+		return (n);
+	}
 	else if (ray->ret > 1)
-		n =object->orientation;
+	{
+		n = object->orientation;
+		return (n);
+	}
 	return (n);
 }

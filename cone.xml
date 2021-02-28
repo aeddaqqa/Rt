@@ -2,7 +2,7 @@
 	<ambient>5</ambient>
 	<cone>
 		<angle>30</angle>
-		<height>10</height>
+		<height>0</height>
 		<position>0 0 0</position>
 		<orientation>0 1 0 </orientation>
 		<translation>0 0 0</translation>

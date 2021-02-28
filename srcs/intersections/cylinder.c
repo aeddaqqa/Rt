@@ -6,7 +6,7 @@
 /*   By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:49:36 by ahkhilad          #+#    #+#             */
-/*   Updated: 2021/02/27 19:31:54 by ahkhilad         ###   ########.fr       */
+/*   Updated: 2021/02/28 12:53:07 by ahkhilad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ double			hit_cylinder(t_object *cylinder, t_ray *ray)
 	{
 		if (ft_cylinder_cap1(cylinder, ray, &t, m1))
 		{
-			ray->ret = 1;
+			ray->ret = -1;
 			return (t);
 		}
 		

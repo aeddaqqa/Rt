@@ -20,6 +20,7 @@
 
 t_vect3			cone_normal(t_object *cone, t_ray *ray)
 {
+	// t_vect3		p;
 	t_vect3	new;
 	t_point		p;
 	double		dv_xv[2];
@@ -38,4 +39,7 @@ t_vect3			cone_normal(t_object *cone, t_ray *ray)
 	if (dot(ray->direction, new) > 0)
 		new = v_c_prod(new, -1.0);
 	return (normalize(new));
+
+	// p = v_c_prod(p, 1.0 / cone->angle);
+	// return (ft_vector(p.x, 0.001, p.z));
 }
