@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 12:21:03 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/28 17:06:36 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/28 18:08:43 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -274,10 +274,12 @@ void		first_render(t_rt *rt)
 	rt->sdl->loop = 1;
 }
 
-int		core(t_rt *rt)
+int		core(t_rt **r)
 {	
 	int		to_do;
+	t_rt	*rt;
 
+	rt = *r;
 	if ((rt->sdl->event.type == SDL_WINDOWEVENT &&\
 	rt->sdl->event.window.event == SDL_WINDOWEVENT_CLOSE) || rt->sdl->event.type == SDL_QUIT)
 		return (0);
@@ -287,6 +289,26 @@ int		core(t_rt *rt)
 		if (rt->save)
 			image_create(rt->sdl->data);
 		rt->sdl->loop = 0;
+	}
+	if (rt->sdl->key_table[SDL_SCANCODE_O])
+	{
+		if (rt->cameras->next)
+		{
+			rt->cameras = rt->cameras->next;
+			new_camera(rt);
+			first_render(rt);
+			render(rt->sdl, rt);
+		}
+	}
+	if (rt->sdl->key_table[SDL_SCANCODE_P])
+	{
+		if (rt->cameras->prev)
+		{
+			rt->cameras = rt->cameras->prev;
+			new_camera(rt);
+			first_render(rt);
+			render(rt->sdl, rt);
+		}
 	}
 	else if (SDL_GetMouseFocus() == rt->sdl->win_menu)
 	{
@@ -321,7 +343,7 @@ void		rtrace(t_rt *rt)
 			first_render(rt);
 		else if (SDL_PollEvent(&rt->sdl->event))
 		{
-			if (!core(rt))
+			if (!core(&rt))
 				break;
 		}
 	}

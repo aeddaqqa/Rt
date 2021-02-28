@@ -135,4 +135,24 @@
 		<rotation>0 0 0</rotation>
 		<color>0x0000ff</color>
 	</plane>
+	<camera>
+		<origin>0 0 10</origin>
+		<fov>60</fov>
+		<look-at>0 0 0</look-at>
+	</camera>
+	<camera>
+		<origin>30 0 20</origin>
+		<fov>60</fov>
+		<look-at>0 0 0</look-at>
+	</camera>
+	<camera>
+		<origin>220 0 40</origin>
+		<fov>60</fov>
+		<look-at>0 0 0</look-at>
+	</camera>
+	<camera>
+		<origin>330 0 60</origin>
+		<fov>60</fov>
+		<look-at>0 0 0</look-at>
+	</camera>
 </scene>

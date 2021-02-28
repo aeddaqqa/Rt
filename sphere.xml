@@ -4,19 +4,34 @@
 	<cylinder>
 		<height>50</height>
 		<radius>4</radius>
-		<position>-20 0 60</position>
+		<position>0 0 0</position>
 		<orientation>0 1 0</orientation>
 		<translation>0 0 0</translation>
 		<rotation>0 0 0</rotation>
 		<color>0x969696</color>
 	</cylinder>
 	<camera>
-		<origin> 0 0 160</origin>
+		<origin>0 0 10</origin>
+		<fov>60</fov>
+		<look-at>0 0 0</look-at>
+	</camera>
+	<camera>
+		<origin>30 0 20</origin>
+		<fov>60</fov>
+		<look-at>0 0 0</look-at>
+	</camera>
+	<camera>
+		<origin>220 0 40</origin>
+		<fov>60</fov>
+		<look-at>0 0 0</look-at>
+	</camera>
+	<camera>
+		<origin>330 0 60</origin>
 		<fov>60</fov>
 		<look-at>0 0 0</look-at>
 	</camera>
 	<light>
-		<position>0 0 160</position>
+		<position>0 0 1220</position>
 		<color>0xffffff</color>
 		<intensity>100</intensity>
 	</light>

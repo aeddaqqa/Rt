@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utilfunctions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:39:07 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/04 17:27:55 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/02/28 17:35:39 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static	void		add_front_cam(t_cam **head, t_cam *new)
 			*head = new;
 		else
 		{
+			(*head)->prev = new;
 			new->next = *head;
 			*head = new;
 		}

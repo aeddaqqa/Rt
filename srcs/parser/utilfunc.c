@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:28:42 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/24 08:38:37 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/28 17:36:12 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ static t_cam			*new_cam(void)
 	n_cam->l = (t_vect3){0, 0, 0};
 	n_cam->up = (t_color){0, 1, 0};
 	n_cam->next = NULL;
+	n_cam->prev = NULL;
 	return (n_cam);
 }
 

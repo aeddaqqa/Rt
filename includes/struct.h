@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/28 14:50:56 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/28 17:34:20 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct	s_cam
 	double			plan_h;
 	double			plan_w;
 	struct s_cam	*next;
+	struct s_cam	*prev;
 }				t_cam;
 
 typedef struct	s_cap
