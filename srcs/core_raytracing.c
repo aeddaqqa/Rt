@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   core_raytracing.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 12:21:03 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/28 18:08:43 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/02/28 18:36:37 by ahkhilad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -254,11 +254,7 @@ void		first_render(t_rt *rt)
 {
 	SDL_Thread  *tab[4];
 	int			threadReturnValue[4];;
-	t_rt *rr[3];
 
-	// rr[0] = copy(rt);
-	// rr[1] = copy(rt);
-	// rr[2] = copy(rt);
 	tab[0] = SDL_CreateThread((SDL_ThreadFunction)draw_first_thread, "draw_first_thread", (void *)rt);
 	tab[1] = SDL_CreateThread((SDL_ThreadFunction)draw_second_thread, "draw_second_thread", (void *)rt);
 	tab[2] = SDL_CreateThread((SDL_ThreadFunction)draw_third_thread, "draw_third_thread", (void *)rt);
