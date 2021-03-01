@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   core_raytracing.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 12:21:03 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/01 18:30:01 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/03/01 11:24:53 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ void		apply_antiliasing(t_rt *rt, int x, int y)
 
 void		draw_scene(t_rt *rt, int x, int y)
 {
-	t_color	c;
+	// t_color	c;
 	t_ray *ray;
 
 	ray = ray_init(rt, x, y, .5, .5);
@@ -328,7 +328,7 @@ int		core(t_rt **r)
 
 void		rtrace(t_rt *rt)
 {
-	int		to_do;
+	// int		to_do;
 
 	rt->sdl->loop = 2;
 	rt->save_filter = -1;
