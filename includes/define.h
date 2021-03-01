@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:46:46 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/24 11:34:38 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/01 17:52:01 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ typedef	enum	e_type
 	TRIANGLE,
 	BOX,
 	PARALLELOGRAM,
-	TORUS,
 	DISK,
 	AMBIENT
 }				t_type;

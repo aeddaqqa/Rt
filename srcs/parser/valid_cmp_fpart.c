@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 12:36:20 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/22 16:03:25 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/01 17:53:41 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,6 @@ static void				valid_forobjects(t_node *n, int type)
 		valid_cmp_for_box(n, type);
 	else if (n->type == PARALLELOGRAM)
 		valid_cmp_for_parallelogram(n, type);
-	else if (n->type == TORUS)
-		valid_cmp_for_torus(n, type);
 	else if (n->type == DISK)
 		valid_cmp_for_disk(n, type);
 }

@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 01:42:30 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/28 11:25:30 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/01 17:52:43 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@ t_rt						*init_rt(bool save)
 	new->intersection[8] = hit_triangle;
 	new->intersection[9] = hit_box;
 	new->intersection[10] = hit_parallelogram;
-	new->intersection[11] = NULL;
-	new->intersection[12] = hit_disk;
+	new->intersection[11] = hit_disk;
 	new->normal[0] = plane_normal;
 	new->normal[1] = sphere_normal;
 	new->normal[2] = cylinder_normal;
@@ -51,8 +50,7 @@ t_rt						*init_rt(bool save)
 	new->normal[8] = triangle_normal;
 	new->normal[9] = box_normal;
 	new->normal[10] = normal_parallelogram;
-	new->normal[11] = NULL;
-	new->normal[12] = normal_disk;
+	new->normal[11] = normal_disk;
 	return (new);
 }
 

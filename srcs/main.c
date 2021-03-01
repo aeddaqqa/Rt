@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:16:14 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/28 17:54:28 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/01 16:43:29 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,6 @@ int main(int ac, char **av)
 		}
 		else if (!ft_strcmp(".obj", ex))
 			parse_obj(rt, av[1]);
-		// while (rt->cameras->next)
-		// {
-		// 	// printf("\n(%lf, %f, %lf)\n", rt->cameras->o.x, rt->cameras->o.y, rt->cameras->o.z);
-		// 	rt->cameras = rt->cameras->next;
-		// }
-		// // printf("\n(%lf, %f, %lf)\n", rt->cameras->o.x, rt->cameras->o.y, rt->cameras->o.z);
-		// while (rt->cameras->prev)
-		// {
-		// 	printf("\n(%lf, %f, %lf)\n", rt->cameras->o.x, rt->cameras->o.y, rt->cameras->o.z);
-		// 	rt->cameras = rt->cameras->prev;
-		// }
-		// printf("\n(%lf, %f, %lf)\n", rt->cameras->o.x, rt->cameras->o.y, rt->cameras->o.z);
-		// exit(0);
 		rt->sdl = init_sdl();
 		new_camera(rt);
 		if (rt->sdl)

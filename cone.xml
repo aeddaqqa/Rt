@@ -14,6 +14,31 @@
 		<fov>60</fov>
 		<look-at>0 0 0</look-at>
 	</camera>
+	<camera>
+		<origin>0 0 150</origin>
+		<fov>60</fov>
+		<look-at>0 0 0</look-at>
+	</camera>
+	<camera>
+		<origin>01 033 50</origin>
+		<fov>60</fov>
+		<look-at>0 0 0</look-at>
+	</camera>
+	<camera>
+		<origin>10 30 50</origin>
+		<fov>60</fov>
+		<look-at>0 0 0</look-at>
+	</camera>
+	<camera>
+		<origin>0 20 50</origin>
+		<fov>60</fov>
+		<look-at>0 0 0</look-at>
+	</camera>
+	<camera>
+		<origin>10 0 50</origin>
+		<fov>60</fov>
+		<look-at>0 0 0</look-at>
+	</camera>
 	<light>
 		<position>0 5 60</position>
 		<color>0xffffff</color>

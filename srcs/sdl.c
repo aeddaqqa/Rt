@@ -6,24 +6,55 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 10:28:22 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/28 12:31:36 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/01 17:49:13 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/rt.h"
 
+int		*convert_color(char *pixels, int w, int h , int bbp)
+{
+	int *data;
+	int i;
+	int r;
+	int g;
+	int b;
+	int a;
+	int cmp;
+
+	data= malloc(sizeof(int) * w * h);
+	i = 0;
+	cmp = 0;
+	while (i < w * h)
+	{
+		r = pixels[cmp++] & 255;
+		g = pixels[cmp++] & 255;
+		b = pixels[cmp++] & 255;
+		if (bbp != 3)
+			a = pixels[cmp++] & 255;
+		data[i] = ((a << 24) | (r << 16) | (g << 8) | b);
+		i++;
+	}
+	return (data);
+}
+
+
 t_sdl *init_sdl(void)
 {
 	t_sdl *sdl;
 
+	SDL_Surface *s;
+
+	if (!(s = IMG_Load("./resources/earthmap.jpg")))
+		return (NULL);
 	if (!(sdl = malloc(sizeof(t_sdl))))
 		return (NULL);
 	SDL_Init(SDL_INIT_EVERYTHING);
 	TTF_Init();
-	sdl->font_p = TTF_OpenFont("./great-vibes/GreatVibes-Regular.otf", 100);
+	sdl->font_p = TTF_OpenFont("./resources/great-vibes/GreatVibes-Regular.otf", 100);
 	if (!sdl->font_p)
 		return (NULL);
-	sdl->font_s = TTF_OpenFont("./lato/Lato-Medium.ttf", 36);
+	sdl->font_s = TTF_OpenFont("./resources/lato/Lato-Medium.ttf", 36);
 	if (!sdl->font_s)
 		return (NULL);
 	sdl->win_menu = SDL_CreateWindow("menu", 480, 320, 400, 800, 0);
@@ -32,6 +63,7 @@ t_sdl *init_sdl(void)
 	sdl->ren_menu = SDL_CreateRenderer(sdl->win_menu, -1, 0);
 	sdl->tex_ptr = SDL_CreateTexture(sdl->ren_ptr, SDL_PIXELFORMAT_ARGB8888,
 	SDL_TEXTUREACCESS_STREAMING, W, H);
+	sdl->tex = convert_color((char*)s->pixels, s->w, s->h, s->format->BytesPerPixel);
 	return (sdl);
 }
 

@@ -6,7 +6,7 @@
 #    By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/22 16:29:44 by aeddaqqa          #+#    #+#              #
-#    Updated: 2021/02/28 16:47:39 by aeddaqqa         ###   ########.fr        #
+#    Updated: 2021/03/01 12:25:10 by aeddaqqa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ FLAGS= -Wall -Wextra -Werror -g
 OBJDIR = objs
 SRCDIR = srcs
 OBJ= objs/main.o objs/sdl.o objs/menu.o objs/objfile.o srcs/core_raytracing.o
-SRC= srcs/main.c
+SRC= srcs/main.c objs/sdl.c objs/menu.c objs/objfile.c srcs/core_raytracing.c
 INC= includes/rt.h
 INC1= includes/functions.h
 INC2= includes/define.h

@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 12:21:03 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/01 10:27:42 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/01 17:43:59 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -338,10 +338,19 @@ void		rtrace(t_rt *rt)
 		if (rt->sdl->loop == 2)
 			first_render(rt);
 		else if (SDL_PollEvent(&rt->sdl->event))
+		// SDL_PollEvent(&rt->sdl->event);
+		// rt->sdl->key_table = (char *)SDL_GetKeyboardState(NULL);
+		// if (rt->sdl->key_table[SDL_SCANCODE_ESCAPE])
+			// exit(0);
 		{
 			if (!core(&rt))
 				break;
+			
 		}
+		// SDL_RenderClear(rt->sdl->ren_ptr);
+		// SDL_UpdateTexture(rt->sdl->tex_ptr, NULL, rt->sdl->tex, 1024 * 4);
+		// SDL_RenderCopy(rt->sdl->ren_ptr, rt->sdl->tex_ptr, NULL, NULL);
+		// SDL_RenderPresent(rt->sdl->ren_ptr);
 	}
 	free(rt->filters);
 	destroy_sdl(&rt->sdl);

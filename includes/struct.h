@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/28 17:34:20 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/01 16:33:16 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,6 +206,7 @@ typedef struct		s_sdl
 	int				loop;
 	SDL_Event		event;
 	char			*key_table;
+	int				*tex;
 	int				data[W * H];
 }					t_sdl;
 
