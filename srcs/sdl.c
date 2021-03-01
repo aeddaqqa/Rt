@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 10:28:22 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/01 17:49:13 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/01 18:31:52 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,8 +106,8 @@ void			render(t_sdl *sdl, t_rt *rt)
 			break;
 		i++;
 	}
-	if (i == 0)
-		antialiasing(rt->sdl->data);
+	//if (i == 0)
+	//	antialiasing(rt->sdl->data);
 	if (i == 1)
 		img_noise(rt->sdl->data);
 	if (i == 2)
