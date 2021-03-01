@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/01 16:33:16 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/01 18:20:10 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,6 +172,7 @@ typedef struct	s_object
 	t_intersect		sph;
 	t_intersect		cyl;
 	t_intersect		cne;
+	int				id;
 	struct s_object	*next;
 }				t_object;
 
@@ -222,6 +223,7 @@ typedef struct		s_threads
 typedef struct	s_rt
 {
 	bool			save;
+	int				number_id;
 	t_sdl			*sdl;
 	t_object		*objects;
 	t_object		*obj;

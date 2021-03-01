@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 12:21:03 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/01 17:43:59 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/01 18:26:02 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	copy_obj(t_object *n_obj,t_object *obj)
 {
 	
 	// new_objects2(n_obj);
+	n_obj->id = obj->id;
 	n_obj->corner[0] = obj->corner[0];
 	n_obj->corner[1] = obj->corner[1];
 	n_obj->radius = obj->radius;

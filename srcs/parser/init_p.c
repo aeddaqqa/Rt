@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 01:42:30 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/01 17:52:43 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/01 18:23:34 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_rt						*init_rt(bool save)
 	new->objects = NULL;
 	new->ambient = 0;
 	new->nbr_lights = 0;
+	new->number_id = 0;
 	new->ambient_exist = false;
 	new->intersection = malloc(sizeof(double (*)(t_object*, t_ray*)) * 13);
 	new->normal = malloc(sizeof(t_vect3 (*)(t_object*, t_ray*)) * 13);

@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:21:43 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/01 17:59:13 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/01 18:24:44 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,12 @@ int			stock_elem_amb(char *str, int *i, t_tags tags, t_rt *rt)
 			free(rt->obj);
 			return (0);
 		}
-		
 		add_front(&rt, rt->obj, rt->node.type);
+		if (rt->node.type != CAMERA && rt->node.type != LIGHT)
+		{
+			rt->obj->id = rt->number_id;
+			rt->number_id++;
+		}
 	}
 	return (1);
 }
