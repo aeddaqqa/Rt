@@ -6,13 +6,13 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 12:21:03 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/01 11:24:53 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/04 15:54:42 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/rt.h"
 
-int		*init_tab()
+int		*init_tab(void)
 {
 	int		i;
 	int		*tab;
@@ -39,29 +39,34 @@ void		initab(int *tab)
 	}
 }
 
-void	copy_obj(t_object *n_obj,t_object *obj)
+void	copy_obj(t_object *n_obj, t_object *obj)
 {
-	
-	// new_objects2(n_obj);
-	n_obj->id = obj->id;
-	n_obj->corner[0] = obj->corner[0];
-	n_obj->corner[1] = obj->corner[1];
-	n_obj->radius = obj->radius;
-	n_obj->radius2 = obj->radius2;
-	n_obj->radius1 = obj->radius1;
-	n_obj->angle = obj->angle;
-	n_obj->distance = obj->distance;
-	n_obj->height = obj->height;
 	n_obj->type = obj->type;
 	n_obj->position = obj->position;
+	n_obj->translation = obj->translation;
+	n_obj->rotation = obj->rotation;
+	n_obj->color = obj->color;
 	n_obj->point_a = obj->point_a;
 	n_obj->point_b = obj->point_b;
 	n_obj->point_c = obj->point_c;
 	n_obj->point_d = obj->point_d;
+	n_obj->corner[0] = obj->corner[0];
+	n_obj->corner[1] = obj->corner[1];
 	n_obj->orientation = obj->orientation;
-	n_obj->rotation = obj->rotation;
-	n_obj->translation = obj->translation;
-	n_obj->color = obj->color;
+	n_obj->normal = obj->normal;
+	n_obj->height = obj->height;
+	n_obj->radius = obj->radius;
+	n_obj->radius1 = obj->radius1;
+	n_obj->radius2 = obj->radius2;
+	n_obj->distance = obj->distance;
+	n_obj->angle = obj->angle;
+	n_obj->is_ref = obj->is_ref;
+	n_obj->is_transp = obj->is_transp;
+	n_obj->refraction_index = obj->refraction_index;
+	n_obj->cyl = obj->cyl;
+	n_obj->sph = obj->sph;
+	n_obj->cne = obj->cne;
+	n_obj->id = obj->id;
 }
 
 unsigned int	pixel_color(t_rt *rt, t_ray *ray)

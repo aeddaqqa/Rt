@@ -4,32 +4,36 @@
 	<cylinder>
 		<height>50</height>
 		<radius>4</radius>
-		<position>0 0 0</position>
-		<orientation>0 1 0</orientation>
+		<position>0 0 -60</position>
+		<orientation>1 0 0</orientation>
 		<translation>0 0 0</translation>
 		<rotation>0 0 0</rotation>
-		<color>0x969696</color>
+		<color>0xff</color>
 	</cylinder>
+
+	<cylinder>
+		<height>50</height>
+		<radius>4</radius>
+		<position>0 0 -10</position>
+		<orientation>1 1 0</orientation>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<color>0xff00</color>
+	</cylinder>
+	<sphere>
+		<position>0 0 10</position>
+		<radius>5</radius>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<color>0xff0000</color>
+	</sphere>
+
 	<camera>
-		<origin>0 0 10</origin>
+		<origin>0 0 30</origin>
 		<fov>60</fov>
 		<look-at>0 0 0</look-at>
 	</camera>
-	<camera>
-		<origin>30 0 20</origin>
-		<fov>60</fov>
-		<look-at>0 0 0</look-at>
-	</camera>
-	<camera>
-		<origin>220 0 40</origin>
-		<fov>60</fov>
-		<look-at>0 0 0</look-at>
-	</camera>
-	<camera>
-		<origin>330 0 60</origin>
-		<fov>60</fov>
-		<look-at>0 0 0</look-at>
-	</camera>
+
 	<light>
 		<position>0 0 1220</position>
 		<color>0xffffff</color>

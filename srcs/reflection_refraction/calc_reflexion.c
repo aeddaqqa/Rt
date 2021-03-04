@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 05:20:58 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/02/21 09:25:51 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/04 17:28:07 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ t_ray		reflexion(t_ray ray, t_vect3 norm)
 	reflect = 2 * dot(norm, ray.direction);
 	newray.origin = ray.hit_point;
 	newray.direction =\
-    normalize(vect_sub(ray.direction, v_c_prod(norm, reflect)));
+	normalize(vect_sub(ray.direction, v_c_prod(norm, reflect)));
 	newray.hit_point = (t_vect3){0, 0, 0};
 	newray.reflect_nb = ray.reflect_nb + 1;
-	newray.reflexion_index = ray.reflexion_index;
+	newray.refraction_index = ray.refraction_index;
 	return (newray);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/01 18:20:10 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/04 16:00:51 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,6 +167,7 @@ typedef struct	s_object
 	double			radius2;
 	double			distance;
 	double			angle;
+	double			refraction_index;
 	int				is_ref;
 	int				is_transp;
 	t_intersect		sph;
@@ -190,7 +191,7 @@ typedef struct	s_ray
 	t_vect3	direction;
 	t_point	hit_point;
 	int		reflect_nb;
-	double	reflexion_index;
+	double	refraction_index;
 	double	t;
 	int		ret;
 }				t_ray;
@@ -218,7 +219,6 @@ typedef struct		s_threads
 	int end_x;
 	int end_y;
 }					t_threads;
-
 
 typedef struct	s_rt
 {

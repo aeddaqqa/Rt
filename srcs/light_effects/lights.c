@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lights.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 05:10:29 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/03/01 10:26:02 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/04 16:49:55 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,18 +67,20 @@ t_color	add_color(t_color c1, t_color c2)
 	return (new);
 }
 
-unsigned int			light_effect(t_rt *rt, t_object *object, t_ray *ray) //TODO : static
+unsigned int			light_effect(t_rt *rt, t_object *o, t_ray *ray) //TODO : static
 {
 	double			n_l;
 	t_color			color[rt->nbr_lights];
 	unsigned int	i;
 	t_color			tmp_res[2];
 	t_light			*lights;
+	t_object		object;
 	t_light			li;
 
 	i = 0;
 	lights = rt->lights;
-	tmp_res[1] = ambient(object, rt->ambient);
+	copy_obj(&object, o);
+	tmp_res[1] = ambient(&object, rt->ambient);
 	while (lights)
 	{
 		li.intensity = lights->intensity;
@@ -88,11 +90,16 @@ unsigned int			light_effect(t_rt *rt, t_object *object, t_ray *ray) //TODO : sta
 		li.direction = vect_sub(li.position, ray->hit_point);
 		li.d = sqrtf(dot(li.direction, li.direction));
 		li.direction = normalize(li.direction);
-		n_l = dot(object->normal, li.direction);
+		n_l = dot(object.normal, li.direction);
+		ray->refraction_index = object.refraction_index;
 		if (n_l > 0)
-			tmp_res[0] = vect_add(tmp_res[0], diffuse(&li, n_l, object));
-		tmp_res[0] = add_color(tmp_res[0], specular(&li, ray, object));
-		color[i++] = fraction(tmp_res[0], in_shadow(rt, &li, object));
+			tmp_res[0] = vect_add(tmp_res[0], diffuse(&li, n_l, &object));
+		tmp_res[0] = add_color(tmp_res[0], specular(&li, ray, &object));
+		// if (object.is_ref)
+			tmp_res[0] = add_color(tmp_res[0], reflex_col(rt, *ray, &object, lights));
+		// if (object.is_transp)
+			tmp_res[0] = add_color(tmp_res[0], refract_color(rt, *ray, &object, lights));
+		color[i++] = fraction(tmp_res[0], 1 + 0 * in_shadow(rt, &li, &object));
 		lights = lights->next;
 	}
 	while (i > 0)

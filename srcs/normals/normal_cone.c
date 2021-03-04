@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   orientation_cone.c                                      :+:      :+:    :+:   */
+/*   normal_cone.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 15:28:26 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/01/27 19:17:48 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/03 19:20:08 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/rt.h"
 
-// t_vect3		ft_cone_normal(t_object *cone, t_vect3 p)
-// {
-// 	p = v_c_prod(p, 1.0 / cone->angle);
-// 	return (ft_vector(p.x, 0.001, p.z));
-// }
-
-t_vect3			cone_normal(t_object *cone, t_ray *ray)
+t_vect3	cone_normal(t_object *cone, t_ray *ray)
 {
-	// t_vect3		p;
-	t_vect3	new;
+	t_vect3		new;
 	t_point		p;
 	double		dv_xv[2];
 	double		m;
-	t_vect3	x;
+	t_vect3		x;
 
 	p = v_c_prod(ray->direction, ray->t);
 	p = vect_add(ray->origin, p);
@@ -39,7 +32,4 @@ t_vect3			cone_normal(t_object *cone, t_ray *ray)
 	if (dot(ray->direction, new) > 0)
 		new = v_c_prod(new, -1.0);
 	return (normalize(new));
-
-	// p = v_c_prod(p, 1.0 / cone->angle);
-	// return (ft_vector(p.x, 0.001, p.z));
 }

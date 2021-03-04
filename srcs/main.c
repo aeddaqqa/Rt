@@ -3,21 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:16:14 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/01 16:43:29 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/04 17:27:33 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/rt.h"
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	char *file;
 	t_rt *rt;
 	char *ex;
-
 
 	file = NULL;
 	if (ac == 2 || ac == 3)
@@ -48,6 +47,17 @@ int main(int ac, char **av)
 			parse_obj(rt, av[1]);
 		rt->sdl = init_sdl();
 		new_camera(rt);
+		rt->objects->is_ref = 0;
+		rt->objects->is_transp = 1;
+		rt->objects->refraction_index = 1.3;
+		
+		rt->objects->next->is_ref = 0;
+		rt->objects->next->is_transp = 1;
+		rt->objects->next->refraction_index = 1.3;
+		
+		rt->objects->next->next->is_transp = 1;
+		rt->objects->next->next->is_ref = 0;
+		rt->objects->next->next->refraction_index = 0;
 		if (rt->sdl)
 			rtrace(rt);
 	}

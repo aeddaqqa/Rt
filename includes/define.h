@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:46:46 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/01 17:52:01 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/04 17:24:03 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define H 800
 # define DIFFUSE 1.0
 # define SPECULER 1.0
-# define MAX_REF 2
+# define MAX_REF 3
 
 typedef enum	e_error
 {
@@ -50,15 +50,15 @@ typedef	enum	e_type
 	AMBIENT
 }				t_type;
 
-#define COLOR_1 0x192a56
-#define COLOR_2 0xfbc531
-#define COLOR_3 0xf5f6fa
-#define COLOR_4 0x2f3640
-#define FONT_P                 \
+# define COLOR_1 0x192a56
+# define COLOR_2 0xfbc531
+# define COLOR_3 0xf5f6fa
+# define COLOR_4 0x2f3640
+# define FONT_P                 \
 	{                          \
 		0xea, 0xb5, 0x43, 0xff \
 	}
-#define FONT_S                 \
+# define FONT_S                 \
 	{                          \
 		0xF8, 0xEF, 0xBA, 0xff \
 	}

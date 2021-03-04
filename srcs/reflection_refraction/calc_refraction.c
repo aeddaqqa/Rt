@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 13:25:35 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/02/19 13:40:11 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/04 16:01:00 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,14 @@ t_ray		refraction(t_ray ray, t_vect3 norm, double n2)
 
 	c[0] = dot(norm, ray.direction);
 	s[0] = sqrtf(1 - c[0] * c[0]);
-	s[1] = ray.reflexion_index * (((double)s[0]) / n2);
+	s[1] = ray.refraction_index * (((double)s[0]) / n2);
+	newray.origin = ray.hit_point;
 	if (s[1] > 1)
 	{
 		newray.direction = (t_vect3){0, 0, 0};
 		return (newray);
 	}
-	newray.origin = ray.hit_point;
-	newray.reflexion_index = n2;
-	newray.hit_point = (t_vect3){0, 0, 0};
+	newray.refraction_index = n2;
 	newray.reflect_nb = ray.reflect_nb + 1;
 	c[1] = sqrtf(1 - s[1] * s[1]);
 	dir = normalize(vect_sub(ray.direction,\

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   new_ray.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 18:13:58 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/02/28 08:45:29 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/04 17:02:20 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ t_ray	*ray_init(t_rt *rt, double x, double y, double r1, double r2)
 	tmp = vect_add(tmp, tmp2);
 	tmp = vect_add(tmp, rt->cameras->cords.w);
 	new->direction = normalize(tmp);
-	new->reflect_nb = 1;
-	new->reflexion_index = 1.3;
+	new->reflect_nb = 0;
 	return (new);
 }
