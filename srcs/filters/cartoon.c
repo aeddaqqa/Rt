@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 17:09:12 by chzabakh          #+#    #+#             */
-/*   Updated: 2021/02/24 10:13:35 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/04 18:38:18 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void		sharp(int *img)
 void		ft_cartoon(int *img)
 {
 	int i;
-	
+
 	i = 0;
 	while (i++ < 10)
 		antialiasing(img);

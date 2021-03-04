@@ -6,7 +6,7 @@
 /*   By: chzabakh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 14:24:26 by chzabakh          #+#    #+#             */
-/*   Updated: 2021/02/08 16:45:31 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/03/04 18:36:14 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	img_neg(int *img)
 	t_vec	tmp;
 	int		i;
 
-	res = WIN_W * WIN_H;
+	res = W * H;
 	neg = (int *)malloc(res * 4);
 	ft_memcpy(neg, img, res * 4);
 	i = 0;

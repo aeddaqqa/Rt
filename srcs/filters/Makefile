@@ -6,7 +6,7 @@
 #    By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/08 17:22:57 by chzabakh          #+#    #+#              #
-#    Updated: 2021/02/22 19:13:13 by nabouzah         ###   ########.fr        #
+#    Updated: 2021/03/04 18:33:34 by chzabakh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ OBJDIR = ../../objs
 SRCDIR= ./
 OBJ= $(OBJDIR)/antialiasing.o $(OBJDIR)/bmp.o $(OBJDIR)/cartoon.o\
 $(OBJDIR)/grey.o $(OBJDIR)/negative.o $(OBJDIR)/noise.o\
-$(OBJDIR)/sepia.o $(OBJDIR)/stereo.o
+$(OBJDIR)/sepia.o $(OBJDIR)/stereo.o $(OBJDIR)/blur.o 
 INC = ../../includes/
 INC1 = ../../includes/functions.h
 INC2 = ../../includes/define.h

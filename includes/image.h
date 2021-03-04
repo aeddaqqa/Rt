@@ -6,18 +6,15 @@
 /*   By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 14:23:39 by chzabakh          #+#    #+#             */
-/*   Updated: 2021/02/21 14:36:35 by ahkhilad         ###   ########.fr       */
+/*   Updated: 2021/03/04 18:35:28 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef IMAGE_H
 # define IMAGE_H
 # include <math.h>
-// # include <mlx.h>
 # include <time.h>
 # include <stdlib.h>
-# define WIN_W 720
-# define WIN_H 720
 
 typedef	struct	s_vec
 {
@@ -61,4 +58,5 @@ void			img_grey(int *img);
 void			antialiasing(int *img);
 void			ft_cartoon(int *img);
 void			img_ddd(int *img);
+void			blurr(int *img);
 #endif
