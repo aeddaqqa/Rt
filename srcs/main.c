@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:16:14 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/04 17:27:33 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/05 08:44:22 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,14 @@ int	main(int ac, char **av)
 			}
 		}
 		else if (!ft_strcmp(".obj", ex))
-			parse_obj(rt, av[1]);
+		{
+			if (!(parse_obj(rt, av[1])))
+				exit(0);
+		}
+		else
+			exit(EXIT_FAILURE);
 		rt->sdl = init_sdl();
 		new_camera(rt);
-		rt->objects->is_ref = 0;
-		rt->objects->is_transp = 1;
-		rt->objects->refraction_index = 1.3;
-		
-		rt->objects->next->is_ref = 0;
-		rt->objects->next->is_transp = 1;
-		rt->objects->next->refraction_index = 1.3;
-		
-		rt->objects->next->next->is_transp = 1;
-		rt->objects->next->next->is_ref = 0;
-		rt->objects->next->next->refraction_index = 0;
 		if (rt->sdl)
 			rtrace(rt);
 	}

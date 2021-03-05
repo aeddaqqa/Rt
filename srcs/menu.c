@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 10:28:18 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/25 14:54:42 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/05 08:01:51 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,38 +114,6 @@ static void		elements(t_sdl *sdl, int x)
 		i++;
 	}
 }
-
-// static void		load_button(t_sdl *sdl)
-// {
-// 	SDL_Rect src;
-// 	int tex_x;
-// 	int tex_y;
-// 	SDL_Rect dstrect;
-// 	SDL_Texture *tex;
-// 	SDL_Surface *sur;
-// 	// SDL_Surface *rect;
-
-// 	src.x = 114;
-// 	src.y = 685;
-// 	src.w = 172;
-// 	src.h = 55;
-// 	SDL_SetRenderDrawColor(sdl->ren_menu, 0xff, 0xff, 0xff, 255);
-// 	SDL_RenderFillRect(sdl->ren_menu, &src);
-// 	tex_x = 0;
-// 	tex_y = 0;
-// 	sur = TTF_RenderText_Blended(sdl->font_s, "Load", (SDL_Color){0, 0, 0, 0xff});
-// 	if (!sur)
-// 		exit(1);
-// 	tex = SDL_CreateTextureFromSurface(sdl->ren_menu, sur);
-// 	if (!tex)
-// 		exit(1);
-// 	SDL_QueryTexture(tex, NULL, NULL, &tex_x, &tex_y);
-// 	dstrect = (SDL_Rect){160, 690, tex_x, tex_y};
-// 	SDL_SetTextureAlphaMod(tex, 255);
-// 	SDL_RenderCopy(sdl->ren_menu, tex, NULL, &dstrect);
-// 	SDL_FreeSurface(sur);
-// 	SDL_DestroyTexture(tex);
-// }
 
 void menu(t_sdl *sdl, int save)
 {

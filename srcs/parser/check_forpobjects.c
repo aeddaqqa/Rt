@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_forpobjects.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 17:09:24 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/04 17:27:55 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/05 08:52:10 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 int		check_for_sphere(int type, t_node n)
 {
 	if (type != POSITION && type != COLOR && type != RADIUS && type != ROTATION\
-		&& type != TRANSLATION)
+		&& type != TRANSLATION && type != REF_INDEX && type != REFLEXION &&\
+		type != TRANSPARENT && type != MATTER && type != TEXTURE)
 		return (-1);
 	if (type == POSITION && n.cmp.position == true)
 		return (-1);
@@ -33,7 +34,9 @@ int		check_for_sphere(int type, t_node n)
 int		check_for_plane(int type, t_node n)
 {
 	if (type != POSITION && type != ORIENTATION && type != ROTATION\
-		&& type != TRANSLATION && type != COLOR)
+		&& type != TRANSLATION && type != COLOR && type != REF_INDEX\
+		&& type != REFLEXION && type != TRANSPARENT && type != MATTER\
+		&& type != TEXTURE)
 		return (-1);
 	if (type == POSITION && n.cmp.position == true)
 		return (-1);
@@ -52,7 +55,9 @@ int		check_for_cone(int type, t_node n)
 {
 	if (type != POSITION && type != ORIENTATION && type != ROTATION\
 		&& type != TRANSLATION && type != COLOR && type != HEIGHT\
-		&& type != ANGLE)
+		&& type != ANGLE && type != REF_INDEX\
+		&& type != REFLEXION && type != TRANSPARENT && type != MATTER
+		 && type != TEXTURE)
 		return (-1);
 	if (type == POSITION && n.cmp.position == true)
 		return (-1);
@@ -75,7 +80,9 @@ int		check_for_cylinder(int type, t_node n)
 {
 	if (type != POSITION && type != ORIENTATION && type != ROTATION\
 		&& type != TRANSLATION && type != COLOR &&\
-		type != HEIGHT && type != RADIUS)
+		type != HEIGHT && type != RADIUS && type != REF_INDEX\
+		&& type != REFLEXION && type != TRANSPARENT && type != MATTER
+		 && type != TEXTURE)
 		return (-1);
 	if (type == POSITION && n.cmp.position == true)
 		return (-1);
@@ -96,8 +103,11 @@ int		check_for_cylinder(int type, t_node n)
 
 int		check_for_paraboloid(int type, t_node n)
 {
-	if (type != POSITION && type != ORIENTATION && type != ROTATION
-		&& type != TRANSLATION && type != COLOR && type != DISTANCE)
+	if (type != POSITION && type != ORIENTATION && type != ROTATION\
+		&& type != TRANSLATION && type != COLOR && type != DISTANCE &&\
+		type != REF_INDEX &&\
+		type != REFLEXION && type != TRANSPARENT && type != MATTER
+		 && type != TEXTURE)
 		return (-1);
 	if (type == POSITION && n.cmp.position == true)
 		return (-1);

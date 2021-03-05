@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/04 16:00:51 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/05 08:57:07 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,13 @@ typedef struct	s_parallelo
 	double	b2;
 }				t_parallelo;
 
+typedef struct	s_tex
+{
+	int		w;
+	int		h;
+	int		*data_pixels;
+}				t_tex;
+
 typedef struct	s_object
 {
 	t_type			type;
@@ -168,12 +175,14 @@ typedef struct	s_object
 	double			distance;
 	double			angle;
 	double			refraction_index;
-	int				is_ref;
-	int				is_transp;
+	double			is_ref;
+	double			is_transp;
 	t_intersect		sph;
 	t_intersect		cyl;
 	t_intersect		cne;
 	int				id;
+	double			matter;
+	t_tex			*texture;
 	struct s_object	*next;
 }				t_object;
 

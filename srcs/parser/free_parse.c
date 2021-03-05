@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_parse.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 01:08:52 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/04 17:27:55 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/05 09:29:01 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ void		free_rt(t_rt **rt)
 		while (r->objects)
 		{
 			tmp = r->objects->next;
+			if (r->objects->texture)
+			{
+				if (r->objects->texture->data_pixels)
+					free(r->objects->texture->data_pixels);
+				free(r->objects->texture);
+			}
 			free(r->objects);
 			r->objects = tmp;
 		}
@@ -32,7 +38,12 @@ void		free_rt(t_rt **rt)
 			free(r->lights);
 			r->lights = tmp;
 		}
-		free(r->cameras);
+		while (r->cameras)
+		{
+			tmp = r->cameras->next;
+			free(r->cameras);
+			r->cameras = tmp;
+		}
 		free(r);
 	}
 }

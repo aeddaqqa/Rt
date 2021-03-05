@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 03:37:25 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/28 08:36:59 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/05 09:28:50 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,56 @@ static	int		stock_cmp_light(void **object, char *str, int r)
 	return (1);
 }
 
+int		*convert_color(char *pixels, int w, int h , int bbp)
+{
+	int *data;
+	int i;
+	int r;
+	int g;
+	int b;
+	int a;
+	int cmp;
+
+	data= malloc(sizeof(int) * w * h);
+	i = 0;
+	cmp = 0;
+	while (i < w * h)
+	{
+		r = pixels[cmp++] & 255;
+		g = pixels[cmp++] & 255;
+		b = pixels[cmp++] & 255;
+		if (bbp != 3)
+			a = pixels[cmp++] & 255;
+		data[i] = ((a << 24) | (r << 16) | (g << 8) | b);
+		i++;
+	}
+	return (data);
+}
+
+
+static void		load_texture(t_object **obj, char *str)
+{
+	SDL_Surface *s;
+	char		*path;
+
+	path = ft_strjoin("./resources/textures", str);
+	if (!path || !(s = IMG_Load(path)))
+	{
+		if (path)
+			free(path);
+		(*obj)->texture = NULL;
+		return ;
+	}
+	free(path);
+	(*obj)->texture = malloc(sizeof(t_tex));
+	(*obj)->texture->w = s->w;
+	(*obj)->texture->h = s->h;
+	(*obj)->texture->data_pixels = convert_color((char*)s->pixels, s->w, s->h, s->format->BytesPerPixel);
+}
+
 int				stock_cmp_objects(t_object *obj, int r, char *str)
 {
-	double		*rpa[6];
+	double		*rpa[10];
 	t_vect3		*stk[10];
 
 	stk[POSITION] = &obj->position;
@@ -96,12 +143,19 @@ int				stock_cmp_objects(t_object *obj, int r, char *str)
 	rpa[RADIUS_2 - 11] = &obj->radius2;
 	rpa[HEIGHT - 11] = &obj->height;
 	rpa[DISTANCE - 11] = &obj->distance;
+	rpa[REFLEXION - 11] = &obj->is_ref;
+	rpa[REF_INDEX - 11] = &obj->refraction_index;
+	rpa[TRANSPARENT - 11] = &obj->is_transp;
+	rpa[MATTER - 11] = &obj->matter;
 	if (r < 10)
 		return (stock_vect3(stk[r], str, r));
+	else if (r == TEXTURE)
+		load_texture(&obj, str);
 	else if (r > 10)
 		return (stock_rpa(rpa[r - 11], str, r));
 	else
 		return (read_color(&obj->color, str));
+	return (1);
 }
 
 int				stock_cmp(void **object, char *str, int r, int type)
