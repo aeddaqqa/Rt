@@ -6,15 +6,16 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 18:33:59 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/03/01 15:14:37 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/05 18:30:34 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/rt.h"
 
-t_vect3		checkvec(t_vect3 fwd, t_vect3 vup)
+t_vect3			checkvec(t_vect3 fwd, t_vect3 vup)
 {
 	float	chk;
+
 	chk = dot(fwd, vup);
 	if ((chk > 0.8 && chk <= 1) || (chk < -0.8 && chk >= -1))
 		return ((t_vect3){1, 0, 0});

@@ -6,13 +6,13 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 17:41:00 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/01/29 16:40:44 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/05 17:39:07 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
+#include "../../includes/rt.h"
 
-double  deg_to_rad(double angle)
+double	deg_to_rad(double angle)
 {
-    return (angle * M_PI / 180);
+	return (angle * M_PI / 180);
 }

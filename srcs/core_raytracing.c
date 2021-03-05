@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 12:21:03 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/05 15:53:48 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/05 18:39:26 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,17 +113,16 @@ void		apply_antiliasing(t_rt *rt, int x, int y)
 {
 	int		z;
 	t_color	c;
-	double r1;
-	double r2;
 	t_ray *ray;
+	t_rr	r;
 
 	z = 0;
 	c = (t_color){0, 0, 0};
 	while (z < 5)
 	{
-			r1 = (rand() % 10) / 10.;
-			r2 = (rand() % 10) / 10.;
-			ray = ray_init(rt, x, y, r1, r2);
+			r.r1 = (rand() % 10) / 10.;
+			r.r2 = (rand() % 10) / 10.;
+			ray = ray_init(rt, x, y, r);
 			rt->sdl->data[y * W + x] = pixel_color(rt, ray);
 			c = vect_add(c, int_to_rgb(pixel_color(rt, ray)));
 			free(ray);
@@ -138,10 +137,12 @@ void		apply_antiliasing(t_rt *rt, int x, int y)
 
 void		draw_scene(t_rt *rt, int x, int y)
 {
-	// t_color	c;
+	t_rr	r;
 	t_ray *ray;
 
-	ray = ray_init(rt, x, y, .5, .5);
+	r.r1 = .5;
+	r.r2 = .5;
+	ray = ray_init(rt, x, y, r);
 	rt->sdl->data[y * W + x] = pixel_color(rt, ray);
 	free(ray);
 }

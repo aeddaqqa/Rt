@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/05 08:57:07 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/05 18:35:36 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@ typedef struct	s_vect3
 	double	y;
 	double	z;
 }				t_vect3;
+
+typedef struct	s_rr
+{
+	double	r1;
+	double	r2;
+}				t_rr;
+
 
 typedef t_vect3	t_point;
 typedef t_vect3	t_color;
@@ -84,14 +91,14 @@ typedef struct	s_intersect
 	double	t2;
 }				t_intersect;
 
-typedef struct		s_delta
+typedef struct	s_delta
 {
 	double	a;
 	double	b;
 	double	c;
 	double	disc;
 	double	delta;
-}					t_delta;
+}				t_delta;
 
 typedef struct	s_cone
 {
@@ -205,7 +212,7 @@ typedef struct	s_ray
 	int		ret;
 }				t_ray;
 
-typedef struct		s_sdl
+typedef struct	s_sdl
 {
 	SDL_Window		*win_ptr;
 	SDL_Window		*win_menu;
@@ -219,15 +226,15 @@ typedef struct		s_sdl
 	char			*key_table;
 	int				*tex;
 	int				data[W * H];
-}					t_sdl;
+}				t_sdl;
 
-typedef struct		s_threads
+typedef struct	s_threads
 {
 	int start_x;
 	int start_y;
 	int end_x;
 	int end_y;
-}					t_threads;
+}				t_threads;
 
 typedef struct	s_rt
 {

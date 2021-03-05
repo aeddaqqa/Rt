@@ -1,11 +1,12 @@
 <scene>
 	<ambient>5</ambient>
 	<plane>
-		<position>30 -40 0</position>
-		<orientation>0 0 1 </orientation>
+		<position>30 -10 0</position>
+		<orientation>0 1 0 </orientation>
 		<translation>0 0 0</translation>
-		<rotation>0 0 0</rotation>
+		<rotation>40 0 0</rotation>
 		<color>0xffff00</color>
+		<texture>pn.pngg.png</texture>
 	</plane>
 	<camera>
 		<origin> 0 0 160</origin>
@@ -13,7 +14,7 @@
 		<look-at>0 0 0</look-at>
 	</camera>
 	<light>
-		<position>0 0 60</position>
+		<position>0 60 60</position>
 		<color>0xffffff</color>
 		<intensity>100</intensity>
 	</light>

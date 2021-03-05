@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:14:56 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/28 08:34:54 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/05 17:12:18 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int				check_for_disk(int type, t_node n);
 ** ------------------------------{Util}-------------------------
 */
 
-void	        add_front(t_rt **head, void *new, int type);
+void			add_front(t_rt **head, void *new, int type);
 void			*new_object(int type);
 void			new_objects2(t_object *n_obj);
 int				rgb_to_int(t_color v);
