@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 03:37:25 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/05 09:28:50 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/05 09:48:15 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ static void		load_texture(t_object **obj, char *str)
 	SDL_Surface *s;
 	char		*path;
 
-	path = ft_strjoin("./resources/textures", str);
+	path = ft_strjoin("./resources/textures/", str);
 	if (!path || !(s = IMG_Load(path)))
 	{
 		if (path)

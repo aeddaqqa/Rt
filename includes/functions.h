@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 12:33:01 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/02/28 17:02:55 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/05 14:51:00 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ t_vect3		box_normal(t_object *box, t_ray *h);
 t_vect3		paraboloid_normal(t_object *object, t_ray *ray);
 t_vect3		normal_disk(t_object *disk, t_ray *ray);
 t_vect3		normal_parallelogram(t_object *para, t_ray *ray);
+t_vect3	rotation_xyz(t_vect3 v, t_vect3 a);
 
 
 /*

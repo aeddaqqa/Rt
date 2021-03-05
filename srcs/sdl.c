@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 10:28:22 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/05 09:03:50 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/05 15:47:34 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int				re_calc(t_sdl *sdl, SDL_Event event)
 	if (SDL_GetMouseFocus() == sdl->win_menu)
 	{
 		i = 0;
-		while (i < 6)
+		while (i < 7)
 		{
 			b = (SDL_Rect){70, 220 + (i * 79), 260, 58};
 			if (SDL_IntersectRect(&a, &b, &c) == SDL_TRUE)
@@ -90,7 +90,7 @@ int				re_calc(t_sdl *sdl, SDL_Event event)
 			i++;
 		}
 	}
-	if (i < 6 && event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT)
+	if (i < 7 && event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT)
 		return (i);
 	return (-1);
 }
@@ -100,14 +100,12 @@ void			render(t_sdl *sdl, t_rt *rt)
 	int  i;
 
 	i = 0;
-	while (i < 6)
+	while (i < 7)
 	{
 		if (rt->filters[i])
 			break;
 		i++;
 	}
-	//if (i == 0)
-	//	antialiasing(rt->sdl->data);
 	if (i == 1)
 		img_noise(rt->sdl->data);
 	if (i == 2)
@@ -118,6 +116,8 @@ void			render(t_sdl *sdl, t_rt *rt)
 		ft_cartoon(rt->sdl->data);
 	if (i == 5)
 		img_ddd(rt->sdl->data);
+	if (i == 6)
+		blurr(rt->sdl->data);
 	SDL_RenderClear(sdl->ren_ptr);
 	SDL_UpdateTexture(sdl->tex_ptr, NULL, sdl->data, W * 4);
 	SDL_RenderCopy(sdl->ren_ptr, sdl->tex_ptr, NULL, NULL);

@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 10:28:18 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/05 08:01:51 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/05 15:43:58 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void square(t_sdl *sdl, int x, int save)
 	int j;
 
 	i = 0;
-	while (i < 6)
+	while (i < 7)
 	{
 		j = 0;
 		while (j < 3)
@@ -57,7 +57,7 @@ static void square(t_sdl *sdl, int x, int save)
 		}
 		i++;
 	}
-	if (save < 6 && save > -1)
+	if (save < 7 && save > -1)
 	{
 		src.x = 70;
 		src.y = (220 + save * 79);
@@ -66,7 +66,7 @@ static void square(t_sdl *sdl, int x, int save)
 		SDL_SetRenderDrawColor(sdl->ren_menu, 110, 50, 100, 0);
 		SDL_RenderFillRect(sdl->ren_menu, &src);
 	}
-	if (x < 6)
+	if (x < 7)
 	{
 		src.x = 70;
 		src.y = (220 + x * 79);
@@ -85,7 +85,7 @@ static void		elements(t_sdl *sdl, int x)
 	SDL_Rect dstrect;
 	SDL_Texture *tex;
 	SDL_Surface *sur;
-	char *tab[6];
+	char *tab[7];
 	SDL_Color color;
 
 	i = 0;
@@ -95,7 +95,8 @@ static void		elements(t_sdl *sdl, int x)
 	tab[3] = (char *)"Grey";
 	tab[4] = (char *)"Cartoon";
 	tab[5] = (char *)"Stereoscopy"; //EAB543
-	while (i < 6)
+	tab[6] = (char *)"Blur"; //EAB543
+	while (i < 7)
 	{
 		tex_x = 0;
 		tex_y = 0;
@@ -134,7 +135,7 @@ void menu(t_sdl *sdl, int save)
 	if (SDL_GetMouseFocus() == sdl->win_menu)
 	{
 		i = 0;
-		while (i < 6)
+		while (i < 7)
 		{
 			b = (SDL_Rect){70, 220 + (i * 79), 260, 58};
 			if (SDL_IntersectRect(&a, &b, &c) == SDL_TRUE)

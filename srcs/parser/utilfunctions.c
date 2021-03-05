@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:39:07 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/01 18:22:10 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/05 15:40:11 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ t_vect3	rotation_xyz(t_vect3 v, t_vect3 a)
 static	void		add_front_obj(t_object **head, t_object *new)
 {
 	new->orientation = rotation_xyz(new->orientation, new->rotation);
+	new->position = vect_add(new->position, new->translation);
 	if (new)
 	{
 		if (!*head)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   core_raytracing.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 12:21:03 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/04 15:54:42 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/05 15:53:48 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int		*init_tab(void)
 	int		*tab;
 
 	i = 0;
-	tab = malloc(4 * 6);/*free*/
-	while (i < 6)
+	tab = malloc(4 * 7);/*free*/
+	while (i < 7)
 	{
 		tab[i] = 0;
 		i++;
@@ -32,7 +32,7 @@ void		initab(int *tab)
 	int		i;
 
 	i = 0;
-	while (i < 6)
+	while (i < 7)
 	{
 		tab[i] = 0;
 		i++;
@@ -67,6 +67,7 @@ void	copy_obj(t_object *n_obj, t_object *obj)
 	n_obj->sph = obj->sph;
 	n_obj->cne = obj->cne;
 	n_obj->id = obj->id;
+	n_obj->texture = obj->texture;
 }
 
 unsigned int	pixel_color(t_rt *rt, t_ray *ray)
@@ -269,9 +270,7 @@ void		first_render(t_rt *rt)
 	SDL_WaitThread(tab[1], &threadReturnValue[1]);
 	SDL_WaitThread(tab[2], &threadReturnValue[2]);
 	SDL_WaitThread(tab[3], &threadReturnValue[3]);
-	// draw(rt);
 	render(rt->sdl, rt);
-	// exit(0);
 	menu(rt->sdl, rt->save_filter);
 	rt->sdl->loop = 1;
 }
@@ -282,6 +281,7 @@ int		core(t_rt **r)
 	t_rt	*rt;
 
 	rt = *r;
+	to_do = 0;
 	if ((rt->sdl->event.type == SDL_WINDOWEVENT &&\
 	rt->sdl->event.window.event == SDL_WINDOWEVENT_CLOSE) || rt->sdl->event.type == SDL_QUIT)
 		return (0);
@@ -299,7 +299,6 @@ int		core(t_rt **r)
 			rt->cameras = rt->cameras->next;
 			new_camera(rt);
 			first_render(rt);
-			render(rt->sdl, rt);
 		}
 	}
 	if (rt->sdl->key_table[SDL_SCANCODE_P])
@@ -309,7 +308,6 @@ int		core(t_rt **r)
 			rt->cameras = rt->cameras->prev;
 			new_camera(rt);
 			first_render(rt);
-			render(rt->sdl, rt);
 		}
 	}
 	else if (SDL_GetMouseFocus() == rt->sdl->win_menu)

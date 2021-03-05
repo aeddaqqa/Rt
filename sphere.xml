@@ -1,41 +1,35 @@
 <scene>
-	<ambient>20</ambient>
-
-	<cylinder>
-		<height>50</height>
-		<radius>4</radius>
-		<position>0 0 -60</position>
-		<orientation>1 0 0</orientation>
-		<translation>0 0 0</translation>
-		<rotation>0 0 0</rotation>
-		<color>0xff</color>
-	</cylinder>
-
-	<cylinder>
-		<height>50</height>
-		<radius>4</radius>
-		<position>0 0 -10</position>
-		<orientation>1 1 0</orientation>
-		<translation>0 0 0</translation>
-		<rotation>0 0 0</rotation>
-		<color>0xff00</color>
-	</cylinder>
+	<ambient>0</ambient>
 	<sphere>
-		<position>0 0 10</position>
+		<position>0 0 0</position>
 		<radius>5</radius>
-		<translation>0 0 0</translation>
-		<rotation>0 0 0</rotation>
+		<translation>20 0 0</translation>
+		<rotation>0 0 90</rotation>
 		<color>0xff0000</color>
+		<texture>earthmap.jpg</texture>
 	</sphere>
-
 	<camera>
-		<origin>0 0 30</origin>
+		<origin>0 0 50</origin>
 		<fov>60</fov>
 		<look-at>0 0 0</look-at>
 	</camera>
-
+	<camera>
+		<origin>50 0 50</origin>
+		<fov>60</fov>
+		<look-at>0 0 0</look-at>
+	</camera>
+	<camera>
+		<origin>-50 0 50</origin>
+		<fov>60</fov>
+		<look-at>0 0 0</look-at>
+	</camera>
+	<camera>
+		<origin>20 20 50</origin>
+		<fov>60</fov>
+		<look-at>0 0 0</look-at>
+	</camera>
 	<light>
-		<position>0 0 1220</position>
+		<position>0 0 50</position>
 		<color>0xffffff</color>
 		<intensity>100</intensity>
 	</light>
