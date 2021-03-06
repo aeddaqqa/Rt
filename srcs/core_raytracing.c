@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   core_raytracing.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 12:21:03 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/05 18:39:26 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/03/06 04:14:02 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,15 +74,17 @@ unsigned int	pixel_color(t_rt *rt, t_ray *ray)
 {
 	double			x;
 	double			t;
-	unsigned int	color;
 	t_object		close_object;
 	t_object		*tmp;
 	t_object		tmp2;
+	t_color			color;
+	t_color			color1;
 
 	tmp = rt->objects;
 	ray->t = -1.0;
 	t = -1.0;
-	color = 0;
+	color = (t_color){0, 0, 0};
+	// printf("%lf, %lf, %lf\n", color.x, color.y, color.z);
 	while (tmp)
 	{
 		copy_obj(&tmp2, tmp);
@@ -95,8 +97,14 @@ unsigned int	pixel_color(t_rt *rt, t_ray *ray)
 		tmp = tmp->next;
 	}
 	if (t != -1)
-		return (light(&close_object, ray, rt, t));
-	return (0);
+	{
+		t *= 1;
+		to_rgb(&color, light(&close_object, ray, rt, t));
+		// return (light(&close_object, ray, rt, t));
+	}
+	color1 = is_direct_light(rt, *ray, t);
+	return (rgb(add_color(color1, color)));
+	// return (rgb(color1));
 }
 
 t_color int_to_rgb(int m)
@@ -139,10 +147,16 @@ void		draw_scene(t_rt *rt, int x, int y)
 {
 	t_rr	r;
 	t_ray *ray;
+	// t_color	color;
+	// t_color	color1;
 
 	r.r1 = .5;
 	r.r2 = .5;
 	ray = ray_init(rt, x, y, r);
+	// color = is_direct_light(rt, *ray);
+	// to_rgb(&color1, pixel_color(rt, ray));
+	// color = add_color(color, color1);
+	// rt->sdl->data[y * W + x] = rgb(color);
 	rt->sdl->data[y * W + x] = pixel_color(rt, ray);
 	free(ray);
 }

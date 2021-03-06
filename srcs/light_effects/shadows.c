@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 19:15:58 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/03/03 16:12:35 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/05 15:56:31 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,10 @@ int				in_shadow(t_rt *rt, t_light *light, t_object *object)
 		{
 			shadow.hit_point = v_c_prod(shadow.direction, t);
 			distance = sqrtf(dot(shadow.hit_point, shadow.hit_point));
-			if (distance < light->d)
+			if (distance < light->d && !obj->is_transp)
 				return (0);
+			else if (obj->is_transp)
+				light->intensity *= 0.6;
 		}
 		obj = obj->next;
 	}
