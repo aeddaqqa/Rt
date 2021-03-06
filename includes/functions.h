@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 12:33:01 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/05 19:06:09 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/03/06 17:13:23 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "../srcs/intersections/includes/intersection.h"
 # include "../srcs/camera/includes/cam_function.h"
 
+void			first_render(t_rt *rt);
 void			rtrace(t_rt *rt);
 int				parse_obj(t_rt *rt, char *path);
 double			ft_atod(const char *str);
@@ -44,6 +45,12 @@ t_vect3			paraboloid_normal(t_object *object, t_ray *ray);
 t_vect3			normal_disk(t_object *disk, t_ray *ray);
 t_vect3			normal_parallelogram(t_object *para, t_ray *ray);
 t_vect3			rotation_xyz(t_vect3 v, t_vect3 a);
+void			hooks(t_rt **r);
+void			mouse_hook(t_rt **r, int *to_do);
+void			apply_antiliasing(t_rt *rt, int x, int y);
+void			draw_scene(t_rt *rt, int x, int y);
+void			initab(int *tab);
+t_color			int_to_rgb(int m);
 /*
 **		lights
 */
