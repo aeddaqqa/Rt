@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_s.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 02:14:10 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/05 08:46:16 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/06 12:37:52 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static	void			init_otags_cmp(t_tags *tags)
 	tags->components_o[CORNER_A] = (char*)"<corner_a>";
 	tags->components_o[CORNER_B] = (char*)"<corner_b>";
 	tags->components_o[REFLEXION] = (char*)"<reflexion>";
-	tags->components_o[TRANSPARENT] = (char*)"<tranparent>";
+	tags->components_o[TRANSPARENT] = (char*)"<transparent>";
 	tags->components_o[REF_INDEX] = (char*)"<ref_index>";
 	tags->components_o[MATTER] = (char*)"<matter>";
 	tags->components_o[TEXTURE] = (char*)"<texture>";
@@ -100,7 +100,7 @@ static	void			init_ctags_cmp(t_tags *tags)
 	tags->components_c[CORNER_A] = (char*)"</corner_a>";
 	tags->components_c[CORNER_B] = (char*)"</corner_b>";
 	tags->components_c[REFLEXION] = (char*)"</reflexion>";
-	tags->components_c[TRANSPARENT] = (char*)"</tranparent>";
+	tags->components_c[TRANSPARENT] = (char*)"</transparent>";
 	tags->components_c[REF_INDEX] = (char*)"</ref_index>";
 	tags->components_c[MATTER] = (char*)"</matter>";
 	tags->components_c[TEXTURE] = (char*)"</texture>";

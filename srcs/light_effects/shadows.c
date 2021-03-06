@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 19:15:58 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/03/05 15:56:31 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/06 12:46:55 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int				in_shadow(t_rt *rt, t_light *light, t_object *object)
 			if (distance < light->d && !obj->is_transp)
 				return (0);
 			else if (obj->is_transp)
-				light->intensity *= 0.6;
+				light->intensity *= obj->is_transp;
 		}
 		obj = obj->next;
 	}

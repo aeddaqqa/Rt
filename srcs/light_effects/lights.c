@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 05:10:29 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/03/06 04:20:23 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/06 12:48:18 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_color is_direct_light(t_rt *rt, t_ray ray, double t)
 				break;
 			}
 			else if (t > 0 && o.is_transp)
-				lght.intensity *= 0.4;
+				lght.intensity *= o.is_transp;
 			obj = obj->next;
 		}
 		if (((ft_magnitude(light_dir) < hit_dist)) &&
@@ -84,9 +84,8 @@ unsigned int light_effect(t_rt *rt, t_object *o, t_ray *ray)
 		if (n_l > 0)
 			tmp_res[0] = vect_add(tmp_res[0], diffuse(&li, n_l, &object));
 		tmp_res[0] = add_color(tmp_res[0], specular(&li, ray, &object));
-		tmp_res[0] = add_color(tmp_res[0], reflex_col(rt, *ray, &object,
-													  lights));
-		tmp_res[0] = add_color(tmp_res[0], refract_color(rt, *ray, &object, lights));
+		tmp_res[0] = add_color(tmp_res[0], fraction(reflex_col(rt, *ray, &object, lights), object.is_ref));
+		tmp_res[0] = add_color(tmp_res[0], fraction(refract_color(rt, *ray, &object, lights), object.is_transp));
 		color[i++] = fraction(tmp_res[0], in_shadow(rt, &li, &object) * li.intensity);
 		lights = lights->next;
 	}

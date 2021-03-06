@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utilfunc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:28:42 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/05 14:43:45 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/06 12:50:23 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,10 @@ void					*new_object(int type)
 		n_obj->angle = 0;
 		n_obj->distance = 0;
 		n_obj->height = 0;
+		n_obj->is_transp = 0;
+		n_obj->is_ref = 0;
+		n_obj->matter = 0;
+		n_obj->refraction_index = 0;
 		n_obj->texture = NULL;
 		n_obj->next = NULL;
 		return (n_obj);

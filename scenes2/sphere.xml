@@ -14,7 +14,7 @@
 		<translation>0 0 0</translation>
 		<rotation>0 0 90</rotation>
 		<color>0xff0000</color>
-
+		<transparent>0.4</transparent>
 	</sphere>
 	<camera>
 		<origin>0 0 40</origin>
