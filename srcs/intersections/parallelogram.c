@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parallelogram.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:48:42 by ahkhilad          #+#    #+#             */
-/*   Updated: 2021/02/25 15:50:45 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/06 18:12:51 by ahkhilad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	ft_parallelogram(t_parallelo *a, t_object *para, t_ray *ray)
 	return (1);
 }
 
-double			hit_parallelogram(t_object *para, t_ray *ray)
+double		hit_parallelogram(t_object *para, t_ray *ray)
 {
 	t_parallelo	a;
 

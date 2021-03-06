@@ -3,14 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   paraboloid.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:51:23 by ahkhilad          #+#    #+#             */
-/*   Updated: 2021/02/24 16:22:47 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/06 18:12:03 by ahkhilad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/rt.h"
+
+double				calc_the_t(t_intersect *i, t_ray *ray)
+{
+	i->t1 = (-i->b + i->delta) / (2 * i->a);
+	i->t2 = (-i->b - i->delta) / (2 * i->a);
+	if (((i->t1 < i->t2 || i->t2 < 0.001) && i->t1 > 0.1))
+	{
+		ray->t = i->t1;
+		return (i->t1);
+	}
+	else if (((i->t2 < i->t1 || i->t1 < 0.001) && i->t2 > 0.1))
+	{
+		ray->t = i->t2;
+		return (i->t2);
+	}
+	return (-1.0);
+}
 
 double				hit_paraboloid(t_object *pa, t_ray *ray)
 {
@@ -30,17 +47,5 @@ double				hit_paraboloid(t_object *pa, t_ray *ray)
 	if (i.delta < 0)
 		return (-1.0);
 	i.delta = sqrtf(i.delta);
-	i.t1 = (-i.b + i.delta) / (2 * i.a);
-	i.t2 = (-i.b - i.delta) / (2 * i.a);
-	if (((i.t1 < i.t2 || i.t2 < 0.001) && i.t1 > 0.1))
-	{
-		ray->t = i.t1;
-		return (i.t1);
-	}
-	else if (((i.t2 < i.t1 || i.t1 < 0.001) && i.t2 > 0.1))
-	{
-		ray->t = i.t2;
-		return (i.t2);
-	}
-	return (-1.0);
+	return (calc_the_t(&i, ray));
 }

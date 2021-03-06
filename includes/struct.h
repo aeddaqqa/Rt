@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/05 18:35:36 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/03/06 18:37:06 by ahkhilad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,8 @@ typedef struct	s_tri
 	t_vect3	qc;
 	double	distance;
 	double	dist2plane;
+	double	a;
+	double	b;
 }				t_tri;
 
 typedef struct	s_parallelo
