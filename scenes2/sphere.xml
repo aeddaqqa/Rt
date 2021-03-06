@@ -1,0 +1,36 @@
+<scene>
+	<ambient>0</ambient>
+	<sphere>
+		<position>0 0 0</position>
+		<radius>5</radius>
+		<translation>20 0 0</translation>
+		<rotation>0 0 90</rotation>
+		<color>0xff0000</color>
+		<texture>earthmap.jpg</texture>
+	</sphere>
+	<camera>
+		<origin>0 0 50</origin>
+		<fov>60</fov>
+		<look-at>0 0 0</look-at>
+	</camera>
+	<camera>
+		<origin>50 0 50</origin>
+		<fov>60</fov>
+		<look-at>0 0 0</look-at>
+	</camera>
+	<camera>
+		<origin>-50 0 50</origin>
+		<fov>60</fov>
+		<look-at>0 0 0</look-at>
+	</camera>
+	<camera>
+		<origin>20 20 50</origin>
+		<fov>60</fov>
+		<look-at>0 0 0</look-at>
+	</camera>
+	<light>
+		<position>0 0 50</position>
+		<color>0xffffff</color>
+		<intensity>100</intensity>
+	</light>
+</scene>

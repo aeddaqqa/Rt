@@ -1,0 +1,21 @@
+<scene>
+	<ambient>54564</ambient>
+	<torus>
+		<color>0xff00ff</color>
+		<rotation>0 0 0</rotation>
+		<position>10 30 60</position>
+		<translation>0 0 0</translation>
+		<radius_1>10</radius_1>
+		<radius_2>10</radius_2>
+	</torus>
+	<camera>
+		<origin> 0 0 100</origin>
+		<fov>60</fov>
+		<look-at>0 0 0</look-at>
+	</camera>
+	<light>
+		<position>0 0 90</position>
+		<color>0xffffff</color>
+		<intensity>9</intensity>
+	</light>
+</scene>

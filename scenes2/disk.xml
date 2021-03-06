@@ -1,0 +1,21 @@
+<scene>
+	<ambient>100</ambient>
+	<disk>
+		<position>0 0 0</position>
+		<orientation>0 1 0 </orientation>
+		<radius>10</radius>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<color>0xff0000</color>
+	</disk>
+	<camera>
+		<origin> 0 10 30</origin>
+		<fov>60</fov>
+		<look-at>0 0 0</look-at>
+	</camera>
+	<light>
+		<position>0 30 0</position>
+		<color>0xffffff</color>
+		<intensity>80</intensity>
+	</light>
+</scene>
