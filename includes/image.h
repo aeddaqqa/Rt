@@ -6,7 +6,7 @@
 /*   By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 14:23:39 by chzabakh          #+#    #+#             */
-/*   Updated: 2021/03/04 18:35:28 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/03/06 15:55:53 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ typedef	struct	s_clr
 	int	g;
 	int	b;
 }				t_clr;
+
+typedef	struct	s_z
+{
+	int	i;
+	int	j;
+	int	d;
+	int	dd;
+}				t_z;
 
 typedef struct	s_image
 {
