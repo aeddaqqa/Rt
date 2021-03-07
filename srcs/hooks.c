@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:49:08 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/07 17:06:58 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/07 17:31:56 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	hooks(t_rt **r)
 	if (rt->sdl->key_table[SDL_SCANCODE_J])
 	{
 		if (rt->hooks[1] > -1)
-			rt->hooks[1] -= 1.0;
+			rt->hooks[1] -= .1;
 		first_render(rt);
 		menu(rt->sdl, rt->save_filter);
 	}

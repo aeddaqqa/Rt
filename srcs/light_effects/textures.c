@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 15:05:33 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/07 17:13:33 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/07 17:38:10 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,15 +89,18 @@ static void		texture_clr_board(t_object **object, t_point hit)
 		obj->color = (t_vect3){.0, .0, .0};
 }
 
-static void		texture_clr_plane(t_object **object, t_point hit)
+static void		texture_clr_plane(t_object **object, t_point hit, double tab[2])
 {
 	double		u;
 	double		v;
 	t_object	*obj;
+	int			var;
 
 	obj = *object;
-	v = hit.z / 10.0;
-	u = hit.x / 10.0;
+	var = 100 * tab[0];
+	var = (var == -100) ? 0 : var; 
+	v = hit.z / (1.0 + var) + tab[1];
+	u = hit.x / (1.0 + var) + tab[1];
 	v = v - floor(v);
 	u = u - floor(u);
 	u *= obj->texture->w;
@@ -117,7 +120,7 @@ void			texture(t_object **object, t_point hit, double tab[2])
 	if ((*object)->texture->type == TEX)
 	{
 		if ((*object)->type == PLANE)
-			texture_clr_plane(object, p);
+			texture_clr_plane(object, p, tab);
 		else
 			texture_clr(object, p, tab);
 	}
