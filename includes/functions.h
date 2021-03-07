@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 12:33:01 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/07 18:05:27 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/07 18:20:57 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ void			apply_antiliasing(t_rt *rt, int x, int y);
 void			draw_scene(t_rt *rt, int x, int y);
 void			initab(int *tab);
 t_color			int_to_rgb(int m);
+void			texture(t_object **object, t_point hit, double t[2]);
+void			texture_wave_effect(t_object **object, t_point hit);
+void			texture_wave_effect_plane(t_object **object, t_point hit);
 /*
 **		lights
 */
@@ -81,8 +84,6 @@ t_ray			obj_intersect(t_object *p, t_hit *hit, t_ray ray, double t);
 t_color			ft_shade_object(t_hit *hit, t_rt *rt, t_ray *ray);
 t_ray			reflexion(t_ray ray, t_vect3 norm);
 t_ray			refraction(t_ray ray, t_vect3 norm, double n2);
-void			texture_clr(t_object **object, t_point hit);
-void			texture_clr_plane(t_object **object, t_point hit);
 t_color			raytrace(t_rt *rt, t_hit *hit, t_ray *ray);
 t_color			refract_color(t_rt *rt, t_ray ray, t_object *object,\
 				t_light *light);

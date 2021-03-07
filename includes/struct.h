@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/07 16:53:29 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/07 18:20:41 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,9 +181,10 @@ typedef struct	s_parallelo
 
 typedef struct	s_tex
 {
-	int		w;
-	int		h;
-	int		*data_pixels;
+	int			w;
+	int			h;
+	int			*data_pixels;
+	t_type_tex	type;
 }				t_tex;
 
 typedef struct	s_object
@@ -277,6 +278,7 @@ typedef struct	s_rt
 	unsigned int	nbr_lights;
 	int				*filters;
 	int				save_filter;
+	double			hooks[2];
 	double			(**intersection)(t_object *obj, t_ray *r);
 	t_vect3			(**normal)(t_object *obj, t_ray *r);
 }				t_rt;

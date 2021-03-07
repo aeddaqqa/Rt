@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:49:45 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/05 08:34:30 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/07 12:13:51 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ int		stock_elements_cmp(char *s, t_tags tags, t_rt *rt, int *i)
 	char		*comp;
 	char		*content;
 
-	// printf("dsfasdf");
 	white_space(s, i);
 	if (!(comp = get_tag(&s[*i], i)))
 		return (-1);

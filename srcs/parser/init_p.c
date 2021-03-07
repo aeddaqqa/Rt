@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_p.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 01:42:30 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/07 12:08:06 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/07 17:14:22 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ t_rt						*init_rt(bool save)
 	new->objects = NULL;
 	new->direct = 0;
 	new->ambient = 0;
+	new->hooks[0] = 0;
+	new->hooks[1] = 0;
 	new->nbr_lights = 0;
 	new->number_id = 0;
 	new->ambient_exist = false;

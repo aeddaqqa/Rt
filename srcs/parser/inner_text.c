@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 03:37:25 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/05 09:48:15 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/07 14:45:18 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,19 +107,26 @@ static void		load_texture(t_object **obj, char *str)
 	SDL_Surface *s;
 	char		*path;
 
-	path = ft_strjoin("./resources/textures/", str);
-	if (!path || !(s = IMG_Load(path)))
+	if (!ft_strcmp(str, "checkerboard") && (*obj)->texture->type == NONE)
+		(*obj)->texture->type = BOARD;
+	else if (!ft_strcmp(str, "spectrum") && (*obj)->texture->type == NONE)
+		(*obj)->texture->type = SPECTRUM;
+	else if ((*obj)->texture->type == NONE)
 	{
-		if (path)
-			free(path);
-		(*obj)->texture = NULL;
-		return ;
+		(*obj)->texture->type = TEX;
+		path = ft_strjoin("./resources/textures/", str);
+		if (!path || !(s = IMG_Load(path)))
+		{
+			if (path)
+				free(path);
+			(*obj)->texture->type = NONE;
+			return ;
+		}
+		free(path);
+		(*obj)->texture->w = s->w;
+		(*obj)->texture->h = s->h;
+		(*obj)->texture->data_pixels = convert_color((char*)s->pixels, s->w, s->h, s->format->BytesPerPixel);
 	}
-	free(path);
-	(*obj)->texture = malloc(sizeof(t_tex));
-	(*obj)->texture->w = s->w;
-	(*obj)->texture->h = s->h;
-	(*obj)->texture->data_pixels = convert_color((char*)s->pixels, s->w, s->h, s->format->BytesPerPixel);
 }
 
 int				stock_cmp_objects(t_object *obj, int r, char *str)

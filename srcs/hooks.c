@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:49:08 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/07 14:41:18 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/07 17:31:56 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,34 @@ void	hooks(t_rt **r)
 		rt->direct = rt->direct ? 0 : 1;
 		if (rt->save_filter != -1)
 			rt->filters[rt->save_filter] = 1;
+		first_render(rt);
+		menu(rt->sdl, rt->save_filter);
+	}
+	if (rt->sdl->key_table[SDL_SCANCODE_F])
+	{
+		if (rt->hooks[0] < 1.0)
+			rt->hooks[0] += 0.1;
+		first_render(rt);
+		menu(rt->sdl, rt->save_filter);
+	}
+	if (rt->sdl->key_table[SDL_SCANCODE_G])
+	{
+		if (rt->hooks[0] > -1.0)
+			rt->hooks[0] -= 0.1;
+		first_render(rt);
+		menu(rt->sdl, rt->save_filter);
+	}
+	if (rt->sdl->key_table[SDL_SCANCODE_H])
+	{
+		if (rt->hooks[1] < 1.0)
+			rt->hooks[1] += 0.1;
+		first_render(rt);
+		menu(rt->sdl, rt->save_filter);
+	}
+	if (rt->sdl->key_table[SDL_SCANCODE_J])
+	{
+		if (rt->hooks[1] > -1)
+			rt->hooks[1] -= .1;
 		first_render(rt);
 		menu(rt->sdl, rt->save_filter);
 	}

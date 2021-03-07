@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:46:46 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/07 15:16:48 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/07 18:21:09 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@ typedef enum	e_error
 	SCENE_NOT_FOUND,
 	SYNTAX_ERROR
 }				t_error;
+
+typedef enum	e_type_tex
+{
+	NONE,
+	BOARD,
+	TEX,
+	SPECTRUM
+}				t_type_tex;
 
 typedef	enum	e_type
 {
