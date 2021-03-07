@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 12:33:01 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/06 17:13:23 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/07 10:33:59 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ t_ray			obj_intersect(t_object *p, t_hit *hit, t_ray ray, double t);
 t_color			ft_shade_object(t_hit *hit, t_rt *rt, t_ray *ray);
 t_ray			reflexion(t_ray ray, t_vect3 norm);
 t_ray			refraction(t_ray ray, t_vect3 norm, double n2);
+void			texture_clr(t_object **object, t_point hit);
+void			texture_clr_plane(t_object **object, t_point hit);
 t_color			raytrace(t_rt *rt, t_hit *hit, t_ray *ray);
 t_color			refract_color(t_rt *rt, t_ray ray, t_object *object,\
 				t_light *light);
@@ -87,4 +89,5 @@ t_color			reflex_col(t_rt *rt, t_ray ray, t_object *object,\
 				t_light *light);
 t_color			ref_trsp(t_rt *rt, t_object *object, t_ray reflect, \
 				t_light *light);
+t_color			is_direct_light(t_rt *rt, t_ray ray, double t);
 #endif

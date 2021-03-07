@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 20:15:10 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/05 17:06:08 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/03/05 13:13:21 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <fcntl.h>
 # include <stdbool.h>
 # include <math.h>
-# include "mlx.h"
+// # include "mlx.h"
 # include "../libft/libft.h"
 # include "./define.h"
 # include "./struct.h"

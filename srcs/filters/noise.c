@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 14:22:11 by chzabakh          #+#    #+#             */
-/*   Updated: 2021/02/28 16:29:44 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/07 09:40:49 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ void	img_noise(int *img)
 	i = 0;
 	while (i < W * H)
 	{
-		rgb.x = ((img[i] >> 16) * 5 + (noi[i] >> 16)) / 6;
-		rgb.y = (((img[i] >> 8) % 256) * 5 + ((noi[i] >> 8) % 256)) / 6;
-		rgb.z = ((img[i] % 256) * 5 + (noi[i] % 256)) / 6;
+		rgb.x = ((img[i] >> 16) * 14 + (noi[i] >> 16)) / 15;
+		rgb.y = (((img[i] >> 8) % 256) * 14 + ((noi[i] >> 8) % 256)) / 15;
+		rgb.z = ((img[i] % 256) * 14 + (noi[i] % 256)) / 15;
 		noimag[i] = ((int)rgb.x << 16) + ((int)rgb.y << 8) + rgb.z;
 		i++;
 	}

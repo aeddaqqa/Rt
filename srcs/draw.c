@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:53:08 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/06 17:15:04 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/07 11:30:39 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,29 +50,31 @@ void			copy_obj(t_object *n_obj, t_object *obj)
 
 unsigned int	pixel_color(t_rt *rt, t_ray *ray)
 {
-	double			x;
-	double			t;
-	t_object		close_object;
+	double			x_t[2];
+	t_object		close_tmp[2];
 	t_object		*tmp;
-	t_object		tmp2;
+	t_color			color;
+	t_color			color1;
 
 	tmp = rt->objects;
 	ray->t = -1.0;
-	t = -1.0;
+	x_t[1] = -1.0;
+	color = (t_color){0, 0, 0};
 	while (tmp)
 	{
-		copy_obj(&tmp2, tmp);
-		x = rt->intersection[tmp2.type](&tmp2, ray);
-		if (x != -1 && (x < t || t == -1.0))
+		copy_obj(&close_tmp[1], tmp);
+		x_t[0] = rt->intersection[close_tmp[1].type](&close_tmp[1], ray);
+		if (x_t[0] != -1 && (x_t[0] < x_t[1] || x_t[1] == -1.0))
 		{
-			copy_obj(&close_object, &tmp2);
-			t = x;
+			copy_obj(&close_tmp[0], &close_tmp[1]);
+			x_t[1] = x_t[0];
 		}
 		tmp = tmp->next;
 	}
-	if (t != -1)
-		return (light(&close_object, ray, rt, t));
-	return (0);
+	if (x_t[1] != -1)
+		to_rgb(&color, light(&close_tmp[0], ray, rt, x_t[1]));
+	color1 = is_direct_light(rt, *ray, x_t[1]);
+	return (rgb(add_color(color1, color)));
 }
 
 void			apply_antiliasing(t_rt *rt, int x, int y)
