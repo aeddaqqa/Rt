@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 05:10:29 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/03/07 15:09:40 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/07 15:34:39 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,24 @@
 
 t_color	is_direct_light(t_rt *rt, t_ray r, double t)
 {
-	t_vect3 light_dir;
-	double hit_dist;
-	double ret;
-	t_light *light;
-	t_light lght;
-	t_object *obj;
-	t_object o;
-	t_color blind;
-	t_ray li;
+	t_vect3		light_dir;
+	double		hit_dist;
+	double		ret;
+	t_light		*light;
+	t_light		lght;
+	t_object	*obj;
+	t_object	o;
+	t_color		blind;
 
 	blind = (t_color){0.0f, 0.0f, 0.0f};
 	light = rt->lights;
 	obj = rt->objects;
-	while (light)
+	rt->lights->direct_dir = normalize(vect_sub((t_vect3){0, 0, 0}, rt->lights->position));
+	while (rt->direct && light)
 	{
 		lght.intensity = light->intensity;
+		lght.direct_dir = light->direct_dir;
 		light_dir = vect_sub(light->position, rt->cameras->o);
-		li.origin = rt->cameras->o;
-		li.direction = normalize(light_dir);
 		while (obj)
 		{
 			hit_dist = INFINITY;
@@ -47,9 +46,9 @@ t_color	is_direct_light(t_rt *rt, t_ray r, double t)
 			obj = obj->next;
 		}
 		if (((ft_magnitude(light_dir) < hit_dist)) &&
-			(ret = dot(r.direction, normalize(light_dir))) > 0)
+			(ret = dot(r.direction, light->direct_dir)) < 0)
 			blind = add_color(blind,\
-			fraction(light->color, lght.intensity * powf(ret, 150)));
+			fraction(light->color, lght.intensity * powf(dot(r.direction, light->direct_dir), 20)));
 		light = light->next;
 	}
 	return (blind);
