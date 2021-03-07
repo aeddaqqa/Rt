@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   core_raytracing.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 12:21:03 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/06 17:15:40 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/07 10:32:43 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "../includes/rt.h"
 
@@ -39,7 +40,7 @@ void		initab(int *tab)
 	}
 }
 
-t_color		int_to_rgb(int m)
+t_color int_to_rgb(int m)
 {
 	t_color rgb;
 
