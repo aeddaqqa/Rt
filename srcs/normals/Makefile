@@ -6,7 +6,7 @@
 #    By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/09 05:04:40 by nabouzah          #+#    #+#              #
-#    Updated: 2021/02/22 19:13:13 by nabouzah         ###   ########.fr        #
+#    Updated: 2021/03/07 18:01:14 by nabouzah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ INC3 = ../../includes/rt.h
 all	: $(NAME)
 
 $(OBJDIR)/%.o : $(SRCDIR)%.c $(INCS) $(INC1) $(INC2) $(INC5) $(INC3)
-	@gcc $(CFlags) -c -o $@ $< -I $(INCS) 
+	@gcc $(FLAGS) -c -o $@ $< -I $(INCS) 
 	@ar rc $(NAME) $@
 
 $(NAME) : $(OBJ)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cone.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:47:25 by ahkhilad          #+#    #+#             */
-/*   Updated: 2021/03/06 16:53:52 by ahkhilad         ###   ########.fr       */
+/*   Updated: 2021/03/07 18:07:37 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ static void		ft_cone_init(t_cone *cone, t_object *o, t_ray *r)
 double			hit_cone(t_object *c, t_ray *r)
 {
 	t_cone		a;
-	int			ret;
 	t_vect3		cp;
 	float		h;
 	t_intersect	i;

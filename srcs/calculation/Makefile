@@ -6,7 +6,7 @@
 #    By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/09 05:04:40 by nabouzah          #+#    #+#              #
-#    Updated: 2021/02/10 19:21:06 by nabouzah         ###   ########.fr        #
+#    Updated: 2021/03/07 18:01:14 by nabouzah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ INC = ../../includes/calculation/calc_functions.h
 all	: $(NAME)
 
 $(OBJDIR)/%.o : $(SRCDIR)%.c $(INC)
-	@gcc $(CFlags) -c -o $@ $< -I $(INC)
+	@gcc $(FLAGS) -c -o $@ $< -I $(INC)
 	@ar rc $(NAME) $@
 
 $(NAME) : $(OBJ)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   negative.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chzabakh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 14:24:26 by chzabakh          #+#    #+#             */
-/*   Updated: 2021/03/04 18:36:14 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/03/07 18:03:34 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	img_neg(int *img)
 	int		*neg;
 	int		res;
 	t_vec	rgb;
-	t_vec	tmp;
 	int		i;
 
 	res = W * H;

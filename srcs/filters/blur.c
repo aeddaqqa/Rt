@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   blur.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chzabakh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 18:27:21 by chzabakh          #+#    #+#             */
-/*   Updated: 2021/03/04 18:49:59 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/03/07 18:03:59 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	blurr(int *img)
 	int		*blur;
 	int		cnt;
 	int		i;
-	int		k;
 
 	blur = (int*)malloc(sizeof(int) * W * H * 4);
 	ft_memcpy(blur, img, W * H * 4);

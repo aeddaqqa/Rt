@@ -6,7 +6,7 @@
 #    By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/09 05:04:40 by nabouzah          #+#    #+#              #
-#    Updated: 2021/02/22 19:14:08 by nabouzah         ###   ########.fr        #
+#    Updated: 2021/03/07 18:01:14 by nabouzah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ INC5 = ../../includes/struct.h
 all	: $(NAME)
 
 $(OBJDIR)/%.o : $(SRCDIR)%.c $(INCS) $(INC1) $(INC2) $(INC3) $(INC4) $(INC5)
-	@gcc $(CFlags) -c -o $@ $< -I $(INC) -I $(INC1)
+	@gcc $(FLAGS) -c -o $@ $< -I $(INC) -I $(INC1)
 	@ar rc $(NAME) $@
 
 $(NAME) : $(OBJ)

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+         #
+#    By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/09 05:04:40 by nabouzah          #+#    #+#              #
-#    Updated: 2021/03/05 19:04:17 by chzabakh         ###   ########.fr        #
+#    Updated: 2021/03/07 18:01:14 by nabouzah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,13 +21,13 @@ INC = ../../includes/
 all	: $(NAME)
 
 $(OBJDIR)/%.o : $(SRCDIR)%.c $(INC)
-	@gcc $(CFlags) -c -o $@ $< -I $(INC)
+	@gcc $(FLAGS) -c -o $@ $< -I $(INC)
 	@ar rc $(NAME) $@
 
 $(NAME) : $(OBJ)
 	@ranlib $(NAME)
 	@printf "\033[0;32m"
-	@printf "LIBPARSE.a CREATED\n"
+	@printf "LIBLIGHT.a CREATED\n"
 	@printf "\033[0m"
 
 clean :

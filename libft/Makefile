@@ -6,7 +6,7 @@
 #    By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/30 18:09:41 by nabouzah          #+#    #+#              #
-#    Updated: 2021/01/25 12:41:58 by nabouzah         ###   ########.fr        #
+#    Updated: 2021/03/07 18:01:14 by nabouzah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,13 +22,13 @@ OBJ = ft_atoi.o ft_itoa.o ft_memalloc.o ft_putchar.o ft_putstr_fd.o ft_strdup.o\
 	ft_isgraph.o ft_lstmap.o ft_memmove.o ft_putnbr_fd.o ft_strcspn.o ft_strlcpy.o\
 	ft_strnew.o ft_tolower.o ft_isprint.o ft_lstnew.o ft_memset.o ft_putstr.o ft_strdel.o\
 	ft_strlen.o ft_strnstr.o ft_toupper.o get_next_line.o
-CFlags = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 NAME = libft.a
 
 all	: $(NAME)
 
 %.o : %.c $(IN)
-	@gcc $(CFlags) -c -o $@ $< -I $(IN)
+	@gcc $(FLAGS) -c -o $@ $< -I $(IN)
 	@ar rc $(NAME) $@
 
 $(NAME) : $(OBJ)

@@ -6,13 +6,13 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 19:01:23 by chzabakh          #+#    #+#             */
-/*   Updated: 2021/03/05 16:11:04 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/07 16:38:57 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/rt.h"
 
-t_color					multip_color(t_color c1, t_color c2)
+t_color	multip_color(t_color c1, t_color c2)
 {
 	t_color	new;
 	float	tmp;
@@ -26,7 +26,7 @@ t_color					multip_color(t_color c1, t_color c2)
 	return (new);
 }
 
-t_color					fraction(t_color c, double fract)
+t_color	fraction(t_color c, double fract)
 {
 	t_color	new;
 	double	tmp;
@@ -53,7 +53,7 @@ int		rgb(t_color color)
 	return (new);
 }
 
-t_color					add_color(t_color c1, t_color c2)
+t_color	add_color(t_color c1, t_color c2)
 {
 	t_color	new;
 	double	tmp;
@@ -67,7 +67,7 @@ t_color					add_color(t_color c1, t_color c2)
 	return (new);
 }
 
-t_color inttorgb(int m)
+t_color	inttorgb(int m)
 {
 	t_color rgb;
 

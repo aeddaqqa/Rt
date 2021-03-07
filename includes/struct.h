@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/07 12:11:28 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/07 16:53:29 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ typedef struct	s_light
 {
 	t_vect3			direction;
 	t_vect3			direct_dir;
+	int				direct;
+	int				parallel;
 	t_point			position;
 	double			intensity;
 	double			distance;
@@ -270,9 +272,9 @@ typedef struct	s_rt
 	t_cam			*cameras;
 	t_light			*lights;
 	double			ambient;
+	int				direct;
 	bool			ambient_exist;
 	unsigned int	nbr_lights;
-	int				direct;
 	int				*filters;
 	int				save_filter;
 	double			(**intersection)(t_object *obj, t_ray *r);
