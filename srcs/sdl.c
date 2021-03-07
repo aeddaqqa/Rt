@@ -3,40 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sdl.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 10:28:22 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/05 15:47:34 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/07 14:35:19 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/rt.h"
-
-// int		*convert_color(char *pixels, int w, int h , int bbp)
-// {
-// 	int *data;
-// 	int i;
-// 	int r;
-// 	int g;
-// 	int b;
-// 	int a;
-// 	int cmp;
-
-// 	data= malloc(sizeof(int) * w * h);
-// 	i = 0;
-// 	cmp = 0;
-// 	while (i < w * h)
-// 	{
-// 		r = pixels[cmp++] & 255;
-// 		g = pixels[cmp++] & 255;
-// 		b = pixels[cmp++] & 255;
-// 		if (bbp != 3)
-// 			a = pixels[cmp++] & 255;
-// 		data[i] = ((a << 24) | (r << 16) | (g << 8) | b);
-// 		i++;
-// 	}
-// 	return (data);
-// }
 
 
 t_sdl *init_sdl(void)

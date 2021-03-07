@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:49:08 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/06 16:59:56 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/07 12:10:12 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/rt.h"
 
-void		next_cam(t_rt **r)
+void next_cam(t_rt **r)
 {
 	t_rt *rt;
 
@@ -32,9 +32,9 @@ void		next_cam(t_rt **r)
 	}
 }
 
-void		hooks(t_rt **r)
+void hooks(t_rt **r)
 {
-	t_rt	*rt;
+	t_rt *rt;
 
 	rt = *r;
 	rt->sdl->key_table = (char *)SDL_GetKeyboardState(NULL);
@@ -58,9 +58,17 @@ void		hooks(t_rt **r)
 			menu(rt->sdl, rt->save_filter);
 		}
 	}
+	if (rt->sdl->key_table[SDL_SCANCODE_D])
+	{
+		rt->direct = rt->direct ? 0 : 1;
+		if (rt->save_filter != -1)
+			rt->filters[rt->save_filter] = 1;
+		first_render(rt);
+		menu(rt->sdl, rt->save_filter);
+	}
 }
 
-void		mouse_hook(t_rt **r, int *to_do)
+void	mouse_hook(t_rt **r, int *to_do)
 {
 	t_rt *rt;
 
