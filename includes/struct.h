@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/07 15:35:08 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/07 17:13:37 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -276,6 +276,7 @@ typedef struct	s_rt
 	int				direct;
 	int				*filters;
 	int				save_filter;
+	double			hooks[2];
 	double			(**intersection)(t_object *obj, t_ray *r);
 	t_vect3			(**normal)(t_object *obj, t_ray *r);
 }				t_rt;

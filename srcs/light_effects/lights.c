@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 05:10:29 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/03/07 15:34:39 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/07 16:43:22 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ int		light(t_object *close_obj, t_ray *ray, t_rt *rt, double t)
 	if (close_obj->texture->type != NONE && (close_obj->type == SPHERE ||\
 	close_obj->type == CYLINDER || close_obj->type == CONE ||\
 	close_obj->type == PLANE))
-		texture(&close_obj, ray->hit_point);
+		texture(&close_obj, ray->hit_point, rt->hooks);
 	close_obj->normal = rt->normal[close_obj->type](close_obj, ray);
 	return (light_effect(rt, close_obj, ray));
 }

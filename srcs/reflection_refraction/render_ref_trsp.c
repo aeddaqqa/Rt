@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 09:29:47 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/03/07 15:13:40 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/07 16:43:51 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static t_vect3	lit_comp(t_rt *rt, t_light light, t_object *object, t_ray *ray)
 	if (object->texture->type != NONE && (object->type == SPHERE ||\
 	object->type == CYLINDER || object->type == CONE ||\
 	object->type == PLANE))
-		texture(&object, ray->hit_point);
+		texture(&object, ray->hit_point, rt->hooks);
 	light.direction = vect_sub(light.position, ray->hit_point);
 	light.direction = normalize(light.direction);
 	n_l = dot(light.direction, object->normal);

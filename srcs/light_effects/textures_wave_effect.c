@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 15:09:41 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/07 15:31:55 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/07 15:56:07 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void				texture_wave_effect(t_object **object, t_point hit)
 	}
 	else
 	{
-		v = (-hit.y + 10.0) / 20.0;
+		v = (-hit.y + (*object)->height) / ((*object)->height * 2.0);
 		v = fabs(fmod(v, 1.0));
 	}
 	theta = (5.0 * M_PI * v) / (3 * u) + (M_PI / 2.0);
