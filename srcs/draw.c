@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:53:08 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/07 10:39:05 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/07 11:30:39 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ unsigned int	pixel_color(t_rt *rt, t_ray *ray)
 	{
 		copy_obj(&close_tmp[1], tmp);
 		x_t[0] = rt->intersection[close_tmp[1].type](&close_tmp[1], ray);
-		if (x_t[0] != -1 && (x_t[0] < x_t[0] || x_t[1] == -1.0))
+		if (x_t[0] != -1 && (x_t[0] < x_t[1] || x_t[1] == -1.0))
 		{
 			copy_obj(&close_tmp[0], &close_tmp[1]);
 			x_t[1] = x_t[0];

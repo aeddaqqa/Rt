@@ -6,13 +6,13 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 05:10:29 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/03/07 10:44:34 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/07 11:47:41 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/rt.h"
 
-t_color is_direct_light(t_rt *rt, t_ray ray, double t)
+t_color	is_direct_light(t_rt *rt, t_ray r, double t)
 {
 	t_vect3 light_dir;
 	double hit_dist;
@@ -37,9 +37,9 @@ t_color is_direct_light(t_rt *rt, t_ray ray, double t)
 		{
 			hit_dist = INFINITY;
 			copy_obj(&o, obj);
-			if ((t = rt->intersection[obj->type](&o, &ray)) > 0.0 && !o.is_transp)
+			if ((t = rt->intersection[obj->type](&o, &r)) > 0.0 && !o.is_transp)
 			{
-				hit_dist = ft_magnitude(v_c_prod(ray.direction, t));
+				hit_dist = ft_magnitude(v_c_prod(r.direction, t));
 				break ;
 			}
 			else if (t > 0 && o.is_transp)
@@ -47,24 +47,23 @@ t_color is_direct_light(t_rt *rt, t_ray ray, double t)
 			obj = obj->next;
 		}
 		if (((ft_magnitude(light_dir) < hit_dist)) &&
-			(ret = dot(ray.direction, normalize(light_dir))) > 0)
-		{
-			blind = add_color(blind, fraction(light->color, lght.intensity * powf(ret, 150)));
-		}
+			(ret = dot(r.direction, normalize(light_dir))) > 0)
+			blind = add_color(blind,\
+			fraction(light->color, lght.intensity * powf(ret, 150)));
 		light = light->next;
 	}
 	return (blind);
 }
 
-unsigned int light_effect(t_rt *rt, t_object *o, t_ray *ray)
+unsigned int	light_effect(t_rt *rt, t_object *o, t_ray *ray)
 {
-	double n_l;
-	t_color color[rt->nbr_lights];
-	unsigned int i;
-	t_color tmp_res[2];
-	t_light *lights;
-	t_object object;
-	t_light li;
+	double			n_l;
+	t_color			color[rt->nbr_lights];
+	unsigned int	i;
+	t_color			tmp_res[2];
+	t_light			*lights;
+	t_object		object;
+	t_light			li;
 
 	i = 0;
 	lights = rt->lights;
@@ -84,9 +83,12 @@ unsigned int light_effect(t_rt *rt, t_object *o, t_ray *ray)
 		if (n_l > 0)
 			tmp_res[0] = vect_add(tmp_res[0], diffuse(&li, n_l, &object));
 		tmp_res[0] = add_color(tmp_res[0], specular(&li, ray, &object));
-		tmp_res[0] = add_color(tmp_res[0], fraction(reflex_col(rt, *ray, &object, lights), object.is_ref));
-		tmp_res[0] = add_color(tmp_res[0], fraction(refract_color(rt, *ray, &object, lights), object.is_transp));
-		color[i++] = fraction(tmp_res[0], in_shadow(rt, &li, &object) * li.intensity);
+		tmp_res[0] = add_color(tmp_res[0],\
+		fraction(reflex_col(rt, *ray, &object, lights), object.is_ref));
+		tmp_res[0] = add_color(tmp_res[0],\
+		fraction(refract_color(rt, *ray, &object, lights), object.is_transp));
+		color[i++] = fraction(tmp_res[0],\
+		in_shadow(rt, &li, &object) * li.intensity);
 		lights = lights->next;
 	}
 	while (i > 0)
@@ -94,7 +96,7 @@ unsigned int light_effect(t_rt *rt, t_object *o, t_ray *ray)
 	return (rgb(tmp_res[1]));
 }
 
-void texture_clr(t_object **object, t_point hit)
+void		texture_clr(t_object **object, t_point hit)
 {
 	double phi;
 	double theta;
@@ -116,17 +118,18 @@ void texture_clr(t_object **object, t_point hit)
 	u *= obj->texture->w;
 	v *= obj->texture->h;
 	if ((int)v * obj->texture->w + (int)u < (obj->texture->w * obj->texture->h))
-		obj->color = inttorgb(obj->texture->data_pixels[(int)v * obj->texture->w + (int)u]);
+		obj->color =\
+		inttorgb(obj->texture->data_pixels[(int)v * obj->texture->w + (int)u]);
 }
 
-void texture_clr_plane(t_object **object, t_point hit)
+void	texture_clr_plane(t_object **object, t_point hit)
 {
-	double phi;
-	double theta;
-	double u;
-	double v;
-	t_vect3 tt;
-	t_object *obj;
+	double		phi;
+	double		theta;
+	double		u;
+	double		v;
+	t_vect3		tt;
+	t_object	*obj;
 
 	obj = *object;
 	tt = vect_sub(hit, obj->position);
@@ -140,15 +143,17 @@ void texture_clr_plane(t_object **object, t_point hit)
 														(int)u]);
 }
 
-int light(t_object *close_obj, t_ray *ray, t_rt *rt, double t)
+int		light(t_object *close_obj, t_ray *ray, t_rt *rt, double t)
 {
-	int color;
-	double n_l;
-	t_vect3 dir;
+	int		color;
+	double	n_l;
+	t_vect3	dir;
 
 	ray->hit_point = vect_add(ray->origin, v_c_prod(ray->direction, t));
 	ray->t = t;
-	if (close_obj->texture && (close_obj->type == SPHERE || close_obj->type == CYLINDER || close_obj->type == CONE || close_obj->type == PLANE))
+	if (close_obj->texture && (close_obj->type == SPHERE ||\
+	close_obj->type == CYLINDER || close_obj->type == CONE ||\
+	close_obj->type == PLANE))
 	{
 		if (close_obj->type != PLANE)
 			texture_clr(&close_obj, ray->hit_point);
