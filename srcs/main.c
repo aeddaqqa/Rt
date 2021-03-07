@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:16:14 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/06 12:48:26 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/07 10:21:37 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,6 @@ int	main(int ac, char **av)
 		else
 			exit(EXIT_FAILURE);
 		rt->sdl = init_sdl();
-		// rt->objects->is_transp = 1;
-		// rt->objects->is_ref = 0;
-		// rt->objects->refraction_index = 0;
-		// rt->objects->next->is_transp = 0;
-		// rt->objects->next->is_ref = 0;
-		// rt->objects->next->refraction_index = 0;
 		new_camera(rt);
 		if (rt->sdl)
 			rtrace(rt);

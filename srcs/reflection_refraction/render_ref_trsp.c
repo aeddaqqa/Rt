@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 09:29:47 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/03/05 13:52:42 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/07 10:21:50 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ static t_vect3	lit_comp(t_rt *rt, t_light light, t_object *object, t_ray *ray)
 	color = (t_vect3){0.0f, 0.0f, 0.0f};
 	if (n_l > 0)
 		color = vect_add(color, diffuse(&light, n_l, object));
-	color = add_color(color, fraction(reflex_col(rt, *ray, object, &light), 0.5));
-	color = add_color(color, fraction(refract_color(rt, *ray, object, &light), 0.5));
+	color = add_color(color, fraction(reflex_col(rt, *ray, object, &light), object->is_ref));
+	color = add_color(color, fraction(refract_color(rt, *ray, object, &light), object->is_transp));
 	return (color);
 }
 

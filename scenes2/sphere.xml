@@ -1,28 +1,28 @@
 <scene>
 	<ambient>0</ambient>
 	<sphere>
-		<position>0 0 -60</position>
+		<position>60 0 -60</position>
 		<radius>10</radius>
-		<translation>11 0 0</translation>
+		<translation>0 0 0</translation>
 		<rotation>0 0 90</rotation>
 		<color>0xff</color>
 		<texture>earthmap.jpg</texture>
 	</sphere>
 	<sphere>
-		<position>0 0 -80</position>
+		<position>20 0 -20</position>
 		<radius>5</radius>
 		<translation>0 0 0</translation>
 		<rotation>0 0 90</rotation>
 		<color>0xff0000</color>
-		<transparent>0.4</transparent>
+		<transparent>0.5</transparent>
 	</sphere>
 	<camera>
-		<origin>0 0 40</origin>
+		<origin>0 0 70</origin>
 		<fov>60</fov>
 		<look-at>0 0 0</look-at>
 	</camera>
 	<light>
-		<position>0 0 -120</position>
+		<position>0 0 -70</position>
 		<color>0xffffff</color>
 		<intensity>100</intensity>
 	</light>
