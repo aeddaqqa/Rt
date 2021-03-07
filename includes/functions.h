@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 12:33:01 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/07 10:33:59 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/07 12:22:40 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ t_color			inttorgb(int m);
 **--------------------------++++++++++++++++++++++++++++++++++++
 */
 void			menu(t_sdl *sdl, int save);
+void			square(t_sdl *sdl, int x, int save);
 t_sdl			*init_sdl(void);
 void			destroy_sdl(t_sdl **s);
 void			render(t_sdl *sdl, t_rt *rt);

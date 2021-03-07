@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:49:08 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/06 16:59:56 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/07 12:32:57 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,6 @@ void		next_cam(t_rt **r)
 		{
 			rt->cameras = rt->cameras->next;
 			new_camera(rt);
-			initab(rt->filters);
-			if (rt->save_filter != -1)
-				rt->filters[rt->save_filter] = 1;
 			first_render(rt);
 			menu(rt->sdl, rt->save_filter);
 		}
@@ -51,9 +48,6 @@ void		hooks(t_rt **r)
 		{
 			rt->cameras = rt->cameras->prev;
 			new_camera(rt);
-			initab(rt->filters);
-			if (rt->save_filter != -1)
-				rt->filters[rt->save_filter] = 1;
 			first_render(rt);
 			menu(rt->sdl, rt->save_filter);
 		}
