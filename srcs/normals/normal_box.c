@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   orientation_box.c                                       :+:      :+:    :+:   */
+/*   normal_box.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/24 18:49:20 by ahkhilad          #+#    #+#             */
-/*   Updated: 2021/02/04 18:39:41 by nabouzah         ###   ########.fr       */
+/*   Created: 2021/03/07 10:18:39 by ahkhilad          #+#    #+#             */
+/*   Updated: 2021/03/07 10:19:18 by ahkhilad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,4 @@ t_vect3		box_normal(t_object *box, t_ray *ray)
 	d.z = fabs(d.z) * bias;
 	p = vect_sub(ray->hit_point, c);
 	return (normalize(ft_vector(p.x / d.x, p.y / d.y, p.z / d.z)));
-	// return (normalize(ft_vector(1,1,1)));
 }

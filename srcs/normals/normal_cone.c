@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   normal_cone.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 15:28:26 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/03/03 19:20:08 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/07 10:20:15 by ahkhilad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/rt.h"
 
-t_vect3	cone_normal(t_object *cone, t_ray *ray)
+t_vect3			cone_normal(t_object *cone, t_ray *ray)
 {
 	t_vect3		new;
 	t_point		p;
