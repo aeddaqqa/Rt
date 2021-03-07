@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/06 18:37:06 by ahkhilad         ###   ########.fr       */
+/*   Updated: 2021/03/07 12:20:48 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,9 +178,10 @@ typedef struct	s_parallelo
 
 typedef struct	s_tex
 {
-	int		w;
-	int		h;
-	int		*data_pixels;
+	int			w;
+	int			h;
+	int			*data_pixels;
+	t_type_tex	type;
 }				t_tex;
 
 typedef struct	s_object
