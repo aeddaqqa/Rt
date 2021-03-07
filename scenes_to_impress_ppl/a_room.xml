@@ -9,20 +9,210 @@
 		<texture>Wood_MapleVeneer_512_albedo.jpg</texture>
 	</plane>
     <box>
-		<color>0x00ff00</color>
+		<color>0xc2c2c2</color>
 		<rotation>0 0 0</rotation>
 		<translation>0 0 0</translation>
-		<corner_a>0.5 0.2 0.5</corner_a>
-		<corner_b>0.9 0.6 0.9</corner_b>
+		<corner_a>-10 5 -5</corner_a>
+		<corner_b>10 6 5</corner_b>
 	</box>
+    <box>
+		<color>0xc2c2c2</color>
+		<rotation>0 0 0</rotation>
+		<translation>0 0 0</translation>
+		<corner_a>12 4 -2</corner_a>
+		<corner_b>15 4.5 2</corner_b>
+	</box>
+    <cylinder>
+		<height>2</height>
+		<radius>0.2</radius>
+		<position>12.5 2 1.8</position>
+		<orientation>0 1 0 </orientation>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<color>0xffffff</color>
+	</cylinder>
+    <cylinder>
+		<height>2</height>
+		<radius>0.2</radius>
+		<position>12.5 2 -1.8</position>
+		<orientation>0 1 0 </orientation>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<color>0xffffff</color>
+	</cylinder>
+    <cylinder>
+		<height>2</height>
+		<radius>0.2</radius>
+		<position>14.5 2 -1.8</position>
+		<orientation>0 1 0 </orientation>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<color>0xffffff</color>
+	</cylinder>
+    <cylinder>
+		<height>2</height>
+		<radius>0.2</radius>
+		<position>14.5 2 1.8</position>
+		<orientation>0 1 0 </orientation>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<color>0xffffff</color>
+	</cylinder>
+    <box>
+		<color>0xAD7F5F</color>
+        <rotation>0 0 0</rotation>
+		<translation>0 0 0</translation>
+		<corner_a>14.8 4.5 -1.8</corner_a>
+		<corner_b>15 8.5 1.8</corner_b>
+	</box>
+
+
+    <box>
+		<color>0xc2c2c2</color>
+		<rotation>0 0 0</rotation>
+		<translation>0 0 0</translation>
+		<corner_a>-15 4 -2</corner_a>
+		<corner_b>-12 4.5 2</corner_b>
+	</box>
+    <cylinder>
+		<height>2</height>
+		<radius>0.2</radius>
+		<position>-12.5 2 1.8</position>
+		<orientation>0 1 0 </orientation>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<color>0xffffff</color>
+	</cylinder>
+    <cylinder>
+		<height>2</height>
+		<radius>0.2</radius>
+		<position>-12.5 2 -1.8</position>
+		<orientation>0 1 0 </orientation>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<color>0xffffff</color>
+	</cylinder>
+    <cylinder>
+		<height>2</height>
+		<radius>0.2</radius>
+		<position>-14.5 2 -1.8</position>
+		<orientation>0 1 0 </orientation>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<color>0xffffff</color>
+	</cylinder>
+    <cylinder>
+		<height>2</height>
+		<radius>0.2</radius>
+		<position>-14.5 2 1.8</position>
+		<orientation>0 1 0 </orientation>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<color>0xffffff</color>
+	</cylinder>
+    <box>
+		<color>0xAD7F5F</color>
+        <rotation>0 0 0</rotation>
+		<translation>0 0 0</translation>
+		<corner_a>-15 4.5 -1.8</corner_a>
+		<corner_b>-14.8 8.5 1.8</corner_b>
+	</box>
+    <box>
+		<color>0xc2c2c2</color>
+		<rotation>0 0 0</rotation>
+		<translation>0 0 0</translation>
+		<corner_a>-7 0 -3</corner_a>
+		<corner_b>7 4.5 3</corner_b>
+        <transparent>0.9</transparent>
+	</box>
+	<plane>
+		<position>0 0 -25</position>
+		<orientation>0 0 1 </orientation>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<color>0xdadada</color>
+	</plane>
+
+	<plane>
+		<position>30 0 0</position>
+		<orientation>-1 0 0 </orientation>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<color>0xdadada</color>
+	</plane>
+
+	<plane>
+		<position>-30 0 0</position>
+		<orientation>1 0 0 </orientation>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<color>0xdadada</color>
+	</plane>
+
+	<sphere>
+		<position>0 2.5 20</position>
+		<radius>2</radius>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<color>0xff0000</color>
+		<reflexion>0.7</reflexion>
+		<texture>fabric.jpg</texture>
+	</sphere>
+
+	<disk>
+		<position>0 6.1 0</position>
+		<orientation>0 1 0 </orientation>
+		<radius>3</radius>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<color>0xe8e8e8</color>
+	</disk>
+
+	<cylinder>
+		<height>0.7</height>
+		<radius>0.5</radius>
+		<position>7 6.6 0</position>
+		<orientation>0 1 0</orientation>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<transparent>0.7</transparent>
+		<ref_index>2</ref_index>
+		<color>0x969696</color>
+		<texture>checkerboard</texture>
+	</cylinder>
+
+	<cylinder>
+		<height>0.7</height>
+		<radius>0.5</radius>
+		<position>-7 6.6 0</position>
+		<orientation>0 1 0</orientation>
+		<translation>0 0 0</translation>
+		<rotation>0 0 0</rotation>
+		<transparent>0.7</transparent>
+		<ref_index>2</ref_index>
+		<color>0x969696</color>
+	</cylinder>
+
 	<camera>
-		<origin>0 5 5</origin>
-		<fov>60</fov>
+		<origin>0 20 40</origin>
+		<fov>70</fov>
 		<look-at>0 0 0</look-at>
 	</camera>
+
+	<camera>
+		<origin>0 8 10</origin>
+		<fov>60</fov>
+		<look-at>0 6.1 0</look-at>
+	</camera>
+
 	<light>
-		<position>0 5 5</position>
+		<position>0 200 0</position>
 		<color>0xffffff</color>
-		<intensity>100</intensity>
+		<intensity>60</intensity>
+	</light>
+    <light>
+		<position>0 10 60</position>
+		<color>0xffffff</color>
+		<intensity>60</intensity>
 	</light>
 </scene>
