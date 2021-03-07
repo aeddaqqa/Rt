@@ -28,6 +28,26 @@ typedef struct	s_rr
 	double	r2;
 }				t_rr;
 
+typedef struct	s_rect
+{
+	SDL_Rect	a;
+	SDL_Rect	b;
+	SDL_Rect	c;
+}				t_rect;
+
+typedef struct	s_rts
+{
+	SDL_Rect	dstrect;
+	SDL_Texture	*tex;
+	SDL_Surface	*sur;
+}				t_rts;
+
+typedef struct	s_tx
+{
+	int		i;
+	int		tex_x;
+	int		tex_y;
+}				t_tx;
 
 typedef t_vect3	t_point;
 typedef t_vect3	t_color;

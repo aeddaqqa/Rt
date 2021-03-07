@@ -6,7 +6,7 @@
 #    By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/22 16:29:44 by aeddaqqa          #+#    #+#              #
-#    Updated: 2021/03/06 16:54:47 by aeddaqqa         ###   ########.fr        #
+#    Updated: 2021/03/07 12:01:03 by chzabakh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,9 +37,7 @@ LIBNORMAL = $(LIBNORMALDIR)/libnormals.a
 LIBINTERSECTDIR = srcs/intersections
 LIBINTERSECT = $(LIBINTERSECTDIR)/libintersection.a
 
-#FLAGS= -g
-#FLAGS= -Wall -Wextra -Werror
-FLAGS= -Wall -Wextra -Werror -g
+FLAGS= -Wall -Wextra -Werror
 OBJDIR = objs
 SRCDIR = srcs
 OBJ= objs/main.o objs/sdl.o objs/menu.o objs/objfile.o objs/core_raytracing.o objs/threads.o objs/hooks.o objs/draw.o
