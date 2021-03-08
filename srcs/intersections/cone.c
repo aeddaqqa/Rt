@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:47:25 by ahkhilad          #+#    #+#             */
-/*   Updated: 2021/03/07 18:07:37 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/08 16:28:00 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,5 @@ double			hit_cone(t_object *c, t_ray *r)
 	h = dot(cp, c->orientation);
 	if (h < 0 || h > c->height)
 		return (-1.0);
-	return (i.t);
+	return (slice_obj(*c, *r, i.t));
 }

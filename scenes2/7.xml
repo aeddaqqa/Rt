@@ -6,9 +6,11 @@
 		<look-at>0 0 0</look-at>
 	</camera>
 	<light>
-		<position>0 10 10</position>
+		<position>0 0 10</position>
 		<color>0xffffff</color>
 		<intensity>100</intensity>
+		<look-at>0 0 0</look-at>
+
 	</light>
 	<sphere>
 		<position>0 -14 40</position>

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   intersection.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 15:50:53 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/02/21 14:44:04 by ahkhilad         ###   ########.fr       */
+/*   Updated: 2021/03/08 17:25:04 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,5 @@ int		ft_sphere_intersect(t_object *sphere, t_ray *ray, double *tmin);
 int		ft_triangle_intersect(t_object *triangle, t_ray *ray, double *tmin);
 int		ft_disk_intersect(t_object *disk, t_ray *ray, double *tmin);
 void	ft_compute_normals(t_hit *hit, t_ray *ray);
+double	slice_obj(t_object o, t_ray r, double t);
 #endif

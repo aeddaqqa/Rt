@@ -6,7 +6,7 @@
 #    By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/09 05:04:40 by nabouzah          #+#    #+#              #
-#    Updated: 2021/03/07 18:01:14 by nabouzah         ###   ########.fr        #
+#    Updated: 2021/03/08 16:12:50 by nabouzah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCDIR= ./
 OBJ= $(OBJDIR)/cone.o $(OBJDIR)/plane.o $(OBJDIR)/sphere.o\
 $(OBJDIR)/cylinder.o $(OBJDIR)/box.o $(OBJDIR)/ellipsoid.o\
 $(OBJDIR)/paraboloid.o $(OBJDIR)/parallelogram.o $(OBJDIR)/triangle.o\
-$(OBJDIR)/utils.o $(OBJDIR)/disk.o
+$(OBJDIR)/utils.o $(OBJDIR)/disk.o $(OBJDIR)/slicer.o
 INCS = ../../includes/
 INC = ./includes/
 INC1 = ../../includes/functions.h

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cylinder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:49:36 by ahkhilad          #+#    #+#             */
-/*   Updated: 2021/03/06 17:58:17 by ahkhilad         ###   ########.fr       */
+/*   Updated: 2021/03/08 16:41:11 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,16 +97,15 @@ double		hit_cylinder(t_object *cyl, t_ray *ray)
 {
 	t_vect3	x;
 	t_cap	cap;
+	double	t;
 
 	x = vect_sub(ray->origin, cyl->position);
 	cyl->cyl.a = dot(ray->direction, ray->direction) -\
 	pow(dot(ray->direction, cyl->orientation), 2.0);
 	cyl->cyl.b = 2.0 * (dot(ray->direction, x) -\
-	(dot(ray->direction, cyl->orientation) *\
-	dot(x, cyl->orientation)));
+	(dot(ray->direction, cyl->orientation) * dot(x, cyl->orientation)));
 	cyl->cyl.c = dot(x, x) -\
-	pow(dot(x, cyl->orientation), 2.0) -\
-	(cyl->radius * cyl->radius);
+	pow(dot(x, cyl->orientation), 2.0) - (cyl->radius * cyl->radius);
 	cyl->cyl.delta = (cyl->cyl.b * cyl->cyl.b) -\
 	(4.0 * cyl->cyl.a * cyl->cyl.c);
 	if (cyl->cyl.delta < 0)
@@ -116,8 +115,9 @@ double		hit_cylinder(t_object *cyl, t_ray *ray)
 	(2 * cyl->cyl.a);
 	cyl->cyl.t2 = (-cyl->cyl.b - cyl->cyl.delta) /\
 	(2 * cyl->cyl.a);
+	t = equa_solu(cyl->cyl.a, cyl->cyl.b, cyl->cyl.delta);
 	if (cyl->height <= 0)
-		return (equa_solu(cyl->cyl.a, cyl->cyl.b, cyl->cyl.delta));
+		return (slice_obj(*cyl, *ray, t));
 	limit_calc(cyl, &cap, ray, x);
-	return (limit_calc1(cyl, ray, cap));
+	return (slice_obj(*cyl, *ray, limit_calc1(cyl, ray, cap)));
 }

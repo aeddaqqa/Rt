@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   triangle.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:48:55 by ahkhilad          #+#    #+#             */
-/*   Updated: 2021/03/06 18:29:12 by ahkhilad         ###   ########.fr       */
+/*   Updated: 2021/03/08 16:30:27 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ double			hit_triangle(t_object *triangle, t_ray *ray)
 	tr.qb = vect_sub(tr.q, triangle->point_b);
 	i.t2 = dot(cross(tr.ab, tr.qb), tr.orientation);
 	if (i.t >= 0.0 && i.t1 >= 0.0 && i.t2 >= 0.0)
-		return (tr.dist2plane);
+		return (slice_obj(*triangle, *ray, tr.dist2plane));
 	return (-1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   plane.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:50:23 by ahkhilad          #+#    #+#             */
-/*   Updated: 2021/03/06 18:13:22 by ahkhilad         ###   ########.fr       */
+/*   Updated: 2021/03/08 16:52:55 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ double		hit_plane(t_object *object, t_ray *ray)
 	if (b == 0 || a * b >= 0)
 		return (-1.0);
 	t = -a / b;
-	return (t);
+	return (slice_obj(*object, *ray, t));
 }

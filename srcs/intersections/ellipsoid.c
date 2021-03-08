@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ellipsoid.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:51:02 by ahkhilad          #+#    #+#             */
-/*   Updated: 2021/03/06 18:07:34 by ahkhilad         ###   ########.fr       */
+/*   Updated: 2021/03/08 16:35:29 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,5 @@ double			hit_ellipsoid(t_object *elip, t_ray *ray)
 	i.delta = sqrtf(i.delta);
 	if (i.delta < 0)
 		return (-1);
-	return (calc_solv(&i, ray));
+	return (slice_obj(*elip, *ray, calc_solv(&i, ray)));
 }

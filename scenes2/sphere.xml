@@ -7,8 +7,8 @@
 		<rotation>0 0 90</rotation>
 		<color>0xff</color>
 		<texture>earthmap.jpg</texture>
-		<slice>2 1 3 object-axis</slice>
-		<slice>2 1 3 axis</slice>
+		<slice>0 1 0 object-axis</slice>
+		<slice>0 1 0 axis</slice>
 	</sphere>
 	<sphere>
 		<position>0 0 0</position>

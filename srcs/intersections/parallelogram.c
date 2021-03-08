@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parallelogram.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:48:42 by ahkhilad          #+#    #+#             */
-/*   Updated: 2021/03/06 18:12:51 by ahkhilad         ###   ########.fr       */
+/*   Updated: 2021/03/08 16:32:27 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ double		hit_parallelogram(t_object *para, t_ray *ray)
 		if (a.t1 > 1.0e-2)
 		{
 			ray->t = a.t1;
-			return (a.t1);
+			return (slice_obj(*para, *ray, a.t1));
 		}
 	}
 	return (-1.0);

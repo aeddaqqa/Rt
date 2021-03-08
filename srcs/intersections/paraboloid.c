@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   paraboloid.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:51:23 by ahkhilad          #+#    #+#             */
-/*   Updated: 2021/03/06 18:12:03 by ahkhilad         ###   ########.fr       */
+/*   Updated: 2021/03/08 16:51:32 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,5 @@ double				hit_paraboloid(t_object *pa, t_ray *ray)
 	if (i.delta < 0)
 		return (-1.0);
 	i.delta = sqrtf(i.delta);
-	return (calc_the_t(&i, ray));
+	return (slice_obj(*pa, *ray, calc_the_t(&i, ray)));
 }
