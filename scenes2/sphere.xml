@@ -1,5 +1,5 @@
 <scene>
-	<ambient>0</ambient>
+	<ambient>10</ambient>
 	<sphere>
 		<position>60 0 -60</position>
 		<radius>10</radius>
@@ -7,9 +7,11 @@
 		<rotation>0 0 90</rotation>
 		<color>0xff</color>
 		<texture>earthmap.jpg</texture>
+		<slice>2 1 3 object-axis</slice>
+		<slice>2 1 3 axis</slice>
 	</sphere>
 	<sphere>
-		<position>20 0 -80</position>
+		<position>0 0 0</position>
 		<radius>5</radius>
 		<translation>0 0 0</translation>
 		<rotation>0 0 90</rotation>
@@ -26,6 +28,9 @@
 		<position>0 0 -70</position>
 		<color>0xffffaf</color>
 		<intensity>100</intensity>
+		<type>directional</type>
+		<type>parallel</type>
+		<look_at>0 0 0</look_at>
 	</light>
 
 </scene>

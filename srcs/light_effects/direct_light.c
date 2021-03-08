@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 18:36:51 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/03/08 00:57:12 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/08 11:18:25 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ static t_color			cast(t_rt *rt, t_ray r, t_light l, t_vect3 l_dir)
 			l.intensity *= o.is_transp;
 		obj = obj->next;
 	}
-	if (((ft_magnitude(l_dir) < dist)) && (dot(r.direction, l.direct_dir)) < 0)
+	if (((ft_magnitude(l_dir) < dist)) && (dot(r.direction, l.direction)) < 0)
 	{
 		return (fraction(l.color, l.intensity *\
-			powf(dot(r.direction, l.direct_dir), 50)));
+			powf(dot(r.direction, l.direction), 50)));
 	}
 	return ((t_color){0.0, 0.0, 0.0});
 }
@@ -50,14 +50,18 @@ t_color					is_direct_light(t_rt *rt, t_ray r, double t)
 
 	blind = (t_color){0.0f, 0.0f, 0.0f};
 	light = rt->lights;
-	while (rt->direct && light)
+	while (light)
 	{
 		l = *light;
+		l.look_at = (t_vect3){0, 0, 0}; // to rm
 		t = -1;
-		l.direct_dir =\
-		normalize(vect_sub((t_vect3){0, 0, 0}, l.position));
-		l_dir = vect_sub(l.position, rt->cameras->o);
-		blind = add_color(blind, cast(rt, r, l, l_dir));
+		if (l.type == DIRECT)
+		{
+			l.direction =\
+			normalize(vect_sub(l.look_at, l.position));
+			l_dir = vect_sub(l.position, rt->cameras->o);
+			blind = add_color(blind, cast(rt, r, l, l_dir));
+		}
 		light = light->next;
 	}
 	return (blind);

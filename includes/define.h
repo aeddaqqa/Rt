@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:46:46 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/07 18:21:09 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/08 11:27:10 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,12 @@ typedef enum	e_type_tex
 	TEX,
 	SPECTRUM
 }				t_type_tex;
+
+typedef enum	e_light_type
+{
+	DIRECT = 1,
+	PARALLEL
+}				t_light_type;
 
 typedef	enum	e_type
 {
