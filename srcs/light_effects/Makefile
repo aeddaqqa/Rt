@@ -6,7 +6,7 @@
 #    By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/09 05:04:40 by nabouzah          #+#    #+#              #
-#    Updated: 2021/03/07 18:36:13 by nabouzah         ###   ########.fr        #
+#    Updated: 2021/03/08 19:04:08 by nabouzah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,14 @@ OBJ= $(OBJDIR)/ambient.o $(OBJDIR)/diffuse.o $(OBJDIR)/lights.o\
 	 $(OBJDIR)/direct_light.o
 
 INC = ../../includes/
+INC1 = ../../includes/functions.h
+INC2 = ../../includes/define.h
+INC5 = ../../includes/struct.h
+INC3 = ../../includes/rt.h
+
 all	: $(NAME)
 
-$(OBJDIR)/%.o : $(SRCDIR)%.c $(INC)
+$(OBJDIR)/%.o : $(SRCDIR)%.c $(INC) $(INC1) $(INC2) $(INC5) $(INC3)
 	@gcc $(FLAGS) -c -o $@ $< -I $(INC)
 	@ar rc $(NAME) $@
 
