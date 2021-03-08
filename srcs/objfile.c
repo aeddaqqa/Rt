@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 12:11:31 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/05 08:09:45 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/08 09:43:11 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ t_object *stock_points(int nb, char *path)
 	while (get_next_line(fd, &line))
 	{
 		split = ft_strsplit(line, ' ');
-		// if (*line && (*line == 's' || *line == '#' || *line == 'm' || *line == 'g' || *line == 'o'))
-		// 	continue;
 		if (!split)
 			return (NULL);
 		if (!*split)

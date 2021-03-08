@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/07 18:20:41 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/08 11:13:11 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,6 +185,7 @@ typedef struct	s_tex
 	int			h;
 	int			*data_pixels;
 	t_type_tex	type;
+	bool		slice;
 }				t_tex;
 
 typedef struct	s_object
@@ -253,14 +254,6 @@ typedef struct	s_sdl
 	int				*tex;
 	int				data[W * H];
 }				t_sdl;
-
-typedef struct	s_threads
-{
-	int start_x;
-	int start_y;
-	int end_x;
-	int end_y;
-}				t_threads;
 
 typedef struct	s_rt
 {

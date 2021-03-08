@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 03:37:25 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/07 14:45:18 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/08 11:18:59 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,8 @@ static void		load_texture(t_object **obj, char *str)
 {
 	SDL_Surface *s;
 	char		*path;
+	char		**split;
+	int			i;
 
 	if (!ft_strcmp(str, "checkerboard") && (*obj)->texture->type == NONE)
 		(*obj)->texture->type = BOARD;
@@ -113,10 +115,19 @@ static void		load_texture(t_object **obj, char *str)
 		(*obj)->texture->type = SPECTRUM;
 	else if ((*obj)->texture->type == NONE)
 	{
+		split = ft_strsplit(str, ' ');
+		i = 0;
+		while (split[i])
+		{
+			if (i == 1 && !ft_strcmp("slice", split[i]))
+				(*obj)->texture->slice = true;
+			i++;
+		}
 		(*obj)->texture->type = TEX;
-		path = ft_strjoin("./resources/textures/", str);
+		path = ft_strjoin("./resources/textures/", split[0]);
 		if (!path || !(s = IMG_Load(path)))
 		{
+			free_tab2(&split, i);
 			if (path)
 				free(path);
 			(*obj)->texture->type = NONE;

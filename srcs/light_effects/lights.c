@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lights.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 05:10:29 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/03/07 18:38:07 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/08 09:50:54 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,8 @@ int				light(t_object *close_obj, t_ray *ray, t_rt *rt, double t)
 	if (close_obj->texture->type != NONE && (close_obj->type == SPHERE ||\
 	close_obj->type == CYLINDER || close_obj->type == CONE ||\
 	close_obj->type == PLANE))
-		texture(&close_obj, ray->hit_point, rt->hooks);
+		if (!(texture(&close_obj, ray->hit_point, rt->hooks)))
+			return (0);
 	close_obj->normal = rt->normal[close_obj->type](close_obj, ray);
 	return (light_effect(rt, close_obj, ray));
 }
