@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/08 17:04:03 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/08 18:35:06 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,7 +214,6 @@ typedef struct	s_object
 	t_intersect		cyl;
 	t_intersect		cne;
 	int				id;
-
 	t_matter		matter;
 	t_tex			*texture;
 	t_vect3			slice_axis;

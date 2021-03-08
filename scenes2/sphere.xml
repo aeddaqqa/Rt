@@ -1,7 +1,7 @@
 <scene>
 	<ambient>10</ambient>
 	<sphere>
-		<position>60 0 -60</position>
+		<position>60 0 -160</position>
 		<radius>10</radius>
 		<translation>0 0 0</translation>
 		<rotation>0 0 90</rotation>
