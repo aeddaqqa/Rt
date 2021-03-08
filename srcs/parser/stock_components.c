@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 16:24:14 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/08 16:36:57 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/08 16:46:29 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,8 @@ static void		get_component_addr(t_object *obj, \
 	rpa[REFLEXION - 11] = &obj->is_ref;
 	rpa[REF_INDEX - 11] = &obj->refraction_index;
 	rpa[TRANSPARENT - 11] = &obj->is_transp;
-	rpa[MATTER - 11] = &obj->matter;
+	// TODO: galik nawfal 7iyd had str
+	//rpa[MATTER - 11] = &obj->matter;
 }
 
 int				stock_cmp_objects(t_object *obj, int r, char *str)

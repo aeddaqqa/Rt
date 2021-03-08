@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 12:33:01 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/08 12:51:11 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/03/08 15:15:50 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,6 @@ t_color			ref_trsp(t_rt *rt, t_object *object, t_ray reflect, \
 				t_light *light);
 t_color			is_direct_light(t_rt *rt, t_ray ray, double t);
 int				parallel_light(t_ray r, t_light light);
+void			set_matter(t_object *o);
+
 #endif
