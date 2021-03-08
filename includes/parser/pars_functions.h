@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:14:56 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/05 17:12:18 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/03/08 16:40:33 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,17 @@ int				get_point(char *s, t_point *p);
 int				get_ori_vect(char *s, t_vect3 *ori);
 int				get_color(char *s, t_color *color);
 int				get_raduis_a(char *s, int type, double *r_a);
+int				stock_cmp_objects(t_object *, int , char *);
+void			stock_slice(t_object *obj, char *str);
+int				cmp_with_objects(char *s, char **tab);
 /*
 ** ------------------------------{Init}-------------------------
 */
 
 t_rt			*init_rt(bool save);
 t_tags			init_tab_tags(void);
+void			init_ctags_follow_up(t_tags *tags);
+void			init_ctags_cmp(t_tags *tags);
 t_node			init_node(void);
 
 /*
@@ -101,4 +106,5 @@ int				len_tab_2d(char **tab);
 /*
 **{--------------------------------------------------------------}
 */
+
 #endif
