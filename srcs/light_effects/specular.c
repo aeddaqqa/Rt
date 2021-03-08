@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   specular.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 19:14:45 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/02/28 08:48:36 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/08 01:00:06 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_color			specular(t_light *l, t_ray *ray, t_object *object)
 {
 	t_color			color;
-	t_vect3		h;
+	t_vect3			h;
 	unsigned int	alpha;
 	double			dot_p;
 
@@ -25,6 +25,7 @@ t_color			specular(t_light *l, t_ray *ray, t_object *object)
 	if ((dot_p = dot(object->normal, h)) <= 0)
 		return (color);
 	dot_p = powf(dot_p, alpha);
-	color = fraction(l->color, dot_p * l->intensity * SPECULER); // TODO: specular intensity
+	color = fraction(l->color, dot_p * l->intensity * SPECULER);
+	// TODO: specular intensity
 	return (color);
 }
