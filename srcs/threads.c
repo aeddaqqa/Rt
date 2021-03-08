@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   threads.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:49:32 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/06 17:02:47 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/08 04:05:44 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ static void		draw_first_thread(t_rt *rt)
 
 	srand(time(0));
 	y = 0;
-	while (y < 400)
+	while (y < H / 2)
 	{
 		x = 0;
-		while (x < 400)
+		while (x < W / 2)
 		{
 			if (rt->filters[0])
 				apply_antiliasing(rt, x, y);
@@ -40,11 +40,11 @@ static void		draw_second_thread(t_rt *rt)
 	int		x;
 
 	srand(time(0));
-	y = 400;
-	while (y < 800)
+	y = H / 2;
+	while (y < H)
 	{
 		x = 0;
-		while (x < 400)
+		while (x < W / 2)
 		{
 			if (rt->filters[0])
 				apply_antiliasing(rt, x, y);
@@ -63,10 +63,10 @@ static void		draw_third_thread(t_rt *rt)
 
 	srand(time(0));
 	y = 0;
-	while (y < 400)
+	while (y < H / 2)
 	{
-		x = 400;
-		while (x < 800)
+		x = W / 2;
+		while (x < W)
 		{
 			if (rt->filters[0])
 				apply_antiliasing(rt, x, y);
@@ -84,11 +84,11 @@ static void		draw_fourth_thread(t_rt *rt)
 	int		x;
 
 	srand(time(0));
-	y = 400;
-	while (y < 800)
+	y = H / 2;
+	while (y < H)
 	{
-		x = 400;
-		while (x < 800)
+		x = W / 2;
+		while (x < W)
 		{
 			if (rt->filters[0])
 				apply_antiliasing(rt, x, y);
