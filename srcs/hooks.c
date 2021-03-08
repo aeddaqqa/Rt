@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:49:08 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/08 10:37:13 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/03/08 13:00:05 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,6 @@ void	hooks2(t_rt **r)
 	t_rt *rt;
 
 	rt = *r;
-	if (rt->sdl->key_table[SDL_SCANCODE_D])
-	{
-		rt->direct = rt->direct ? 0 : 1;
-		if (rt->save_filter != -1)
-			rt->filters[rt->save_filter] = 1;
-		first_render(rt);
-		menu(rt->sdl, rt->save_filter);
-	}
 	if (rt->sdl->key_table[SDL_SCANCODE_F])
 	{
 		if (rt->hooks[0] < 1.0)
