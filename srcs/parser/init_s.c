@@ -6,11 +6,15 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 02:14:10 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/08 12:26:07 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/08 15:21:25 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/rt.h"
+
+/*
+********************************************************
+*/
 
 static	void			init_otags_elements(t_tags *tags)
 {
@@ -29,6 +33,10 @@ static	void			init_otags_elements(t_tags *tags)
 	tags->elements_o[AMBIENT] = (char*)"<ambient>";
 }
 
+/*
+********************************************************
+*/
+
 static	void			init_ctags_elements(t_tags *tags)
 {
 	tags->elements_c[PLANE] = (char*)"</plane>";
@@ -46,20 +54,12 @@ static	void			init_ctags_elements(t_tags *tags)
 	tags->elements_c[AMBIENT] = (char*)"</ambient>";
 }
 
-static	void			init_otags_cmp(t_tags *tags)
+/*
+********************************************************
+*/
+
+static void				init_otags_cmp_follow_up(t_tags *tags)
 {
-	tags->components_o[POSITION] = (char*)"<position>";
-	tags->components_o[COLOR] = (char*)"<color>";
-	tags->components_o[ANGLE] = (char*)"<angle>";
-	tags->components_o[RADIUS] = (char*)"<radius>";
-	tags->components_o[TRANSLATION] = (char*)"<translation>";
-	tags->components_o[ROTATION] = (char*)"<rotation>";
-	tags->components_o[ORIENTATION] = (char*)"<orientation>";
-	tags->components_o[LOOK_AT] = (char*)"<look-at>";
-	tags->components_o[ORIGIN] = (char*)"<origin>";
-	tags->components_o[FOV] = (char*)"<fov>";
-	tags->components_o[INTENSITY] = (char*)"<intensity>";
-	tags->components_o[HEIGHT] = (char*)"<height>";
 	tags->components_o[DISTANCE] = (char*)"<distance>";
 	tags->components_o[RADIUS_1] = (char*)"<radius_1>";
 	tags->components_o[RADIUS_2] = (char*)"<radius_2>";
@@ -78,37 +78,26 @@ static	void			init_otags_cmp(t_tags *tags)
 	tags->components_o[LIGHT_TYPE] = (char*)"<type>";
 }
 
-static	void			init_ctags_cmp(t_tags *tags)
+static	void			init_otags_cmp(t_tags *tags)
 {
-	tags->components_c[POSITION] = (char*)"</position>";
-	tags->components_c[COLOR] = (char*)"</color>";
-	tags->components_c[ANGLE] = (char*)"</angle>";
-	tags->components_c[RADIUS] = (char*)"</radius>";
-	tags->components_c[TRANSLATION] = (char*)"</translation>";
-	tags->components_c[ROTATION] = (char*)"</rotation>";
-	tags->components_c[ORIENTATION] = (char*)"</orientation>";
-	tags->components_c[LOOK_AT] = (char*)"</look-at>";
-	tags->components_c[ORIGIN] = (char*)"</origin>";
-	tags->components_c[FOV] = (char*)"</fov>";
-	tags->components_c[INTENSITY] = (char*)"</intensity>";
-	tags->components_c[HEIGHT] = (char*)"</height>";
-	tags->components_c[DISTANCE] = (char*)"</distance>";
-	tags->components_c[RADIUS_1] = (char*)"</radius_1>";
-	tags->components_c[RADIUS_2] = (char*)"</radius_2>";
-	tags->components_c[POINT_A] = (char*)"</point_a>";
-	tags->components_c[POINT_B] = (char*)"</point_b>";
-	tags->components_c[POINT_C] = (char*)"</point_c>";
-	tags->components_c[POINT_D] = (char*)"</point_d>";
-	tags->components_c[CORNER_A] = (char*)"</corner_a>";
-	tags->components_c[CORNER_B] = (char*)"</corner_b>";
-	tags->components_c[REFLEXION] = (char*)"</reflexion>";
-	tags->components_c[TRANSPARENT] = (char*)"</transparent>";
-	tags->components_c[REF_INDEX] = (char*)"</ref_index>";
-	tags->components_c[MATTER] = (char*)"</matter>";
-	tags->components_c[TEXTURE] = (char*)"</texture>";
-	tags->components_c[SLICE] = (char*)"</slice>";
-	tags->components_c[LIGHT_TYPE] = (char*)"</type>";
+	tags->components_o[POSITION] = (char*)"<position>";
+	tags->components_o[COLOR] = (char*)"<color>";
+	tags->components_o[ANGLE] = (char*)"<angle>";
+	tags->components_o[RADIUS] = (char*)"<radius>";
+	tags->components_o[TRANSLATION] = (char*)"<translation>";
+	tags->components_o[ROTATION] = (char*)"<rotation>";
+	tags->components_o[ORIENTATION] = (char*)"<orientation>";
+	tags->components_o[LOOK_AT] = (char*)"<look-at>";
+	tags->components_o[ORIGIN] = (char*)"<origin>";
+	tags->components_o[FOV] = (char*)"<fov>";
+	tags->components_o[INTENSITY] = (char*)"<intensity>";
+	tags->components_o[HEIGHT] = (char*)"<height>";
+	init_otags_cmp_follow_up(tags);
 }
+
+/*
+********************************************************
+*/
 
 t_tags					init_tab_tags(void)
 {

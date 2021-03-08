@@ -6,49 +6,17 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 14:58:17 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/07 12:16:09 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/08 15:46:41 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/rt.h"
 
-int stock_vect3(t_vect3 *r, char *str, int type)
+static int	in_base(char c)
 {
-	char **split;
-	int i;
-	double d[3];
-
-	i = 0;
-	if (!(split = ft_strsplit(str, ' ')))
-	{
-		free_tab2(&split, len_tab_2d(split));
-		return (-1);
-	}
-	while (split[i])
-	{
-		if (i > 2)
-		{
-			free_tab2(&split, len_tab_2d(split));
-			return (-1);
-		}
-		d[i] = ft_atod(split[i]);
-		i++;
-	}
-	free_tab2(&split, len_tab_2d(split));
-	if (i != 3)
-		return (-1);
-	if (type == ORIENTATION)
-		*r = normalize((t_vect3){d[0], d[1], d[2]});
-	else
-		*r = (t_vect3){d[0], d[1], d[2]};
-	return (1);
-}
-
-static int in_base(char c)
-{
-	char *lo_base;
-	char *up_base;
-	int i;
+	int		i;
+	char	*lo_base;
+	char	*up_base;
 
 	i = 0;
 	lo_base = "0123456789abcdef";
@@ -67,17 +35,18 @@ static int in_base(char c)
 	return (i);
 }
 
-int is_hex(char *value)
+int			is_hex(char *value)
 {
 	int len;
 
 	len = ft_strlen(value);
-	if (len > 2 && len <= 10 && value[0] == '0' && (value[1] == 'x' || value[1] == 'X'))
+	if (len > 2 && len <= 10 && value[0] == '0' && \
+			(value[1] == 'x' || value[1] == 'X'))
 		return (1);
 	return (0);
 }
 
-int to_rgb(t_color *co, int c)
+int			to_rgb(t_color *co, int c)
 {
 	co->x = ((c >> 16) & 255) / 255.0;
 	co->y = ((c >> 8) & 255) / 255.0;
@@ -85,7 +54,7 @@ int to_rgb(t_color *co, int c)
 	return (1);
 }
 
-int 	read_color(t_color *c, char *data)
+int			read_color(t_color *c, char *data)
 {
 	int color;
 	int i;

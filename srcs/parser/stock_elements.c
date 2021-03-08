@@ -6,26 +6,11 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:21:43 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/01 18:24:44 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/08 16:39:43 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/rt.h"
-
-int			cmp_with_objects(char *s, char **tab)
-{
-	int	i;
-
-	i = 0;
-	if (s)
-		while (i < LIMIT_ELEMENTS + 1)
-		{
-			if (!ft_strcmp(s, tab[i]))
-				return (i);
-			i++;
-		}
-	return (-1);
-}
 
 int			stock_ambient(char *str, t_tags tags, t_rt *rt)
 {
@@ -64,6 +49,27 @@ int			end_scene(char *str, int i, char **el, t_rt *rt)
 	return (1);
 }
 
+int			check_and_stock_objects(char *str, int *i, t_tags tags, t_rt *rt)
+{
+	rt->obj = new_object(rt->node.type);
+	if (rt->node.type == LIGHT)
+		rt->nbr_lights++;
+	else if (rt->node.type != CAMERA)
+		rt->obj->type = rt->node.type;
+	if ((stock_elements_cmp(str, tags, rt, i)) < 0)
+	{
+		free(rt->obj);
+		return (0);
+	}
+	add_front(&rt, rt->obj, rt->node.type);
+	if (rt->node.type != CAMERA && rt->node.type != LIGHT)
+	{
+		rt->obj->id = rt->number_id;
+		rt->number_id++;
+	}
+	return (1);
+}
+
 int			stock_elem_amb(char *str, int *i, t_tags tags, t_rt *rt)
 {
 	int			r;
@@ -77,22 +83,8 @@ int			stock_elem_amb(char *str, int *i, t_tags tags, t_rt *rt)
 	}
 	else
 	{
-		rt->obj = new_object(rt->node.type);
-		if (rt->node.type == LIGHT)
-			rt->nbr_lights++;
-		else if (rt->node.type != CAMERA)
-			rt->obj->type = rt->node.type;
-		if ((stock_elements_cmp(str, tags, rt, i)) < 0)
-		{
-			free(rt->obj);
+		if (!check_and_stock_objects(str, i, tags, rt))
 			return (0);
-		}
-		add_front(&rt, rt->obj, rt->node.type);
-		if (rt->node.type != CAMERA && rt->node.type != LIGHT)
-		{
-			rt->obj->id = rt->number_id;
-			rt->number_id++;
-		}
 	}
 	return (1);
 }
