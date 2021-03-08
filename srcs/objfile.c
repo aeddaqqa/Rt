@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   objfile.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ahkhilad <ahkhilad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 12:11:31 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/08 12:52:34 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/03/08 17:58:08 by ahkhilad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,14 +102,14 @@ int				parse_obj(t_rt *rt, char *path)
 	if (!(rt->objects = load_fileobj(path)))
 		return (0);
 	rt->cameras = new_object(CAMERA);
-	rt->cameras->o = (t_vect3){-1.0, 0, 2.0};
+	rt->cameras->o = (t_vect3){0, 0, 5.0};
 	rt->cameras->l = (t_vect3){0, 0, 0};
 	rt->cameras->up = (t_vect3){0, 1, 0};
 	rt->cameras->fov = stock_rpa(&rt->cameras->fov, "60", CAMERA);
-	rt->ambient = 0.1;
+	rt->ambient = 0.05;
 	rt->lights = new_object(LIGHT);
 	rt->lights->color = (t_vect3){1, 1, 1};
-	rt->lights->position = (t_vect3){0, 0, 1.5};
-	rt->lights->intensity = 100;
+	rt->lights->position = (t_vect3){0, 0, 10};
+	rt->lights->intensity = 1;
 	return (1);
 }
