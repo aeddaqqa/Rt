@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:46:46 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/08 11:50:15 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/08 12:52:45 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,13 @@ typedef enum	e_error
 	SCENE_NOT_FOUND,
 	SYNTAX_ERROR
 }				t_error;
+
+typedef enum	e_matter
+{
+	GLASS = 1,
+	WATER,
+	DIAMOND
+}				t_matter;
 
 typedef enum	e_type_tex
 {

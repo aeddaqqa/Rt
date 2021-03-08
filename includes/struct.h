@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/08 12:38:53 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/08 12:53:48 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,7 +214,7 @@ typedef struct	s_object
 	t_intersect		cyl;
 	t_intersect		cne;
 	int				id;
-	double			matter;
+	t_matter		matter;
 	t_tex			*texture;
 	t_vect3			slice_axis;
 	t_vect3			slice_oaxis;

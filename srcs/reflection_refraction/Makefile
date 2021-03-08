@@ -6,7 +6,7 @@
 #    By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/09 05:04:40 by nabouzah          #+#    #+#              #
-#    Updated: 2021/03/07 18:01:14 by nabouzah         ###   ########.fr        #
+#    Updated: 2021/03/08 12:50:07 by nabouzah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ OBJDIR = ../../objs
 SRCDIR= ./
 OBJ= $(OBJDIR)/calc_reflexion.o $(OBJDIR)/calc_refraction.o\
 $(OBJDIR)/reflextion_color.o $(OBJDIR)/refraction_color.o\
-$(OBJDIR)/render_ref_trsp.o
+$(OBJDIR)/render_ref_trsp.o $(OBJDIR)/object_matter.o
 INC = ../../includes/
 INC1 = ../../includes/functions.h
 INC2 = ../../includes/define.h
