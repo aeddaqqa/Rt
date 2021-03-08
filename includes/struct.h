@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
 /*   Updated: 2021/03/08 11:20:33 by chzabakh         ###   ########.fr       */
@@ -63,9 +63,8 @@ typedef struct	s_discr
 typedef struct	s_light
 {
 	t_vect3			direction;
-	t_vect3			direct_dir;
-	int				direct;
-	int				parallel;
+	t_vect3			look_at;
+	t_light_type	type;
 	t_point			position;
 	double			intensity;
 	double			distance;
@@ -185,6 +184,7 @@ typedef struct	s_tex
 	int			h;
 	int			*data_pixels;
 	t_type_tex	type;
+	bool		slice;
 }				t_tex;
 
 typedef struct	s_object
@@ -216,6 +216,10 @@ typedef struct	s_object
 	int				id;
 	double			matter;
 	t_tex			*texture;
+	t_vect3			slice_axis;
+	t_vect3			slice_oaxis;
+	bool			slice_axis_check;
+	bool			slice_oaxis_check;
 	struct s_object	*next;
 }				t_object;
 
@@ -265,14 +269,6 @@ typedef struct	s_sdl
 	int				data[W * H];
 }				t_sdl;
 
-typedef struct	s_threads
-{
-	int start_x;
-	int start_y;
-	int end_x;
-	int end_y;
-}				t_threads;
-
 typedef struct	s_rt
 {
 	bool			save;
@@ -284,7 +280,6 @@ typedef struct	s_rt
 	t_cam			*cameras;
 	t_light			*lights;
 	double			ambient;
-	int				direct;
 	bool			ambient_exist;
 	unsigned int	nbr_lights;
 	int				*filters;

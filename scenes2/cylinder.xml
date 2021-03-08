@@ -11,14 +11,14 @@
 		<intensity>100</intensity>
 	</light>
 	<cylinder>
-		<height>25</height>
+		<height>15</height>
 		<radius>20</radius>
 		<position>20 0 0</position>
 		<orientation>0 1 0</orientation>
 		<translation>0 0 0</translation>
 		<rotation>0 0 40</rotation>
 		<color>0xff0000</color>
-		<texture>spectrum</texture>
+		<texture>earthmap.jpg slice</texture>
 	</cylinder>
 	<sphere>
 		<position>-20 0 0</position>

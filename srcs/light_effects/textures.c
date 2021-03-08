@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 15:05:33 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/08 01:13:03 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/08 11:18:42 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/rt.h"
 
-static void		texture_clr(t_object **object, t_point hit, double tab[2])
+static int		texture_clr(t_object **object, t_point hit, double tab[2])
 {
 	double		ph_th[2];
 	double		uv[2];
@@ -23,13 +23,20 @@ static void		texture_clr(t_object **object, t_point hit, double tab[2])
 	uv[0] = (-ph_th[0] + (M_PI)) / (double)((2.0 * M_PI + 1.0 * tab[1]));
 	if (obj->type == SPHERE)
 	{
-		ph_th[1] = acos((double)(hit.y / (obj->radius + M_PI * tab[0])));
+		ph_th[1] = (double)(hit.y / (obj->radius + M_PI * tab[0]));
+		if (obj->texture->slice && (ph_th[1] > 1.0 || ph_th[1] < -1.0))
+			return (0);
+		ph_th[1] = acos(ph_th[1]);
 		uv[1] = ph_th[1] / M_PI;
+		if (uv[1] > 1.0 || uv[1] < 0)
+			return (0);
 	}
 	else
 	{
 		uv[1] = (-hit.y + (*object)->height) / ((*object)->height *\
 		(2.0 + 1.9 * tab[0]));
+		if (obj->texture->slice && (uv[1] > 1.0 || uv[1] < -1.0))
+			return (0);
 		uv[1] = fabs(fmod(uv[1], 1.0));
 	}
 	uv[0] *= obj->texture->w;
@@ -39,6 +46,7 @@ static void		texture_clr(t_object **object, t_point hit, double tab[2])
 	&& (int)uv[1] * obj->texture->w + (int)uv[0] > 0)
 		obj->color = inttorgb(obj->texture->data_pixels\
 				[(int)uv[1] * obj->texture->w + (int)uv[0]]);
+	return (1);
 }
 
 static void		texture_clr_plane_board(t_object **object, t_point hit)
@@ -89,7 +97,7 @@ static void		texture_clr_board(t_object **object, t_point hit)
 		obj->color = (t_vect3){.0, .0, .0};
 }
 
-static void		texture_clr_plane(t_object **object, t_point hit, double tab[2])
+static int		texture_clr_plane(t_object **object, t_point hit, double tab[2])
 {
 	double		u;
 	double		v;
@@ -101,6 +109,8 @@ static void		texture_clr_plane(t_object **object, t_point hit, double tab[2])
 	var = (var == -100) ? 0 : var;
 	v = hit.z / (1.0 + var) + tab[1];
 	u = hit.x / (1.0 + var) + tab[1];
+	if (obj->texture->slice && (v > 1.0 || v < -1.0 || u > 1.0 || u < -1.0))
+		return (0);
 	v = v - floor(v);
 	u = u - floor(u);
 	u *= obj->texture->w;
@@ -109,9 +119,10 @@ static void		texture_clr_plane(t_object **object, t_point hit, double tab[2])
 		obj->color = inttorgb(obj->texture->data_pixels[(int)v *
 				obj->texture->w +
 				(int)u]);
+	return (1);
 }
 
-void			texture(t_object **object, t_point hit, double tab[2])
+int			texture(t_object **object, t_point hit, double tab[2])
 {
 	t_point p;
 
@@ -120,9 +131,9 @@ void			texture(t_object **object, t_point hit, double tab[2])
 	if ((*object)->texture->type == TEX)
 	{
 		if ((*object)->type == PLANE)
-			texture_clr_plane(object, p, tab);
+			return (texture_clr_plane(object, p, tab));
 		else
-			texture_clr(object, p, tab);
+			return (texture_clr(object, p, tab));
 	}
 	if ((*object)->texture->type == BOARD)
 	{
@@ -138,4 +149,5 @@ void			texture(t_object **object, t_point hit, double tab[2])
 		else
 			texture_wave_effect(object, p);
 	}
+	return (1);
 }

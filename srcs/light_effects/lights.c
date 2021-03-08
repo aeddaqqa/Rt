@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   lights.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 05:10:29 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/03/07 18:38:07 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/08 12:41:00 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/rt.h"
 
-int				parallel_light(t_rt *rt, t_ray r, t_light light)
+int				parallel_light(t_ray r, t_light light)
 {
 	t_vect3		light_p;
 	double		dott;
 
-	light.direct_dir =
-		normalize(vect_sub((t_vect3){0, -14, 40}, light.position));
-	if (0 && rt->direct)
+	light.direction =
+		normalize(vect_sub(light.look_at, light.position));
+	if (light.type == PARALLEL)
 	{
 		light_p = normalize(vect_sub(r.hit_point, light.position));
-		if ((dott = dot(light_p, light.direct_dir)) > 0.9)
+		if ((dott = dot(light_p, light.direction)) > 0.9)
 		{
 			if (sqrtf(1.0 - dott * dott) < 0.1)
 				return (1);
@@ -48,7 +48,7 @@ t_color			shade(t_rt *rt, t_light li, t_object obj, t_ray r)
 	color = add_color(color,\
 	fraction(reflex_col(rt, r, &obj, &li), obj.is_ref));
 	shadow = in_shadow(rt, &li, &obj);
-	parallel = parallel_light(rt, r, li);
+	parallel = parallel_light(r, li);
 	color = add_color(color,\
 	fraction(refract_color(rt, r, &obj, &li), obj.is_transp));
 	color = fraction(color, parallel * shadow * li.intensity);
@@ -68,9 +68,7 @@ unsigned int	light_effect(t_rt *rt, t_object *o, t_ray *ray)
 	f_color = ambient(o, rt->ambient);
 	while (lights)
 	{
-		li.intensity = lights->intensity;
-		li.color = lights->color;
-		li.position = lights->position;
+		li = *lights;
 		li.direction = vect_sub(li.position, ray->hit_point);
 		li.d = sqrtf(dot(li.direction, li.direction));
 		li.direction = normalize(li.direction);
@@ -89,7 +87,8 @@ int				light(t_object *close_obj, t_ray *ray, t_rt *rt, double t)
 	if (close_obj->texture->type != NONE && (close_obj->type == SPHERE ||\
 	close_obj->type == CYLINDER || close_obj->type == CONE ||\
 	close_obj->type == PLANE))
-		texture(&close_obj, ray->hit_point, rt->hooks);
+		if (!(texture(&close_obj, ray->hit_point, rt->hooks)))
+			return (0);
 	close_obj->normal = rt->normal[close_obj->type](close_obj, ray);
 	return (light_effect(rt, close_obj, ray));
 }

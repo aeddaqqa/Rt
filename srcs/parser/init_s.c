@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_s.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 02:14:10 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/07 10:24:37 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/08 12:26:07 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ static	void			init_otags_cmp(t_tags *tags)
 	tags->components_o[REF_INDEX] = (char*)"<ref_index>";
 	tags->components_o[MATTER] = (char*)"<matter>";
 	tags->components_o[TEXTURE] = (char*)"<texture>";
+	tags->components_o[SLICE] = (char*)"<slice>";
+	tags->components_o[LIGHT_TYPE] = (char*)"<type>";
 }
 
 static	void			init_ctags_cmp(t_tags *tags)
@@ -104,6 +106,8 @@ static	void			init_ctags_cmp(t_tags *tags)
 	tags->components_c[REF_INDEX] = (char*)"</ref_index>";
 	tags->components_c[MATTER] = (char*)"</matter>";
 	tags->components_c[TEXTURE] = (char*)"</texture>";
+	tags->components_c[SLICE] = (char*)"</slice>";
+	tags->components_c[LIGHT_TYPE] = (char*)"</type>";
 }
 
 t_tags					init_tab_tags(void)

@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:28:42 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/07 12:28:27 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/08 12:23:29 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,10 @@ static t_light			*new_light(void)
 	n_light->intensity = -1;
 	n_light->direction = (t_vect3){0, 0, 0};
 	n_light->light_reflected = (t_vect3){0, 0, 0};
-	n_light->color = (t_color){0, 0, 0};
 	n_light->position = (t_point){0, 0, 0};
+	n_light->look_at = (t_vect3){0, 0, 0};
+	n_light->color = (t_color){0, 0, 0};
+	n_light->type = 0;
 	n_light->next = NULL;
 	return (n_light);
 }
@@ -98,6 +100,7 @@ void					*new_object(int type)
 		n_obj->refraction_index = 0;
 		n_obj->texture = malloc(sizeof(t_tex));
 		n_obj->texture->type = NONE;
+		n_obj->texture->slice = false;
 		n_obj->next = NULL;
 		return (n_obj);
 	}
