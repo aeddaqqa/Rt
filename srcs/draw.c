@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:53:08 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/08 11:42:16 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/08 12:40:35 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ unsigned int	pixel_color(t_rt *rt, t_ray *ray)
 	}
 	if (x_t[1] != -1)
 		to_rgb(&color, light(&close_tmp[0], ray, rt, x_t[1]));
-	rt->lights->type = DIRECT; //to rm
 	color1 = is_direct_light(rt, *ray, x_t[1]);
 	return (rgb(add_color(color1, color)));
 }

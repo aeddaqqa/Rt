@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 05:10:29 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/03/08 11:50:30 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/08 12:41:00 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int				parallel_light(t_ray r, t_light light)
 	t_vect3		light_p;
 	double		dott;
 
-	light.look_at = (t_vect3){0, 0, 0}; // to rm
 	light.direction =
 		normalize(vect_sub(light.look_at, light.position));
 	if (light.type == PARALLEL)

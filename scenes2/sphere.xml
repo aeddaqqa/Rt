@@ -25,12 +25,11 @@
 		<look-at>0 0 0</look-at>
 	</camera>
 	<light>
-		<position>0 0 -70</position>
+		<position>0 0 70</position>
 		<color>0xffffaf</color>
 		<intensity>100</intensity>
-		<type>directional</type>
+		<look-at>0 0 0</look-at>
 		<type>parallel</type>
-		<look_at>0 0 0</look_at>
 	</light>
 
 </scene>

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   direct_light.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 18:36:51 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/03/08 11:18:25 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/08 12:41:22 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ t_color					is_direct_light(t_rt *rt, t_ray r, double t)
 	while (light)
 	{
 		l = *light;
-		l.look_at = (t_vect3){0, 0, 0}; // to rm
 		t = -1;
 		if (l.type == DIRECT)
 		{

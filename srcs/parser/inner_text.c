@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 03:37:25 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/08 11:18:59 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/08 12:25:09 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,18 @@ static	int		stock_cmp_light(void **object, char *str, int r)
 	{
 		if (stock_rpa(&light->intensity, str, r) < 0)
 			return (-1);
+	}
+	else if (r == LOOK_AT)
+	{
+		if (stock_vect3(&light->look_at, str, r) < 0)
+			return (-1);
+	}
+	else if (r == LIGHT_TYPE)
+	{
+		if (!ft_strcmp(str, "directional"))
+			light->type = DIRECT;
+		else if (!ft_strcmp(str, "parallel"))
+			light->type = PARALLEL;
 	}
 	return (1);
 }
@@ -140,10 +152,37 @@ static void		load_texture(t_object **obj, char *str)
 	}
 }
 
+void			stock_slice(t_object *obj, char *str)
+{
+	char	**split;
+	int		i;
+
+	i = 0;
+	split = ft_strsplit(str, ' ');
+	while (split[i])
+		i++;
+	if (i == 4)
+	{
+		if (!ft_strcmp(split[3], "object-axis"))
+		{
+			obj->slice_oaxis = (t_vect3){ft_atod(split[0]),\
+			ft_atod(split[1]), ft_atod(split[2])};
+			obj->slice_oaxis_check = true;
+		}
+		else if (!ft_strcmp(split[3], "axis"))
+		{
+			obj->slice_axis = (t_vect3){ft_atod(split[0]),\
+			ft_atod(split[1]), ft_atod(split[2])};
+			obj->slice_axis_check = true;
+		}
+	}
+	free_tab2(&split, i);
+}
+
 int				stock_cmp_objects(t_object *obj, int r, char *str)
 {
 	double		*rpa[10];
-	t_vect3		*stk[10];
+	t_vect3		*stk[12];
 
 	stk[POSITION] = &obj->position;
 	stk[POINT_A] = &obj->point_a;
@@ -165,7 +204,9 @@ int				stock_cmp_objects(t_object *obj, int r, char *str)
 	rpa[REF_INDEX - 11] = &obj->refraction_index;
 	rpa[TRANSPARENT - 11] = &obj->is_transp;
 	rpa[MATTER - 11] = &obj->matter;
-	if (r < 10)
+	if (r == SLICE)
+		stock_slice(obj, str);
+	else if (r < 10)
 		return (stock_vect3(stk[r], str, r));
 	else if (r == TEXTURE)
 		load_texture(&obj, str);

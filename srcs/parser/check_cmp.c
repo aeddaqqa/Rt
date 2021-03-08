@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:54:16 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/01 17:52:21 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/08 12:27:09 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,8 @@ int				check_components_exist(t_node n, int type)
 		return (check_cmp_exist_forcam(n, type));
 	else if (n.type == LIGHT)
 	{
-		if (type != POSITION && type != INTENSITY && type != COLOR)
+		if (type != POSITION && type != INTENSITY && type != COLOR\
+		&& type != LIGHT_TYPE && type != LOOK_AT)
 			return (-1);
 		if (type == POSITION && n.lit.position == true)
 			return (-1);

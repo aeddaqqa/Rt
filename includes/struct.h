@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/08 11:50:42 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/08 12:38:53 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -216,6 +216,10 @@ typedef struct	s_object
 	int				id;
 	double			matter;
 	t_tex			*texture;
+	t_vect3			slice_axis;
+	t_vect3			slice_oaxis;
+	bool			slice_axis_check;
+	bool			slice_oaxis_check;
 	struct s_object	*next;
 }				t_object;
 

@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:14:56 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/05 17:06:41 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/03/08 12:20:52 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /*
 **-----------------------------{structers}---------------------
 */
-# define LIMIT_CMP 26
+# define LIMIT_CMP 28
 # define LIMIT_ELEMENTS 13
 
 typedef	enum	e_types_cmp
@@ -46,7 +46,9 @@ typedef	enum	e_types_cmp
 	ORIGIN,
 	FOV,
 	INTENSITY,
-	TEXTURE
+	TEXTURE,
+	SLICE,
+	LIGHT_TYPE
 }				t_types_cmp;
 
 typedef struct	s_name_tags
