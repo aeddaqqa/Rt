@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inner_text.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 03:37:25 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/08 12:25:09 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/08 15:15:10 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,7 +203,7 @@ int				stock_cmp_objects(t_object *obj, int r, char *str)
 	rpa[REFLEXION - 11] = &obj->is_ref;
 	rpa[REF_INDEX - 11] = &obj->refraction_index;
 	rpa[TRANSPARENT - 11] = &obj->is_transp;
-	rpa[MATTER - 11] = &obj->matter;
+	// rpa[MATTER - 11] = &obj->matter;
 	if (r == SLICE)
 		stock_slice(obj, str);
 	else if (r < 10)
