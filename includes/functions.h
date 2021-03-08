@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 12:33:01 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/08 15:15:50 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/08 18:28:48 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ unsigned int	light_effect(t_rt *rt, t_object *object, t_ray *ray);
 int				light(t_object *close_obj, t_ray *ray, t_rt *rt, double t);
 void			copy_obj(t_object *n_obj, t_object *obj);
 t_color			inttorgb(int m);
+int				texture(t_object **object, t_point hit, double tab[2]);
+int				texture_clr(t_object **object, t_point hit, double tab[2]);
 /*
 **--------------------------++++++++++++++++++++++++++++++++++++
 */

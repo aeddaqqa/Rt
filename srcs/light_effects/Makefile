@@ -6,7 +6,7 @@
 #    By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/09 05:04:40 by nabouzah          #+#    #+#              #
-#    Updated: 2021/03/08 19:04:08 by nabouzah         ###   ########.fr        #
+#    Updated: 2021/03/08 19:17:39 by nabouzah         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCDIR= ./
 OBJ= $(OBJDIR)/ambient.o $(OBJDIR)/diffuse.o $(OBJDIR)/lights.o\
 	 $(OBJDIR)/lights2.o $(OBJDIR)/shadows.o $(OBJDIR)/specular.o\
 	 $(OBJDIR)/textures.o $(OBJDIR)/textures_wave_effect.o \
-	 $(OBJDIR)/direct_light.o
+	 $(OBJDIR)/direct_light.o $(OBJDIR)/textures2.o
 
 INC = ../../includes/
 INC1 = ../../includes/functions.h
