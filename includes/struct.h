@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/08 11:13:11 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/08 11:50:42 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,8 @@ typedef struct	s_discr
 typedef struct	s_light
 {
 	t_vect3			direction;
-	t_vect3			direct_dir;
-	int				direct;
-	int				parallel;
+	t_vect3			look_at;
+	t_light_type	type;
 	t_point			position;
 	double			intensity;
 	double			distance;
@@ -266,7 +265,6 @@ typedef struct	s_rt
 	t_cam			*cameras;
 	t_light			*lights;
 	double			ambient;
-	int				direct;
 	bool			ambient_exist;
 	unsigned int	nbr_lights;
 	int				*filters;

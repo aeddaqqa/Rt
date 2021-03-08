@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 12:33:01 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/08 09:50:03 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/08 11:51:03 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,5 @@ t_color			reflex_col(t_rt *rt, t_ray ray, t_object *object,\
 t_color			ref_trsp(t_rt *rt, t_object *object, t_ray reflect, \
 				t_light *light);
 t_color			is_direct_light(t_rt *rt, t_ray ray, double t);
-int				parallel_light(t_rt *rt, t_ray r, t_light light);
+int				parallel_light(t_ray r, t_light light);
 #endif
