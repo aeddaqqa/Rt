@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 18:36:51 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/03/08 15:14:57 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/08 15:22:04 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ t_color					is_direct_light(t_rt *rt, t_ray r, double t)
 	{
 		l = *light;
 		t = -1;
-		if (l.type == DIRECT || 1)
+		if (l.type)
 		{
 			l.direction =\
 			normalize(vect_sub(l.look_at, l.position));
