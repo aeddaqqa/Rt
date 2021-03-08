@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lights.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 05:10:29 by nabouzah          #+#    #+#             */
-/*   Updated: 2021/03/08 12:41:00 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/08 18:45:42 by nabouzah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,19 @@ unsigned int	light_effect(t_rt *rt, t_object *o, t_ray *ray)
 int				light(t_object *close_obj, t_ray *ray, t_rt *rt, double t)
 {
 	ray->hit_point = vect_add(ray->origin, v_c_prod(ray->direction, t));
+	ray->refraction_index = 1;
+	ray->reflect_nb = 0;
+	ray->refraction_index = 1;
 	ray->t = t;
+	close_obj->normal = rt->normal[close_obj->type](close_obj, ray);
 	if (close_obj->texture->type != NONE && (close_obj->type == SPHERE ||\
 	close_obj->type == CYLINDER || close_obj->type == CONE ||\
 	close_obj->type == PLANE))
 		if (!(texture(&close_obj, ray->hit_point, rt->hooks)))
-			return (0);
-	close_obj->normal = rt->normal[close_obj->type](close_obj, ray);
+		{
+			close_obj->is_transp = 1;
+			close_obj->refraction_index = 1;
+			return (rgb(refract_color(rt, *ray, close_obj, rt->lights)));
+		}
 	return (light_effect(rt, close_obj, ray));
 }

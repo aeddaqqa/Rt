@@ -17,9 +17,14 @@
 		<orientation>0 1 0</orientation>
 		<translation>0 0 0</translation>
 		<rotation>0 0 0</rotation>
-		<slice>0 1 0 object-axis</slice>
-
 		<color>0xff0000</color>
-		<texture>earthmap.jpg</texture>
+		<texture>earthmap.jpg slice</texture>
 	</cylinder>
+	<sphere>
+		<position>0 -10 -130</position>
+		<radius>20</radius>
+		<translation>0 0 0</translation>
+		<rotation>0 0 90</rotation>
+		<color>0xff0000</color>
+	</sphere>
 </scene>
