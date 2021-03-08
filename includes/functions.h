@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 12:33:01 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/07 18:20:57 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/08 12:51:11 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ t_color			int_to_rgb(int m);
 void			texture(t_object **object, t_point hit, double t[2]);
 void			texture_wave_effect(t_object **object, t_point hit);
 void			texture_wave_effect_plane(t_object **object, t_point hit);
+void			test_obj(t_stk *w, t_point *tab, int j);
 /*
 **		lights
 */

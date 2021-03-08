@@ -6,105 +6,89 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 12:11:31 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/05 08:09:45 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/08 12:52:34 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/rt.h"
 
-t_object *stock_points(int nb, char *path)
+void			str_v(t_stk *w, t_point *tab)
 {
-	t_point tab[nb];
-	t_object *obj;
-	t_object *tmp;
-	char **split;
-	char *line;
-	int indice;
-	int fd;
-	int i;
-	int j;
-	int z;
+	int		j;
 
-	i = 0;
-	z = 0;
-	obj = NULL;
-	tmp = NULL;
-	split = NULL;
-	fd = open(path, O_RDONLY);
-	indice = 0;
-	while (get_next_line(fd, &line))
+	j = 0;
+	while (w->split[j])
+		j++;
+	if (j == 4)
 	{
-		split = ft_strsplit(line, ' ');
-		// if (*line && (*line == 's' || *line == '#' || *line == 'm' || *line == 'g' || *line == 'o'))
-		// 	continue;
-		if (!split)
-			return (NULL);
-		if (!*split)
-			continue;
-		if (z < nb && !ft_strcmp(split[0], "v"))
-		{
-			j = 0;
-			while (split[j])
-				j++;
-			if (j == 4)
-			{
-				tab[z] = (t_point){ft_atod(split[1]), ft_atod(split[2]), ft_atod(split[3])};
-				z++;
-			}
-			free_tab2(&split, j);
-		}
-		else if (!(ft_strcmp(split[0], "f")))
-		{
-			j = 0;
-			while (split[j])
-			{
-				indice = ft_atoi(split[j]);
-				if (j != 0)
-					if (indice > nb || indice < 0)
-						return (NULL);
-				j++;
-			}
-			if (j != 4)
-				return (NULL);
-			if (!obj)
-			{
-				obj = (t_object *)new_object(TRIANGLE);
-				obj->type = TRIANGLE;
-				obj->point_a = tab[ft_atoi(split[1]) - 1];
-				obj->point_b = tab[ft_atoi(split[2]) - 1];
-				obj->point_c = tab[ft_atoi(split[3]) - 1];
-				obj->color = (t_color){1.0, 1.0, 1.0};
-				tmp = obj;
-			}
-			else
-			{
-				tmp->next = (t_object *)new_object(TRIANGLE);
-				tmp->next->type = TRIANGLE;
-				tmp->next->point_a = tab[ft_atoi(split[1]) - 1];
-				tmp->next->point_b = tab[ft_atoi(split[2]) - 1];
-				tmp->next->point_c = tab[ft_atoi(split[3]) - 1];
-				tmp->next->color = (t_color){1.0, 1.0, 1.0};
-				tmp = tmp->next;
-				free_tab2(&split, j);
-			}
-		}
+		tab[w->z] = (t_point){ft_atod(w->split[1]), ft_atod(w->split[2]), \
+			ft_atod(w->split[3])};
+		w->z++;
 	}
-	return (obj);
+	free_tab2(&w->split, j);
 }
 
-t_object *load_fileobj(char *path)
+int				str_f(t_stk *w, int nb, t_point *tab)
 {
-	char *line;
-	int fd;
-	int nb;
+	int		j;
+
+	j = 0;
+	while (w->split[j])
+	{
+		w->indice = ft_atoi(w->split[j]);
+		if (j != 0)
+			if (w->indice > nb || w->indice < 0)
+				return (0);
+		j++;
+	}
+	if (j != 4)
+		return (0);
+	test_obj(w, tab, j);
+	return (1);
+}
+
+t_object		*stock_points(int nb, char *path)
+{
+	t_point tab[nb];
+	char	*line;
+	int		fd;
+	t_stk	w;
+
+	w = (t_stk){0, 0, 0, NULL, NULL, NULL};
+	fd = open(path, O_RDONLY);
+	while (get_next_line(fd, &line))
+	{
+		w.split = ft_strsplit(line, ' ');
+		if (!w.split)
+			return (NULL);
+		if (!*w.split)
+			continue;
+		if (w.z < nb && !ft_strcmp(w.split[0], "v"))
+			str_v(&w, tab);
+		else if (!(ft_strcmp(w.split[0], "f")))
+		{
+			if (str_f(&w, nb, tab) == 0)
+				return (NULL);
+		}
+	}
+	return (w.obj);
+}
+
+t_object		*load_fileobj(char *path)
+{
+	char	*line;
+	int		fd;
+	int		nb;
 
 	nb = 0;
 	fd = open(path, O_RDONLY);
 	while (get_next_line(fd, &line))
 	{
-		if (*line && (*line == 's' || *line == '#' || *line == 'o' || *line == 'g' || *line == 'm'))
+		if (*line && (*line == 's' || *line == '#' || *line == 'o' || \
+					*line == 'g' || *line == 'm'))
 			continue;
-		else if (*line == 'v' && *(line + 1) && *(line + 1) != 't' && *(line + 1) != 'n')
+		else if (*line == 'v' && *(line + 1) && *(line + 1) != 't' && \
+				*(line + 1) != 'n')
 			nb++;
 	}
 	close(fd);
@@ -113,7 +97,7 @@ t_object *load_fileobj(char *path)
 	return (stock_points(nb, path));
 }
 
-int parse_obj(t_rt *rt, char *path)
+int				parse_obj(t_rt *rt, char *path)
 {
 	if (!(rt->objects = load_fileobj(path)))
 		return (0);

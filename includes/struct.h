@@ -6,7 +6,7 @@
 /*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:47 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/07 18:20:41 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/08 11:20:33 by chzabakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -218,6 +218,17 @@ typedef struct	s_object
 	t_tex			*texture;
 	struct s_object	*next;
 }				t_object;
+
+typedef	struct	s_stk
+{
+	int			i;
+	int			z;
+	int			indice;
+	t_object	*obj;
+	t_object	*tmp;
+	char		**split;
+
+}				t_stk;
 
 typedef struct	s_hit
 {
