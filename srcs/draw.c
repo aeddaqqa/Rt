@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:53:08 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/08 17:23:19 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/09 11:18:03 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ void			apply_antiliasing(t_rt *rt, int x, int y)
 		r.r1 = (rand() % 10) / 10.;
 		r.r2 = (rand() % 10) / 10.;
 		ray = ray_init(rt, x, y, r);
-		rt->sdl->data[y * W + x] = pixel_color(rt, ray);
 		c = vect_add(c, int_to_rgb(pixel_color(rt, ray)));
 		free(ray);
 		z++;
