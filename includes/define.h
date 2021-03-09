@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:46:46 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/09 09:25:39 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/09 10:53:12 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ typedef enum	e_matter
 {
 	GLASS = 1,
 	WATER,
-	DIAMOND
+	DIAMOND,
+	MIRROR
 }				t_matter;
 
 typedef enum	e_type_tex

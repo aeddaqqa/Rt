@@ -144,6 +144,7 @@
 		<orientation>0 0 1 </orientation>
 		<translation>0 0 0</translation>
 		<rotation>0 0 0</rotation>
-		<color>0x0000ff</color>
+		<reflexion>1</reflexion>
+		<color>0x0000</color>
 	</plane>
 </scene>
