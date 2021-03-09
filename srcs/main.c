@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:16:14 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/08 17:20:55 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/09 09:03:42 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ void	err(int ac, char **av, t_rt *rt, char *file)
 			exit(0);
 	}
 	else
-		exit(EXIT_FAILURE);
-	rt->sdl = init_sdl();
+		syntax_err(rt, file);
+	free(file);
 	new_camera(rt);
-	if (rt->sdl)
-		rtrace(rt);
+	rt->sdl = init_sdl();
+	(rt->sdl) ? rtrace(rt) : free_rt(&rt);
 }
 
 int		main(int ac, char **av)

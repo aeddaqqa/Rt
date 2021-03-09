@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   core_raytracing.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 12:21:03 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/07 11:30:51 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/09 09:20:29 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void		rtrace(t_rt *rt)
 		initab(rt->filters);
 		if (rt->sdl->loop == 2)
 			first_render(rt);
-		else if (SDL_PollEvent(&rt->sdl->event))
+		if (SDL_PollEvent(&rt->sdl->event))
 		{
 			if (!core(&rt))
 				break ;

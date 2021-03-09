@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 01:08:52 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/08 15:36:10 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/09 08:57:56 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ void		free_rt(t_rt **rt)
 	r = *rt;
 	if (r)
 	{
+		free(r->intersection);
+		free(r->normal);
 		free_objects(r);
 		free_lights(r);
 		free_camera(r);

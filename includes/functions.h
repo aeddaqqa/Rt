@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 12:33:01 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/08 18:28:48 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/09 09:13:55 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 # include "../srcs/intersections/includes/intersection.h"
 # include "../srcs/camera/includes/cam_function.h"
 
+/*
+** threads
+*/
 void			first_render(t_rt *rt);
 void			rtrace(t_rt *rt);
 int				parse_obj(t_rt *rt, char *path);

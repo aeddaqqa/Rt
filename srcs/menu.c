@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 10:28:18 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/07 12:30:58 by chzabakh         ###   ########.fr       */
+/*   Updated: 2021/03/09 09:37:21 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ static void		title(t_sdl *sdl)
 
 	tex_x = 0;
 	tex_y = 0;
-	sur = TTF_RenderText_Blended(sdl->font_p, "RT", (SDL_Color)FONT_P);
+	sur = TTF_RenderText_Blended(sdl->font_p, "RT", \
+			(SDL_Color){0xea, 0xb5, 0x43, 0xff});
 	if (!sur)
 		exit(1);
 	tex = SDL_CreateTextureFromSurface(sdl->ren_menu, sur);
@@ -60,7 +61,7 @@ static void		elements(t_sdl *sdl, int x)
 		t.tex_x = 0;
 		t.tex_y = 0;
 		color = (x == t.i) ? (SDL_Color){0xff, 0xff, 0xff, 0xff} : \
-				(SDL_Color)FONT_S;
+				(SDL_Color){0xF8, 0xEF, 0xBA, 0xff};
 		z.sur = TTF_RenderText_Blended(sdl->font_s, tab[t.i], color);
 		if (!z.sur)
 			exit(1);

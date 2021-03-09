@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nabouzah <nabouzah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:46:46 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/08 12:52:45 by nabouzah         ###   ########.fr       */
+/*   Updated: 2021/03/09 09:25:39 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,5 @@ typedef	enum	e_type
 # define COLOR_2 0xfbc531
 # define COLOR_3 0xf5f6fa
 # define COLOR_4 0x2f3640
-# define FONT_P                 \
-	{                          \
-		0xea, 0xb5, 0x43, 0xff \
-	}
-# define FONT_S                 \
-	{                          \
-		0xF8, 0xEF, 0xBA, 0xff \
-	}
 
 #endif

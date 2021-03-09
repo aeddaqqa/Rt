@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:14:56 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/08 16:40:33 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/09 09:41:33 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int				get_point(char *s, t_point *p);
 int				get_ori_vect(char *s, t_vect3 *ori);
 int				get_color(char *s, t_color *color);
 int				get_raduis_a(char *s, int type, double *r_a);
-int				stock_cmp_objects(t_object *, int , char *);
+int				stock_cmp_objects(t_object *obj, int r, char *str);
 void			stock_slice(t_object *obj, char *str);
 int				cmp_with_objects(char *s, char **tab);
 /*
