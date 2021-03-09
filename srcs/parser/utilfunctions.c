@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 05:39:07 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/08 15:58:23 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/09 11:36:07 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static	void		add_front_obj(t_object **head, t_object *new)
 {
 	new->orientation = rotation_xyz(new->orientation, new->rotation);
 	new->position = vect_add(new->position, new->translation);
+	set_matter(new);
 	if (new)
 	{
 		if (!*head)

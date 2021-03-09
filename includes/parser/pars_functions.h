@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 23:14:56 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/09 09:41:33 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/09 11:34:42 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int				get_raduis_a(char *s, int type, double *r_a);
 int				stock_cmp_objects(t_object *obj, int r, char *str);
 void			stock_slice(t_object *obj, char *str);
 int				cmp_with_objects(char *s, char **tab);
+void			stock_matter(t_object *obj, char *str);
 /*
 ** ------------------------------{Init}-------------------------
 */

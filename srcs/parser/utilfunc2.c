@@ -6,7 +6,7 @@
 /*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 16:27:51 by chzabakh          #+#    #+#             */
-/*   Updated: 2021/03/08 16:41:55 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/09 11:39:47 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,18 @@ void	stock_slice(t_object *obj, char *str)
 		}
 	}
 	free_tab2(&split, i);
+}
+
+void	stock_matter(t_object *obj, char *str)
+{
+	if (!ft_strcmp(str, "glass"))
+		obj->matter = GLASS;
+	else if (!(ft_strcmp(str, "water")))
+		obj->matter = WATER;
+	else if (!(ft_strcmp(str, "diamond")))
+		obj->matter = DIAMOND;
+	else if (!(ft_strcmp(str, "mirror")))
+		obj->matter = MIRROR;
 }
 
 int		cmp_with_objects(char *s, char **tab)

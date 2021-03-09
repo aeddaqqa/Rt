@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stock_components.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeddaqqa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aeddaqqa <aeddaqqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 16:24:14 by aeddaqqa          #+#    #+#             */
-/*   Updated: 2021/03/08 18:32:15 by aeddaqqa         ###   ########.fr       */
+/*   Updated: 2021/03/09 11:34:48 by aeddaqqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,8 @@ int				stock_cmp_objects(t_object *obj, int r, char *str)
 	get_component_addr(obj, stk, rpa);
 	if (r == SLICE)
 		stock_slice(obj, str);
+	if (r == MATTER)
+		stock_matter(obj, str);
 	else if (r < 10)
 		return (stock_vect3(stk[r], str, r));
 	else if (r == TEXTURE)
