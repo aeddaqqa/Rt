@@ -133,6 +133,7 @@
 		<orientation>0 0 1 </orientation>
 		<translation>0 0 0</translation>
 		<rotation>0 0 0</rotation>
+		<slice>1 1 1 object-axis</slice>
 		<color>0x0000ff</color>
 	</plane>
 	<camera>

@@ -2,7 +2,7 @@
 	<ambient>10</ambient>
 	<sphere>
 		<position>60 0 -160</position>
-		<radius>10</radius>
+		<radius>40</radius>
 		<translation>0 0 0</translation>
 		<rotation>0 0 90</rotation>
 		<color>0xff</color>
@@ -12,7 +12,7 @@
 	</sphere>
 	<sphere>
 		<position>0 0 0</position>
-		<radius>5</radius>
+		<radius>15</radius>
 		<translation>0 0 0</translation>
 		<rotation>0 0 90</rotation>
 		<texture>earthmap.jpg</texture>
