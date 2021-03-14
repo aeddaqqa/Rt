@@ -95,4 +95,4 @@ $ ./rt 'file_name' --save
 - Pixelation
 - Multi-threading
 
-<img src="imgs/ap.png" height="800" width="800">
+<img src="imgs/ap.png" width="837" height="525">
