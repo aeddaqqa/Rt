@@ -22,7 +22,7 @@ Use [make](https://en.wikipedia.org/wiki/Makefile) for compiling all files.
 When you have already installed SDL2 library you can use this simple rules:
 - **make**: Compile all.
 - **make clean**: Delete temporary files.
-- **make fclean**: Delete executable Wolf3D file & libft.
+- **make fclean**: Delete executable Rt file & libft.
 - **make re**: It's rules - **make fclean** & **make** in one.
 ## Usage
 The programm takes a scene written in xml as an argument. Multiple **scenes** are directly available in the directory "./scenes2/" .
