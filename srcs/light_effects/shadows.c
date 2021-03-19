@@ -40,7 +40,7 @@ int				in_shadow(t_rt *rt, t_light *light, t_object *object)
 			distance = sqrtf(dot(shadow.hit_point, shadow.hit_point));
 			if (distance < light->d && !obj->is_transp)
 				return (0);
-			else if (obj->is_transp)
+			else if (distance < light->d && obj->is_transp)
 				light->intensity *= obj->is_transp;
 		}
 		obj = obj->next;
